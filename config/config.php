@@ -4,9 +4,30 @@
  * Premium E-Commerce Product Photography & Creative Production
  */
 
-// Strict error reporting in development, safe in production
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+// Base Directory Definitions
+define('ROOT_PATH', realpath(__DIR__ . '/..'));
+define('CONFIG_PATH', ROOT_PATH . '/config');
+define('INCLUDES_PATH', ROOT_PATH . '/includes');
+define('SERVICES_PATH', ROOT_PATH . '/services');
+define('UPLOADS_PATH', ROOT_PATH . '/uploads');
+define('CONTENT_PATH', ROOT_PATH . '/content');
+
+// Automatically detects local environment vs live Hostinger production (ecommshoots.in)
+$isLocalDev = (isset($_SERVER['HTTP_HOST']) && (
+    strpos($_SERVER['HTTP_HOST'], 'localhost') !== false ||
+    strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false
+)) || (php_sapi_name() === 'cli' && !defined('PRODUCTION_MODE'));
+
+// Strict error reporting in development, safe error suppression in production
+if ($isLocalDev) {
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
+} else {
+    // In production, do not expose internal database/query errors to visitors
+    error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+    ini_set('display_errors', '0');
+    ini_set('log_errors', '1');
+}
 
 // Ensure session starts with secure parameters
 if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
@@ -23,21 +44,7 @@ if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
     session_start();
 }
 
-// Base Directory Definitions
-define('ROOT_PATH', realpath(__DIR__ . '/..'));
-define('CONFIG_PATH', ROOT_PATH . '/config');
-define('INCLUDES_PATH', ROOT_PATH . '/includes');
-define('SERVICES_PATH', ROOT_PATH . '/services');
-define('UPLOADS_PATH', ROOT_PATH . '/uploads');
-define('CONTENT_PATH', ROOT_PATH . '/content');
-
 // Database Configuration
-// Automatically detects local environment vs live Hostinger production (ecommshoots.in)
-$isLocalDev = (isset($_SERVER['HTTP_HOST']) && (
-    strpos($_SERVER['HTTP_HOST'], 'localhost') !== false ||
-    strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false
-)) || (php_sapi_name() === 'cli');
-
 if ($isLocalDev) {
     // Local Development (XAMPP / PHP built-in server)
     define('DB_HOST', '127.0.0.1');

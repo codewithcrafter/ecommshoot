@@ -9,7 +9,13 @@ require_once __DIR__ . '/config/config.php';
 require_once INCLUDES_PATH . '/breadcrumbs.php';
 
 $db = Database::getInstance()->getConnection();
-$services = $db->query("SELECT * FROM services WHERE status = 'published' ORDER BY display_order ASC")->fetchAll(PDO::FETCH_ASSOC);
+$services = [];
+try {
+    $services = $db->query("SELECT * FROM services WHERE status = 'published' ORDER BY display_order ASC")->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    error_log("Database Query Error [services]: " . $e->getMessage());
+    $services = [];
+}
 
 require_once INCLUDES_PATH . '/header.php';
 ?>

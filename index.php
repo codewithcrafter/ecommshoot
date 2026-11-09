@@ -9,10 +9,22 @@ require_once __DIR__ . '/config/config.php';
 
 // Fetch all 9 published services
 $db = Database::getInstance()->getConnection();
-$services = $db->query("SELECT * FROM services WHERE status = 'published' ORDER BY display_order ASC")->fetchAll(PDO::FETCH_ASSOC);
+$services = [];
+try {
+    $services = $db->query("SELECT * FROM services WHERE status = 'published' ORDER BY display_order ASC")->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    error_log("Database Query Error [services]: " . $e->getMessage());
+    $services = [];
+}
 
 // Fetch latest 3 published blogs
-$blogs = $db->query("SELECT b.*, c.name as category_name FROM blogs b LEFT JOIN blog_categories c ON b.category_id = c.id WHERE b.status = 'published' ORDER BY b.published_at DESC LIMIT 3")->fetchAll(PDO::FETCH_ASSOC);
+$blogs = [];
+try {
+    $blogs = $db->query("SELECT b.*, c.name as category_name FROM blogs b LEFT JOIN blog_categories c ON b.category_id = c.id WHERE b.status = 'published' ORDER BY b.published_at DESC LIMIT 3")->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    error_log("Database Query Error [blogs]: " . $e->getMessage());
+    $blogs = [];
+}
 
 require_once INCLUDES_PATH . '/header.php';
 ?>

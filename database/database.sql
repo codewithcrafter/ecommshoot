@@ -3,9 +3,6 @@
 -- Professional E-Commerce Product Photography & Creative Production Agency
 -- ============================================================================
 
-CREATE DATABASE IF NOT EXISTS `ecomshoot_db` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `ecomshoot_db`;
-
 -- Drop existing tables to ensure clean initialization
 SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `blog_tag_relations`;
