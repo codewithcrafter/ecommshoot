@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3827A8" />
+      <stop offset="100%" stop-color="#FF642D" />
+    </linearGradient>
+  </defs>
+  <!-- Camera Shutter Mark with Lime Accent -->
+  <g transform="translate(10, 8)">
+    <rect x="0" y="0" width="44" height="44" rx="10" fill="url(#logoGrad)" />
+    <circle cx="22" cy="22" r="14" fill="none" stroke="#FFFFFF" stroke-width="2.5" />
+    <circle cx="22" cy="22" r="6" fill="#D8ED54" />
+    <circle cx="32" cy="12" r="3" fill="#FFFFFF" opacity="0.9" />
+  </g>
+  <!-- Text Brand -->
+  <text x="64" y="38" fill="#191919" font-family="'Space Grotesk', sans-serif" font-size="24" font-weight="700" letter-spacing="-0.5">ECOM<tspan fill="#FF642D">SHOOT</tspan></text>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" width="900" height="650">
+  <defs>
+    <linearGradient id="pbg_portfolio-4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C2D12" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="650" fill="url(#pbg_portfolio-4)" />
+  
+  <g transform="translate(450, 260)">
+    <circle r="160" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2" />
+    <circle r="120" fill="none" stroke="#EDE9FE" stroke-width="1.5" opacity="0.6" />
+    <rect x="-80" y="-80" width="160" height="160" rx="20" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="2" transform="rotate(45)" />
+    <circle r="40" fill="#EDE9FE" opacity="0.8" />
+  </g>
+
+  <!-- Editorial Card Label -->
+  <rect x="80" y="470" width="740" height="130" rx="14" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(255,255,255,0.1)" />
+  <rect x="110" y="495" width="140" height="26" rx="6" fill="#EDE9FE" />
+  <text x="180" y="512" fill="#0F172A" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Lifestyle Editorial</text>
+  <text x="110" y="555" fill="#FFFFFF" font-family="Space Grotesk, sans-serif" font-size="26" font-weight="700">Minimalist Ceramic Dinnerware</text>
+  <text x="110" y="582" fill="rgba(255,255,255,0.7)" font-family="DM Sans, sans-serif" font-size="14">Warm Kitchen Sunlight Staging</text>
+</svg>

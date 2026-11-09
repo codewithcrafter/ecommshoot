@@ -1,0 +1,33 @@
+# ECOMSHOOT - Production Apache URL Routing Configuration
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# 1. Do not rewrite existing physical files or directories
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 2. Direct ID-Based Blog Markdown Representation: /blog/12.md -> blog-markdown.php?id=12
+RewriteRule ^blog/([0-9]+)\.md$ blog-markdown.php?id=$1 [QSA,L]
+
+# 3. Direct ID-Based Blog HTML Representation: /blog/12 -> blog-detail.php?id=12
+RewriteRule ^blog/([0-9]+)/?$ blog-detail.php?id=$1 [QSA,L]
+
+# 4. Blog Root: /blog or /blog/ -> blog.php
+RewriteRule ^blog/?$ blog.php [QSA,L]
+
+# 5. Prevent direct browser access to /content/ directory files
+RewriteRule ^content/ - [F,L]
+
+</IfModule>
+
+# Custom Error Documents
+ErrorDocument 404 /index.php
+
+# Security & Character Encoding Defaults
+AddDefaultCharset UTF-8
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+</IfModule>
+

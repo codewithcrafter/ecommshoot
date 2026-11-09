@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /config/
+Disallow: /includes/
+Disallow: /services/
+Disallow: /database/
+Allow: /
+
+Sitemap: http://127.0.0.1:8000/sitemap.xml
