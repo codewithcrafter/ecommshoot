@@ -18,6 +18,17 @@ try {
 }
 
 require_once INCLUDES_PATH . '/header.php';
+$serviceDirectoryCopy = [
+  'product-photography' => 'Our product photography services produce professional shots with realistic textures, colours and shapes, so new customers can add to basket with confidence. We treat your products as if they were our own, and we photograph, light and inspect every shot. If your product photography is holding you back, this is where you should start. The improvements will be visible on your product page within days.',
+  'ecommerce-product-photography' => 'Our product photography services work across Shopify, Amazon and multi-channel e-commerce stores. They keep lighting, angles and colour consistent across your whole catalog photography set. We also offer quick turnaround bulk product photography for your Delhi business, so your product shots stay consistent across all your SKUs with no compromise on quality.',
+  'lifestyle-product-photography' => 'We showcase your product in real-life situations, which helps customers picture the item in their own home. This increases engagement with your social media ads, homepage banners and marketplace A+ content, and helps customers connect with your product on an emotional level.',
+  'fashion-product-photography' => 'Whether you need ghost mannequin shots, flat lays or model lookbooks, we present your clothing with clean lines. Realistic detail of the fabric, stitching and shape helps customers make a purchase decision. This is perfect for boutique stores, D2C brands and exporters across Delhi NCR.',
+  'creative-product-photography' => 'We produce creative product shots that catch people’s attention. Bold colours, splash shots, levitation and bespoke set designs create a professional, advertising-ready image. This is perfect if you want your brand to stand out, and these product photography services will help you achieve great conversions.',
+  'jewellery-product-photography' => 'We use macro focus stacking to eliminate unwanted reflections. This lets your diamonds sparkle and your gold and silver show a realistic shine. This service is perfect for designers, showrooms and online jewellers, and the detail helps show off your product.',
+  'product-photo-editing-retouching' => 'Our editing transforms your raw studio shots. We use clipping paths, scratch and dust removal, frequency separation and colour balancing to get your images looking perfect. Our product photography services deliver web-ready, marketplace-ready and print-ready files, so your team won’t need to edit any images. We ensure fast turnaround times with consistent quality.',
+  'white-background-product-photography' => 'We produce high-quality pure white (RGB 255, 255, 255) product shots that help your product pass Amazon, Walmart and Google Shopping requirements on first upload. This keeps your catalog photography compliant, distraction-free and easy to compare.',
+  'professional-product-photography' => 'Our professional product photography includes creative direction, medium format cameras, expert lighting, set styling and dedicated project management. Large brands get one point of contact for their product photography, along with clear timelines for the project.',
+];
 ?>
 
 <!-- Breadcrumbs -->
@@ -28,9 +39,9 @@ require_once INCLUDES_PATH . '/header.php';
   <div class="container">
     <div class="page-header-content">
       <span class="badge badge-orange">Studio Capabilities</span>
-      <h1 class="page-header-title">Commercial Photography Services Engineered for E-Commerce Success</h1>
+      <h1 class="page-header-title">Product Photography Services in Delhi Engineered for E-Commerce Success</h1>
       <p class="page-header-sub">
-        From compliant Amazon white-background packshots to immersive lifestyle campaigns and fine jewellery macro stacks, explore our 9 specialized commercial disciplines.
+        We offer 9 different product photography services in Delhi to help boost your sales. From Amazon white background packshots and lifestyle shoots to macro fine jewellery photography, we have you covered. Whether you need one main product shot or bulk product photography for thousands of SKUs, you will find the right fit below.
       </p>
     </div>
   </div>
@@ -58,17 +69,17 @@ require_once INCLUDES_PATH . '/header.php';
           
           <div class="card-content-wrapper">
             <div class="card-meta-line">
-              <span class="discipline-number">DISCIPLINE 0<?= ($idx + 1) ?></span>
+              <span class="discipline-number">SERVICE 0<?= ($idx + 1) ?></span>
             </div>
             <h2 class="service-card-heading">
               <a href="<?= url($svc['file_name']) ?>"><?= e($svc['title']) ?></a>
             </h2>
             <p class="service-card-summary">
-              <?= e($svc['short_description']) ?>
+              <?= e($serviceDirectoryCopy[$svc['slug']] ?? $svc['short_description']) ?>
             </p>
             <div class="service-card-footer">
               <a href="<?= url($svc['file_name']) ?>" class="service-link-arrow">
-                <span>Explore Discipline &amp; Specs</span>
+                <span>View Service &amp; Spec &rarr;</span>
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
               </a>
             </div>
@@ -84,11 +95,11 @@ require_once INCLUDES_PATH . '/header.php';
   <div class="container">
     <div class="section-editorial-header">
       <div class="header-tagline">
-        <span class="badge badge-indigo">Selection Framework</span>
+        <span class="badge badge-indigo">CHOOSING THE RIGHT STYLE</span>
       </div>
-      <h2 class="section-title-editorial">Choosing The Right Photography Style For Your Campaign</h2>
+      <h2 class="section-title-editorial">Choosing the Right Photography Style for Your Campaign</h2>
       <p class="section-sub-editorial">
-        Different digital touchpoints require distinct photographic formats. Here is how our three core photography disciplines compare.
+        Depending on your digital requirements, here are the differences between our three key styles. Select the right product photography services for your needs.
       </p>
     </div>
 
@@ -96,30 +107,30 @@ require_once INCLUDES_PATH . '/header.php';
       <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
         <thead>
           <tr style="background-color: var(--color-indigo); color: #FFFFFF; font-family: var(--font-heading);">
-            <th style="padding: 1.25rem 1.5rem;">Service Category</th>
-            <th style="padding: 1.25rem 1.5rem;">Primary Channel</th>
-            <th style="padding: 1.25rem 1.5rem;">Key Objective</th>
+            <th style="padding: 1.25rem 1.5rem;">Service Type</th>
+            <th style="padding: 1.25rem 1.5rem;">Main Channel</th>
+            <th style="padding: 1.25rem 1.5rem;">Purpose</th>
             <th style="padding: 1.25rem 1.5rem;">Typical Output</th>
           </tr>
         </thead>
         <tbody>
           <tr style="border-bottom: 1px solid var(--color-border);">
             <td style="padding: 1.25rem 1.5rem; font-weight: 700; color: var(--color-text-main);">White Background Packshots</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Amazon Main, Google Shopping, Shopify Category Grids</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Strict marketplace compliance, zero distractions, instant SKU recognition</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Square 3000x3000px, RGB 255 pure white, isolated contact shadow</td>
+            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Amazon Main, Google Shopping, Shopify grid</td>
+            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Ensure your product is compliant, distraction-free and easy to recognise</td>
+            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Square 3000x3000px, pure white (RGB 255), soft contact shadow</td>
           </tr>
           <tr style="border-bottom: 1px solid var(--color-border); background-color: var(--color-bg-warm);">
             <td style="padding: 1.25rem 1.5rem; font-weight: 700; color: var(--color-text-main);">Lifestyle &amp; In-Context</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Meta/TikTok Ads, Homepage Heroes, Amazon A+ Content</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Emotional connection, aspirational storytelling, physical scale perception</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Architectural sets, live hand talent, curated botanical/stone props</td>
+            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Meta/Instagram, homepage hero, Amazon A+ Content</td>
+            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Connect with customers emotionally, create aspirational content and show scale</td>
+            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Styled sets, hand models and props</td>
           </tr>
           <tr>
             <td style="padding: 1.25rem 1.5rem; font-weight: 700; color: var(--color-text-main);">Creative &amp; Advertising</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Paid Social Feeds, Billboards, Press Launches, Product Packaging</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Stop the infinite scroll, establish iconic category leadership</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">High-speed kinetic splashes, levitation rigging, dramatic gobo shadows</td>
+            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Social media ads, hoardings, press launches and packaging</td>
+            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Catch people’s attention and create category leadership</td>
+            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Splash, levitation and dramatic shadows</td>
           </tr>
         </tbody>
       </table>
@@ -127,4 +138,13 @@ require_once INCLUDES_PATH . '/header.php';
   </div>
 </section>
 
-<?php require_once INCLUDES_PATH . '/footer.php'; ?>
+<?php
+$footerCtaCopy = [
+  'badge' => 'STUDIO CAPACITY AVAILABLE THIS QUARTER',
+  'heading' => 'Ready to Elevate Your Product Catalog?',
+  'description' => 'We can create high-quality product shots from your product samples at our Delhi studio. We offer live tethered proofing, colour calibration and images that will boost your checkouts on Shopify, Amazon and premium retailers. Get a bespoke quote for product photography services, catalog photography or bulk product photography.',
+  'primary_cta' => 'Book Your Studio Shoot',
+  'secondary_cta' => 'View All 9 Services',
+];
+require_once INCLUDES_PATH . '/footer.php';
+?>

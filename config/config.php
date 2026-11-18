@@ -48,8 +48,8 @@ if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
 if ($isLocalDev) {
     // Local Development (XAMPP / PHP built-in server)
     define('DB_HOST', '127.0.0.1');
-    define('DB_PORT', '3306');
-    define('DB_NAME', 'ecomshoot_db');
+    define('DB_PORT', '3307');
+    define('DB_NAME', 'ecommshoot');
     define('DB_USER', 'root');
     define('DB_PASS', '');
     define('DB_CHARSET', 'utf8mb4');

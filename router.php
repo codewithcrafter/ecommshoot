@@ -10,6 +10,12 @@ $uri = parse_url($rawUri, PHP_URL_PATH);
 // Normalize URI
 $uri = '/' . ltrim($uri, '/');
 
+// Homepage SEO alias
+if ($uri === '/product-photography-agency-delhi' || $uri === '/product-photography-agency-delhi/') {
+    require __DIR__ . '/index.php';
+    exit;
+}
+
 // 2. Direct ID-based Blog Markdown: /blog/{id}.md
 if (preg_match('#^/blog/([0-9]+)\.md$#', $uri, $matches)) {
     $_GET['id'] = (int) $matches[1];

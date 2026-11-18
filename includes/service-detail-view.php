@@ -26,6 +26,9 @@ if (!$service) {
 }
 
 $pageIdentifier = $service['slug'];
+$serviceCopy = $servicePageCopy ?? [];
+$relatedCopy = $relatedServiceCopy ?? [];
+$copy = static fn (string $key, string $default): string => $serviceCopy[$key] ?? $default;
 
 // Decode JSON fields
 $benefits = json_decode($service['benefits_json'] ?? '[]', true) ?: [];
@@ -97,10 +100,10 @@ require_once INCLUDES_PATH . '/header.php';
     <div class="page-header-content">
       <span class="badge badge-orange"><?= e($service['badge'] ?: 'Specialized Service') ?></span>
       <h1 class="page-header-title"><?= e($service['h1_heading']) ?></h1>
-      <p class="page-header-sub"><?= e($service['short_description']) ?></p>
+      <p class="page-header-sub"><?= e($copy('hero_description', $service['short_description'])) ?></p>
       <div style="margin-top: 1.75rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-        <a href="<?= url('contact.php') ?>" class="btn btn-primary">Book This Service</a>
-        <a href="#process" class="btn btn-outline-white">Review Production Process &darr;</a>
+        <a href="<?= url('contact.php') ?>" class="btn btn-primary"><?= e($copy('hero_primary_cta', 'Book This Service')) ?></a>
+        <a href="#process" class="btn btn-outline-white"><?= e($copy('hero_secondary_cta', 'Review Production Process ↓')) ?></a>
       </div>
     </div>
   </div>
@@ -111,14 +114,23 @@ require_once INCLUDES_PATH . '/header.php';
   <div class="container">
     <div class="service-intro-grid">
       <div>
-        <span class="badge badge-indigo">Service Overview</span>
-        <h2 style="margin-bottom: 1.25rem;">Engineered Visual Quality for Serious Brands</h2>
+        <span class="badge badge-indigo"><?= e($copy('overview_badge', 'Service Overview')) ?></span>
+        <h2 style="margin-bottom: 1.25rem;"><?= e($copy('overview_heading', 'Engineered Visual Quality for Serious Brands')) ?></h2>
         <div class="service-intro-text">
-          <p><?= nl2br(e($service['introduction'])) ?></p>
+          <?php foreach (preg_split('/\R{2,}/', trim($service['introduction'])) as $introductionParagraph): ?>
+            <?php if (trim($introductionParagraph) !== ''): ?>
+              <p><?= nl2br(e(trim($introductionParagraph))) ?></p>
+            <?php endif; ?>
+          <?php endforeach; ?>
         </div>
-        <p style="margin-top: 1.25rem;">
-          Whether you are launching a flagship SKU or updating an entire multichannel inventory, our calibrated studio pipeline delivers repeatable, pixel-accurate visual assets that exceed retailer guidelines.
-        </p>
+        <?php $overviewMidHeading = $copy('overview_mid_heading', ''); ?>
+        <?php if ($overviewMidHeading !== ''): ?>
+          <h3 style="margin-top: 1.25rem;"><?= e($overviewMidHeading) ?></h3>
+        <?php endif; ?>
+        <?php $overviewFollowup = $copy('overview_followup', 'Whether you are launching a flagship SKU or updating an entire multichannel inventory, our calibrated studio pipeline delivers repeatable, pixel-accurate visual assets that exceed retailer guidelines.'); ?>
+        <?php if ($overviewFollowup !== ''): ?>
+          <p style="margin-top: 1.25rem;"><?= e($overviewFollowup) ?></p>
+        <?php endif; ?>
       </div>
       <div class="service-media-frame">
         <img src="<?= asset_url($service['featured_image'] ?: 'assets/images/services/' . $service['slug'] . '.jpg') ?>" 
@@ -136,10 +148,10 @@ require_once INCLUDES_PATH . '/header.php';
 <section class="section section-subtle">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-orange">Business Impact</span>
-      <h2 class="section-title">Measurable Commercial Benefits</h2>
+      <span class="badge badge-orange"><?= e($copy('impact_badge', 'Business Impact')) ?></span>
+      <h2 class="section-title"><?= e($copy('impact_heading', 'Measurable Commercial Benefits')) ?></h2>
       <p class="section-subtitle">
-        How our specialized <?= strtolower(e($service['title'])) ?> directly impacts checkouts, brand perception, and operating margins.
+        <?= e($copy('impact_subtitle', 'How our specialized ' . strtolower($service['title']) . ' directly impacts checkouts, brand perception, and operating margins.')) ?>
       </p>
     </div>
 
@@ -161,10 +173,10 @@ require_once INCLUDES_PATH . '/header.php';
 <section class="section">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-indigo">Studio Specifications</span>
-      <h2 class="section-title">Technical Features &amp; Deliverables</h2>
+      <span class="badge badge-indigo"><?= e($copy('features_badge', 'Studio Specifications')) ?></span>
+      <h2 class="section-title"><?= e($copy('features_heading', 'Technical Features & Deliverables')) ?></h2>
       <p class="section-subtitle">
-        Every project is executed according to rigid technical specifications to ensure effortless integration across your digital channels.
+        <?= e($copy('features_subtitle', 'Every project is executed according to rigid technical specifications to ensure effortless integration across your digital channels.')) ?>
       </p>
     </div>
 
@@ -179,6 +191,10 @@ require_once INCLUDES_PATH . '/header.php';
         </div>
       <?php endforeach; ?>
     </div>
+    <?php $featuresFollowup = $copy('features_followup', ''); ?>
+    <?php if ($featuresFollowup !== ''): ?>
+      <p class="section-subtitle" style="margin-top: 1.5rem;"><?= e($featuresFollowup) ?></p>
+    <?php endif; ?>
   </div>
 </section>
 <?php endif; ?>
@@ -187,11 +203,12 @@ require_once INCLUDES_PATH . '/header.php';
 <section class="section section-subtle">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-lime">Visual Proof</span>
-      <h2 class="section-title">Photography Output &amp; Production Examples</h2>
-      <p class="section-subtitle">
-        Real studio captures illustrating light falloff, edge sharpness, surface texture fidelity, and master color balancing.
-      </p>
+      <span class="badge badge-lime"><?= e($copy('visual_badge', 'Visual Proof')) ?></span>
+      <h2 class="section-title"><?= e($copy('visual_heading', 'Photography Output & Production Examples')) ?></h2>
+      <?php $visualSubtitle = $copy('visual_subtitle', 'Real studio captures illustrating light falloff, edge sharpness, surface texture fidelity, and master color balancing.'); ?>
+      <?php if ($visualSubtitle !== ''): ?>
+        <p class="section-subtitle"><?= e($visualSubtitle) ?></p>
+      <?php endif; ?>
     </div>
 
     <div class="portfolio-grid">
@@ -239,10 +256,10 @@ require_once INCLUDES_PATH . '/header.php';
 <section class="section">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-orange">Category Expertise</span>
-      <h2 class="section-title">Industries Specialized in This Format</h2>
+      <span class="badge badge-orange"><?= e($copy('category_badge', 'Category Expertise')) ?></span>
+      <h2 class="section-title"><?= e($copy('category_heading', 'Industries Specialized in This Format')) ?></h2>
       <p class="section-subtitle">
-        We understand how materials, reflections, and product shapes in these sectors react to professional studio light shaping.
+        <?= e($copy('category_subtitle', 'We understand how materials, reflections, and product shapes in these sectors react to professional studio light shaping.')) ?>
       </p>
     </div>
 
@@ -263,10 +280,10 @@ require_once INCLUDES_PATH . '/header.php';
 <section class="section section-subtle" id="process">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-indigo">Production Roadmap</span>
-      <h2 class="section-title">Our Structured Studio Workflow</h2>
+      <span class="badge badge-indigo"><?= e($copy('process_badge', 'Production Roadmap')) ?></span>
+      <h2 class="section-title"><?= e($copy('process_heading', 'Our Structured Studio Workflow')) ?></h2>
       <p class="section-subtitle">
-        A predictable, milestone-driven production timeline from initial intake to final high-resolution delivery.
+        <?= e($copy('process_subtitle', 'A predictable, milestone-driven production timeline from initial intake to final high-resolution delivery.')) ?>
       </p>
     </div>
 
@@ -288,10 +305,10 @@ require_once INCLUDES_PATH . '/header.php';
 <section class="section">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-lime">Service FAQ</span>
+      <span class="badge badge-lime"><?= e($copy('faq_badge', 'Service FAQ')) ?></span>
       <h2 class="section-title">Frequently Asked Questions</h2>
       <p class="section-subtitle">
-        Answers to common technical, logistics, and turnaround questions about <?= strtolower(e($service['title'])) ?>.
+        <?= e($copy('faq_subtitle', 'Answers to common technical, logistics, and turnaround questions about ' . strtolower($service['title']) . '.')) ?>
       </p>
     </div>
 
@@ -319,28 +336,30 @@ require_once INCLUDES_PATH . '/header.php';
 <section class="section section-subtle">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-lavender">Complementary Solutions</span>
-      <h2 class="section-title">Related Commercial Photography Services</h2>
+      <span class="badge badge-lavender"><?= e($copy('related_badge', 'Complementary Solutions')) ?></span>
+      <h2 class="section-title"><?= e($copy('related_heading', 'Related Commercial Photography Services')) ?></h2>
       <p class="section-subtitle">
-        Pair your project with these complementary photographic and post-production capabilities for full visual synergy.
+        <?= e($copy('related_subtitle', 'Pair your project with these complementary photographic and post-production capabilities for full visual synergy.')) ?>
       </p>
     </div>
 
     <div class="services-grid">
       <?php foreach ($relatedServices as $rel): ?>
+        <?php $relatedItem = $relatedCopy[$rel['slug']] ?? []; ?>
         <article class="service-card">
           <div class="service-card-media">
             <img src="<?= asset_url($rel['featured_image'] ?: 'assets/images/services/' . $rel['slug'] . '.jpg') ?>" alt="<?= e($rel['title']) ?>" width="400" height="250" loading="lazy">
           </div>
           <div class="service-card-body">
             <h3 class="service-card-title">
-              <a href="<?= url($rel['file_name']) ?>"><?= e($rel['title']) ?></a>
+              <a href="<?= url($rel['file_name']) ?>"><?= e($relatedItem['title'] ?? $rel['title']) ?></a>
             </h3>
-            <p class="service-card-text">
-              <?= e($rel['short_description']) ?>
-            </p>
+            <?php $relatedDescription = $relatedItem['description'] ?? $rel['short_description']; ?>
+            <?php if ($relatedDescription !== ''): ?>
+              <p class="service-card-text"><?= e($relatedDescription) ?></p>
+            <?php endif; ?>
             <a href="<?= url($rel['file_name']) ?>" class="service-card-link">
-              Explore <?= e($rel['title']) ?> &rarr;
+              <?= e($relatedItem['link'] ?? $copy('related_link', 'Explore ' . $rel['title'] . ' →')) ?>
             </a>
           </div>
         </article>
@@ -350,4 +369,15 @@ require_once INCLUDES_PATH . '/header.php';
 </section>
 <?php endif; ?>
 
-<?php require_once INCLUDES_PATH . '/footer.php'; ?>
+<?php
+if (!empty($servicePageCopy)) {
+    $footerCtaCopy = [
+        'badge' => $copy('footer_badge', ''),
+        'heading' => $copy('footer_heading', ''),
+        'description' => $copy('footer_description', ''),
+        'primary_cta' => $copy('footer_primary_cta', ''),
+        'secondary_cta' => $copy('footer_secondary_cta', ''),
+    ];
+}
+require_once INCLUDES_PATH . '/footer.php';
+?>

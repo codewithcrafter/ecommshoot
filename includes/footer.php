@@ -12,18 +12,22 @@
       <div class="cta-banner-editorial">
         <div class="cta-banner-badge">
           <span class="pulse-dot-terracotta"></span>
-          <span>STUDIO CAPACITY AVAILABLE FOR THIS QUARTER</span>
+          <span><?= e($footerCtaCopy['badge'] ?? 'Get Started') ?></span>
         </div>
-        <h2 class="cta-banner-title">
-          Ready to Elevate Your Product Catalog to Museum Quality?
-        </h2>
+        <?php $ctaHeading = $footerCtaCopy['heading'] ?? 'Ready to upgrade your product catalogue?'; ?>
+        <?php if ($ctaHeading !== ''): ?>
+          <h2 class="cta-banner-title"><?= e($ctaHeading) ?></h2>
+        <?php endif; ?>
         <p class="cta-banner-desc">
-          Ship your product samples directly to our New York production facility. Experience live tethered proofing, calibrated color fidelity, and imagery engineered to multiply checkouts across Shopify, Amazon, and luxury retail channels.
+          <?= e($footerCtaCopy['description'] ?? 'Whether you are a new D2C brand or established seller, our product Photography Agency in Delhi can help. Simply send us your product list and we will get back to you with a plan and quote.') ?>
         </p>
-        <div class="cta-banner-actions">
-          <a href="<?= url('contact.php') ?>" class="btn btn-lg btn-primary">Book Your Studio Shoot</a>
-          <a href="<?= url('services.php') ?>" class="btn btn-lg btn-outline-white">Explore All 9 Services</a>
-        </div>
+        <?php $ctaPrimary = $footerCtaCopy['primary_cta'] ?? 'Book Your Studio Shoot'; $ctaSecondary = $footerCtaCopy['secondary_cta'] ?? 'View All Services'; ?>
+        <?php if ($ctaPrimary !== '' || $ctaSecondary !== ''): ?>
+          <div class="cta-banner-actions">
+            <?php if ($ctaPrimary !== ''): ?><a href="<?= url('contact.php') ?>" class="btn btn-lg btn-primary"><?= e($ctaPrimary) ?></a><?php endif; ?>
+            <?php if ($ctaSecondary !== ''): ?><a href="<?= url('services.php') ?>" class="btn btn-lg btn-outline-white"><?= e($ctaSecondary) ?></a><?php endif; ?>
+          </div>
+        <?php endif; ?>
       </div>
     </div>
   </section>
