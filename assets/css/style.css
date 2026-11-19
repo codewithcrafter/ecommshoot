@@ -101,36 +101,6 @@
   --total-header-height: calc(var(--top-bar-height) + var(--header-height));
 }
 
-/* Reference-inspired homepage hero: clean grid, service cards, and editorial type */
-.hero-section {
-  background-color: #fbfaf7;
-  background-image: linear-gradient(rgba(78, 60, 230, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(78, 60, 230, .055) 1px, transparent 1px);
-  background-size: 40px 40px;
-  color: #11131b;
-  padding: clamp(2.75rem, 5vw, 5rem) 0 clamp(3rem, 6vw, 6.5rem);
-}
-.hero-section::before,.hero-section::after{display:none}
-.hero-split-grid{grid-template-columns:minmax(0,.9fr) minmax(480px,1.25fr);gap:clamp(3rem,7vw,8rem);align-items:start}
-.hero-text-col{padding-top:clamp(2.5rem,7vw,6.75rem)}
-.hero-live-badge{background:#f0eeff;border-color:#d2ccff;color:#4e3ce6;text-transform:none;letter-spacing:0;font-family:var(--font-body);font-weight:700;font-size:.82rem;margin-bottom:2.25rem}
-.live-dot.pulse-lime{background:#4e3ce6;box-shadow:0 0 8px #4e3ce6}
-.hero-heading{color:#080b14;font-size:clamp(3rem,5vw,5.1rem);line-height:1.02;letter-spacing:-.07em;margin-bottom:1.3rem}
-.highlight-creative{color:#080b14;display:block}
-.hero-lead{color:#586170;font-size:1.08rem;line-height:1.7;max-width:38rem}
-.hero-cta-group{margin-top:1.8rem}
-.hero-cta-group .btn-primary{background:#4e3ce6;border-color:#4e3ce6;box-shadow:0 8px 18px rgba(78,60,230,.22)}
-.hero-cta-group .btn-outline-white{color:#151925;border-color:#dce0e9;background:#fff}
-.hero-reference-note{font-size:.75rem;color:#59606d;margin-top:clamp(5rem,10vw,10rem);font-weight:600}
-.hero-service-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.35rem}
-.hero-service-card{min-height:170px;background:rgba(255,255,255,.88);border:1px solid #e2e4eb;border-radius:24px;padding:1.7rem;box-shadow:0 2px 5px rgba(15,20,45,.035);position:relative;transition:transform .2s ease,box-shadow .2s ease}
-.hero-service-card:hover{transform:translateY(-4px);box-shadow:0 12px 25px rgba(35,31,94,.09)}
-.hero-service-card-wide{grid-column:1/-1;min-height:170px}
-.hero-card-icon{display:inline-flex;width:42px;height:42px;border-radius:50%;align-items:center;justify-content:center;background:#f4f5ff;color:#4e3ce6;font-size:1.35rem;margin-bottom:1.3rem}
-.hero-card-tag{position:absolute;right:1.35rem;top:1.35rem;border-radius:999px;background:#f5f6f9;color:#626b79;font-size:.6rem;font-weight:800;padding:.32rem .55rem;letter-spacing:.05em}
-.hero-service-card h2{margin:0 0 .35rem;color:#10131d;font-size:1.2rem;letter-spacing:-.04em}
-.hero-service-card p{margin:0;color:#5d6572;font-size:.91rem;line-height:1.45}
-@media(max-width:900px){.hero-split-grid{grid-template-columns:1fr;gap:2.5rem}.hero-text-col{padding-top:0}.hero-reference-note{margin-top:3rem}.hero-service-cards{grid-template-columns:1fr}.hero-service-card-wide{grid-column:auto}}
-
 /* ============================================================================
    2. GLOBAL RESET & BASE STYLES
    ============================================================================ */
