@@ -54,67 +54,15 @@ require_once INCLUDES_PATH . '/header.php';
           <a href="#portfolio" class="btn btn-lg btn-outline-white">See Our Work</a>
         </div>
 
-        <!-- Verified Studio Metric Counters -->
-        <div class="hero-proof-bar">
-          <div class="proof-item">
-            <span class="proof-number">250K+</span>
-            <span class="proof-label">Images Delivered</span>
-          </div>
-          <div class="proof-sep"></div>
-          <div class="proof-item">
-            <span class="proof-number">+38%</span>
-            <span class="proof-label">Average Increase In CTR</span>
-          </div>
-          <div class="proof-sep"></div>
-          <div class="proof-item">
-            <span class="proof-number">99.8%</span>
-            <span class="proof-label">Approval Rate From Marketplace</span>
-          </div>
-        </div>
+        <div class="hero-reference-note">Discover our full-service photography workflow</div>
       </div>
 
-      <!-- Hero Right: Carefully Composed Editorial Photography Layout -->
-      <div class="hero-media-col">
-        <div class="hero-composition">
-          <!-- Primary Large Showcase Frame -->
-          <div class="hero-frame-primary">
-            <img src="<?= asset_url('assets/images/hero/hero-main.jpg') ?>" 
-                 alt="Luxury botanical cosmetics and skincare commercial campaign photography" 
-                 width="640" 
-                 height="480" 
-                 loading="eager"
-                 decoding="async"
-                 class="hero-img-main">
-          </div>
-
-          <!-- Secondary Overlapping Offset Frame (Diamond Fire Macro) -->
-          <div class="hero-frame-secondary">
-            <img src="<?= asset_url('assets/images/services/jewellery-product-photography.jpg') ?>" 
-                 alt="Diamond solitaire ring macro detail photography" 
-                 width="220" 
-                 height="220" 
-                 loading="eager"
-                 class="hero-img-inset">
-            <div class="inset-caption">60-Slice Focus Stacking</div>
-          </div>
-
-          <!-- Floating Optical Spec Badges -->
-          <div class="hero-float-badge float-top-left">
-            <div class="float-icon-wrap icon-indigo">📸</div>
-            <div class="float-text-wrap">
-              <span class="float-title">Studio Photography</span>
-              <span class="float-sub">Controlled lighting for clean catalogue images.</span>
-            </div>
-          </div>
-
-          <div class="hero-float-badge float-bottom-right">
-            <div class="float-icon-wrap icon-lime">✓</div>
-            <div class="float-text-wrap">
-              <span class="float-title">Detail &amp; Macro</span>
-              <span class="float-sub">Showcase the detail in your product with close up images.</span>
-            </div>
-          </div>
-        </div>
+      <div class="hero-media-col hero-service-cards" aria-label="Photography service highlights">
+        <article class="hero-service-card hero-service-card-wide"><span class="hero-card-icon">⌕</span><span class="hero-card-tag">CATALOGUE</span><h2>Product Photography</h2><p>Clean, consistent imagery made for every storefront.</p></article>
+        <article class="hero-service-card"><span class="hero-card-icon">◉</span><span class="hero-card-tag">MARKETPLACE</span><h2>White Background</h2><p>Marketplace-ready imagery that passes checks.</p></article>
+        <article class="hero-service-card"><span class="hero-card-icon">✦</span><span class="hero-card-tag">LIFESTYLE</span><h2>Styled Campaigns</h2><p>Make customers picture your product in use.</p></article>
+        <article class="hero-service-card"><span class="hero-card-icon">↗</span><span class="hero-card-tag">CREATIVE</span><h2>Advertising Visuals</h2><p>Bold art direction for product launches and ads.</p></article>
+        <article class="hero-service-card"><span class="hero-card-icon">⌁</span><span class="hero-card-tag">RETOUCHING</span><h2>Editing &amp; Retouching</h2><p>Pixel-clean assets, ready to upload.</p></article>
       </div>
 
     </div>
