@@ -9,6 +9,9 @@ class MarkdownParser {
     public static function parse(string $markdown): string {
         $text = str_replace(["\r\n", "\r"], "\n", $markdown);
 
+        // Filter out pseudo-formula presentation boxes (e.g. "Amazon Main Image Formula", "Image Formula")
+        $text = preg_replace('/```[a-zA-Z0-9_\-\+]*\s*(?:Amazon\s+Main\s+)?Image\s+Formula:?[\s\S]*?```\n?/i', '', $text);
+
         // Protect code blocks before block-level transformations
         $codeBlocks = [];
         $text = preg_replace_callback('/```([a-zA-Z0-9_\-\+]*)\n([\s\S]*?)\n```/', function ($matches) use (&$codeBlocks) {

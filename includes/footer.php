@@ -25,7 +25,7 @@
         <?php if ($ctaPrimary !== '' || $ctaSecondary !== ''): ?>
           <div class="cta-banner-actions">
             <?php if ($ctaPrimary !== ''): ?><a href="<?= url('contact.php') ?>" class="btn btn-lg btn-primary"><?= e($ctaPrimary) ?></a><?php endif; ?>
-            <?php if ($ctaSecondary !== ''): ?><a href="<?= url('services.php') ?>" class="btn btn-lg btn-outline-white"><?= e($ctaSecondary) ?></a><?php endif; ?>
+            <?php if ($ctaSecondary !== ''): ?><a href="<?= url('services.php') ?>" class="btn btn-lg btn-outline-white cta-secondary-btn"><?= e($ctaSecondary) ?></a><?php endif; ?>
           </div>
         <?php endif; ?>
       </div>
@@ -43,7 +43,7 @@
         <!-- Col 1: Brand Narrative & Studio Location -->
         <div class="footer-brand-col">
           <a href="<?= url('') ?>" class="footer-logo" aria-label="Ecomshoot Homepage">
-            <img src="<?= asset_url('assets/images/logo.svg') ?>" alt="Ecomshoot Logo" width="168" height="42" class="footer-logo-img">
+            <img src="<?= asset_url('assets/images/logo-light.svg') ?>" alt="Ecomshoot Logo" width="168" height="42" class="footer-logo-img">
           </a>
           <p class="footer-bio">
             <?= e(get_setting('llms_company_summary', 'Ecomshoot is a premier commercial product photography studio and digital production house. We engineer high-performance visual assets for ambitious D2C brands, Shopify Plus merchants, and global enterprise retailers.')) ?>
@@ -83,38 +83,22 @@
             <li><a href="<?= url('services.php') ?>">All Photography Services</a></li>
             <li><a href="<?= url('blog.php') ?>">Blogs &amp; Guides</a></li>
             <li><a href="<?= url('contact.php') ?>">Book a Shoot / Request Estimate</a></li>
-            <li><a href="<?= url('sitemap.xml') ?>" target="_blank">XML Sitemap</a></li>
-            <li><a href="<?= url('llms.txt') ?>" target="_blank">LLMs Intelligence Document</a></li>
-            <li><a href="<?= url('robots.txt') ?>" target="_blank">Robots Directives</a></li>
           </ul>
         </div>
 
-        <!-- Col 3: Dedicated Services Directory (All 9) -->
+        <!-- Col 3: Dedicated Services Directory -->
         <div class="footer-services-col">
           <h4 class="footer-col-title">Photography Disciplines</h4>
           <ul class="footer-links">
-            <li><a href="<?= url('product-photography.php') ?>">Product Photography</a></li>
-            <li><a href="<?= url('ecommerce-product-photography.php') ?>">E-Commerce Photography</a></li>
-            <li><a href="<?= url('lifestyle-product-photography.php') ?>">Lifestyle Photography</a></li>
-            <li><a href="<?= url('fashion-product-photography.php') ?>">Fashion &amp; Apparel</a></li>
-            <li><a href="<?= url('creative-product-photography.php') ?>">Creative &amp; Advertising</a></li>
-            <li><a href="<?= url('jewellery-product-photography.php') ?>">Jewellery &amp; Luxury</a></li>
-            <li><a href="<?= url('product-photo-editing-retouching.php') ?>">Editing &amp; Retouching</a></li>
-            <li><a href="<?= url('white-background-product-photography.php') ?>">White Background</a></li>
-            <li><a href="<?= url('professional-product-photography.php') ?>">Enterprise Commercial</a></li>
+            <li><a href="<?= service_url('product-photography') ?>">Product Photography</a></li>
+            <li><a href="<?= service_url('ecommerce-product-photography') ?>">E-Commerce Photography</a></li>
+            <li><a href="<?= service_url('lifestyle-product-photography') ?>">Lifestyle Photography</a></li>
+            <li><a href="<?= service_url('fashion-product-photography') ?>">Fashion &amp; Apparel</a></li>
+            <li><a href="<?= service_url('creative-product-photography') ?>">Creative &amp; Advertising</a></li>
+            <li><a href="<?= service_url('jewellery-product-photography') ?>">Jewellery &amp; Luxury</a></li>
+            <li><a href="<?= service_url('product-photo-editing-retouching') ?>">Editing &amp; Retouching</a></li>
+            <li><a href="<?= service_url('white-background-product-photography') ?>">White Background</a></li>
           </ul>
-        </div>
-
-        <!-- Col 4: Studio Optical Standards & Verification -->
-        <div class="footer-standards-col">
-          <h4 class="footer-col-title">Studio Standards</h4>
-          <p class="footer-standards-desc">
-            All commercial campaigns captured on 150MP Phase One medium format and Sony α1 bodies with calibrated Broncolor lighting. Certified compliant with Amazon Vendor Central, Shopify Plus, and Google Shopping specs.
-          </p>
-          <div class="footer-spec-badge">
-            <div class="spec-badge-title">HARDWARE COLOR FIDELITY</div>
-            <div class="spec-badge-text">Profiled against physical X-Rite swatches maintaining spectral accuracy under &Delta;E &lt; 1.0.</div>
-          </div>
         </div>
 
       </div>

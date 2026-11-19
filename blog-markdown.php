@@ -1,14 +1,15 @@
 <?php
 /**
  * ECOMSHOOT - Public Raw Markdown Article Endpoint
- * Serves /blog/{id}.md with Content-Type: text/markdown; charset=UTF-8
+ * Serves public Markdown routes as readable inline text.
  */
 
 require_once __DIR__ . '/config/config.php';
 
 $id = filter_var($_GET['id'] ?? null, FILTER_VALIDATE_INT);
+$slug = trim((string) ($_GET['slug'] ?? ''));
 
-if (!$id || $id <= 0) {
+if ((!$id || $id <= 0) && !preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*$/', $slug)) {
     http_response_code(404);
     header('Content-Type: text/plain; charset=UTF-8');
     echo "404 Not Found: Invalid article identifier.";
@@ -16,8 +17,10 @@ if (!$id || $id <= 0) {
 }
 
 $db = Database::getInstance()->getConnection();
-$stmt = $db->prepare("SELECT id, title, updated_at, status, markdown_content FROM blogs WHERE id = :id LIMIT 1");
-$stmt->execute(['id' => $id]);
+$stmt = $id
+    ? $db->prepare("SELECT id, title, updated_at, status, markdown_content FROM blogs WHERE id = :id LIMIT 1")
+    : $db->prepare("SELECT id, title, updated_at, status, markdown_content FROM blogs WHERE slug = :slug LIMIT 1");
+$stmt->execute($id ? ['id' => $id] : ['slug' => $slug]);
 $blog = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$blog) {
@@ -65,7 +68,8 @@ if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && strtotime($_SERVER['HTTP_IF_MOD
     exit;
 }
 
-header('Content-Type: text/markdown; charset=UTF-8');
+header('Content-Type: text/plain; charset=UTF-8');
+header('Content-Disposition: inline; filename="article-' . (int) $blog['id'] . '.md"');
 header('X-Content-Type-Options: nosniff');
 header('Cache-Control: public, max-age=3600');
 header('Last-Modified: ' . gmdate('D, d M Y H:i:s \G\M\T', $modTime));

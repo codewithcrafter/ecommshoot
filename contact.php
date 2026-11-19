@@ -82,13 +82,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $siteEmail = get_setting('site_email', 'contact@ecommshoot.in');
 $sitePhone = get_setting('site_phone', '');
 $siteAddress = get_setting('site_address', '');
-$siteHours = get_setting('site_hours', 'Monday – Friday: 9:00 AM – 6:30 PM');
+$siteHours = get_setting('site_hours', 'Monday – Friday: 9:00 AM – 6:30 PM IST');
 
 require_once INCLUDES_PATH . '/header.php';
 $flash = get_flash();
 ?>
 
-<!-- Breadcrumbs -->
+<!-- BreadcrumbList structured data; no visible breadcrumb navigation. -->
 <?= render_breadcrumbs([['title' => 'Contact Studio', 'url' => null]]) ?>
 
 <!-- Page Header Banner -->

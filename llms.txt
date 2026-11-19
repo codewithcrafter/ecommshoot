@@ -9,38 +9,37 @@ Ecomshoot is a premier commercial product photography studio and post-production
 - **Email**: contact@ecommshoot.in
 - **Phone**: 
 - **Studio Address**: 
-- **Business Hours**: Monday – Friday: 9:00 AM – 6:30 PM EST
+- **Business Hours**: Monday – Friday: 9:00 AM – 6:30 PM IST
 
 ## Core Website Pages
 - [Home](http://127.0.0.1:8000) - Visual Assets Engineered to Multiply E-Commerce Conversions
-- [About Us](http://127.0.0.1:8000/about.php) - Artistry Meets E-Commerce Conversion Science
-- [Our Services](http://127.0.0.1:8000/services.php) - Complete Visual Production Solutions for Modern Brands
-- [Insights & Studio Journal](http://127.0.0.1:8000/blog.php) - E-Commerce Photography Intelligence & Visual Strategy
-- [Contact Studio](http://127.0.0.1:8000/contact.php) - Start Your Production with Ecomshoot
+- [About Us](http://127.0.0.1:8000/about) - Artistry Meets E-Commerce Conversion Science
+- [Our Services](http://127.0.0.1:8000/services) - Complete Visual Production Solutions for Modern Brands
+- [Insights & Studio Journal](http://127.0.0.1:8000/blog) - E-Commerce Photography Intelligence & Visual Strategy
+- [Contact Studio](http://127.0.0.1:8000/contact) - Start Your Production with Ecomshoot
 
 ## Commercial Photography Services
-- [Product Photography](http://127.0.0.1:8000/product-photography.php): High-definition commercial product photography that captures physical textures, authentic color tonality, and structural form to turn casual store visitors into loyal buyers.
-- [E-Commerce Product Photography](http://127.0.0.1:8000/ecommerce-product-photography.php): Scalable, catalog-ready product photography optimized for Shopify Plus merchants, Amazon FBA power sellers, and multi-channel retailers requiring uncompromising consistency.
-- [Lifestyle Product Photography](http://127.0.0.1:8000/lifestyle-product-photography.php): Immersive in-context photography that showcases your product in real-world environments, connecting deeply with target demographics and skyrocketing social engagement.
-- [Fashion & Apparel Product Photography](http://127.0.0.1:8000/fashion-product-photography.php): From architectural ghost mannequin executions and pin-sharp flat lays to dynamic live-model editorial lookbooks, we present fashion with elegance and drape integrity.
-- [Creative & Advertising Product Photography](http://127.0.0.1:8000/creative-product-photography.php): Concept-driven visual campaigns that disrupt mundane feeds, leveraging bold color theory, kinetic splash capture, levitation techniques, and bespoke set design.
-- [Jewellery & Luxury Product Photography](http://127.0.0.1:8000/jewellery-product-photography.php): Specialized macro focus-stacking photography designed to eliminate unwanted reflections, reveal diamond facet scintillation, and render precious metals with breathtaking brilliance.
-- [Product Photo Editing & Retouching](http://127.0.0.1:8000/product-photo-editing-retouching.php): Transform raw studio captures into museum-quality digital assets with pixel-perfect clipping paths, frequency separation, scratch removal, and master color balancing.
-- [White Background Product Photography](http://127.0.0.1:8000/white-background-product-photography.php): Pure RGB #255,255,255 white background imagery engineered to pass Amazon, Walmart, and Google Shopping compliance algorithms on the very first upload.
-- [Professional Product Photography](http://127.0.0.1:8000/professional-product-photography.php): Full-service creative production combining strategic creative direction, medium format camera hardware, master lighting, set styling, and dedicated project management.
+- [Product Photography](http://127.0.0.1:8000/service/product-photography): Create clean and detailed images for your catalogues, websites and ads. We use controlled lighting to show your product in true colour, shape and finish.
+- [E-Commerce Product Photography](http://127.0.0.1:8000/service/ecommerce-product-photography): Create consistent sets of images for your online store. We use the correct angles, backgrounds and sizing for your e-commerce product photography.
+- [Lifestyle Product Photography](http://127.0.0.1:8000/service/lifestyle-product-photography): Showcase your product in a realistic environment. This could be on a kitchen counter, desk or travel bag.
+- [Fashion & Apparel Photography](http://127.0.0.1:8000/service/fashion-product-photography): Create model, ghost mannequin and flat lay images to showcase your product’s fit, drape and detail.
+- [Creative & Advertising Photography](http://127.0.0.1:8000/service/creative-product-photography): Create concept images for your advertising campaigns, social media and launches. We include props, colour palettes and motion.
+- [Jewellery & Luxury Photography](http://127.0.0.1:8000/service/jewellery-product-photography): Create macro images for your rings, watches and accessories. We use controlled reflections with no dust or fingerprints.
+- [Product Photo Editing & Retouching](http://127.0.0.1:8000/service/product-photo-editing-retouching): We clean up the background, match colours, add shadows and remove any imperfections.
+- [White Background Product Photography](http://127.0.0.1:8000/service/white-background-product-photography): Create clean white images that are compliant with your marketplace. This includes Amazon, Flipkart & Shopify.
 
 ## Industry Insights & Knowledge Base
 Title: Amazon Product Image Guidelines 2026: Complete Compliance & Best Practices
-HTML: http://127.0.0.1:8000/blog/3
-Markdown: http://127.0.0.1:8000/blog/3.md
+HTML: http://127.0.0.1:8000/blog/amazon-product-image-guidelines-compliance-handbook
+Markdown: http://127.0.0.1:8000/blog/amazon-product-image-guidelines-compliance-handbook.md
 Description: Stay ahead of Amazon algorithm updates and seller central image standards to prevent listing suppression and capture the Buy Box.
 
 Title: Mastering the Art of Pure White Background Photography: Studio Setup & Lighting
-HTML: http://127.0.0.1:8000/blog/2
-Markdown: http://127.0.0.1:8000/blog/2.md
+HTML: http://127.0.0.1:8000/blog/mastering-white-background-product-photography-lighting
+Markdown: http://127.0.0.1:8000/blog/mastering-white-background-product-photography-lighting.md
 Description: A technical masterclass into achieving true RGB 255,255,255 white background photographs without washing out product edges or losing specular highlights.
 
 Title: How High-Resolution Product Photography Directly Boosts Shopify Conversion Rates
-HTML: http://127.0.0.1:8000/blog/1
-Markdown: http://127.0.0.1:8000/blog/1.md
+HTML: http://127.0.0.1:8000/blog/how-product-photography-boosts-shopify-conversions
+Markdown: http://127.0.0.1:8000/blog/how-product-photography-boosts-shopify-conversions.md
 Description: Discover the empirical connection between visual resolution, multi-angle imagery, and customer checkout conversion rates on modern Shopify stores.

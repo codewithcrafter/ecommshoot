@@ -1,47 +1,41 @@
 <?php
 /**
- * ECOMSHOOT - Breadcrumb Navigation Component with JSON-LD Schema
+ * ECOMSHOOT - BreadcrumbList structured-data helper.
  */
 
 /**
  * @param array $items Array of ['title' => string, 'url' => string|null]
  */
 function render_breadcrumbs(array $items): string {
-    $html = '<nav class="breadcrumbs-bar" aria-label="Breadcrumb">';
-    $html .= '<div class="container">';
-    $html .= '<ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">';
-
-    // Always start with Home
+    // Keep accurate BreadcrumbList metadata without rendering a visible navigation bar.
     $fullItems = array_merge([
         ['title' => 'Home', 'url' => url('')]
     ], $items);
 
-    $total = count($fullItems);
+    $listItems = [];
     foreach ($fullItems as $idx => $item) {
-        $pos = $idx + 1;
-        $isLast = ($pos === $total);
+        $listItem = [
+            '@type' => 'ListItem',
+            'position' => $idx + 1,
+            'name' => $item['title']
+        ];
 
-        $html .= '<li class="breadcrumb-item' . ($isLast ? ' active' : '') . '" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
-
-        if (!$isLast && !empty($item['url'])) {
-            $html .= '<a itemprop="item" href="' . e($item['url']) . '"><span itemprop="name">' . e($item['title']) . '</span></a>';
-        } else {
-            $html .= '<span itemprop="name">' . e($item['title']) . '</span>';
+        if (!empty($item['url'])) {
+            $listItem['item'] = $item['url'];
         }
 
-        $html .= '<meta itemprop="position" content="' . $pos . '">';
-
-        if (!$isLast) {
-            $html .= '<span class="breadcrumb-separator" aria-hidden="true">/</span>';
-        }
-
-        $html .= '</li>';
+        $listItems[] = $listItem;
     }
 
-    $html .= '</ol>';
-    $html .= '</div>';
-    $html .= '</nav>';
+    $schema = [
+        '@context' => 'https://schema.org',
+        '@type' => 'BreadcrumbList',
+        'itemListElement' => $listItems
+    ];
 
-    return $html;
+    return '<script type="application/ld+json">' . json_encode(
+        $schema,
+        JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT
+    ) . '</script>';
 }
 

@@ -28,17 +28,27 @@ if (!$service) {
 $pageIdentifier = $service['slug'];
 $serviceCopy = $servicePageCopy ?? [];
 $relatedCopy = $relatedServiceCopy ?? [];
-$copy = static fn (string $key, string $default): string => $serviceCopy[$key] ?? $default;
+$copy = static fn (string $key, string $default = ''): string => $serviceCopy[$key] ?? $default;
 
 // Decode JSON fields
 $benefits = json_decode($service['benefits_json'] ?? '[]', true) ?: [];
+$benefits = array_values(array_filter($benefits, static function (array $benefit): bool {
+    $title = trim((string) ($benefit['title'] ?? $benefit['name'] ?? ''));
+    return strcasecmp($title, 'Image Formula') !== 0 && stripos($title, 'formula') === false;
+}));
 $features = json_decode($service['features_json'] ?? '[]', true) ?: [];
+$features = array_values(array_filter($features, static function (array $feature): bool {
+    $title = trim((string) ($feature['title'] ?? $feature['name'] ?? ''));
+    return strcasecmp($title, 'Image Formula') !== 0 && stripos($title, 'formula') === false;
+}));
 $industries = json_decode($service['industries_json'] ?? '[]', true) ?: [];
 $process = json_decode($service['process_json'] ?? '[]', true) ?: [];
 $faqs = json_decode($service['faqs_json'] ?? '[]', true) ?: [];
+$enquiryServices = $db->query("SELECT title, slug FROM services WHERE status = 'published' AND slug != 'professional-product-photography' ORDER BY display_order ASC")->fetchAll(PDO::FETCH_ASSOC);
 
 // Fetch Related Services
 $relatedSlugs = array_filter(array_map('trim', explode(',', $service['related_slugs'] ?? '')));
+$relatedSlugs = array_values(array_filter($relatedSlugs, fn($s) => $s !== 'professional-product-photography'));
 $relatedServices = [];
 if (!empty($relatedSlugs)) {
     $placeholders = implode(',', array_fill(0, count($relatedSlugs), '?'));
@@ -86,24 +96,84 @@ if (!empty($faqs)) {
 $customSchemas = array_filter([$serviceSchema, $faqSchema]);
 
 require_once INCLUDES_PATH . '/header.php';
+$flash = get_flash();
+$heroImage = asset_url($service['featured_image'] ?: 'assets/images/services/' . $service['slug'] . '.jpg');
+$formIdPrefix = preg_replace('/[^a-z0-9_-]+/i', '-', $service['slug']);
 ?>
 
-<!-- Breadcrumbs Navigation -->
+<main class="service-detail-ui">
+
+<!-- BreadcrumbList structured data; no visible breadcrumb navigation. -->
 <?= render_breadcrumbs([
     ['title' => 'Services', 'url' => url('services.php')],
     ['title' => $service['title'], 'url' => null]
 ]) ?>
 
 <!-- Page Hero / Banner -->
-<section class="page-header-banner">
+<section class="page-header-banner service-detail-enquiry-hero" style="--service-hero-image: url('<?= e($heroImage) ?>');">
   <div class="container">
-    <div class="page-header-content">
-      <span class="badge badge-orange"><?= e($service['badge'] ?: 'Specialized Service') ?></span>
-      <h1 class="page-header-title"><?= e($service['h1_heading']) ?></h1>
-      <p class="page-header-sub"><?= e($copy('hero_description', $service['short_description'])) ?></p>
-      <div style="margin-top: 1.75rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-        <a href="<?= url('contact.php') ?>" class="btn btn-primary"><?= e($copy('hero_primary_cta', 'Book This Service')) ?></a>
-        <a href="#process" class="btn btn-outline-white"><?= e($copy('hero_secondary_cta', 'Review Production Process ↓')) ?></a>
+    <div class="service-detail-hero-grid">
+      <div class="page-header-content">
+        <?php $heroBadge = $copy('hero_badge', $service['badge'] ?: 'Specialized Service'); ?>
+        <?php if ($heroBadge !== ''): ?>
+          <span class="badge badge-orange"><?= e($heroBadge) ?></span>
+        <?php endif; ?>
+        <?php $heroH1 = $copy('hero_h1', $service['h1_heading']); ?>
+        <h1 class="page-header-title"><?= e($heroH1) ?></h1>
+        <?php $heroSubheading = $copy('hero_subheading', ''); ?>
+        <?php if ($heroSubheading !== ''): ?>
+          <p class="page-header-sub service-hero-subheading"><?= e($heroSubheading) ?></p>
+        <?php else: ?>
+          <?php $heroDesc = $copy('hero_description', $service['short_description']); ?>
+          <?php if ($heroDesc !== ''): ?>
+            <p class="page-header-sub"><?= e($heroDesc) ?></p>
+          <?php endif; ?>
+        <?php endif; ?>
+        <div class="service-detail-hero-actions">
+          <a href="<?= url('contact.php') ?>" class="btn btn-primary"><?= e($copy('hero_primary_cta', 'Book This Service')) ?></a>
+          <a href="#process" class="btn btn-outline-white"><?= e($copy('hero_secondary_cta', 'Review Production Process ↓')) ?></a>
+        </div>
+      </div>
+      <div class="services-enquiry-card">
+        <div class="enquiry-card-header">
+          <span class="enquiry-card-badge">Instant Studio Estimate</span>
+          <h3 class="enquiry-card-title">Book This Service</h3>
+        </div>
+        <?php if ($flash): ?><div class="alert alert-<?= $flash['type'] === 'error' ? 'error' : 'success' ?>"><?= e($flash['message']) ?></div><?php endif; ?>
+        <form action="<?= url('submit-lead.php') ?>" method="POST" class="services-enquiry-form">
+          <?= CSRF::inputField() ?>
+          <input type="hidden" name="source_page_url" value="<?= e($service['slug']) ?>">
+          <input type="hidden" name="source_page_title" value="<?= e($heroH1) ?>">
+          <input type="hidden" name="source_page_type" value="service_page">
+          <div class="services-form-grid">
+            <div class="form-group">
+              <label class="form-label" for="<?= e($formIdPrefix) ?>_full_name">Full Name</label>
+              <input class="form-control" id="<?= e($formIdPrefix) ?>_full_name" name="full_name" type="text" placeholder="e.g. Rahul Sharma" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="<?= e($formIdPrefix) ?>_email">Email Address</label>
+              <input class="form-control" id="<?= e($formIdPrefix) ?>_email" name="email" type="email" placeholder="e.g. rahul@company.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="<?= e($formIdPrefix) ?>_mobile">Contact Number</label>
+              <input class="form-control" id="<?= e($formIdPrefix) ?>_mobile" name="mobile" type="tel" placeholder="e.g. 9876543210" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="<?= e($formIdPrefix) ?>_required">Service Required</label>
+              <select class="form-control form-select" id="<?= e($formIdPrefix) ?>_required" name="lead_source" required>
+                <option value="">Select a service</option>
+                <?php foreach ($enquiryServices as $enquiryService): ?>
+                  <option value="<?= e($enquiryService['title']) ?>"<?= $enquiryService['slug'] === $service['slug'] ? ' selected' : '' ?>><?= e($enquiryService['title']) ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="<?= e($formIdPrefix) ?>_message">Project Requirements / Message</label>
+            <textarea class="form-control" id="<?= e($formIdPrefix) ?>_message" name="message" rows="3" placeholder="e.g. We need 50 product images for our Amazon listings..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary services-submit-btn">Submit Enquiry</button>
+        </form>
       </div>
     </div>
   </div>
@@ -114,7 +184,10 @@ require_once INCLUDES_PATH . '/header.php';
   <div class="container">
     <div class="service-intro-grid">
       <div>
-        <span class="badge badge-indigo"><?= e($copy('overview_badge', 'Service Overview')) ?></span>
+        <?php $overviewBadge = $copy('overview_badge', 'Service Overview'); ?>
+        <?php if ($overviewBadge !== ''): ?>
+          <span class="badge badge-indigo"><?= e($overviewBadge) ?></span>
+        <?php endif; ?>
         <h2 style="margin-bottom: 1.25rem;"><?= e($copy('overview_heading', 'Engineered Visual Quality for Serious Brands')) ?></h2>
         <div class="service-intro-text">
           <?php foreach (preg_split('/\R{2,}/', trim($service['introduction'])) as $introductionParagraph): ?>
@@ -148,7 +221,10 @@ require_once INCLUDES_PATH . '/header.php';
 <section class="section section-subtle">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-orange"><?= e($copy('impact_badge', 'Business Impact')) ?></span>
+      <?php $impactBadge = $copy('impact_badge', 'Business Impact'); ?>
+      <?php if ($impactBadge !== ''): ?>
+        <span class="badge badge-orange"><?= e($impactBadge) ?></span>
+      <?php endif; ?>
       <h2 class="section-title"><?= e($copy('impact_heading', 'Measurable Commercial Benefits')) ?></h2>
       <p class="section-subtitle">
         <?= e($copy('impact_subtitle', 'How our specialized ' . strtolower($service['title']) . ' directly impacts checkouts, brand perception, and operating margins.')) ?>
@@ -173,7 +249,10 @@ require_once INCLUDES_PATH . '/header.php';
 <section class="section">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-indigo"><?= e($copy('features_badge', 'Studio Specifications')) ?></span>
+      <?php $featuresBadge = $copy('features_badge', 'Studio Specifications'); ?>
+      <?php if ($featuresBadge !== ''): ?>
+        <span class="badge badge-indigo"><?= e($featuresBadge) ?></span>
+      <?php endif; ?>
       <h2 class="section-title"><?= e($copy('features_heading', 'Technical Features & Deliverables')) ?></h2>
       <p class="section-subtitle">
         <?= e($copy('features_subtitle', 'Every project is executed according to rigid technical specifications to ensure effortless integration across your digital channels.')) ?>
@@ -203,7 +282,10 @@ require_once INCLUDES_PATH . '/header.php';
 <section class="section section-subtle">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-lime"><?= e($copy('visual_badge', 'Visual Proof')) ?></span>
+      <?php $visualBadge = $copy('visual_badge', 'Visual Proof'); ?>
+      <?php if ($visualBadge !== ''): ?>
+        <span class="badge badge-lime"><?= e($visualBadge) ?></span>
+      <?php endif; ?>
       <h2 class="section-title"><?= e($copy('visual_heading', 'Photography Output & Production Examples')) ?></h2>
       <?php $visualSubtitle = $copy('visual_subtitle', 'Real studio captures illustrating light falloff, edge sharpness, surface texture fidelity, and master color balancing.'); ?>
       <?php if ($visualSubtitle !== ''): ?>
@@ -256,7 +338,10 @@ require_once INCLUDES_PATH . '/header.php';
 <section class="section">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-orange"><?= e($copy('category_badge', 'Category Expertise')) ?></span>
+      <?php $categoryBadge = $copy('category_badge', 'Category Expertise'); ?>
+      <?php if ($categoryBadge !== ''): ?>
+        <span class="badge badge-orange"><?= e($categoryBadge) ?></span>
+      <?php endif; ?>
       <h2 class="section-title"><?= e($copy('category_heading', 'Industries Specialized in This Format')) ?></h2>
       <p class="section-subtitle">
         <?= e($copy('category_subtitle', 'We understand how materials, reflections, and product shapes in these sectors react to professional studio light shaping.')) ?>
@@ -280,7 +365,10 @@ require_once INCLUDES_PATH . '/header.php';
 <section class="section section-subtle" id="process">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-indigo"><?= e($copy('process_badge', 'Production Roadmap')) ?></span>
+      <?php $processBadge = $copy('process_badge', 'Production Roadmap'); ?>
+      <?php if ($processBadge !== ''): ?>
+        <span class="badge badge-indigo"><?= e($processBadge) ?></span>
+      <?php endif; ?>
       <h2 class="section-title"><?= e($copy('process_heading', 'Our Structured Studio Workflow')) ?></h2>
       <p class="section-subtitle">
         <?= e($copy('process_subtitle', 'A predictable, milestone-driven production timeline from initial intake to final high-resolution delivery.')) ?>
@@ -305,7 +393,10 @@ require_once INCLUDES_PATH . '/header.php';
 <section class="section">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-lime"><?= e($copy('faq_badge', 'Service FAQ')) ?></span>
+      <?php $faqBadge = $copy('faq_badge', 'Service FAQ'); ?>
+      <?php if ($faqBadge !== ''): ?>
+        <span class="badge badge-lime"><?= e($faqBadge) ?></span>
+      <?php endif; ?>
       <h2 class="section-title">Frequently Asked Questions</h2>
       <p class="section-subtitle">
         <?= e($copy('faq_subtitle', 'Answers to common technical, logistics, and turnaround questions about ' . strtolower($service['title']) . '.')) ?>
@@ -336,7 +427,10 @@ require_once INCLUDES_PATH . '/header.php';
 <section class="section section-subtle">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-lavender"><?= e($copy('related_badge', 'Complementary Solutions')) ?></span>
+      <?php $relatedBadge = $copy('related_badge', 'Complementary Solutions'); ?>
+      <?php if ($relatedBadge !== ''): ?>
+        <span class="badge badge-lavender"><?= e($relatedBadge) ?></span>
+      <?php endif; ?>
       <h2 class="section-title"><?= e($copy('related_heading', 'Related Commercial Photography Services')) ?></h2>
       <p class="section-subtitle">
         <?= e($copy('related_subtitle', 'Pair your project with these complementary photographic and post-production capabilities for full visual synergy.')) ?>
@@ -352,13 +446,13 @@ require_once INCLUDES_PATH . '/header.php';
           </div>
           <div class="service-card-body">
             <h3 class="service-card-title">
-              <a href="<?= url($rel['file_name']) ?>"><?= e($relatedItem['title'] ?? $rel['title']) ?></a>
+              <a href="<?= service_url($rel['slug']) ?>"><?= e($relatedItem['title'] ?? $rel['title']) ?></a>
             </h3>
             <?php $relatedDescription = $relatedItem['description'] ?? $rel['short_description']; ?>
             <?php if ($relatedDescription !== ''): ?>
               <p class="service-card-text"><?= e($relatedDescription) ?></p>
             <?php endif; ?>
-            <a href="<?= url($rel['file_name']) ?>" class="service-card-link">
+            <a href="<?= service_url($rel['slug']) ?>" class="service-card-link">
               <?= e($relatedItem['link'] ?? $copy('related_link', 'Explore ' . $rel['title'] . ' →')) ?>
             </a>
           </div>
@@ -369,14 +463,16 @@ require_once INCLUDES_PATH . '/header.php';
 </section>
 <?php endif; ?>
 
+</main>
+
 <?php
 if (!empty($servicePageCopy)) {
     $footerCtaCopy = [
         'badge' => $copy('footer_badge', ''),
         'heading' => $copy('footer_heading', ''),
         'description' => $copy('footer_description', ''),
-        'primary_cta' => $copy('footer_primary_cta', ''),
-        'secondary_cta' => $copy('footer_secondary_cta', ''),
+        'primary_cta' => $copy('footer_primary_cta', '') ?: 'Book Your Studio Shoot',
+        'secondary_cta' => $copy('footer_secondary_cta', '') ?: 'Explore All Services',
     ];
 }
 require_once INCLUDES_PATH . '/footer.php';

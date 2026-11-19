@@ -241,7 +241,7 @@ INSERT INTO `website_settings` (`setting_key`, `setting_value`, `setting_group`)
 ('site_email', 'contact@ecomshoot.com', 'contact'),
 ('site_phone', '+1 (800) 555-SHOOT', 'contact'),
 ('site_address', 'Studio 4B, 742 Creative Boulevard, New York, NY 10013', 'contact'),
-('site_hours', 'Monday – Friday: 9:00 AM – 6:30 PM EST', 'contact'),
+('site_hours', 'Monday – Friday: 9:00 AM – 6:30 PM IST', 'contact'),
 ('site_base_url', 'http://localhost:8000', 'general'),
 ('social_instagram', 'https://instagram.com/ecomshoot', 'social'),
 ('social_linkedin', 'https://linkedin.com/company/ecomshoot', 'social'),
@@ -394,10 +394,6 @@ In digital commerce, **every single one of those sensory touchpoints must be tra
 
 When a potential buyer lands on your Shopify product page, they are fundamentally making an assessment of risk. Is this product legitimate? Does the material feel cheap? Will the color match my expectations when the parcel arrives?
 
-```
-Conversion Confidence = (Visual Clarity + Information Completeness) / Perceived Risk
-```
-
 ## The Three Visual Pillars of High-Converting Stores
 
 ### 1. Optical Resolution and Micro-Texture Rendering
@@ -493,11 +489,6 @@ Here is the authoritative checklist your primary image must satisfy:
 4. **Physical Product Only**: No illustrations, 3D mockups, or vector sketches. Must be a genuine photograph of the physical item.
 5. **No Extraneous Accessories**: Do not display items that are not included in the purchase box. If you sell a camera lens, do not photograph the camera body on the MAIN image unless it is part of the bundle.
 6. **High Resolution for Zoom**: Minimum dimension of 1600 pixels on the longest side (Ecomshoot standards deliver 3000 x 3000 pixels at 1:1 square ratio for maximum pinch-to-zoom utility).
-
-```
-Amazon Main Image Formula:
-[Actual Physical Product] + [Pure #FFFFFF Background] + [85% Canvas Fill] + [3000x3000px] = Zero Suppression Risk
-```
 
 ## Optimizing Secondary Images (Slots 2 Through 7)
 

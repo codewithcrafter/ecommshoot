@@ -59,18 +59,18 @@ class SEOGenerator {
             $services = $db->query("SELECT slug, file_name, updated_at FROM services WHERE status = 'published' ORDER BY display_order ASC")->fetchAll(PDO::FETCH_ASSOC);
             foreach ($services as $s) {
                 $urls[] = [
-                    'loc' => url($s['file_name']),
+                    'loc' => service_url($s['slug']),
                     'lastmod' => date('Y-m-d', strtotime($s['updated_at'] ?? 'now')),
                     'changefreq' => 'weekly',
                     'priority' => '0.9'
                 ];
             }
 
-            // 3. Published Blogs (Canonical ID-Based URLs)
-            $blogs = $db->query("SELECT id, updated_at FROM blogs WHERE status = 'published' ORDER BY published_at DESC")->fetchAll(PDO::FETCH_ASSOC);
+            // 3. Published Blogs (Canonical Slug-Based URLs)
+            $blogs = $db->query("SELECT id, slug, updated_at FROM blogs WHERE status = 'published' ORDER BY published_at DESC")->fetchAll(PDO::FETCH_ASSOC);
             foreach ($blogs as $b) {
                 $urls[] = [
-                    'loc' => blog_url((int)$b['id']),
+                    'loc' => blog_url($b['slug']),
                     'lastmod' => date('Y-m-d', strtotime($b['updated_at'] ?? 'now')),
                     'changefreq' => 'monthly',
                     'priority' => '0.7'
@@ -130,7 +130,7 @@ class SEOGenerator {
             $lines[] = "- **Email**: {$email}";
             $lines[] = "- **Phone**: {$phone}";
             $lines[] = "- **Studio Address**: {$address}";
-            $lines[] = "- **Business Hours**: " . get_setting('site_hours', 'Monday – Friday: 9:00 AM – 6:30 PM EST');
+            $lines[] = "- **Business Hours**: " . get_setting('site_hours', 'Monday – Friday: 9:00 AM – 6:30 PM IST');
             $lines[] = "";
 
             // Key Public Pages
@@ -145,20 +145,19 @@ class SEOGenerator {
 
             // Commercial Photography Services
             $lines[] = "## Commercial Photography Services";
-            $services = $db->query("SELECT title, file_name, short_description FROM services WHERE status = 'published' ORDER BY display_order ASC")->fetchAll(PDO::FETCH_ASSOC);
+            $services = $db->query("SELECT title, slug, file_name, short_description FROM services WHERE status = 'published' ORDER BY display_order ASC")->fetchAll(PDO::FETCH_ASSOC);
             foreach ($services as $s) {
-                $loc = url($s['file_name']);
+                $loc = service_url($s['slug']);
                 $lines[] = "- [{$s['title']}]({$loc}): {$s['short_description']}";
             }
             $lines[] = "";
 
             // Recent Articles & Guides (Canonical HTML & Markdown URLs)
             $lines[] = "## Industry Insights & Knowledge Base";
-            $blogs = $db->query("SELECT id, title, excerpt FROM blogs WHERE status = 'published' ORDER BY published_at DESC")->fetchAll(PDO::FETCH_ASSOC);
+            $blogs = $db->query("SELECT id, slug, title, excerpt FROM blogs WHERE status = 'published' ORDER BY published_at DESC")->fetchAll(PDO::FETCH_ASSOC);
             foreach ($blogs as $b) {
-                $bid = (int) $b['id'];
-                $htmlLoc = blog_url($bid);
-                $mdLoc = blog_md_url($bid);
+                $htmlLoc = blog_url($b['slug']);
+                $mdLoc = blog_md_url($b['slug']);
                 $lines[] = "Title: " . $b['title'];
                 $lines[] = "HTML: " . $htmlLoc;
                 $lines[] = "Markdown: " . $mdLoc;

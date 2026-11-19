@@ -27,7 +27,7 @@ $servicePageCopy = [
     'footer_heading' => 'Ready to Get Product Photos That Sell?',
     'footer_description' => 'Get professional product images that will convert with our product photography services in Delhi. We will create a plan, take your images, edit and deliver. We will create clean and consistent images for Amazon, Shopify and your own website. Work with a product photographer in Delhi who will treat your catalogue as their own.',
     'footer_primary_cta' => 'Book Now',
-    'footer_secondary_cta' => 'View All 9 Services',
+    'footer_secondary_cta' => 'View All Services',
 ];
 $relatedServiceCopy = [
     'ecommerce-product-photography' => ['title' => 'E-Commerce Product Photography', 'description' => 'Create consistent sets of images for your online store. Ideal for sellers with lots of products on Shopify, Amazon and Flipkart.'],

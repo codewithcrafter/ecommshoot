@@ -9,52 +9,50 @@ require_once __DIR__ . '/config/config.php';
 require_once INCLUDES_PATH . '/breadcrumbs.php';
 
 $db = Database::getInstance()->getConnection();
+$isAdmin = Auth::check();
 
-// 1. Backward Compatibility: 301 Permanent Redirect for legacy slug URLs
-$legacySlug = trim($_GET['slug'] ?? '');
-if (!empty($legacySlug)) {
-    $slugStmt = $db->prepare("SELECT id FROM blogs WHERE slug = :s LIMIT 1");
-    $slugStmt->execute(['s' => $legacySlug]);
-    $foundId = $slugStmt->fetchColumn();
-    if ($foundId) {
+$slug = trim((string)($_GET['slug'] ?? ''));
+$id = filter_var($_GET['id'] ?? null, FILTER_VALIDATE_INT);
+
+// 1. If accessed via numeric ID, 301 redirect to canonical slug URL
+if (($id && $id > 0) && empty($slug)) {
+    $stmt = $db->prepare("SELECT slug FROM blogs WHERE id = :id LIMIT 1");
+    $stmt->execute(['id' => $id]);
+    $foundSlug = $stmt->fetchColumn();
+    if ($foundSlug) {
         http_response_code(301);
-        header('Location: ' . blog_url((int)$foundId));
-        exit;
-    } else {
-        http_response_code(404);
-        $pageIdentifier = '404';
-        require_once INCLUDES_PATH . '/header.php';
-        echo '<div class="container section" style="text-align: center; padding: 6rem 0;"><h1>Article Not Found</h1><p>The requested blog guide could not be located or has been archived.</p><a href="' . url('blog.php') . '" class="btn btn-primary">Return to Blogs</a></div>';
-        require_once INCLUDES_PATH . '/footer.php';
+        header('Location: ' . url('blog/' . $foundSlug));
         exit;
     }
 }
 
-// 2. Validate numeric ID
-$id = filter_var($_GET['id'] ?? null, FILTER_VALIDATE_INT);
-if (!$id || $id <= 0) {
-    http_response_code(404);
-    $pageIdentifier = '404';
-    require_once INCLUDES_PATH . '/header.php';
-    echo '<div class="container section" style="text-align: center; padding: 6rem 0;"><h1>Article Not Found</h1><p>The requested blog guide could not be located or has been archived.</p><a href="' . url('blog.php') . '" class="btn btn-primary">Return to Blogs</a></div>';
-    require_once INCLUDES_PATH . '/footer.php';
-    exit;
+// 2. Fetch blog by slug (or fallback ID if not yet redirected)
+$blog = null;
+if (!empty($slug)) {
+    $sql = "SELECT b.*, c.name as category_name, c.slug as category_slug 
+            FROM blogs b 
+            LEFT JOIN blog_categories c ON b.category_id = c.id 
+            WHERE b.slug = :s";
+    if (!$isAdmin) {
+        $sql .= " AND b.status = 'published'";
+    }
+    $sql .= " LIMIT 1";
+    $stmt = $db->prepare($sql);
+    $stmt->execute(['s' => $slug]);
+    $blog = $stmt->fetch(PDO::FETCH_ASSOC);
+} elseif ($id && $id > 0) {
+    $sql = "SELECT b.*, c.name as category_name, c.slug as category_slug 
+            FROM blogs b 
+            LEFT JOIN blog_categories c ON b.category_id = c.id 
+            WHERE b.id = :id";
+    if (!$isAdmin) {
+        $sql .= " AND b.status = 'published'";
+    }
+    $sql .= " LIMIT 1";
+    $stmt = $db->prepare($sql);
+    $stmt->execute(['id' => $id]);
+    $blog = $stmt->fetch(PDO::FETCH_ASSOC);
 }
-
-// 3. Fetch blog by numeric ID (enforcing published status for public requests)
-$isAdmin = Auth::check();
-$sql = "SELECT b.*, c.name as category_name, c.slug as category_slug 
-        FROM blogs b 
-        LEFT JOIN blog_categories c ON b.category_id = c.id 
-        WHERE b.id = :id";
-if (!$isAdmin) {
-    $sql .= " AND b.status = 'published'";
-}
-$sql .= " LIMIT 1";
-
-$stmt = $db->prepare($sql);
-$stmt->execute(['id' => $id]);
-$blog = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$blog) {
     http_response_code(404);
@@ -68,8 +66,7 @@ if (!$blog) {
 $pageIdentifier = 'blog-' . $blog['id'];
 
 // Canonical URLs
-$canonicalHtmlUrl = blog_url($blog['id']);
-$canonicalMdUrl = blog_md_url($blog['id']);
+$canonicalHtmlUrl = blog_url($blog['slug']);
 
 // Custom SEO Metadata
 $customSeo = [
@@ -142,17 +139,6 @@ if (!empty($blog['schemas_json'])) {
     $customSchemas[] = $blog['schemas_json'];
 }
 
-// Fetch assigned tags
-$tagStmt = $db->prepare(
-    "SELECT t.name, t.slug 
-     FROM blog_tags t 
-     JOIN blog_tag_relations r ON t.id = r.tag_id 
-     WHERE r.blog_id = :bid 
-     ORDER BY t.name ASC"
-);
-$tagStmt->execute(['bid' => $blog['id']]);
-$articleTags = $tagStmt->fetchAll(PDO::FETCH_ASSOC);
-
 // Fetch Previous Article
 $prevStmt = $db->prepare("SELECT id, title FROM blogs WHERE id < :id AND status = 'published' ORDER BY id DESC LIMIT 1");
 $prevStmt->execute(['id' => $blog['id']]);
@@ -198,31 +184,30 @@ $renderedContent = preg_replace_callback('/<h([2-3])([^>]*)>(.*?)<\/h\1>/i', fun
 require_once INCLUDES_PATH . '/header.php';
 ?>
 
-<!-- 1. Breadcrumbs -->
+<!-- BreadcrumbList structured data; no visible breadcrumb navigation. -->
 <?= render_breadcrumbs([
   ['title' => 'Blogs', 'url' => url('blog.php')],
   ['title' => $blog['title'], 'url' => null]
 ]) ?>
 
-<article class="section" style="padding-top: clamp(2rem, 4vw, 3.5rem); padding-bottom: clamp(4rem, 6vw, 6rem);">
+<article class="section blog-detail-section" style="padding-top: clamp(2rem, 4vw, 3.5rem); padding-bottom: clamp(4rem, 6vw, 6rem);">
   <div class="blog-fullwidth-wrap">
 
-    <!-- 2. Full-Width Editorial Header -->
-    <header class="article-editorial-header">
-      <div style="display: flex; gap: 0.75rem; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap;">
+    <!-- 2. Editorial Hero -->
+    <section class="article-detail-hero">
+      <header class="article-editorial-header">
+      <div class="article-meta-badge-row">
         <span class="badge badge-orange"><?= e($blog['category_name'] ?: 'Strategy') ?></span>
-        <span style="font-size: 0.88rem; color: var(--color-text-light); font-weight: 500;">
+        <span class="meta-date">
           Published <?= date('F j, Y', strtotime($blog['published_at'] ?? $blog['created_at'])) ?>
         </span>
         <?php if (!empty($blog['updated_at']) && strtotime($blog['updated_at']) > strtotime($blog['published_at'] ?? $blog['created_at']) + 86400): ?>
-          <span style="font-size: 0.88rem; color: var(--color-text-light);">• Updated <?= date('M j, Y', strtotime($blog['updated_at'])) ?></span>
+          <span class="meta-sep">•</span>
+          <span class="meta-updated">Updated <?= date('M j, Y', strtotime($blog['updated_at'])) ?></span>
         <?php endif; ?>
-        <span style="font-size: 0.88rem; color: var(--color-text-light);">•</span>
-        <span style="font-size: 0.88rem; color: var(--color-text-light); font-weight: 500;"><?= e($blog['read_time']) ?></span>
-        <span style="font-size: 0.88rem; color: var(--color-text-light);">•</span>
-        <a href="<?= blog_md_url($blog['id']) ?>" target="_blank" class="badge" style="background: #4F46E5; color: #FFFFFF; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.05em; font-family: monospace;" title="Direct raw Markdown representation for AI/LLMs">
-          Markdown .md &nearr;
-        </a>
+        <span class="meta-sep">•</span>
+        <span class="meta-read"><?= e($blog['read_time']) ?></span>
+        <span class="meta-sep">•</span>
       </div>
 
       <h1 class="article-headline">
@@ -233,71 +218,94 @@ require_once INCLUDES_PATH . '/header.php';
         <?= e($blog['excerpt']) ?>
       </p>
 
-      <!-- Author Capsule & Tag Pills -->
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
-        <div style="display: flex; align-items: center; gap: 1rem;">
-          <div class="author-avatar" style="width: 48px; height: 48px; font-size: 1.05rem; background: var(--color-primary-teal);">
-            <?= substr($blog['author_name'], 0, 2) ?>
+      <!-- Author Capsule -->
+      <div class="article-author-tag-strip">
+        <div class="article-author-card">
+          <div class="author-avatar author-avatar-lg">
+            <?= get_author_initials($blog['author_name']) ?>
           </div>
           <div>
-            <div style="font-family: var(--font-heading); font-weight: 700; font-size: 1rem; color: var(--color-text-main);">
+            <div class="author-name">
               <?= e($blog['author_name']) ?>
             </div>
-            <div style="font-size: 0.82rem; color: var(--color-text-light);">
+            <div class="author-role">
               <?= e($blog['author_role'] ?: 'Senior Commercial Photography Director') ?>
             </div>
           </div>
         </div>
 
-        <?php if (!empty($articleTags)): ?>
-          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
-            <?php foreach ($articleTags as $tag): ?>
-              <a href="<?= url('blog.php?tag=' . urlencode($tag['slug'])) ?>" style="font-size: 0.78rem; padding: 0.25rem 0.65rem; border-radius: 9999px; background: #FFFFFF; color: var(--color-primary-teal); border: 1px solid var(--color-border); text-decoration: none; font-weight: 600;">
-                #<?= e($tag['name']) ?>
-              </a>
-            <?php endforeach; ?>
-          </div>
-        <?php endif; ?>
       </div>
-    </header>
+      </header>
 
-    <!-- 3. Wide Featured Image Section -->
-    <figure class="article-hero-figure">
-      <img src="<?= asset_url($blog['featured_image'] ?: 'assets/images/portfolio/portfolio-1.jpg') ?>"
-           alt="<?= e($blog['featured_image_alt'] ?: $blog['title']) ?>" 
-           width="1400" 
-           height="787" 
-           class="article-hero-img"
-           loading="eager">
-      <?php if (!empty($blog['featured_image_caption'])): ?>
-        <figcaption class="article-hero-caption">
-          <?= e($blog['featured_image_caption']) ?>
-        </figcaption>
-      <?php endif; ?>
-    </figure>
+      <figure class="article-hero-figure">
+        <img src="<?= asset_url($blog['featured_image'] ?: 'assets/images/portfolio/portfolio-1.jpg') ?>"
+             alt="<?= e($blog['featured_image_alt'] ?: $blog['title']) ?>"
+             width="1400"
+             height="787"
+             class="article-hero-img"
+             loading="eager">
+        <?php if (!empty($blog['featured_image_caption'])): ?>
+          <figcaption class="article-hero-caption">
+            <?= e($blog['featured_image_caption']) ?>
+          </figcaption>
+        <?php endif; ?>
+      </figure>
+    </section>
 
-    <!-- 4. Two-Column Layout Grid (70-75% Main Content, 25-30% Sticky Sidebar) -->
+    <!-- 4. Two-Column Layout Grid (72% Main Content Left, 28% Sticky Sidebar Right) -->
     <div class="article-layout-grid">
 
-      <!-- Main Editorial Body Column -->
+      <!-- Main Editorial Body Column (~72%) -->
       <div class="article-main-column">
 
+        <!-- Mobile Collapsible Table of Contents Accordion (Visible on Mobile / Tablet <= 1024px) -->
+        <?php if (!empty($tocItems)): ?>
+          <div class="mobile-toc-container">
+            <button type="button" class="mobile-toc-toggle" id="mobileTocToggle" aria-expanded="false" aria-controls="mobileTocDrawer">
+              <span class="mobile-toc-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+                <span>Table of Contents</span>
+              </span>
+              <span class="mobile-toc-count"><?= count($tocItems) ?> sections</span>
+              <svg class="mobile-toc-chevron" width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+            </button>
+            <div class="mobile-toc-drawer" id="mobileTocDrawer" hidden>
+              <ul class="toc-nav-list mobile-toc-list">
+                <?php foreach ($tocItems as $item): ?>
+                  <li class="toc-item toc-level-<?= $item['level'] ?>">
+                    <a href="#<?= e($item['id']) ?>" class="toc-nav-link" data-target="<?= e($item['id']) ?>">
+                      <?= ($item['level'] === 3) ? '<span class="toc-sub-arrow">↳</span> ' : '' ?><?= e($item['title']) ?>
+                    </a>
+                  </li>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          </div>
+        <?php endif; ?>
+
         <!-- Article Content -->
-        <div class="article-content" id="articleBody">
+        <div class="article-content article-body-content" id="articleBody">
           <?= $renderedContent ?>
         </div>
 
         <!-- Recommended Production Services Box -->
         <?php if (!empty($internalLinks)): ?>
-          <div style="margin: 3.5rem 0; padding: 2rem; background-color: var(--color-cream-light); border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
-            <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-text-main);">
+          <div class="article-internal-links-box">
+            <h3 class="internal-links-title">
               Recommended Studio Production Services
             </h3>
-            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.85rem;">
+            <ul class="internal-links-list">
               <?php foreach ($internalLinks as $link): ?>
                 <li>
-                  <a href="<?= url($link['url']) ?>" style="font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--color-primary-teal); text-decoration: none;">
-                    <span style="color: var(--color-orange);">&rarr;</span> <?= e($link['anchor']) ?>
+                  <a href="<?= url($link['url']) ?>" class="internal-service-link">
+                    <span class="link-arrow">&rarr;</span> <?= e($link['anchor']) ?>
                   </a>
                 </li>
               <?php endforeach; ?>
@@ -307,8 +315,8 @@ require_once INCLUDES_PATH . '/header.php';
 
         <!-- Article FAQ Accordion Section -->
         <?php if (!empty($faqs)): ?>
-          <div style="margin: 4rem 0;">
-            <h2 style="font-family: var(--font-heading); font-size: clamp(1.6rem, 2.5vw, 2rem); font-weight: 700; margin-bottom: 1.5rem; color: var(--color-text-main);">
+          <div class="article-faq-section">
+            <h2 class="article-faq-title">
               Frequently Asked Questions &amp; Technical Notes
             </h2>
             <div class="faq-list" style="margin: 0;">
@@ -328,6 +336,47 @@ require_once INCLUDES_PATH . '/header.php';
             </div>
           </div>
         <?php endif; ?>
+
+        <!-- Author Biography Card & Studio Booking CTA Section (Editorial Footer Cards) -->
+        <div class="article-editorial-footer-grid">
+          <!-- Author Biography Card -->
+          <div class="article-widget blog-author-widget">
+            <div class="article-widget-header">
+              <span class="widget-icon">🖋️</span>
+              <h3 class="article-widget-title">Author Perspective</h3>
+            </div>
+            <div class="author-widget-bio">
+              <div class="author-avatar author-avatar-lg">
+                <?= get_author_initials($blog['author_name']) ?>
+              </div>
+              <div>
+                <div class="author-name">
+                  <?= e($blog['author_name']) ?>
+                </div>
+                <div class="author-role">
+                  <?= e($blog['author_role'] ?: 'Lead Studio Director') ?>
+                </div>
+              </div>
+            </div>
+            <p class="author-bio-text">
+              Specializes in optical calibration, large-scale commercial photo sets, and brand conversion optimization across luxury and retail channels.
+            </p>
+          </div>
+
+          <!-- Direct Studio Shoot Booking CTA Widget -->
+          <div class="article-widget blog-cta-widget">
+            <span class="badge badge-lime">Studio Availability</span>
+            <h3 class="cta-widget-title">
+              Elevate Your Brand's Visual Catalog
+            </h3>
+            <p class="cta-widget-desc">
+              Ship your samples to our Delhi studio for calibrated commercial photography engineered to boost conversions.
+            </p>
+            <a href="<?= url('contact.php') ?>" class="btn btn-primary cta-widget-btn">
+              Book a Studio Shoot &rarr;
+            </a>
+          </div>
+        </div>
 
         <!-- Social Share Bar -->
         <div class="article-share-strip">
@@ -353,7 +402,7 @@ require_once INCLUDES_PATH . '/header.php';
         <?php if ($prevArticle || $nextArticle): ?>
           <nav class="article-prev-next-grid" aria-label="Article Pagination Navigation">
             <?php if ($prevArticle): ?>
-              <a href="<?= blog_url($prevArticle['id']) ?>" class="article-nav-card">
+              <a href="<?= blog_url($prevArticle['slug']) ?>" class="article-nav-card">
                 <span class="article-nav-direction">&larr; Previous Studio Article</span>
                 <h4 class="article-nav-title"><?= e($prevArticle['title']) ?></h4>
               </a>
@@ -362,7 +411,7 @@ require_once INCLUDES_PATH . '/header.php';
             <?php endif; ?>
 
             <?php if ($nextArticle): ?>
-              <a href="<?= blog_url($nextArticle['id']) ?>" class="article-nav-card" style="text-align: right;">
+              <a href="<?= blog_url($nextArticle['slug']) ?>" class="article-nav-card article-nav-card-next">
                 <span class="article-nav-direction">Next Studio Article &rarr;</span>
                 <h4 class="article-nav-title"><?= e($nextArticle['title']) ?></h4>
               </a>
@@ -372,72 +421,37 @@ require_once INCLUDES_PATH . '/header.php';
 
       </div>
 
-      <!-- Sticky Editorial Sidebar (25-30% Column on Desktop) -->
-      <aside class="article-sidebar-sticky" aria-label="Article Sidebar Information">
+      <!-- Sticky Editorial Sidebar (~28% Column on Desktop) -->
+      <aside class="article-sidebar-sticky blog-sidebar-col" aria-label="Table of Contents">
 
-        <!-- Table of Contents Widget -->
+        <!-- Table of Contents Widget (Desktop Sticky) -->
         <?php if (!empty($tocItems)): ?>
-          <div class="article-widget">
-            <h3 class="article-widget-title">
-              <span>📑</span> Table of Contents
-            </h3>
-            <ul class="toc-nav-list">
+          <div class="article-widget blog-toc-card">
+            <div class="blog-toc-header">
+              <div class="blog-toc-title-group">
+                <svg class="blog-toc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+                <span class="blog-toc-title">Table of Contents</span>
+              </div>
+              <span class="blog-toc-badge"><?= count($tocItems) ?> sections</span>
+            </div>
+            <ul class="toc-nav-list desktop-toc-list">
               <?php foreach ($tocItems as $item): ?>
-                <li style="margin-left: <?= ($item['level'] === 3) ? '1rem' : '0' ?>;">
-                  <a href="#<?= e($item['id']) ?>" class="toc-nav-link">
-                    <?= ($item['level'] === 3) ? '↳ ' : '' ?><?= e($item['title']) ?>
+                <li class="toc-item toc-level-<?= $item['level'] ?>">
+                  <a href="#<?= e($item['id']) ?>" class="toc-nav-link" data-target="<?= e($item['id']) ?>">
+                    <?= ($item['level'] === 3) ? '<span class="toc-sub-arrow">↳</span> ' : '' ?><?= e($item['title']) ?>
                   </a>
                 </li>
               <?php endforeach; ?>
             </ul>
           </div>
         <?php endif; ?>
-
-        <!-- Author Biography Card -->
-        <div class="article-widget" style="background-color: var(--color-cream-light);">
-          <h3 class="article-widget-title">
-            <span>🖋️</span> Author Perspective
-          </h3>
-          <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.85rem;">
-            <div class="author-avatar" style="width: 48px; height: 48px; font-size: 1rem; background: var(--color-primary-teal);">
-              <?= substr($blog['author_name'], 0, 2) ?>
-            </div>
-            <div>
-              <div style="font-family: var(--font-heading); font-weight: 700; color: var(--color-text-main); font-size: 0.95rem;">
-                <?= e($blog['author_name']) ?>
-              </div>
-              <div style="font-size: 0.78rem; color: var(--color-text-light);">
-                <?= e($blog['author_role'] ?: 'Lead Studio Director') ?>
-              </div>
-            </div>
-          </div>
-          <p style="font-size: 0.88rem; line-height: 1.6; color: var(--color-text-muted); margin: 0;">
-            Specializes in optical calibration, large-scale commercial photo sets, and brand conversion optimization across luxury and retail channels.
-          </p>
-        </div>
-
-        <!-- Direct Studio Shoot Booking CTA Widget -->
-        <div class="article-widget" style="background: linear-gradient(135deg, #0F2C2E 0%, #153E41 100%); color: #FFFFFF; border: none;">
-          <span class="badge" style="background: rgba(255,255,255,0.15); color: var(--color-lime); margin-bottom: 0.75rem; font-size: 0.72rem;">Studio Availability</span>
-          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: #FFFFFF; line-height: 1.3; margin-bottom: 0.75rem;">
-            Elevate Your Brand's Visual Catalog
-          </h3>
-          <p style="font-size: 0.85rem; line-height: 1.55; color: rgba(255,255,255,0.85); margin-bottom: 1.25rem;">
-            Ship your samples to our New York studio for calibrated commercial photography engineered to boost conversions.
-          </p>
-          <a href="<?= url('contact.php') ?>" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center; background: var(--color-orange); border-color: var(--color-orange); font-size: 0.9rem;">
-            Book a Studio Shoot &rarr;
-          </a>
-        </div>
-
-        <!-- Raw Markdown Document Card -->
-        <div class="article-widget" style="padding: 1.25rem; text-align: center; background: #FFFFFF;">
-          <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 0.4rem;">Machine-Readable Format</div>
-          <div style="font-size: 0.85rem; color: var(--color-text-main); margin-bottom: 0.85rem;">Clean Markdown with YAML frontmatter for LLM indexing &amp; researchers.</div>
-          <a href="<?= $canonicalMdUrl ?>" target="_blank" class="btn btn-sm btn-outline" style="width: 100%; justify-content: center; font-family: monospace; font-size: 0.8rem;">
-            View /blog/<?= (int)$blog['id'] ?>.md &nearr;
-          </a>
-        </div>
 
       </aside>
 
@@ -462,26 +476,39 @@ require_once INCLUDES_PATH . '/header.php';
         </a>
       </div>
 
-      <div class="blog-editorial-grid-wide" style="grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));">
+      <div class="blog-posts-grid">
         <?php foreach ($relatedBlogs as $rb): ?>
-          <article class="editorial-blog-card">
-            <div class="blog-media-wrap">
-              <img src="<?= asset_url($rb['featured_image'] ?: 'assets/images/portfolio/portfolio-1.jpg') ?>"
-                   alt="<?= e($rb['featured_image_alt'] ?: $rb['title']) ?>" 
-                   width="400" 
-                   height="250" 
-                   loading="lazy">
-              <span class="blog-cat-pill"><?= e($rb['category_name'] ?: 'Strategy') ?></span>
+          <article class="blog-card">
+            <div class="blog-card-media">
+              <a href="<?= blog_url($rb['slug']) ?>" tabindex="-1" aria-hidden="true">
+                <img src="<?= asset_url($rb['featured_image'] ?: 'assets/images/portfolio/portfolio-1.jpg') ?>"
+                     alt="<?= e($rb['featured_image_alt'] ?: $rb['title']) ?>"
+                     width="400"
+                     height="250"
+                     loading="lazy">
+              </a>
+              <span class="blog-card-badge"><?= e($rb['category_name'] ?: 'Strategy') ?></span>
             </div>
-            <div class="blog-body-wrap">
-              <div class="blog-time-meta"><?= e($rb['read_time']) ?> • Published <?= date('M j, Y', strtotime($rb['published_at'] ?? 'now')) ?></div>
-              <h3 class="blog-heading">
-                <a href="<?= blog_url($rb['id']) ?>"><?= e($rb['title']) ?></a>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><?= date('M j, Y', strtotime($rb['published_at'] ?? 'now')) ?></span>
+                <span class="meta-sep">&bull;</span>
+                <span><?= e($rb['read_time']) ?></span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="<?= blog_url($rb['slug']) ?>"><?= e($rb['title']) ?></a>
               </h3>
-              <p class="blog-excerpt-copy"><?= e(mb_strimwidth($rb['excerpt'], 0, 115, '...')) ?></p>
-              <div class="blog-footer-meta">
-                <span class="blog-author-tag">By <?= e($rb['author_name']) ?></span>
-                <a href="<?= blog_url($rb['id']) ?>" class="blog-read-link">Read Guide &rarr;</a>
+              <p class="blog-card-desc"><?= e(mb_strimwidth($rb['excerpt'], 0, 120, '...')) ?></p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author-wrap">
+                  <div class="author-avatar author-avatar-sm">
+                    <?= get_author_initials($rb['author_name']) ?>
+                  </div>
+                  <span class="blog-card-author">By <?= e($rb['author_name']) ?></span>
+                </div>
+                <div class="blog-card-actions">
+                  <a href="<?= blog_url($rb['slug']) ?>" class="blog-card-link"><span>Read Guide</span> <span class="arrow">&rarr;</span></a>
+                </div>
               </div>
             </div>
           </article>

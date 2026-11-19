@@ -7,98 +7,92 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/about.php</loc>
+    <loc>http://127.0.0.1:8000/about</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/services.php</loc>
+    <loc>http://127.0.0.1:8000/services</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/blog.php</loc>
+    <loc>http://127.0.0.1:8000/blog</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/contact.php</loc>
+    <loc>http://127.0.0.1:8000/contact</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/product-photography.php</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>http://127.0.0.1:8000/service/product-photography</loc>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/ecommerce-product-photography.php</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>http://127.0.0.1:8000/service/ecommerce-product-photography</loc>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/lifestyle-product-photography.php</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>http://127.0.0.1:8000/service/lifestyle-product-photography</loc>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/fashion-product-photography.php</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>http://127.0.0.1:8000/service/fashion-product-photography</loc>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/creative-product-photography.php</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>http://127.0.0.1:8000/service/creative-product-photography</loc>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/jewellery-product-photography.php</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>http://127.0.0.1:8000/service/jewellery-product-photography</loc>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/product-photo-editing-retouching.php</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>http://127.0.0.1:8000/service/product-photo-editing-retouching</loc>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/white-background-product-photography.php</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>http://127.0.0.1:8000/service/white-background-product-photography</loc>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/professional-product-photography.php</loc>
-    <lastmod>2026-11-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>http://127.0.0.1:8000/blog/amazon-product-image-guidelines-compliance-handbook</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/blog/3</loc>
+    <loc>http://127.0.0.1:8000/blog/mastering-white-background-product-photography-lighting</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/blog/2</loc>
-    <lastmod>2026-11-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>http://127.0.0.1:8000/blog/1</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>http://127.0.0.1:8000/blog/how-product-photography-boosts-shopify-conversions</loc>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

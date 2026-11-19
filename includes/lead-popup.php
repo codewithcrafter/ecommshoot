@@ -71,7 +71,7 @@ if ($popupEnabled):
 
           <div class="lead-form-group">
             <label for="popup_message" class="lead-form-label">Message <span class="required-star">*</span></label>
-            <textarea id="popup_message" name="message" class="lead-form-control lead-form-textarea" placeholder="Tell us about your product line, shoot volume, or launch timeline..." required></textarea>
+            <textarea id="popup_message" name="message" class="lead-form-control lead-form-textarea" rows="2" placeholder="Tell us about your product line, shoot volume, or launch timeline..." required></textarea>
           </div>
         </div>
 

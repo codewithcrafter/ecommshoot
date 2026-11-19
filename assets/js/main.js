@@ -39,26 +39,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileToggle = document.getElementById('mobileMenuToggle') || document.querySelector('.mobile-toggle');
   const mainNav = document.getElementById('mainNav') || document.querySelector('.main-nav');
   const mobileDrawerClose = document.getElementById('mobileDrawerClose');
+  const mobileNavBackdrop = document.querySelector('.mobile-nav-backdrop');
 
   if (mobileToggle && mainNav) {
-    const updateNavTop = () => {
-      if (header && window.innerWidth <= 1024) {
-        const headerBottom = Math.round(header.getBoundingClientRect().bottom);
-        mainNav.style.top = `${Math.max(0, headerBottom)}px`;
-        mainNav.style.height = `calc(100vh - ${Math.max(0, headerBottom)}px)`;
-        mainNav.style.height = `calc(100dvh - ${Math.max(0, headerBottom)}px)`;
-      }
-    };
+    const drawerFocusable = () => Array.from(mainNav.querySelectorAll(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )).filter((element) => !element.closest('.services-dropdown') ||
+      element.closest('.nav-item.has-dropdown')?.classList.contains('dropdown-open'));
 
     const openMenu = () => {
-      updateNavTop();
       mainNav.classList.add('is-active');
+      mobileNavBackdrop?.classList.add('is-active');
       mobileToggle.setAttribute('aria-expanded', 'true');
       document.body.classList.add('nav-lock-scroll');
+      window.setTimeout(() => (mobileDrawerClose || drawerFocusable()[0])?.focus(), 0);
     };
 
     const closeMenu = () => {
       mainNav.classList.remove('is-active');
+      mobileNavBackdrop?.classList.remove('is-active');
       mobileToggle.setAttribute('aria-expanded', 'false');
       document.body.classList.remove('nav-lock-scroll');
     };
@@ -102,7 +101,28 @@ document.addEventListener('DOMContentLoaded', () => {
         closeMenu();
         mobileToggle.focus();
       }
+
+      if (e.key === 'Tab' && mainNav.classList.contains('is-active')) {
+        const focusable = drawerFocusable();
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024 && mainNav.classList.contains('is-active')) {
+        closeMenu();
+      }
+    }, { passive: true });
   }
 
   // 3. Reliable Viewport-Clamped Services Dropdown (Desktop fixed positioning, Mobile accordion)
@@ -126,7 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const rect = dropdownToggle.getBoundingClientRect();
+      const triggerElement = dropdownParent.querySelector('.nav-link-dropdown-group') || dropdownToggle;
+      const rect = triggerElement.getBoundingClientRect();
       const panelWidth = Math.min(540, window.innerWidth - 32);
       
       // Center horizontally under the trigger
@@ -192,6 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Click toggle (Desktop & Mobile)
     dropdownToggle.addEventListener('click', (e) => {
       e.preventDefault();
+      e.stopPropagation();
       const isOpen = dropdownParent.classList.contains('dropdown-open');
       if (isOpen) {
         closeDropdown();
@@ -222,6 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (mainNav && mainNav.classList.contains('is-active')) {
           mainNav.classList.remove('is-active');
+          mobileNavBackdrop?.classList.remove('is-active');
           if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
           document.body.classList.remove('nav-lock-scroll');
         }
@@ -281,38 +304,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 5. Portfolio Filtering System (Supports .portfolio-pill-btn and .portfolio-filter-btn)
-  const filterBtns = document.querySelectorAll('.portfolio-pill-btn, .portfolio-filter-btn');
-  const portfolioCards = document.querySelectorAll('.portfolio-grid-item, .portfolio-card');
-
-  if (filterBtns.length && portfolioCards.length) {
-    filterBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const filter = btn.getAttribute('data-filter') || 'all';
-
-        portfolioCards.forEach((card) => {
-          const category = card.getAttribute('data-category') || '';
-          if (filter === 'all' || category.includes(filter)) {
-            card.style.display = 'block';
-            setTimeout(() => {
-              card.style.opacity = '1';
-              card.style.transform = 'translateY(0) scale(1)';
-            }, 10);
-          } else {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(8px) scale(0.97)';
-            setTimeout(() => {
-              card.style.display = 'none';
-            }, 200);
-          }
-        });
-      });
-    });
-  }
-
   // 6. Contact Form Frontend Validation
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
@@ -354,6 +345,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (popupOverlay && window.__ECOMSHOOT_POPUP_CONFIG__) {
     const config = window.__ECOMSHOOT_POPUP_CONFIG__;
+
+    // Clear legacy localStorage cooldown so it never blocks popups across the site
+    try {
+      localStorage.removeItem('ecomshoot_lead_cooldown');
+    } catch (err) {}
     
     // Auto-fill tracking context
     const sourceUrlInput = document.getElementById('popupSourceUrl');
@@ -361,31 +357,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sourceUrlInput) sourceUrlInput.value = window.location.href;
     if (sourceTitleInput) sourceTitleInput.value = document.title || 'Ecomshoot Photography';
 
-    const checkCooldown = () => {
-      try {
-        const cooldownUntil = localStorage.getItem('ecomshoot_lead_cooldown');
-        if (cooldownUntil && Date.now() < parseInt(cooldownUntil, 10)) {
-          return true; // Still within cooldown window
-        }
-      } catch (err) {
-        // LocalStorage unavailable
-      }
-      return false;
-    };
-
-    const setCooldown = () => {
-      try {
-        const cooldownTime = Date.now() + (config.cooldownMs || 24 * 3600 * 1000);
-        localStorage.setItem('ecomshoot_lead_cooldown', cooldownTime.toString());
-      } catch (err) {
-        // LocalStorage unavailable
-      }
-    };
-
+    // Page-level dismissal tracker (persists only for current page lifecycle until refreshed or navigated)
+    let pagePopupDismissed = false;
     let popupTimer = null;
 
     const openPopup = () => {
-      if (checkCooldown() || popupOverlay.classList.contains('is-visible')) {
+      if (pagePopupDismissed || popupOverlay.classList.contains('is-visible')) {
         return;
       }
       popupOverlay.style.display = 'flex';
@@ -395,39 +372,40 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 20);
     };
 
-    const closePopup = (markDismissed = true) => {
+    const closePopup = () => {
+      pagePopupDismissed = true;
+      if (popupTimer) {
+        clearTimeout(popupTimer);
+        popupTimer = null;
+      }
       popupOverlay.classList.remove('is-visible');
       popupOverlay.setAttribute('aria-hidden', 'true');
       setTimeout(() => {
         popupOverlay.style.display = 'none';
       }, 350);
-
-      if (markDismissed) {
-        setCooldown();
-      }
     };
 
     // Close button trigger
     if (popupClose) {
-      popupClose.addEventListener('click', () => closePopup(true));
+      popupClose.addEventListener('click', closePopup);
     }
 
     // Backdrop click trigger
     popupOverlay.addEventListener('click', (e) => {
       if (e.target === popupOverlay) {
-        closePopup(true);
+        closePopup();
       }
     });
 
     // Escape key trigger
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && popupOverlay.classList.contains('is-visible')) {
-        closePopup(true);
+        closePopup();
       }
     });
 
-    // Start timer if enabled and not cooled down
-    if (config.enabled && !checkCooldown()) {
+    // Trigger exactly after 5 seconds on each page visit (single-shot, once per page load)
+    if (config.enabled !== false) {
       popupTimer = setTimeout(openPopup, config.delayMs || 5000);
     }
 
@@ -492,13 +470,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupForm) popupForm.style.display = 'none';
             if (popupSuccess) popupSuccess.style.display = 'block';
 
-            // Mark cooldown so visitor isn't shown again
-            setCooldown();
-
-            // Auto-close after 3.5 seconds
+            // Auto-close after 3 seconds and mark dismissed for this page
             setTimeout(() => {
-              closePopup(false);
-            }, 3500);
+              closePopup();
+            }, 3000);
           } else {
             if (popupError) {
               popupError.textContent = data.message || 'An error occurred. Please check your information and try again.';
@@ -532,9 +507,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Target elements across all pages
     const revealTargets = document.querySelectorAll(
-      '.reveal-item, .blog-card-wide, .blog-card-item, .service-card, .process-step-item, ' +
-      '.faq-item, .stat-card, .portfolio-card, .testimonial-card, .pricing-card, ' +
-      '.section-header, .feature-bullet-item, .article-sidebar-card'
+      '.reveal-item, .blog-card-wide, .blog-card-item, .blog-card, .service-card, .benefit-card, ' +
+      '.feature-box, .process-step-item, .strip-item, .editorial-pillar-card, .faq-item, ' +
+      '.stat-card, .portfolio-card, .testimonial-card, .pricing-card, .section-header, ' +
+      '.feature-bullet-item, .article-sidebar-card, .home-about-stats .proof-item'
     );
 
     if (!revealTargets.length) return;
@@ -545,6 +521,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       return;
     }
+
+    document.documentElement.classList.add('motion-ready');
 
     // Mark all target elements with reveal-item if not present
     revealTargets.forEach(el => {
@@ -559,7 +537,7 @@ document.addEventListener('DOMContentLoaded', () => {
       threshold: 0.08
     };
 
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const el = entry.target;
@@ -577,7 +555,9 @@ document.addEventListener('DOMContentLoaded', () => {
           }
 
           el.classList.add('is-revealed');
-          observer.unobserve(el);
+        } else {
+          entry.target.classList.remove('is-revealed');
+          entry.target.style.transitionDelay = '0ms';
         }
       });
     }, observerOptions);
@@ -675,5 +655,259 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   initTestimonialSlider();
+
+  // ============================================================================
+  // 10. EDITORIAL TABLE OF CONTENTS & SCROLLSPY ENGINE
+  // High-performance bidirectional scrollspy, smooth scrolling offset & mobile accordion
+  // ============================================================================
+  const initTableOfContents = () => {
+    const tocLinks = document.querySelectorAll('.toc-nav-link');
+    const mobileTocToggle = document.getElementById('mobileTocToggle');
+    const mobileTocDrawer = document.getElementById('mobileTocDrawer');
+
+    // Mobile collapsible TOC toggle
+    if (mobileTocToggle && mobileTocDrawer) {
+      mobileTocToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isExpanded = mobileTocToggle.getAttribute('aria-expanded') === 'true';
+        mobileTocToggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+        mobileTocDrawer.hidden = isExpanded;
+        mobileTocToggle.classList.toggle('is-open', !isExpanded);
+      });
+    }
+
+    if (!tocLinks.length) return;
+
+    // Get all heading IDs referenced by TOC
+    const headings = [];
+    const linkMap = new Map();
+
+    tocLinks.forEach(link => {
+      const targetId = link.getAttribute('data-target') || (link.getAttribute('href') || '').replace('#', '');
+      if (!targetId) return;
+
+      const headingEl = document.getElementById(targetId);
+      if (headingEl) {
+        if (!headings.includes(headingEl)) {
+          headings.push(headingEl);
+        }
+        if (!linkMap.has(targetId)) {
+          linkMap.set(targetId, []);
+        }
+        linkMap.get(targetId).push(link);
+      }
+    });
+
+    if (!headings.length) return;
+
+    // Sort headings in document order
+    headings.sort((a, b) => {
+      const pos = a.compareDocumentPosition(b);
+      return (pos & Node.DOCUMENT_POSITION_FOLLOWING) ? -1 : 1;
+    });
+
+    let activeId = null;
+    let isClickScrolling = false;
+    let clickTimeout = null;
+
+    const setActiveToc = (id) => {
+      if (!id || id === activeId) return;
+      activeId = id;
+
+      tocLinks.forEach(l => {
+        l.classList.remove('is-active');
+        l.classList.remove('active');
+      });
+
+      const activeLinks = linkMap.get(id);
+      if (activeLinks) {
+        activeLinks.forEach(l => {
+          l.classList.add('is-active');
+          l.classList.add('active');
+
+          // For desktop sticky sidebar: keep active link visible in scrollable container
+          const container = l.closest('.desktop-toc-list');
+          if (container && container.scrollHeight > container.clientHeight) {
+            const lTop = l.offsetTop;
+            const lHeight = l.offsetHeight;
+            const cTop = container.scrollTop;
+            const cHeight = container.clientHeight;
+
+            if (lTop < cTop + 15) {
+              container.scrollTo({ top: Math.max(0, lTop - 25), behavior: 'smooth' });
+            } else if (lTop + lHeight > cTop + cHeight - 15) {
+              container.scrollTo({ top: lTop - cHeight + lHeight + 25, behavior: 'smooth' });
+            }
+          }
+        });
+      }
+    };
+
+    // Smooth scroll navigation on click
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('data-target') || (link.getAttribute('href') || '').replace('#', '');
+        const target = document.getElementById(targetId);
+        if (!target) return;
+
+        isClickScrolling = true;
+        if (clickTimeout) clearTimeout(clickTimeout);
+
+        const header = document.getElementById('siteHeader') || document.querySelector('.site-header');
+        const headerHeight = header ? header.offsetHeight : 80;
+        const targetTop = target.getBoundingClientRect().top + window.scrollY - (headerHeight + 24);
+
+        window.scrollTo({
+          top: Math.max(0, targetTop),
+          behavior: 'smooth'
+        });
+
+        setActiveToc(targetId);
+
+        if (history.pushState) {
+          history.pushState(null, null, '#' + targetId);
+        } else {
+          location.hash = targetId;
+        }
+
+        // Close mobile drawer if open
+        if (mobileTocDrawer && !mobileTocDrawer.hidden) {
+          mobileTocDrawer.hidden = true;
+          if (mobileTocToggle) {
+            mobileTocToggle.setAttribute('aria-expanded', 'false');
+            mobileTocToggle.classList.remove('is-open');
+          }
+        }
+
+        clickTimeout = setTimeout(() => {
+          isClickScrolling = false;
+        }, 850);
+      });
+    });
+
+    // High-performance bidirectional scrollspy calculation
+    let ticking = false;
+
+    const calculateActiveSection = () => {
+      if (isClickScrolling) return;
+
+      const header = document.getElementById('siteHeader') || document.querySelector('.site-header');
+      const headerHeight = header ? header.offsetHeight : 80;
+      const offsetThreshold = headerHeight + 35; // Reading zone offset below header
+
+      const scrollPosition = window.scrollY || window.pageYOffset;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      // Bottom of page edge case: activate the last heading
+      if (windowHeight + scrollPosition >= docHeight - 80) {
+        setActiveToc(headings[headings.length - 1].id);
+        return;
+      }
+
+      // Check headings in document order
+      let currentHeadingId = null;
+      for (let i = 0; i < headings.length; i++) {
+        const top = headings[i].getBoundingClientRect().top;
+        if (top <= offsetThreshold) {
+          currentHeadingId = headings[i].id;
+        } else {
+          break;
+        }
+      }
+
+      // If user is before first heading (hero/lead area), activate first heading
+      if (!currentHeadingId && headings.length > 0) {
+        currentHeadingId = headings[0].id;
+      }
+
+      if (currentHeadingId) {
+        setActiveToc(currentHeadingId);
+      }
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          calculateActiveSection();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Optional IntersectionObserver enhancement for intersection triggers
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(() => {
+        if (!isClickScrolling) {
+          calculateActiveSection();
+        }
+      }, {
+        root: null,
+        rootMargin: '-80px 0px -40% 0px',
+        threshold: [0, 0.5, 1]
+      });
+
+      headings.forEach(h => observer.observe(h));
+    }
+
+    // Initial activation
+    if (window.location.hash) {
+      const hashId = window.location.hash.replace('#', '');
+      if (document.getElementById(hashId)) {
+        setTimeout(() => setActiveToc(hashId), 150);
+      } else {
+        calculateActiveSection();
+      }
+    } else {
+      calculateActiveSection();
+    }
+  };
+
+  initTableOfContents();
+
+  // ============================================================================
+  // 11. SUBTLE SECTION INTRODUCTION ENTRANCE ANIMATIONS
+  // Lightweight, responsive intersection entrance for standalone section headers
+  // ============================================================================
+  const initSectionAnimations = () => {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    const headers = document.querySelectorAll('.section-editorial-header, .section-header');
+    if (!headers.length) return;
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('section-intro-visible');
+            entry.target.classList.remove('section-intro-hidden');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      headers.forEach(header => {
+        const rect = header.getBoundingClientRect();
+        // If element is already in the viewport on initial load, show immediately
+        if (rect.top < window.innerHeight) {
+          header.classList.add('section-intro-visible');
+        } else {
+          header.classList.add('section-intro-hidden');
+          observer.observe(header);
+        }
+      });
+    } else {
+      headers.forEach(h => h.classList.add('section-intro-visible'));
+    }
+  };
+
+  initSectionAnimations();
 
 });

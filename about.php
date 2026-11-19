@@ -6,12 +6,10 @@
 
 $pageIdentifier = 'about';
 require_once __DIR__ . '/config/config.php';
-require_once INCLUDES_PATH . '/breadcrumbs.php';
 require_once INCLUDES_PATH . '/header.php';
 ?>
 
-<!-- Breadcrumbs -->
-<?= render_breadcrumbs([['title' => 'About Our Studio', 'url' => null]]) ?>
+<main class="about-ui-redesign">
 
 <!-- Page Header Banner -->
 <section class="page-header-banner">
@@ -114,58 +112,21 @@ require_once INCLUDES_PATH . '/header.php';
   </div>
 </section>
 
-<!-- Core Leadership Team (With Real Portraits) -->
-<section class="section section-services">
+<!-- Verified studio tools and production technology -->
+<section class="section about-tools-section">
   <div class="container">
     <div class="section-editorial-header">
-      <div class="header-tagline">
-        <span class="badge badge-orange">Our Artisans</span>
-      </div>
-      <h2 class="section-title-editorial">Meet Our Creative &amp; Production Directors</h2>
-      <p class="section-sub-editorial">
-        A multidisciplinary team of lighting engineers, prop stylists, art directors, and master digital retouchers.
-      </p>
+      <div class="header-tagline"><span class="badge badge-orange">Studio Toolkit</span></div>
+      <h2 class="section-title-editorial">Our Tools &amp; Technology</h2>
+      <p class="section-sub-editorial">Verified capture, lighting, retouching and calibration tools used across our studio workflow.</p>
     </div>
-
-    <div class="editorial-services-grid">
-      <div class="service-editorial-card" style="text-align: center;">
-        <div class="card-media-wrapper" style="aspect-ratio: 1 / 1;">
-          <img src="<?= asset_url('assets/images/about/team-marcus.jpg') ?>" alt="Marcus Vance, Creative Director" width="400" height="400" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        <div class="card-content-wrapper" style="align-items: center;">
-          <h3 class="service-card-heading">Marcus Vance</h3>
-          <span class="badge badge-orange" style="margin-bottom: 0.75rem;">Creative Director</span>
-          <p class="service-card-summary">
-            Over 15 years directing commercial fashion and luxury brand campaigns in New York and Paris. Passionate about narrative staging and kinetic capture.
-          </p>
-        </div>
-      </div>
-
-      <div class="service-editorial-card" style="text-align: center;">
-        <div class="card-media-wrapper" style="aspect-ratio: 1 / 1;">
-          <img src="<?= asset_url('assets/images/about/team-elena.jpg') ?>" alt="Elena Rostova, Lead Lighting Engineer" width="400" height="400" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        <div class="card-content-wrapper" style="align-items: center;">
-          <h3 class="service-card-heading">Elena Rostova</h3>
-          <span class="badge badge-indigo" style="margin-bottom: 0.75rem;">Lead Lighting Engineer</span>
-          <p class="service-card-summary">
-            Former industrial optics technician specializing in complex reflective surfaces, macro jewellery focus stacking, and anti-glare polarization geometry.
-          </p>
-        </div>
-      </div>
-
-      <div class="service-editorial-card" style="text-align: center;">
-        <div class="card-media-wrapper" style="aspect-ratio: 1 / 1;">
-          <img src="<?= asset_url('assets/images/about/team-david.jpg') ?>" alt="David Chen, Head of Digital Post-Production" width="400" height="400" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        <div class="card-content-wrapper" style="align-items: center;">
-          <h3 class="service-card-heading">David Chen</h3>
-          <span class="badge badge-lime" style="margin-bottom: 0.75rem;">Head of Digital Post-Production</span>
-          <p class="service-card-summary">
-            Oversees our in-house retouching bay. Expert in frequency separation, vector clipping paths, ghost mannequin jointing, and multi-format web optimization.
-          </p>
-        </div>
-      </div>
+    <div class="about-tools-grid">
+      <article class="about-tool-card"><span>◉</span><h3>Photography Cameras &amp; Lenses</h3><p>Phase One IQ4 150MP systems and Schneider Kreuznach leaf shutter lenses.</p></article>
+      <article class="about-tool-card"><span>✦</span><h3>Studio Lighting Equipment</h3><p>Broncolor Scoro power packs and calibrated strobe workflows.</p></article>
+      <article class="about-tool-card"><span>✎</span><h3>Photo Editing &amp; Retouching</h3><p>Photoshop Pen Tool workflows, frequency separation and hand-finished retouching.</p></article>
+      <article class="about-tool-card"><span>◌</span><h3>Color Correction &amp; Calibration</h3><p>EIZO ColorEdge monitors, spectrophotometer audits and custom ICC profiles.</p></article>
+      <article class="about-tool-card"><span>⌁</span><h3>Product Styling &amp; Studio Equipment</h3><p>Motorized indexing rails, specialized staging rigs and calibrated proofing.</p></article>
+      <article class="about-tool-card"><span>↗</span><h3>E-commerce Image Optimization</h3><p>Marketplace-ready exports for Amazon, Shopify Plus and omnichannel retail.</p></article>
     </div>
   </div>
 </section>
@@ -223,4 +184,5 @@ require_once INCLUDES_PATH . '/header.php';
   </div>
 </section>
 
+</main>
 <?php require_once INCLUDES_PATH . '/footer.php'; ?>

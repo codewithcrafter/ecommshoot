@@ -127,7 +127,7 @@ require_once __DIR__ . '/includes/header.php';
 
         <div class="admin-form-group">
           <label class="admin-form-label">Operating Hours (Optional)</label>
-          <input type="text" name="site_hours" value="<?= e($settings['site_hours'] ?? 'Monday – Friday: 9:00 AM – 6:30 PM') ?>" class="admin-form-control">
+          <input type="text" name="site_hours" value="<?= e($settings['site_hours'] ?? 'Monday – Friday: 9:00 AM – 6:30 PM IST') ?>" class="admin-form-control">
         </div>
       </div>
     </div>

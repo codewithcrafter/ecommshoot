@@ -49,6 +49,9 @@ class SEO {
         $html[] = '<meta name="robots" content="' . e($meta['robots_meta'] ?? 'index, follow') . '">';
 
         $canonical = $meta['canonical_url'] ?? url();
+        // Database metadata may contain legacy PHP filenames; public canonicals stay extensionless.
+        $canonical = preg_replace('#/index\.php(?=\?|$)#i', '/', $canonical);
+        $canonical = preg_replace('#\.php(?=\?|$)#i', '', $canonical);
         $html[] = '<link rel="canonical" href="' . e($canonical) . '">';
 
         // Open Graph

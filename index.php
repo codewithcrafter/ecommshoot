@@ -7,11 +7,11 @@
 $pageIdentifier = 'home';
 require_once __DIR__ . '/config/config.php';
 
-// Fetch all 9 published services
+// Fetch published services (excluding discontinued services)
 $db = Database::getInstance()->getConnection();
 $services = [];
 try {
-    $services = $db->query("SELECT * FROM services WHERE status = 'published' ORDER BY display_order ASC")->fetchAll(PDO::FETCH_ASSOC);
+    $services = $db->query("SELECT * FROM services WHERE status = 'published' AND slug != 'professional-product-photography' ORDER BY display_order ASC")->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     error_log("Database Query Error [services]: " . $e->getMessage());
     $services = [];
@@ -26,11 +26,15 @@ try {
     $blogs = [];
 }
 
+$flash = get_flash();
+
 require_once INCLUDES_PATH . '/header.php';
 ?>
 
+<main class="home-ui-redesign">
+
 <!-- SECTION A – HERO CAMPAIGN -->
-<section class="hero-section">
+<section class="hero-section home-about-hero">
   <div class="container hero-container">
     <div class="hero-split-grid">
       
@@ -55,17 +59,15 @@ require_once INCLUDES_PATH . '/header.php';
         </div>
 
         <!-- Verified Studio Metric Counters -->
-        <div class="hero-proof-bar">
+        <div class="hero-proof-bar home-about-stats">
           <div class="proof-item">
             <span class="proof-number">250K+</span>
             <span class="proof-label">Images Delivered</span>
           </div>
-          <div class="proof-sep"></div>
           <div class="proof-item">
             <span class="proof-number">+38%</span>
             <span class="proof-label">Average Increase In CTR</span>
           </div>
-          <div class="proof-sep"></div>
           <div class="proof-item">
             <span class="proof-number">99.8%</span>
             <span class="proof-label">Approval Rate From Marketplace</span>
@@ -73,47 +75,60 @@ require_once INCLUDES_PATH . '/header.php';
         </div>
       </div>
 
-      <!-- Hero Right: Carefully Composed Editorial Photography Layout -->
-      <div class="hero-media-col">
-        <div class="hero-composition">
-          <!-- Primary Large Showcase Frame -->
-          <div class="hero-frame-primary">
-            <img src="<?= asset_url('assets/images/hero/hero-main.jpg') ?>" 
-                 alt="Luxury botanical cosmetics and skincare commercial campaign photography" 
-                 width="640" 
-                 height="480" 
-                 loading="eager"
-                 decoding="async"
-                 class="hero-img-main">
+      <!-- Hero Right: Direct Studio Enquiry Form -->
+      <div class="hero-form-col">
+        <div class="services-enquiry-card home-hero-enquiry-card" id="homeEnquiryForm">
+          <div class="enquiry-card-header">
+            <span class="enquiry-card-badge">Instant Studio Estimate</span>
+            <h3 class="enquiry-card-title">Book a Photoshoot</h3>
           </div>
-
-          <!-- Secondary Overlapping Offset Frame (Diamond Fire Macro) -->
-          <div class="hero-frame-secondary">
-            <img src="<?= asset_url('assets/images/services/jewellery-product-photography.jpg') ?>" 
-                 alt="Diamond solitaire ring macro detail photography" 
-                 width="220" 
-                 height="220" 
-                 loading="eager"
-                 class="hero-img-inset">
-            <div class="inset-caption">60-Slice Focus Stacking</div>
-          </div>
-
-          <!-- Floating Optical Spec Badges -->
-          <div class="hero-float-badge float-top-left">
-            <div class="float-icon-wrap icon-indigo">📸</div>
-            <div class="float-text-wrap">
-              <span class="float-title">Studio Photography</span>
-              <span class="float-sub">Controlled lighting for clean catalogue images.</span>
+          <?php if (!empty($flash)): ?>
+            <div class="alert alert-<?= $flash['type'] === 'error' ? 'error' : 'success' ?>" style="margin-bottom: 1rem;">
+              <?= e($flash['message']) ?>
             </div>
-          </div>
-
-          <div class="hero-float-badge float-bottom-right">
-            <div class="float-icon-wrap icon-lime">✓</div>
-            <div class="float-text-wrap">
-              <span class="float-title">Detail &amp; Macro</span>
-              <span class="float-sub">Showcase the detail in your product with close up images.</span>
+          <?php endif; ?>
+          <form action="<?= url('submit-lead.php') ?>" method="POST" class="services-enquiry-form">
+            <?= CSRF::inputField() ?>
+            <input type="hidden" name="source_page_url" value="">
+            <input type="hidden" name="source_page_title" value="Homepage - Product Photography Agency in Delhi">
+            <input type="hidden" name="source_page_type" value="home_hero">
+            
+            <div class="services-form-grid">
+              <div class="form-group">
+                <label class="form-label" for="home_hero_full_name">Full Name <span style="color:#FF6233;">*</span></label>
+                <input class="form-control" id="home_hero_full_name" name="full_name" type="text" placeholder="e.g. Rahul Sharma" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="home_hero_email">Email Address <span style="color:#FF6233;">*</span></label>
+                <input class="form-control" id="home_hero_email" name="email" type="email" placeholder="e.g. rahul@company.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="home_hero_mobile">Contact Number <span style="color:#FF6233;">*</span></label>
+                <input class="form-control" id="home_hero_mobile" name="mobile" type="tel" placeholder="e.g. 9876543210" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="home_hero_required">Service Required <span style="color:#FF6233;">*</span></label>
+                <select class="form-control form-select" id="home_hero_required" name="lead_source" required>
+                  <option value="">Select a service</option>
+                  <?php foreach ($services as $svc): ?>
+                    <option value="<?= e($svc['title']) ?>"><?= e($svc['title']) ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
             </div>
-          </div>
+            <div class="form-group">
+              <label class="form-label" for="home_hero_message">Project Requirements / Message <span style="color:#FF6233;">*</span></label>
+              <textarea class="form-control" id="home_hero_message" name="message" rows="3" placeholder="Tell us about your product line, shoot volume, or launch timeline..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary services-submit-btn" style="width: 100%;">
+              <span>Submit Enquiry</span>
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" style="display:inline-block; vertical-align:middle; margin-left:6px;"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+            </button>
+            <div class="lead-form-privacy" style="margin-top: 0.75rem; font-size: 0.78rem; color: #9CA3AF; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+              <span>Strictly confidential. Studio team responds within 24 hours.</span>
+            </div>
+          </form>
         </div>
       </div>
 
@@ -175,22 +190,11 @@ require_once INCLUDES_PATH . '/header.php';
       </p>
     </div>
 
-    <!-- Category Filter Controls -->
-    <div class="portfolio-filter-row">
-      <button class="portfolio-pill-btn active" data-filter="all">All Work</button>
-      <button class="portfolio-pill-btn" data-filter="beauty">Beauty &amp; Cosmetics</button>
-      <button class="portfolio-pill-btn" data-filter="fashion">Fashion &amp; Apparel</button>
-      <button class="portfolio-pill-btn" data-filter="jewellery">Luxury Jewellery</button>
-      <button class="portfolio-pill-btn" data-filter="electronics">Electronics</button>
-      <button class="portfolio-pill-btn" data-filter="lifestyle">Lifestyle</button>
-      <button class="portfolio-pill-btn" data-filter="creative">Creative Campaigns</button>
-    </div>
-
     <!-- Asymmetrical Gallery Grid with Real Commercial Photography -->
     <div class="asymmetric-portfolio-grid">
       
       <!-- Shoot 1: Creative Botanical Perfume Splash (Creative Campaigns) -->
-      <div class="portfolio-grid-item span-7" data-category="creative">
+      <div class="portfolio-grid-item span-7">
         <div class="portfolio-inner-frame">
           <img src="<?= asset_url('assets/images/portfolio/portfolio-1.jpg') ?>" 
                alt="Luxury botanical perfume with liquid refraction and splash droplets" 
@@ -201,13 +205,13 @@ require_once INCLUDES_PATH . '/header.php';
             <span class="overlay-tag">Beauty &amp; Cosmetics</span>
             <div class="overlay-title">Botanical Fragrance</div>
             <div class="overlay-sub">Soft lighting and glass reflectors to create a luxury feel on shelf.</div>
-            <a href="<?= url('creative-product-photography.php') ?>" class="overlay-link">View Case Study &rarr;</a>
+            <a href="<?= service_url('creative-product-photography') ?>" class="overlay-link">View Case Study &rarr;</a>
           </div>
         </div>
       </div>
 
       <!-- Shoot 2: Matte ANC Headphones (Electronics) -->
-      <div class="portfolio-grid-item span-5" data-category="electronics">
+      <div class="portfolio-grid-item span-5">
         <div class="portfolio-inner-frame">
           <img src="<?= asset_url('assets/images/portfolio/portfolio-2.jpg') ?>" 
                alt="Wireless ANC Studio Headphones on dark pedestal with polarized lighting" 
@@ -218,13 +222,13 @@ require_once INCLUDES_PATH . '/header.php';
             <span class="overlay-tag">Electronics</span>
             <div class="overlay-title">Matte ANC Headphones</div>
             <div class="overlay-sub">Hard shadows and bold colours to create a sharp look.</div>
-            <a href="<?= url('ecommerce-product-photography.php') ?>" class="overlay-link">View Case Study &rarr;</a>
+            <a href="<?= service_url('ecommerce-product-photography') ?>" class="overlay-link">View Case Study &rarr;</a>
           </div>
         </div>
       </div>
 
       <!-- Shoot 3: Diamond Solitaire Ring (Jewellery) -->
-      <div class="portfolio-grid-item span-4" data-category="jewellery">
+      <div class="portfolio-grid-item span-4">
         <div class="portfolio-inner-frame">
           <img src="<?= asset_url('assets/images/portfolio/portfolio-3.jpg') ?>" 
                alt="Diamond Solitaire Ring 60-Slice Focus Stacking Macro" 
@@ -235,13 +239,13 @@ require_once INCLUDES_PATH . '/header.php';
             <span class="overlay-tag">Luxury Jewellery</span>
             <div class="overlay-title">Diamond Solitaire Ring</div>
             <div class="overlay-sub">Macro lighting to showcase sparkle and cut.</div>
-            <a href="<?= url('jewellery-product-photography.php') ?>" class="overlay-link">View Case Study &rarr;</a>
+            <a href="<?= service_url('jewellery-product-photography') ?>" class="overlay-link">View Case Study &rarr;</a>
           </div>
         </div>
       </div>
 
       <!-- Shoot 4: Artisanal Ceramicware (Lifestyle) -->
-      <div class="portfolio-grid-item span-4" data-category="lifestyle">
+      <div class="portfolio-grid-item span-4">
         <div class="portfolio-inner-frame">
           <img src="<?= asset_url('assets/images/portfolio/portfolio-4.jpg') ?>" 
                alt="Minimalist Ceramic Homeware staged in morning sunlight" 
@@ -252,13 +256,13 @@ require_once INCLUDES_PATH . '/header.php';
             <span class="overlay-tag">Food &amp; Beverage</span>
             <div class="overlay-title">Artisan Cornichons</div>
             <div class="overlay-sub">Fresh styling to make people want to open the jar.</div>
-            <a href="<?= url('lifestyle-product-photography.php') ?>" class="overlay-link">View Case Study &rarr;</a>
+            <a href="<?= service_url('lifestyle-product-photography') ?>" class="overlay-link">View Case Study &rarr;</a>
           </div>
         </div>
       </div>
 
       <!-- Shoot 5: Tailored Wool Blazer (Fashion) -->
-      <div class="portfolio-grid-item span-4" data-category="fashion">
+      <div class="portfolio-grid-item span-4">
         <div class="portfolio-inner-frame">
           <img src="<?= asset_url('assets/images/portfolio/portfolio-5.jpg') ?>" 
                alt="Tailored Wool Blazer on model with natural drape" 
@@ -269,13 +273,13 @@ require_once INCLUDES_PATH . '/header.php';
             <span class="overlay-tag">Fashion &amp; Apparel</span>
             <div class="overlay-title">Tailored Wool Blazer</div>
             <div class="overlay-sub">Ghost mannequin and flat lay images to showcase fit, fabric and stitching.</div>
-            <a href="<?= url('fashion-product-photography.php') ?>" class="overlay-link">View Case Study &rarr;</a>
+            <a href="<?= service_url('fashion-product-photography') ?>" class="overlay-link">View Case Study &rarr;</a>
           </div>
         </div>
       </div>
 
       <!-- Shoot 6: Cold-Pressed Citrus Splash (Creative Campaigns) -->
-      <div class="portfolio-grid-item span-5" data-category="creative">
+      <div class="portfolio-grid-item span-5">
         <div class="portfolio-inner-frame">
           <img src="<?= asset_url('assets/images/portfolio/portfolio-6.jpg') ?>" 
                alt="Cold-Pressed Artisan Cocktail with splash droplet freezing" 
@@ -286,13 +290,13 @@ require_once INCLUDES_PATH . '/header.php';
             <span class="overlay-tag">Creative Campaign</span>
             <div class="overlay-title">Cold-Pressed Beverage</div>
             <div class="overlay-sub">Water splash, condensation and colour to create a refreshing look.</div>
-            <a href="<?= url('creative-product-photography.php') ?>" class="overlay-link">View Case Study &rarr;</a>
+            <a href="<?= service_url('creative-product-photography') ?>" class="overlay-link">View Case Study &rarr;</a>
           </div>
         </div>
       </div>
 
       <!-- Shoot 7: Botanical Face Serum (Beauty & Cosmetics) -->
-      <div class="portfolio-grid-item span-7" data-category="beauty">
+      <div class="portfolio-grid-item span-7">
         <div class="portfolio-inner-frame">
           <img src="<?= asset_url('assets/images/portfolio/portfolio-7.jpg') ?>" 
                alt="Luxury botanical skincare serum with amber bottle and golden highlights" 
@@ -303,7 +307,7 @@ require_once INCLUDES_PATH . '/header.php';
             <span class="overlay-tag">Beauty &amp; Cosmetics</span>
             <div class="overlay-title">Amber Botanical Serum</div>
             <div class="overlay-sub">Diffused Wraps · Frosted Glass Reflection Control</div>
-            <a href="<?= url('product-photography.php') ?>" class="overlay-link">Explore Product Discipline &rarr;</a>
+            <a href="<?= service_url('product-photography') ?>" class="overlay-link">Explore Product Discipline &rarr;</a>
           </div>
         </div>
       </div>
@@ -347,13 +351,13 @@ require_once INCLUDES_PATH . '/header.php';
               <span class="discipline-number">SHOOT NO. 0<?= ($idx + 1) ?></span>
             </div>
             <h3 class="service-card-heading">
-              <a href="<?= url($svc['file_name']) ?>"><?= e($svc['title']) ?></a>
+              <a href="<?= service_url($svc['slug']) ?>"><?= e($svc['title']) ?></a>
             </h3>
             <p class="service-card-summary">
               <?= e($svc['short_description']) ?>
             </p>
             <div class="service-card-footer">
-              <a href="<?= url($svc['file_name']) ?>" class="service-link-arrow">
+              <a href="<?= service_url($svc['slug']) ?>" class="service-link-arrow">
                 <span>View Service</span>
                 <svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
               </a>
@@ -376,16 +380,47 @@ require_once INCLUDES_PATH . '/header.php';
     
     <div class="section-why-split">
       
-      <!-- Left: Studio Visuals -->
-      <div class="why-media-frame">
-        <img src="<?= asset_url('assets/images/about/studio-bay.jpg') ?>" 
-             alt="Ecomshoot state of the art New York commercial photography studio" 
-             width="600" 
-             height="500" 
-             loading="lazy">
-        <div class="why-floating-card">
-          <div class="why-floating-title">12,000 SQ. FT. PRODUCTION HOUSE</div>
-          <div class="why-floating-desc">Located in New York City with live client tethering, specialized product prep bays, and motorized 360 turntables.</div>
+      <!-- Left: Studio Visuals (Commercial Photography Composition) -->
+      <div class="why-media-composition">
+        <div class="hero-composition why-composition">
+          <!-- Primary Large Showcase Frame -->
+          <div class="hero-frame-primary">
+            <img src="<?= asset_url('assets/images/hero/hero-main.jpg') ?>" 
+                 alt="Luxury botanical cosmetics and skincare commercial campaign photography" 
+                 width="640" 
+                 height="480" 
+                 loading="lazy"
+                 decoding="async"
+                 class="hero-img-main">
+          </div>
+
+          <!-- Secondary Overlapping Offset Frame (Diamond Fire Macro) -->
+          <div class="hero-frame-secondary">
+            <img src="<?= asset_url('assets/images/services/jewellery-product-photography.jpg') ?>" 
+                 alt="Diamond solitaire ring macro detail photography" 
+                 width="220" 
+                 height="220" 
+                 loading="lazy"
+                 class="hero-img-inset">
+            <div class="inset-caption">60-Slice Focus Stacking</div>
+          </div>
+
+          <!-- Floating Optical Spec Badges -->
+          <div class="hero-float-badge float-top-left">
+            <div class="float-icon-wrap icon-indigo">📸</div>
+            <div class="float-text-wrap">
+              <span class="float-title">Studio Photography</span>
+              <span class="float-sub">Controlled lighting for clean catalogue images.</span>
+            </div>
+          </div>
+
+          <div class="hero-float-badge float-bottom-right">
+            <div class="float-icon-wrap icon-lime">✓</div>
+            <div class="float-text-wrap">
+              <span class="float-title">Detail &amp; Macro</span>
+              <span class="float-sub">Showcase the detail in your product with close up images.</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -789,4 +824,5 @@ require_once INCLUDES_PATH . '/header.php';
 </section>
 
 <!-- SECTION J – CREATIVE FOOTER (Included via global footer component) -->
+</main>
 <?php require_once INCLUDES_PATH . '/footer.php'; ?>

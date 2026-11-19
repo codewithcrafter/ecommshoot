@@ -24,10 +24,10 @@ $socialFb = get_setting('social_facebook', '');
 $socialLi = get_setting('social_linkedin', '');
 $socialYt = get_setting('social_youtube', '');
 
-// Fetch all 9 services for the dropdown
+// Fetch published services for the dropdown (excluding discontinued services)
 try {
   $db = Database::getInstance()->getConnection();
-  $navServices = $db->query("SELECT title, slug, file_name, badge, short_description FROM services WHERE status = 'published' ORDER BY display_order ASC")->fetchAll(PDO::FETCH_ASSOC);
+  $navServices = $db->query("SELECT title, slug, file_name, badge, short_description FROM services WHERE status = 'published' AND slug != 'professional-product-photography' ORDER BY display_order ASC")->fetchAll(PDO::FETCH_ASSOC);
 } catch (Exception $e) {
   $navServices = [];
 }
@@ -123,7 +123,9 @@ try {
       <nav class="main-nav" id="mainNav" aria-label="Main Navigation">
         <!-- Mobile Drawer Header -->
         <div class="mobile-drawer-header">
-          <span class="mobile-drawer-title">Navigation</span>
+          <a href="<?= url('') ?>" class="mobile-drawer-logo" aria-label="Ecomshoot Homepage">
+            <img src="<?= asset_url('assets/images/logo.svg') ?>" alt="Ecomshoot Logo" width="140" height="35" class="drawer-logo-img">
+          </a>
           <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close navigation menu">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -142,18 +144,29 @@ try {
               Us</a>
           </li>
 
-          <!-- Services Dropdown (Two-Column Compact Panel) -->
+          <!-- Services Dropdown (Clicking 'Services' navigates to /services; clicking chevron opens submenu) -->
           <li class="nav-item has-dropdown" id="servicesDropdownParent">
-            <a href="<?= url('services.php') ?>"
-              class="nav-link nav-dropdown-trigger <?= (str_contains($currentPage, 'service') || str_contains($currentPage, 'photography') || str_contains($currentPage, 'retouching')) ? 'active' : '' ?>"
-              id="servicesDropdownToggle" role="button" aria-haspopup="true" aria-expanded="false">
-              <span>Services</span>
-              <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                  clip-rule="evenodd" />
-              </svg>
-            </a>
+            <div class="nav-link-dropdown-group">
+              <a href="<?= url('services.php') ?>"
+                class="nav-link nav-link-services <?= (str_contains($currentPage, 'service') || str_contains($currentPage, 'photography') || str_contains($currentPage, 'retouching')) ? 'active' : '' ?>"
+                id="servicesNavLink">
+                <span>Services</span>
+              </a>
+              <button type="button"
+                class="nav-dropdown-toggle-btn"
+                id="servicesDropdownToggle"
+                role="button"
+                aria-label="Toggle Services submenu"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="servicesDropdownMenu">
+                <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
 
             <!-- Compact Mega Dropdown Menu (Fixed/Dynamic Desktop Positioning, Accordion on Mobile) -->
             <div class="services-dropdown" id="servicesDropdownMenu" role="menu"
@@ -172,7 +185,7 @@ try {
               <!-- Two-Column Dropdown Grid of All 9 Services with Visual Thumbnails -->
               <div class="dropdown-grid-two-col">
                 <?php foreach ($navServices as $svc): ?>
-                  <a href="<?= url($svc['file_name']) ?>" class="dropdown-item-compact" role="menuitem">
+                  <a href="<?= service_url($svc['slug']) ?>" class="dropdown-item-compact" role="menuitem">
                     <span class="item-thumb-wrapper">
                       <img src="<?= asset_url('assets/images/services/' . $svc['slug'] . '.jpg') ?>"
                         alt="<?= e($svc['title']) ?> photography discipline thumbnail" width="36" height="36"
@@ -205,36 +218,14 @@ try {
             <a href="<?= url('contact.php') ?>"
               class="nav-link <?= ($currentPage === 'contact') ? 'active' : '' ?>">Contact</a>
           </li>
-
-          <!-- Mobile Menu Exclusive CTA -->
-          <li class="nav-item mobile-menu-cta-wrap">
-            <a href="<?= url('contact.php') ?>" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.85rem 1rem; margin-top: 1rem;">
-              Book a Studio Shoot &rarr;
-            </a>
-          </li>
-
-          <!-- Mobile Drawer Contact & Support Block -->
-          <li class="nav-item mobile-drawer-contact-item">
-            <div class="mobile-drawer-contact-block">
-              <a href="mailto:<?= e($siteEmail) ?>" class="drawer-contact-link">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                <span><?= e($siteEmail) ?></span>
-              </a>
-              <?php if (!empty($sitePhone)): ?>
-                <a href="tel:<?= e(preg_replace('/[^0-9\+]/', '', $sitePhone)) ?>" class="drawer-contact-link">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.4-1.1-.6-2.3-.6-3.5 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.4c0-.6-.4-1-1-1z"/></svg>
-                  <span><?= e($sitePhone) ?></span>
-                </a>
-              <?php endif; ?>
-            </div>
-          </li>
         </ul>
       </nav>
+      <div class="mobile-nav-backdrop" aria-hidden="true"></div>
 
       <!-- Header Action & Mobile Menu Toggle -->
       <div class="header-actions">
         <a href="<?= url('contact.php') ?>" class="btn btn-primary nav-cta">Book a Shoot</a>
-        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-controls="mainNav" aria-expanded="false">
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>

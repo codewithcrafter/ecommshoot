@@ -115,21 +115,89 @@ function asset_url(string $path): string {
  */
 function url(string $path = ''): string {
     $cleanPath = ltrim($path, '/');
+    // Public URLs use extensionless routes; router.php and .htaccess resolve them.
+    $cleanPath = preg_replace('/\.php$/i', '', $cleanPath);
     return BASE_URL . ($cleanPath ? '/' . $cleanPath : '');
 }
 
 /**
- * Global helper: Canonical blog HTML URL
+ * Global helper: Canonical blog HTML URL by slug or ID
  */
-function blog_url(int $id): string {
-    return url('blog/' . $id);
+function blog_url($idOrSlug): string {
+    static $slugMap = null;
+    if ($slugMap === null) {
+        $slugMap = [];
+        try {
+            $db = Database::getInstance()->getConnection();
+            $stmt = $db->query("SELECT id, slug FROM blogs");
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $slugMap[(int)$row['id']] = $row['slug'];
+                $slugMap[$row['slug']] = $row['slug'];
+            }
+        } catch (Exception $e) {}
+    }
+    if (is_numeric($idOrSlug) && isset($slugMap[(int)$idOrSlug])) {
+        return url('blog/' . $slugMap[(int)$idOrSlug]);
+    }
+    if (is_string($idOrSlug) && !empty($idOrSlug)) {
+        return url('blog/' . $idOrSlug);
+    }
+    return url('blog/' . $idOrSlug);
 }
 
 /**
- * Global helper: Canonical blog Markdown URL
+ * Global helper: Canonical blog Markdown URL by slug or ID
  */
-function blog_md_url(int $id): string {
-    return url('blog/' . $id . '.md');
+function blog_md_url($idOrSlug): string {
+    static $slugMap = null;
+    if ($slugMap === null) {
+        $slugMap = [];
+        try {
+            $db = Database::getInstance()->getConnection();
+            $stmt = $db->query("SELECT id, slug FROM blogs");
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $slugMap[(int)$row['id']] = $row['slug'];
+                $slugMap[$row['slug']] = $row['slug'];
+            }
+        } catch (Exception $e) {}
+    }
+    if (is_numeric($idOrSlug) && isset($slugMap[(int)$idOrSlug])) {
+        return url('blog/' . $slugMap[(int)$idOrSlug] . '.md');
+    }
+    if (is_string($idOrSlug) && !empty($idOrSlug)) {
+        return url('blog/' . $idOrSlug . '.md');
+    }
+    return url('blog/' . $idOrSlug . '.md');
+}
+
+/**
+ * Global helper: Canonical service URL
+ */
+function service_url(string $slugOrFile): string {
+    $slug = trim($slugOrFile);
+    $slug = preg_replace('/\.php$/i', '', $slug);
+    $slug = ltrim($slug, '/');
+    if (str_starts_with($slug, 'service/')) {
+        $slug = substr($slug, 8);
+    } elseif (str_starts_with($slug, 'services/')) {
+        $slug = substr($slug, 9);
+    }
+    return url('service/' . $slug);
+}
+
+/**
+ * Global helper: Extract author initials (e.g. "Marcus Vance" -> "MV")
+ */
+function get_author_initials(?string $name): string {
+    $trimmed = trim($name ?? '');
+    if ($trimmed === '') {
+        return 'ES';
+    }
+    $words = preg_split('/\s+/', $trimmed);
+    if (count($words) >= 2) {
+        return mb_strtoupper(mb_substr($words[0], 0, 1) . mb_substr($words[count($words) - 1], 0, 1));
+    }
+    return mb_strtoupper(mb_substr($trimmed, 0, 2));
 }
 
 /**

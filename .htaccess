@@ -3,31 +3,48 @@
 RewriteEngine On
 RewriteBase /
 
+# Canonical public URLs: redirect legacy .php requests before file checks.
+RewriteCond %{THE_REQUEST} \s/+index\.php[?\s] [NC]
+RewriteRule ^index\.php$ / [R=301,L]
+
+# Canonical redirect for discontinued enterprise service
+RewriteRule ^(?:services?/)?professional-product-photography(\.php)?$ /service/product-photography [R=301,L]
+
 # 1. Do not rewrite existing physical files or directories
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# 2. Direct ID-Based Blog Markdown Representation: /blog/12.md -> blog-markdown.php?id=12
-RewriteRule ^blog/([0-9]+)\.md$ blog-markdown.php?id=$1 [QSA,L]
+# 2. Service Detail Pages: /service/{slug} and /services/{slug}
+RewriteRule ^service/([a-z0-9-]+)/?$ $1.php [QSA,L,NC]
+RewriteRule ^services/([a-z0-9-]+)/?$ $1.php [QSA,L,NC]
 
-# 3. Direct ID-Based Blog HTML Representation: /blog/12 -> blog-detail.php?id=12
-RewriteRule ^blog/([0-9]+)/?$ blog-detail.php?id=$1 [QSA,L]
+# 3. Blog Markdown Representation: /blog/article-slug.md
+RewriteRule ^blog/([a-z0-9-]+)\.md$ blog-markdown.php?slug=$1 [QSA,L,NC]
 
-# 4. Blog Root: /blog or /blog/ -> blog.php
+# 4. Blog HTML by Slug: /blog/article-slug -> blog-detail.php?slug=article-slug
+RewriteRule ^blog/([a-z0-9-]+)/?$ blog-detail.php?slug=$1 [QSA,L,NC]
+
+# 5. Blog Root: /blog or /blog/ -> blog.php
 RewriteRule ^blog/?$ blog.php [QSA,L]
 
-# 5. Prevent direct browser access to /content/ directory files
+# 6. Services Root: /services or /services/ -> services.php
+RewriteRule ^services/?$ services.php [QSA,L]
+
+# Extensionless public routes, including form endpoints while preserving requests.
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+?)/?$ $1.php [QSA,L]
+
+# 7. Prevent direct browser access to /content/ directory files
 RewriteRule ^content/ - [F,L]
 
 </IfModule>
 
 # Custom Error Documents
-ErrorDocument 404 /index.php
+ErrorDocument 404 /
 
 # Security & Character Encoding Defaults
 AddDefaultCharset UTF-8
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
 </IfModule>
-
