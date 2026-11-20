@@ -34,8 +34,8 @@ if (preg_match('#^/(?:services?/)?professional-product-photography(\.php)?/?$#i'
     exit;
 }
 
-// 2. Canonicalize legacy public PHP URLs without changing POST endpoint behavior.
-if (preg_match('#^/(.+)\.php$#i', $uri, $legacyMatch) && in_array($_SERVER['REQUEST_METHOD'] ?? 'GET', ['GET', 'HEAD'], true)) {
+// 2. Canonicalize legacy public PHP URLs without changing POST endpoint behavior (exclude /admin).
+if (!preg_match('#^/admin(?:/|$)#i', $uri) && preg_match('#^/(.+)\.php$#i', $uri, $legacyMatch) && in_array($_SERVER['REQUEST_METHOD'] ?? 'GET', ['GET', 'HEAD'], true)) {
     $target = $legacyMatch[1];
     $query = parse_url($rawUri, PHP_URL_QUERY);
     $qStr = $query ? '?' . $query : '';

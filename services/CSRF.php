@@ -13,6 +13,10 @@ class CSRF {
         return $_SESSION[self::$sessionTokenKey];
     }
 
+    public static function token(): string {
+        return self::getToken();
+    }
+
     public static function validateToken(?string $token): bool {
         if (empty($token) || empty($_SESSION[self::$sessionTokenKey])) {
             return false;

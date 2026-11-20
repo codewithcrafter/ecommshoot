@@ -21,6 +21,29 @@
   --admin-warning: #F59E0B;
 }
 
+.admin-body *,
+.admin-login-body * {
+  box-sizing: border-box;
+}
+
+.admin-body h1, .admin-body h2, .admin-body h3, .admin-body h4, .admin-body h5, .admin-body h6,
+.admin-login-body h1, .admin-login-body h2, .admin-login-body h3, .admin-login-body h4, .admin-login-body h5, .admin-login-body h6 {
+  color: var(--admin-text-main);
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+  font-weight: 700;
+}
+
+.admin-body input,
+.admin-body select,
+.admin-body textarea,
+.admin-login-body input,
+.admin-login-body select,
+.admin-login-body textarea {
+  color: #0F172A !important;
+  background-color: #FFFFFF !important;
+  font-family: 'DM Sans', -apple-system, sans-serif;
+}
+
 body.admin-body {
   background-color: var(--admin-bg);
   color: var(--admin-text-main);
@@ -349,6 +372,43 @@ body.admin-body {
   background-color: #F1F5F9;
 }
 
+/* Alerts & Flash Notifications */
+.alert {
+  padding: 0.85rem 1.15rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.alert-success {
+  background-color: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  color: #065F46;
+}
+
+.alert-error {
+  background-color: #FEF2F2;
+  border: 1px solid #FECACA;
+  color: #991B1B;
+}
+
+.alert-warning {
+  background-color: #FFFBEB;
+  border: 1px solid #FDE68A;
+  color: #92400E;
+}
+
+.alert-info {
+  background-color: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  color: #1E40AF;
+}
+
 /* Forms in Admin */
 .admin-form-group {
   margin-bottom: 1.25rem;
@@ -364,17 +424,142 @@ body.admin-body {
 
 .admin-form-control {
   width: 100%;
-  padding: 0.65rem 0.85rem;
+  box-sizing: border-box;
+  padding: 0.7rem 0.95rem;
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
   border: 1px solid var(--admin-border);
-  border-radius: 6px;
+  border-radius: 8px;
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.admin-form-control::placeholder {
+  color: #94A3B8 !important;
 }
 
 .admin-form-control:focus {
   outline: none;
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
   border-color: var(--admin-primary);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+/* Dedicated Admin Login View */
+body.admin-login-body {
+  background: #0F172A radial-gradient(circle at top right, rgba(37, 99, 235, 0.12), transparent 45%),
+              radial-gradient(circle at bottom left, rgba(249, 115, 22, 0.08), transparent 45%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  margin: 0;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #0F172A;
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: 440px;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  padding: 2.75rem 2.25rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.admin-login-brand {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.admin-login-logo {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+
+.admin-login-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0F172A !important;
+  margin: 0 0 0.4rem 0;
+  letter-spacing: -0.02em;
+}
+
+.admin-login-subtitle {
+  font-size: 0.88rem;
+  color: #64748B !important;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.admin-login-btn {
+  width: 100%;
+  padding: 0.8rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background-color: var(--admin-primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.15s ease-in-out;
+  margin-top: 0.75rem;
+}
+
+.admin-login-btn:hover {
+  background-color: var(--admin-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.admin-login-demo-box {
+  margin-top: 2rem;
+  padding: 1.15rem;
+  background-color: #F8FAFC;
+  border: 1px dashed #CBD5E1;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.admin-login-demo-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: #64748B;
+  margin-bottom: 0.35rem;
+}
+
+.admin-login-demo-creds {
+  font-size: 0.84rem;
+  color: #1E293B;
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  font-weight: 600;
+}
+
+.admin-login-back-link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--admin-primary);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.admin-login-back-link:hover {
+  color: var(--admin-primary-hover);
+  text-decoration: underline;
 }
 
 /* Markdown Split-Pane Editor */

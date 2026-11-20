@@ -48,28 +48,31 @@ if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
 if ($isLocalDev) {
     // Local Development (XAMPP / PHP built-in server)
     define('DB_HOST', '127.0.0.1');
-    define('DB_PORT', '3307');
-    define('DB_NAME', 'ecommshoot');
+    define('DB_PORT', '3306');
+    define('DB_NAME', 'ecomshoot_db');
     define('DB_USER', 'root');
     define('DB_PASS', '');
     define('DB_CHARSET', 'utf8mb4');
 } else {
     // Production (Hostinger - ecommshoots.in)
-    define('DB_HOST', 'localhost');
+    define('DB_HOST', 'srv1328.hstgr.io');
     define('DB_PORT', '3306');
     define('DB_NAME', 'u555726154_ecommshoot');
     define('DB_USER', 'u555726154_ecommshootuser');
-    define('DB_PASS', 'PUT_YOUR_HOSTINGER_DB_PASSWORD_HERE'); // <--- ENTER YOUR HOSTINGER DATABASE PASSWORD HERE
+    define('DB_PASS', 'Ecomm@2026#');
     define('DB_CHARSET', 'utf8mb4');
 }
 
-// Base URL calculation (supports built-in php server and custom subdirectories)
+// Base URL calculation (supports built-in php server, SSL proxies, and custom subdirectories)
 if (php_sapi_name() === 'cli') {
     $scheme = 'http';
     $host = '127.0.0.1:8000';
     $basePath = '';
 } else {
-    $scheme = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http';
+    $isHttps = (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] === 'on' || $_SERVER['HTTPS'] == 1)) ||
+               (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https') ||
+               (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443);
+    $scheme = $isHttps ? 'https' : 'http';
     $host = $_SERVER['HTTP_HOST'] ?? 'localhost:8000';
     $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
     $basePath = ($scriptDir === '/' || $scriptDir === '\\') ? '' : rtrim($scriptDir, '/');

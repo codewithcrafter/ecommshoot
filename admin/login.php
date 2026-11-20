@@ -40,32 +40,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="<?= asset_url('assets/css/style.css') ?>">
   <link rel="stylesheet" href="<?= asset_url('assets/css/admin.css') ?>">
 </head>
-<body style="background-color: #0F172A; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem;">
+<body class="admin-login-body">
 
-  <div style="width: 100%; max-width: 440px; background-color: #FFFFFF; border-radius: 16px; padding: 2.75rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);">
+  <div class="admin-login-card">
     
-    <div style="text-align: center; margin-bottom: 2rem;">
-      <a href="<?= url('') ?>">
-        <img src="<?= asset_url('assets/images/logo.svg') ?>" alt="Ecomshoot" width="160" height="42" style="margin: 0 auto 1.25rem auto;">
+    <div class="admin-login-brand">
+      <a href="<?= url('') ?>" class="admin-login-logo">
+        <img src="<?= asset_url('assets/images/logo.svg') ?>" alt="Ecomshoot" width="168" height="44">
       </a>
-      <h1 style="font-size: 1.5rem; margin-bottom: 0.35rem;">Studio Staff Portal</h1>
-      <p style="font-size: 0.88rem; color: var(--admin-text-muted); margin: 0;">Sign in to access CMS &amp; Production Management</p>
+      <h1 class="admin-login-title">Studio Staff Portal</h1>
+      <p class="admin-login-subtitle">Sign in to access CMS &amp; Production Management</p>
     </div>
 
     <?php $flash = get_flash(); if ($flash): ?>
       <div class="alert alert-<?= ($flash['type'] === 'error') ? 'error' : 'success' ?>">
-        <?= e($flash['message']) ?>
+        <span><?= ($flash['type'] === 'error') ? '⚠️' : '✓' ?></span>
+        <span><?= e($flash['message']) ?></span>
       </div>
     <?php endif; ?>
 
     <?php if ($error): ?>
       <div class="alert alert-error">
-        <?= e($error) ?>
+        <span>⚠️</span>
+        <span><?= e($error) ?></span>
       </div>
     <?php endif; ?>
 
@@ -74,25 +75,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       <div class="admin-form-group">
         <label for="email" class="admin-form-label">Email Address</label>
-        <input type="email" id="email" name="email" value="<?= e($emailInput ?: 'admin@ecomshoot.com') ?>" class="admin-form-control" required autofocus>
+        <input type="email" id="email" name="email" value="<?= e($emailInput ?: 'admin@ecomshoot.com') ?>" class="admin-form-control" placeholder="admin@ecomshoot.com" required autofocus>
       </div>
 
       <div class="admin-form-group">
         <label for="password" class="admin-form-label">Password</label>
-        <input type="password" id="password" name="password" value="Admin@Ecomshoot2026!" class="admin-form-control" required>
+        <input type="password" id="password" name="password" value="Admin@Ecomshoot2026!" class="admin-form-control" placeholder="••••••••••••" required>
       </div>
 
-      <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; justify-content: center;">
-        Sign In to Portal &rarr;
+      <button type="submit" class="admin-login-btn">
+        <span>Sign In to Portal</span>
+        <span>&rarr;</span>
       </button>
     </form>
 
-    <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--admin-border); text-align: center;">
-      <div style="font-size: 0.8rem; color: var(--admin-text-muted); margin-bottom: 0.5rem;">
-        Demo Credentials:<br>
-        <strong>admin@ecomshoot.com</strong> / <strong>Admin@Ecomshoot2026!</strong>
+    <div class="admin-login-demo-box">
+      <div class="admin-login-demo-label">Demo Staff Credentials</div>
+      <div class="admin-login-demo-creds">
+        admin@ecomshoot.com &bull; Admin@Ecomshoot2026!
       </div>
-      <a href="<?= url('') ?>" style="font-size: 0.85rem; font-weight: 600; color: var(--admin-primary);">&larr; Return to Live Website</a>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="<?= url('') ?>" class="admin-login-back-link">&larr; Return to Live Website</a>
     </div>
 
   </div>

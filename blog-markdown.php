@@ -42,10 +42,11 @@ if ($blog['status'] !== 'published') {
 }
 
 // Retrieve markdown content from /content/blogs/{id}.md or generate dynamically
-$markdown = MarkdownGenerator::getFileContent($id);
+$blogId = (int) $blog['id'];
+$markdown = MarkdownGenerator::getFileContent($blogId);
 if ($markdown === null) {
-    if (MarkdownGenerator::generate($id)) {
-        $markdown = MarkdownGenerator::getFileContent($id);
+    if (MarkdownGenerator::generate($blogId)) {
+        $markdown = MarkdownGenerator::getFileContent($blogId);
     }
 }
 
