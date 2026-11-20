@@ -134,7 +134,7 @@ $formIdPrefix = preg_replace('/[^a-z0-9_-]+/i', '-', $service['slug']);
           <a href="#process" class="btn btn-outline-white"><?= e($copy('hero_secondary_cta', 'Review Production Process ↓')) ?></a>
         </div>
       </div>
-      <div class="services-enquiry-card">
+      <div class="services-enquiry-card luxury-card studio-reveal">
         <div class="enquiry-card-header">
           <span class="enquiry-card-badge">Instant Studio Estimate</span>
           <h3 class="enquiry-card-title">Book This Service</h3>
@@ -172,7 +172,7 @@ $formIdPrefix = preg_replace('/[^a-z0-9_-]+/i', '-', $service['slug']);
             <label class="form-label" for="<?= e($formIdPrefix) ?>_message">Project Requirements / Message</label>
             <textarea class="form-control" id="<?= e($formIdPrefix) ?>_message" name="message" rows="3" placeholder="e.g. We need 50 product images for our Amazon listings..." required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary services-submit-btn">Submit Enquiry</button>
+          <button type="submit" class="btn btn-primary services-submit-btn btn-studio-primary">Submit Enquiry</button>
         </form>
       </div>
     </div>

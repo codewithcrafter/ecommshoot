@@ -140,12 +140,12 @@ if (!empty($blog['schemas_json'])) {
 }
 
 // Fetch Previous Article
-$prevStmt = $db->prepare("SELECT id, title FROM blogs WHERE id < :id AND status = 'published' ORDER BY id DESC LIMIT 1");
+$prevStmt = $db->prepare("SELECT id, slug, title FROM blogs WHERE id < :id AND status = 'published' ORDER BY id DESC LIMIT 1");
 $prevStmt->execute(['id' => $blog['id']]);
 $prevArticle = $prevStmt->fetch(PDO::FETCH_ASSOC);
 
 // Fetch Next Article
-$nextStmt = $db->prepare("SELECT id, title FROM blogs WHERE id > :id AND status = 'published' ORDER BY id ASC LIMIT 1");
+$nextStmt = $db->prepare("SELECT id, slug, title FROM blogs WHERE id > :id AND status = 'published' ORDER BY id ASC LIMIT 1");
 $nextStmt->execute(['id' => $blog['id']]);
 $nextArticle = $nextStmt->fetch(PDO::FETCH_ASSOC);
 
@@ -180,6 +180,23 @@ $renderedContent = preg_replace_callback('/<h([2-3])([^>]*)>(.*?)<\/h\1>/i', fun
     ];
     return "<h{$level}{$attrs} id=\"{$anchorId}\">{$matches[3]}</h{$level}>";
 }, $rawHtml);
+
+// Fetch services for sidebar booking form
+try {
+  $servicesForForm = $db->query("SELECT title FROM services WHERE status = 'published' ORDER BY display_order ASC")->fetchAll(PDO::FETCH_COLUMN);
+} catch (Exception $e) { $servicesForForm = []; }
+if (empty($servicesForForm)) {
+  $servicesForForm = [
+    'Amazon & E-Commerce Photography',
+    'Product Photography',
+    'Lifestyle & In-Context',
+    'Fashion & Apparel',
+    'Creative & Advertising',
+    'Macro Jewellery',
+    'Photo Retouching',
+    'White Background Packshots'
+  ];
+}
 
 require_once INCLUDES_PATH . '/header.php';
 ?>
@@ -422,7 +439,58 @@ require_once INCLUDES_PATH . '/header.php';
       </div>
 
       <!-- Sticky Editorial Sidebar (~28% Column on Desktop) -->
-      <aside class="article-sidebar-sticky blog-sidebar-col" aria-label="Table of Contents">
+      <aside class="article-sidebar-sticky blog-sidebar-col" aria-label="Table of Contents &amp; Booking">
+
+        <!-- Sidebar Studio Booking / Enquiry Form (Sticky) -->
+        <div class="article-widget blog-sidebar-booking-card luxury-card" style="padding: 1.25rem 1.35rem !important;">
+          <div class="enquiry-card-header" style="text-align: center; margin-bottom: 0.95rem;">
+            <div style="display: flex; justify-content: center; margin-bottom: 0.5rem;">
+              <span class="enquiry-card-badge" style="display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #FF704F; background: rgba(255, 112, 79, 0.12); border: 1px solid rgba(255, 112, 79, 0.35); border-radius: 999px; padding: 0.25rem 0.85rem;">INSTANT STUDIO ESTIMATE</span>
+            </div>
+            <h3 class="enquiry-card-title" style="color: #FFFFFF; font-size: 1.5rem; font-weight: 800; margin: 0 0 0.75rem 0; letter-spacing: -0.02em;">Book a Photoshoot</h3>
+            <div style="height: 1px; background: rgba(255, 255, 255, 0.08); width: 100%;"></div>
+          </div>
+          <form action="<?= url('submit-lead.php') ?>" method="POST" class="blog-sidebar-form">
+            <?= CSRF::inputField() ?>
+            <input type="hidden" name="source_page_url" value="blog/<?= e($blog['slug']) ?>">
+            <input type="hidden" name="source_page_title" value="<?= e($blog['title']) ?>">
+            <input type="hidden" name="source_page_type" value="blog_detail_sidebar">
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.7rem;">
+              <div class="form-group" style="margin: 0; min-width: 0;">
+                <label for="blog_side_name" style="display: block; color: #FFFFFF; font-size: 0.78rem; font-weight: 600; margin-bottom: 0.3rem;">Full Name <span style="color: #FF704F;">*</span></label>
+                <input class="form-control" id="blog_side_name" name="full_name" type="text" placeholder="e.g. Rahul Sharma" required style="width: 100%; height: 40px; background: #0c0913; border: 1px solid #36284b; color: #FFFFFF; border-radius: 9px; padding: 0.45rem 0.65rem; font-size: 0.8rem; box-sizing: border-box;">
+              </div>
+              <div class="form-group" style="margin: 0; min-width: 0;">
+                <label for="blog_side_email" style="display: block; color: #FFFFFF; font-size: 0.78rem; font-weight: 600; margin-bottom: 0.3rem;">Email Address <span style="color: #FF704F;">*</span></label>
+                <input class="form-control" id="blog_side_email" name="email" type="email" placeholder="e.g. rahul@company.com" required style="width: 100%; height: 40px; background: #0c0913; border: 1px solid #36284b; color: #FFFFFF; border-radius: 9px; padding: 0.45rem 0.65rem; font-size: 0.8rem; box-sizing: border-box;">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.7rem;">
+              <div class="form-group" style="margin: 0; min-width: 0;">
+                <label for="blog_side_mobile" style="display: block; color: #FFFFFF; font-size: 0.78rem; font-weight: 600; margin-bottom: 0.3rem;">Contact Number</label>
+                <input class="form-control" id="blog_side_mobile" name="mobile" type="tel" placeholder="e.g. 9876543210" required style="width: 100%; height: 40px; background: #0c0913; border: 1px solid #36284b; color: #FFFFFF; border-radius: 9px; padding: 0.45rem 0.65rem; font-size: 0.8rem; box-sizing: border-box;">
+              </div>
+              <div class="form-group" style="margin: 0; min-width: 0;">
+                <label for="blog_side_service" style="display: block; color: #FFFFFF; font-size: 0.78rem; font-weight: 600; margin-bottom: 0.3rem;">Service Required</label>
+                <select class="form-control form-select" id="blog_side_service" name="lead_source" required style="width: 100%; height: 40px; background: #0c0913; border: 1px solid #36284b; color: #FFFFFF; border-radius: 9px; padding: 0.45rem 0.65rem; font-size: 0.8rem; box-sizing: border-box; cursor: pointer;">
+                  <option value="" style="background: #171120; color: #B8ADCA;">Select service</option>
+                  <?php foreach ($servicesForForm as $sTitle): ?>
+                    <option value="<?= e($sTitle) ?>" style="background: #171120; color: #FFFFFF;"><?= e($sTitle) ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0.85rem;">
+              <label for="blog_side_message" style="display: block; color: #FFFFFF; font-size: 0.78rem; font-weight: 600; margin-bottom: 0.3rem;">Project Requirements / Message</label>
+              <textarea class="form-control" id="blog_side_message" name="message" rows="2" placeholder="e.g. We need 50 product images for our Amazon listings..." required style="width: 100%; min-height: 64px; background: #0c0913; border: 1px solid #36284b; color: #FFFFFF; border-radius: 9px; padding: 0.5rem 0.65rem; font-size: 0.8rem; box-sizing: border-box; resize: vertical;"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary services-submit-btn btn-studio-primary" style="display: block; width: 100%; height: 44px; font-size: 0.95rem; font-weight: 700; border-radius: 10px; background: #7847D4; border: none; color: #FFFFFF; box-shadow: 0 4px 18px rgba(120, 71, 212, 0.4); cursor: pointer; transition: all 0.25s ease;">Submit Enquiry</button>
+          </form>
+        </div>
 
         <!-- Table of Contents Widget (Desktop Sticky) -->
         <?php if (!empty($tocItems)): ?>
@@ -462,7 +530,7 @@ require_once INCLUDES_PATH . '/header.php';
 
 <!-- 5. Related Articles Section -->
 <?php if (!empty($relatedBlogs)): ?>
-  <section class="section" style="background-color: var(--color-cream-light); border-top: 1px solid var(--color-border); padding: clamp(3.5rem, 5vw, 5.5rem) 0;">
+  <section class="section blog-related-section" style="background-color: #17131F; border-top: 1px solid #3A3047; padding: clamp(3.5rem, 5vw, 5.5rem) 0;">
     <div class="blog-fullwidth-wrap">
       <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
         <div>

@@ -42,12 +42,12 @@ $serviceDirectoryCopy = [
     <div class="services-hero-grid">
       <div class="page-header-content">
         <span class="badge badge-orange">Studio Capabilities</span>
-        <h1 class="page-header-title">Product Photography Services in Delhi Engineered for E-Commerce Success</h1>
+        <h1 class="page-header-title services-hero-title"><span>Product Photography</span><span>Services in Delhi</span><span>Engineered for</span><span class="font-editorial shimmer-coral">E-Commerce Success</span></h1>
         <p class="page-header-sub">
           We offer 8 specialized product photography services in Delhi to help boost your sales. From Amazon white background packshots and lifestyle shoots to macro fine jewellery photography, we have you covered. Whether you need one main product shot or bulk product photography for thousands of SKUs, you will find the right fit below.
         </p>
       </div>
-      <div class="services-enquiry-card">
+      <div class="services-enquiry-card luxury-card studio-reveal">
         <div class="enquiry-card-header">
           <span class="enquiry-card-badge">Instant Studio Estimate</span>
           <h3 class="enquiry-card-title">Book a Photoshoot</h3>
@@ -85,7 +85,7 @@ $serviceDirectoryCopy = [
             <label class="form-label" for="services_message">Project Requirements / Message</label>
             <textarea class="form-control" id="services_message" name="message" rows="3" placeholder="e.g. We need 50 product images for our Amazon listings..." required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary services-submit-btn">Submit Enquiry</button>
+          <button type="submit" class="btn btn-primary services-submit-btn btn-studio-primary">Submit Enquiry</button>
         </form>
       </div>
     </div>
@@ -99,7 +99,7 @@ $serviceDirectoryCopy = [
       <?php foreach ($services as $idx => $svc): 
         $isFeatured = ($idx < 2);
       ?>
-        <article class="service-editorial-card <?= $isFeatured ? 'card-featured' : '' ?>">
+        <article class="service-editorial-card luxury-card studio-reveal <?= $isFeatured ? 'card-featured' : '' ?>">
           <div class="card-media-wrapper">
             <img src="<?= asset_url($svc['featured_image'] ?: 'assets/images/services/' . $svc['slug'] . '.jpg') ?>" 
                  alt="<?= e($svc['title']) ?> commercial photography sample" 
@@ -142,43 +142,75 @@ $serviceDirectoryCopy = [
       <div class="header-tagline">
         <span class="badge badge-indigo">CHOOSING THE RIGHT STYLE</span>
       </div>
-      <h2 class="section-title-editorial">Choosing the Right Photography Style for Your Campaign</h2>
+      <h2 class="section-title-editorial">Choosing the Right Photography Style for <span class="font-editorial shimmer-coral">Your Campaign</span></h2>
       <p class="section-sub-editorial">
         Depending on your digital requirements, here are the differences between our three key styles. Select the right product photography services for your needs.
       </p>
     </div>
 
-    <div class="table-responsive" style="overflow-x: auto; background-color: #FFFFFF; border-radius: var(--radius-lg); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
-      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
-        <thead>
-          <tr style="background-color: var(--color-indigo); color: #FFFFFF; font-family: var(--font-heading);">
-            <th style="padding: 1.25rem 1.5rem;">Service Type</th>
-            <th style="padding: 1.25rem 1.5rem;">Main Channel</th>
-            <th style="padding: 1.25rem 1.5rem;">Purpose</th>
-            <th style="padding: 1.25rem 1.5rem;">Typical Output</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom: 1px solid var(--color-border);">
-            <td style="padding: 1.25rem 1.5rem; font-weight: 700; color: var(--color-text-main);">White Background Packshots</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Amazon Main, Google Shopping, Shopify grid</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Ensure your product is compliant, distraction-free and easy to recognise</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Square 3000x3000px, pure white (RGB 255), soft contact shadow</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-border); background-color: var(--color-bg-warm);">
-            <td style="padding: 1.25rem 1.5rem; font-weight: 700; color: var(--color-text-main);">Lifestyle &amp; In-Context</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Meta/Instagram, homepage hero, Amazon A+ Content</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Connect with customers emotionally, create aspirational content and show scale</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Styled sets, hand models and props</td>
-          </tr>
-          <tr>
-            <td style="padding: 1.25rem 1.5rem; font-weight: 700; color: var(--color-text-main);">Creative &amp; Advertising</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Social media ads, hoardings, press launches and packaging</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Catch people’s attention and create category leadership</td>
-            <td style="padding: 1.25rem 1.5rem; color: var(--color-text-muted);">Splash, levitation and dramatic shadows</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="services-style-cards-grid">
+      <div class="services-style-card luxury-card studio-reveal">
+        <div class="style-card-header">
+          <span class="style-card-tag">Service Type</span>
+          <h3 class="style-card-title">White Background Packshots</h3>
+        </div>
+        <div class="style-card-body">
+          <div class="style-card-field">
+            <span class="field-label">Main Channel</span>
+            <p class="field-value">Amazon Main, Google Shopping, Shopify grid</p>
+          </div>
+          <div class="style-card-field">
+            <span class="field-label">Purpose</span>
+            <p class="field-value">Ensure your product is compliant, distraction-free and easy to recognise</p>
+          </div>
+          <div class="style-card-field">
+            <span class="field-label">Typical Output</span>
+            <p class="field-value">Square 3000x3000px, pure white (RGB 255), soft contact shadow</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="services-style-card luxury-card studio-reveal">
+        <div class="style-card-header">
+          <span class="style-card-tag">Service Type</span>
+          <h3 class="style-card-title">Lifestyle &amp; In-Context</h3>
+        </div>
+        <div class="style-card-body">
+          <div class="style-card-field">
+            <span class="field-label">Main Channel</span>
+            <p class="field-value">Meta/Instagram, homepage hero, Amazon A+ Content</p>
+          </div>
+          <div class="style-card-field">
+            <span class="field-label">Purpose</span>
+            <p class="field-value">Connect with customers emotionally, create aspirational content and show scale</p>
+          </div>
+          <div class="style-card-field">
+            <span class="field-label">Typical Output</span>
+            <p class="field-value">Styled sets, hand models and props</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="services-style-card luxury-card studio-reveal">
+        <div class="style-card-header">
+          <span class="style-card-tag">Service Type</span>
+          <h3 class="style-card-title">Creative &amp; Advertising</h3>
+        </div>
+        <div class="style-card-body">
+          <div class="style-card-field">
+            <span class="field-label">Main Channel</span>
+            <p class="field-value">Social media ads, hoardings, press launches and packaging</p>
+          </div>
+          <div class="style-card-field">
+            <span class="field-label">Purpose</span>
+            <p class="field-value">Catch people’s attention and create category leadership</p>
+          </div>
+          <div class="style-card-field">
+            <span class="field-label">Typical Output</span>
+            <p class="field-value">Splash, levitation and dramatic shadows</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -84,11 +84,10 @@ require_once INCLUDES_PATH . '/header.php';
     <div class="blog-hero-split">
       <div class="blog-hero-text">
         <div class="blog-hero-tagline">
-          <span class="badge badge-orange">Studio Intelligence</span>
-          <span class="badge badge-indigo">Commercial Perspectives</span>
+          <span class="badge badge-indigo">Studio Intelligence &amp; Commercial Perspectives</span>
         </div>
         <h1 class="blog-hero-title">
-          Commercial Photography Intelligence &amp; Visual Strategy
+          Commercial Photography Intelligence &amp; <span class="highlight-creative font-editorial shimmer-coral">Visual Strategy</span>
         </h1>
         <p class="blog-hero-lead">
           In-depth technical guides, lighting masterclasses, Amazon compliance blueprints, and art direction frameworks engineered by our senior commercial studio leads.
@@ -151,13 +150,15 @@ require_once INCLUDES_PATH . '/header.php';
 
       <!-- Prominent Featured Article Spotlight -->
       <?php if ($featuredBlog): ?>
-        <article class="blog-featured-article">
+        <article class="blog-featured-article luxury-card studio-reveal">
           <div class="blog-featured-media">
-            <img src="<?= asset_url($featuredBlog['featured_image'] ?: 'assets/images/portfolio/portfolio-1.jpg') ?>" 
-                 alt="<?= e($featuredBlog['featured_image_alt'] ?: $featuredBlog['title']) ?>" 
-                 width="800" 
-                 height="500" 
-                 loading="eager">
+            <a href="<?= blog_url($featuredBlog['slug']) ?>" tabindex="-1" aria-hidden="true">
+              <img src="<?= asset_url($featuredBlog['featured_image'] ?: 'assets/images/portfolio/portfolio-1.jpg') ?>" 
+                   alt="<?= e($featuredBlog['featured_image_alt'] ?: $featuredBlog['title']) ?>" 
+                   width="800" 
+                   height="500" 
+                   loading="eager">
+            </a>
             <span class="blog-featured-badge">
               Featured &bull; <?= e($featuredBlog['category_name'] ?: 'Strategy') ?>
             </span>
@@ -188,7 +189,7 @@ require_once INCLUDES_PATH . '/header.php';
                 </div>
               </div>
 
-              <a href="<?= blog_url($featuredBlog['slug']) ?>" class="btn btn-primary blog-featured-cta">
+              <a href="<?= blog_url($featuredBlog['slug']) ?>" class="btn btn-primary blog-featured-cta btn-studio-primary">
                 <span>Read Full Guide</span>
                 <span class="arrow">&rarr;</span>
               </a>
@@ -214,7 +215,7 @@ require_once INCLUDES_PATH . '/header.php';
       <!-- Responsive Multi-Column Blog Card Grid (OrderPrintex Reference) -->
       <div class="blog-posts-grid">
         <?php foreach ($gridBlogs as $b): ?>
-          <article class="blog-card">
+          <article class="blog-card luxury-card studio-reveal">
             <div class="blog-card-media">
               <a href="<?= blog_url($b['slug']) ?>" tabindex="-1" aria-hidden="true">
                 <img src="<?= asset_url($b['featured_image'] ?: 'assets/images/portfolio/portfolio-1.jpg') ?>"
@@ -247,7 +248,7 @@ require_once INCLUDES_PATH . '/header.php';
                 </div>
                 <div class="blog-card-actions">
                   <a href="<?= blog_url($b['slug']) ?>" class="blog-card-link">
-                    <span>Read Full Article</span> <span class="arrow">&rarr;</span>
+                    <span>Read Article</span> <span class="arrow">&rarr;</span>
                   </a>
                 </div>
               </div>
@@ -283,16 +284,16 @@ require_once INCLUDES_PATH . '/header.php';
 <!-- 5. Editorial Newsletter / Studio Shoot Consultation CTA -->
 <section class="section section-editorial-consultation">
   <div class="blog-fullwidth-wrap">
-    <div class="editorial-consultation-card">
+    <div class="editorial-consultation-card luxury-card studio-reveal">
       <span class="badge badge-editorial-consultation">Direct Studio Consultation</span>
       <h2 class="editorial-consultation-title">
-        Need Custom Technical Art Direction for Your Next Commercial Product Campaign?
+        Need Custom Technical Art Direction for Your Next <span class="highlight-creative font-editorial shimmer-coral">Commercial Product Campaign</span>?
       </h2>
       <p class="editorial-consultation-desc">
         Discuss your SKU count, lighting mood boards, and marketplace compliance needs directly with our New York studio production directors.
       </p>
       <div class="editorial-consultation-actions">
-        <a href="<?= url('contact.php') ?>" class="btn btn-primary btn-lg">
+        <a href="<?= url('contact.php') ?>" class="btn btn-primary btn-lg btn-studio-primary">
           Book Studio Estimate
         </a>
         <a href="<?= url('services.php') ?>" class="btn btn-secondary btn-lg cta-btn-secondary">
@@ -303,4 +304,7 @@ require_once INCLUDES_PATH . '/header.php';
   </div>
 </section>
 
-<?php require_once INCLUDES_PATH . '/footer.php'; ?>
+<?php 
+$hidePreFooterCTA = true;
+require_once INCLUDES_PATH . '/footer.php'; 
+?>

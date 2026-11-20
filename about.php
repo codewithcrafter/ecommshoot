@@ -16,7 +16,7 @@ require_once INCLUDES_PATH . '/header.php';
   <div class="container">
     <div class="page-header-content">
       <span class="badge badge-orange">Our Studio Heritage</span>
-      <h1 class="page-header-title">The Commercial Photography Studio Engineered for Modern Digital Commerce</h1>
+      <h1 class="page-header-title">The Commercial Photography Studio <span class="font-editorial shimmer-coral">Engineered for Modern Digital Commerce</span></h1>
       <p class="page-header-sub">
         We bridge commercial fine art aesthetics with high-throughput marketplace conversion science to deliver visual assets that sell.
       </p>
@@ -66,14 +66,14 @@ require_once INCLUDES_PATH . '/header.php';
       <div class="header-tagline">
         <span class="badge badge-lavender">Technical Excellence</span>
       </div>
-      <h2 class="section-title-editorial">Hardware &amp; Studio Capabilities</h2>
+      <h2 class="section-title-editorial">Hardware &amp; <span class="font-editorial shimmer-purple">Studio Capabilities</span></h2>
       <p class="section-sub-editorial">
         We invest relentlessly in medium format optics, calibrated power packs, and specialized staging rigs to deliver pristine clarity.
       </p>
     </div>
 
     <div class="editorial-pillars-grid">
-      <div class="editorial-pillar-card">
+      <div class="editorial-pillar-card luxury-card studio-reveal">
         <div class="pillar-top">
           <div class="pillar-icon-box blue">📸</div>
           <span class="pillar-index">OPTICS</span>
@@ -82,7 +82,7 @@ require_once INCLUDES_PATH . '/header.php';
         <p class="pillar-copy">Phase One IQ4 150MP digital systems and Schneider Kreuznach leaf shutter lenses resolving fine micro-textures down to single textile threads.</p>
       </div>
 
-      <div class="editorial-pillar-card">
+      <div class="editorial-pillar-card luxury-card studio-reveal">
         <div class="pillar-top">
           <div class="pillar-icon-box coral">💡</div>
           <span class="pillar-index">LIGHT</span>
@@ -91,7 +91,7 @@ require_once INCLUDES_PATH . '/header.php';
         <p class="pillar-copy">Broncolor Scoro power packs with 1/10,000s flash duration to freeze kinetic liquid splashes and guarantee constant 5600K color consistency.</p>
       </div>
 
-      <div class="editorial-pillar-card">
+      <div class="editorial-pillar-card luxury-card studio-reveal">
         <div class="pillar-top">
           <div class="pillar-icon-box lavender">⚙️</div>
           <span class="pillar-index">RIGS</span>
@@ -100,7 +100,7 @@ require_once INCLUDES_PATH . '/header.php';
         <p class="pillar-copy">Automated 20-micron focus rails for 60-slice jewellery focus-stacking composites and seamless 360-degree interactive product spin tables.</p>
       </div>
 
-      <div class="editorial-pillar-card">
+      <div class="editorial-pillar-card luxury-card studio-reveal">
         <div class="pillar-top">
           <div class="pillar-icon-box yellow">🖥️</div>
           <span class="pillar-index">COLOR</span>
@@ -117,16 +117,16 @@ require_once INCLUDES_PATH . '/header.php';
   <div class="container">
     <div class="section-editorial-header">
       <div class="header-tagline"><span class="badge badge-orange">Studio Toolkit</span></div>
-      <h2 class="section-title-editorial">Our Tools &amp; Technology</h2>
+      <h2 class="section-title-editorial">Our Tools &amp; <span class="font-editorial shimmer-purple">Technology</span></h2>
       <p class="section-sub-editorial">Verified capture, lighting, retouching and calibration tools used across our studio workflow.</p>
     </div>
     <div class="about-tools-grid">
-      <article class="about-tool-card"><span>◉</span><h3>Photography Cameras &amp; Lenses</h3><p>Phase One IQ4 150MP systems and Schneider Kreuznach leaf shutter lenses.</p></article>
-      <article class="about-tool-card"><span>✦</span><h3>Studio Lighting Equipment</h3><p>Broncolor Scoro power packs and calibrated strobe workflows.</p></article>
-      <article class="about-tool-card"><span>✎</span><h3>Photo Editing &amp; Retouching</h3><p>Photoshop Pen Tool workflows, frequency separation and hand-finished retouching.</p></article>
-      <article class="about-tool-card"><span>◌</span><h3>Color Correction &amp; Calibration</h3><p>EIZO ColorEdge monitors, spectrophotometer audits and custom ICC profiles.</p></article>
-      <article class="about-tool-card"><span>⌁</span><h3>Product Styling &amp; Studio Equipment</h3><p>Motorized indexing rails, specialized staging rigs and calibrated proofing.</p></article>
-      <article class="about-tool-card"><span>↗</span><h3>E-commerce Image Optimization</h3><p>Marketplace-ready exports for Amazon, Shopify Plus and omnichannel retail.</p></article>
+      <article class="about-tool-card luxury-card studio-reveal"><span>◉</span><h3>Photography Cameras &amp; Lenses</h3><p>Phase One IQ4 150MP systems and Schneider Kreuznach leaf shutter lenses.</p></article>
+      <article class="about-tool-card luxury-card studio-reveal"><span>✦</span><h3>Studio Lighting Equipment</h3><p>Broncolor Scoro power packs and calibrated strobe workflows.</p></article>
+      <article class="about-tool-card luxury-card studio-reveal"><span>✎</span><h3>Photo Editing &amp; Retouching</h3><p>Photoshop Pen Tool workflows, frequency separation and hand-finished retouching.</p></article>
+      <article class="about-tool-card luxury-card studio-reveal"><span>◌</span><h3>Color Correction &amp; Calibration</h3><p>EIZO ColorEdge monitors, spectrophotometer audits and custom ICC profiles.</p></article>
+      <article class="about-tool-card luxury-card studio-reveal"><span>⌁</span><h3>Product Styling &amp; Studio Equipment</h3><p>Motorized indexing rails, specialized staging rigs and calibrated proofing.</p></article>
+      <article class="about-tool-card luxury-card studio-reveal"><span>↗</span><h3>E-commerce Image Optimization</h3><p>Marketplace-ready exports for Amazon, Shopify Plus and omnichannel retail.</p></article>
     </div>
   </div>
 </section>
@@ -138,14 +138,14 @@ require_once INCLUDES_PATH . '/header.php';
       <div class="header-tagline">
         <span class="badge badge-blue">Our Standards</span>
       </div>
-      <h2 class="section-title-editorial">The Ecomshoot Quality Standard</h2>
+      <h2 class="section-title-editorial">The Ecomshoot <span class="font-editorial shimmer-coral">Quality Standard</span></h2>
       <p class="section-sub-editorial">
         Four non-negotiable operational commitments that safeguard your brand reputation and bottom line.
       </p>
     </div>
 
     <div class="editorial-pillars-grid">
-      <div class="editorial-pillar-card">
+      <div class="editorial-pillar-card luxury-card studio-reveal">
         <div class="pillar-top">
           <div class="pillar-icon-box blue">✓</div>
           <span class="pillar-index">01</span>
@@ -154,7 +154,7 @@ require_once INCLUDES_PATH . '/header.php';
         <p class="pillar-copy">We shoot genuine physical merchandise under authentic optical glass. No fake synthetic renders that mislead customers and drive up returns.</p>
       </div>
 
-      <div class="editorial-pillar-card">
+      <div class="editorial-pillar-card luxury-card studio-reveal">
         <div class="pillar-top">
           <div class="pillar-icon-box coral">✓</div>
           <span class="pillar-index">02</span>
@@ -163,7 +163,7 @@ require_once INCLUDES_PATH . '/header.php';
         <p class="pillar-copy">We never use fuzzy automated cutout scripts. Every product outline is meticulously vectorized by senior retouchers with the Photoshop Pen Tool.</p>
       </div>
 
-      <div class="editorial-pillar-card">
+      <div class="editorial-pillar-card luxury-card studio-reveal">
         <div class="pillar-top">
           <div class="pillar-icon-box lavender">✓</div>
           <span class="pillar-index">03</span>
@@ -172,7 +172,7 @@ require_once INCLUDES_PATH . '/header.php';
         <p class="pillar-copy">Every deliverable includes unlimited, worldwide, perpetual commercial usage rights across paid ads, websites, packaging, and billboards.</p>
       </div>
 
-      <div class="editorial-pillar-card">
+      <div class="editorial-pillar-card luxury-card studio-reveal">
         <div class="pillar-top">
           <div class="pillar-icon-box yellow">✓</div>
           <span class="pillar-index">04</span>

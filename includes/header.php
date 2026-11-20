@@ -49,15 +49,16 @@ try {
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="<?= asset_url('assets/images/logo.svg') ?>">
 
-  <!-- Typography: Space Grotesk (Headings), DM Sans (Body/Interface), Playfair Display (Editorial Highlights) -->
+  <!-- Typography: Plus Jakarta Sans (Headings/Body), Playfair Display (Editorial Shimmer), JetBrains Mono (Tech/Specs) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Playfair+Display:ital,wght@0,500..800;1,500..800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=JetBrains+Mono:wght@500;600&family=Playfair+Display:ital,wght@1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Master Design System Stylesheet -->
   <link rel="stylesheet" href="<?= asset_url('assets/css/style.css') ?>">
+  <link rel="stylesheet" href="<?= asset_url('public/css/studio-luxury.css') ?>">
 </head>
 
 <body>
@@ -115,7 +116,7 @@ try {
 
       <!-- Brand Logo (4:1 Aspect Ratio Preserved, Never Clipped) -->
       <a href="<?= url('') ?>" class="brand-logo" aria-label="Ecomshoot Homepage">
-        <img src="<?= asset_url('assets/images/logo.svg') ?>" alt="Ecomshoot Commercial Photography Agency Logo"
+        <img src="<?= asset_url('assets/images/logo-light.svg') ?>" alt="Ecomshoot Commercial Photography Agency Logo"
           width="168" height="42">
       </a>
 
@@ -124,7 +125,7 @@ try {
         <!-- Mobile Drawer Header -->
         <div class="mobile-drawer-header">
           <a href="<?= url('') ?>" class="mobile-drawer-logo" aria-label="Ecomshoot Homepage">
-            <img src="<?= asset_url('assets/images/logo.svg') ?>" alt="Ecomshoot Logo" width="140" height="35" class="drawer-logo-img">
+            <img src="<?= asset_url('assets/images/logo-light.svg') ?>" alt="Ecomshoot Logo" width="140" height="35" class="drawer-logo-img">
           </a>
           <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close navigation menu">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">

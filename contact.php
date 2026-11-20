@@ -96,7 +96,7 @@ $flash = get_flash();
   <div class="container">
     <div class="page-header-content">
       <span class="badge badge-coral">Get in Touch</span>
-      <h1 class="page-header-title">Connect with Our Creative Production Team</h1>
+      <h1 class="page-header-title">Connect with Our <span class="font-editorial shimmer-coral">Creative Production Team</span></h1>
       <p class="page-header-sub">
         Tell us about your photography requirements. Our team will get in touch with you promptly to discuss your shoot.
       </p>
@@ -110,7 +110,7 @@ $flash = get_flash();
     <div class="contact-grid">
       
       <!-- Studio Details Panel -->
-      <div class="contact-info-panel">
+      <div class="contact-info-panel luxury-card studio-reveal">
         <div>
           <span class="badge badge-sand" style="margin-bottom: 1.5rem;">Creative Production</span>
           <h3>Studio Information &amp; Production Inquiries</h3>
@@ -174,7 +174,7 @@ $flash = get_flash();
       </div>
 
       <!-- Contact Form Card -->
-      <div class="contact-form-card">
+      <div class="contact-form-card luxury-card studio-reveal">
         <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Send Us a Message</h2>
         <p style="margin-bottom: 2rem; color: var(--color-text-muted);">
           Fill out the 4 details below and our team will get in touch with you.
@@ -226,7 +226,7 @@ $flash = get_flash();
             <textarea id="message" name="message" class="form-control" rows="5" placeholder="Tell us about your photography requirements..." required><?= e($formData['message']) ?></textarea>
           </div>
 
-          <button type="submit" class="btn btn-lg btn-primary" style="width: 100%;">
+          <button type="submit" class="btn btn-lg btn-primary btn-studio-primary" style="width: 100%;">
             Submit Inquiry &rarr;
           </button>
         </form>

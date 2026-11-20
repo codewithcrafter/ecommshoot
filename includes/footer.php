@@ -135,13 +135,16 @@
     </div>
   </footer>
 
-  <!-- Lead Generation Automatic Timed Popup Modal Component -->
-  <?php require_once INCLUDES_PATH . '/lead-popup.php'; ?>
+  <!-- Lead Generation Automatic Timed Popup Modal Component (not shown on Contact page) -->
+  <?php if (($currentPage ?? $pageIdentifier ?? '') !== 'contact'): ?>
+    <?php require_once INCLUDES_PATH . '/lead-popup.php'; ?>
+  <?php endif; ?>
 
   <!-- Persistent Floating Contact Buttons (WhatsApp & Call Now) -->
   <?php require_once INCLUDES_PATH . '/floating-contact.php'; ?>
 
   <!-- Master JavaScript Engine -->
   <script src="<?= asset_url('assets/js/main.js') ?>" defer></script>
+  <script src="<?= asset_url('public/js/studio-effects.js') ?>" defer></script>
 </body>
 </html>

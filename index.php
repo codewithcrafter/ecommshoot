@@ -46,7 +46,7 @@ require_once INCLUDES_PATH . '/header.php';
         </div>
         
         <h1 class="hero-heading">
-          Product Photography <span class="highlight-creative">Agency in Delhi</span>
+          Product Photography <span class="highlight-creative font-editorial shimmer-coral">Agency in Delhi</span>
         </h1>
         
         <p class="hero-lead">
@@ -54,7 +54,7 @@ require_once INCLUDES_PATH . '/header.php';
         </p>
 
         <div class="hero-cta-group">
-          <a href="<?= url('contact.php') ?>" class="btn btn-lg btn-primary">Book a Shoot</a>
+          <a href="<?= url('contact.php') ?>" class="btn btn-lg btn-primary btn-studio-primary">Book a Shoot</a>
           <a href="#portfolio" class="btn btn-lg btn-outline-white">See Our Work</a>
         </div>
 
@@ -77,7 +77,7 @@ require_once INCLUDES_PATH . '/header.php';
 
       <!-- Hero Right: Direct Studio Enquiry Form -->
       <div class="hero-form-col">
-        <div class="services-enquiry-card home-hero-enquiry-card" id="homeEnquiryForm">
+        <div class="services-enquiry-card home-hero-enquiry-card luxury-card studio-reveal" id="homeEnquiryForm">
           <div class="enquiry-card-header">
             <span class="enquiry-card-badge">Instant Studio Estimate</span>
             <h3 class="enquiry-card-title">Book a Photoshoot</h3>
@@ -120,7 +120,7 @@ require_once INCLUDES_PATH . '/header.php';
               <label class="form-label" for="home_hero_message">Project Requirements / Message <span style="color:#FF6233;">*</span></label>
               <textarea class="form-control" id="home_hero_message" name="message" rows="3" placeholder="Tell us about your product line, shoot volume, or launch timeline..." required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary services-submit-btn" style="width: 100%;">
+            <button type="submit" class="btn btn-primary services-submit-btn btn-studio-primary" style="width: 100%;">
               <span>Submit Enquiry</span>
               <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" style="display:inline-block; vertical-align:middle; margin-left:6px;"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
             </button>
@@ -191,10 +191,10 @@ require_once INCLUDES_PATH . '/header.php';
     </div>
 
     <!-- Asymmetrical Gallery Grid with Real Commercial Photography -->
-    <div class="asymmetric-portfolio-grid">
+    <div class="asymmetric-portfolio-grid bento-focus-grid">
       
       <!-- Shoot 1: Creative Botanical Perfume Splash (Creative Campaigns) -->
-      <div class="portfolio-grid-item span-7">
+      <div class="portfolio-grid-item bento-focus-card span-7">
         <div class="portfolio-inner-frame">
           <img src="<?= asset_url('assets/images/portfolio/portfolio-1.jpg') ?>" 
                alt="Luxury botanical perfume with liquid refraction and splash droplets" 
@@ -205,13 +205,12 @@ require_once INCLUDES_PATH . '/header.php';
             <span class="overlay-tag">Beauty &amp; Cosmetics</span>
             <div class="overlay-title">Botanical Fragrance</div>
             <div class="overlay-sub">Soft lighting and glass reflectors to create a luxury feel on shelf.</div>
-            <a href="<?= service_url('creative-product-photography') ?>" class="overlay-link">View Case Study &rarr;</a>
           </div>
         </div>
       </div>
 
       <!-- Shoot 2: Matte ANC Headphones (Electronics) -->
-      <div class="portfolio-grid-item span-5">
+      <div class="portfolio-grid-item bento-focus-card span-5">
         <div class="portfolio-inner-frame">
           <img src="<?= asset_url('assets/images/portfolio/portfolio-2.jpg') ?>" 
                alt="Wireless ANC Studio Headphones on dark pedestal with polarized lighting" 
@@ -222,13 +221,12 @@ require_once INCLUDES_PATH . '/header.php';
             <span class="overlay-tag">Electronics</span>
             <div class="overlay-title">Matte ANC Headphones</div>
             <div class="overlay-sub">Hard shadows and bold colours to create a sharp look.</div>
-            <a href="<?= service_url('ecommerce-product-photography') ?>" class="overlay-link">View Case Study &rarr;</a>
           </div>
         </div>
       </div>
 
       <!-- Shoot 3: Diamond Solitaire Ring (Jewellery) -->
-      <div class="portfolio-grid-item span-4">
+      <div class="portfolio-grid-item bento-focus-card span-4">
         <div class="portfolio-inner-frame">
           <img src="<?= asset_url('assets/images/portfolio/portfolio-3.jpg') ?>" 
                alt="Diamond Solitaire Ring 60-Slice Focus Stacking Macro" 
@@ -239,13 +237,12 @@ require_once INCLUDES_PATH . '/header.php';
             <span class="overlay-tag">Luxury Jewellery</span>
             <div class="overlay-title">Diamond Solitaire Ring</div>
             <div class="overlay-sub">Macro lighting to showcase sparkle and cut.</div>
-            <a href="<?= service_url('jewellery-product-photography') ?>" class="overlay-link">View Case Study &rarr;</a>
           </div>
         </div>
       </div>
 
       <!-- Shoot 4: Artisanal Ceramicware (Lifestyle) -->
-      <div class="portfolio-grid-item span-4">
+      <div class="portfolio-grid-item bento-focus-card span-4">
         <div class="portfolio-inner-frame">
           <img src="<?= asset_url('assets/images/portfolio/portfolio-4.jpg') ?>" 
                alt="Minimalist Ceramic Homeware staged in morning sunlight" 
@@ -256,13 +253,12 @@ require_once INCLUDES_PATH . '/header.php';
             <span class="overlay-tag">Food &amp; Beverage</span>
             <div class="overlay-title">Artisan Cornichons</div>
             <div class="overlay-sub">Fresh styling to make people want to open the jar.</div>
-            <a href="<?= service_url('lifestyle-product-photography') ?>" class="overlay-link">View Case Study &rarr;</a>
           </div>
         </div>
       </div>
 
       <!-- Shoot 5: Tailored Wool Blazer (Fashion) -->
-      <div class="portfolio-grid-item span-4">
+      <div class="portfolio-grid-item bento-focus-card span-4">
         <div class="portfolio-inner-frame">
           <img src="<?= asset_url('assets/images/portfolio/portfolio-5.jpg') ?>" 
                alt="Tailored Wool Blazer on model with natural drape" 
@@ -273,13 +269,12 @@ require_once INCLUDES_PATH . '/header.php';
             <span class="overlay-tag">Fashion &amp; Apparel</span>
             <div class="overlay-title">Tailored Wool Blazer</div>
             <div class="overlay-sub">Ghost mannequin and flat lay images to showcase fit, fabric and stitching.</div>
-            <a href="<?= service_url('fashion-product-photography') ?>" class="overlay-link">View Case Study &rarr;</a>
           </div>
         </div>
       </div>
 
       <!-- Shoot 6: Cold-Pressed Citrus Splash (Creative Campaigns) -->
-      <div class="portfolio-grid-item span-5">
+      <div class="portfolio-grid-item bento-focus-card span-5">
         <div class="portfolio-inner-frame">
           <img src="<?= asset_url('assets/images/portfolio/portfolio-6.jpg') ?>" 
                alt="Cold-Pressed Artisan Cocktail with splash droplet freezing" 
@@ -290,13 +285,12 @@ require_once INCLUDES_PATH . '/header.php';
             <span class="overlay-tag">Creative Campaign</span>
             <div class="overlay-title">Cold-Pressed Beverage</div>
             <div class="overlay-sub">Water splash, condensation and colour to create a refreshing look.</div>
-            <a href="<?= service_url('creative-product-photography') ?>" class="overlay-link">View Case Study &rarr;</a>
           </div>
         </div>
       </div>
 
       <!-- Shoot 7: Botanical Face Serum (Beauty & Cosmetics) -->
-      <div class="portfolio-grid-item span-7">
+      <div class="portfolio-grid-item bento-focus-card span-7">
         <div class="portfolio-inner-frame">
           <img src="<?= asset_url('assets/images/portfolio/portfolio-7.jpg') ?>" 
                alt="Luxury botanical skincare serum with amber bottle and golden highlights" 
@@ -307,7 +301,6 @@ require_once INCLUDES_PATH . '/header.php';
             <span class="overlay-tag">Beauty &amp; Cosmetics</span>
             <div class="overlay-title">Amber Botanical Serum</div>
             <div class="overlay-sub">Diffused Wraps · Frosted Glass Reflection Control</div>
-            <a href="<?= service_url('product-photography') ?>" class="overlay-link">Explore Product Discipline &rarr;</a>
           </div>
         </div>
       </div>
@@ -333,7 +326,7 @@ require_once INCLUDES_PATH . '/header.php';
     <!-- Editorial Services Grid -->
     <div class="editorial-services-grid">
       <?php foreach ($services as $idx => $svc): ?>
-        <article class="service-editorial-card">
+        <article class="service-editorial-card luxury-card studio-reveal">
           <div class="card-media-wrapper">
             <img src="<?= asset_url($svc['featured_image'] ?: 'assets/images/services/' . $svc['slug'] . '.jpg') ?>" 
                  alt="<?= e($svc['title']) ?> commercial photography sample" 
@@ -435,7 +428,7 @@ require_once INCLUDES_PATH . '/header.php';
         </p>
 
         <div class="editorial-pillars-grid">
-          <div class="editorial-pillar-card">
+          <div class="editorial-pillar-card luxury-card studio-reveal">
             <div class="pillar-top">
               <div class="pillar-icon-box">🔬</div>
               <span class="pillar-index">01</span>
@@ -444,7 +437,7 @@ require_once INCLUDES_PATH . '/header.php';
             <p class="pillar-copy">We use controlled lighting to ensure your product is captured in high detail with true colours and textures.</p>
           </div>
 
-          <div class="editorial-pillar-card">
+          <div class="editorial-pillar-card luxury-card studio-reveal">
             <div class="pillar-top">
               <div class="pillar-icon-box">🎨</div>
               <span class="pillar-index">02</span>
@@ -453,7 +446,7 @@ require_once INCLUDES_PATH . '/header.php';
             <p class="pillar-copy">We ensure your images are the correct size, background and format for your Amazon product photography in Delhi and across India.</p>
           </div>
 
-          <div class="editorial-pillar-card">
+          <div class="editorial-pillar-card luxury-card studio-reveal">
             <div class="pillar-top">
               <div class="pillar-icon-box">⚡</div>
               <span class="pillar-index">03</span>
@@ -462,7 +455,7 @@ require_once INCLUDES_PATH . '/header.php';
             <p class="pillar-copy">We have an easy process for brands with lots of SKUs to ensure no loss in quality.</p>
           </div>
 
-          <div class="editorial-pillar-card">
+          <div class="editorial-pillar-card luxury-card studio-reveal">
             <div class="pillar-top">
               <div class="pillar-icon-box">🛡️</div>
               <span class="pillar-index">04</span>
@@ -497,31 +490,31 @@ require_once INCLUDES_PATH . '/header.php';
     </div>
 
     <div class="process-steps-row">
-      <div class="process-step-item">
+      <div class="process-step-item luxury-card studio-reveal">
         <div class="step-num-pill">01</div>
         <h4 class="step-title">Creative Brief</h4>
         <p class="step-desc">We find out about your product, audience and sales channels. We then agree on the look you want.</p>
       </div>
 
-      <div class="process-step-item">
+      <div class="process-step-item luxury-card studio-reveal">
         <div class="step-num-pill">02</div>
         <h4 class="step-title">Concept &amp; Planning</h4>
         <p class="step-desc">We plan your angles, backgrounds, props and shot list to ensure your shoot runs smoothly.</p>
       </div>
 
-      <div class="process-step-item">
+      <div class="process-step-item luxury-card studio-reveal">
         <div class="step-num-pill">03</div>
         <h4 class="step-title">Studio Shoot</h4>
         <p class="step-desc">We shoot your products in our Delhi studio using professional lighting and styling.</p>
       </div>
 
-      <div class="process-step-item">
+      <div class="process-step-item luxury-card studio-reveal">
         <div class="step-num-pill">04</div>
         <h4 class="step-title">Editing &amp; Retouching</h4>
         <p class="step-desc">We colour correct, clean up and enhance your images to match your brand and marketplace guidelines.</p>
       </div>
 
-      <div class="process-step-item">
+      <div class="process-step-item luxury-card studio-reveal">
         <div class="step-num-pill">05</div>
         <h4 class="step-title">Final Deliverables</h4>
         <p class="step-desc">You will receive organised files ready for upload in the correct formats and sizes.</p>

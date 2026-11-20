@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         left = window.innerWidth - panelWidth - 16;
       }
 
-      const top = rect.bottom + 8;
+      const top = rect.bottom;
       const availableHeight = window.innerHeight - top - 16;
       const maxHeight = Math.max(160, availableHeight);
 
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     dropdownParent.addEventListener('mouseleave', () => {
       if (window.innerWidth > 1024) {
-        hoverTimeout = setTimeout(closeDropdown, 250);
+        hoverTimeout = setTimeout(closeDropdown, 300);
       }
     });
 
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     dropdownMenu.addEventListener('mouseleave', () => {
       if (window.innerWidth > 1024) {
-        hoverTimeout = setTimeout(closeDropdown, 250);
+        hoverTimeout = setTimeout(closeDropdown, 300);
       }
     });
 
@@ -357,6 +357,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sourceUrlInput) sourceUrlInput.value = window.location.href;
     if (sourceTitleInput) sourceTitleInput.value = document.title || 'Ecomshoot Photography';
 
+    // Lightweight visual polish for the real popup only; submission flow remains unchanged.
+    const popupDialog = document.getElementById('leadPopupDialog');
+    const popupCamera = popupOverlay.querySelector('.lead-popup-camera-icon');
+    if (popupDialog && window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      popupDialog.addEventListener('mousemove', (event) => {
+        const rect = popupDialog.getBoundingClientRect();
+        popupDialog.style.setProperty('--spot-x', `${event.clientX - rect.left}px`);
+        popupDialog.style.setProperty('--spot-y', `${event.clientY - rect.top}px`);
+      });
+    }
+    if (popupCamera) {
+      popupCamera.addEventListener('click', () => {
+        popupCamera.classList.remove('is-flashing');
+        void popupCamera.offsetWidth;
+        popupCamera.classList.add('is-flashing');
+      });
+    }
+
     // Page-level dismissal tracker (persists only for current page lifecycle until refreshed or navigated)
     let pagePopupDismissed = false;
     let popupTimer = null;
@@ -366,6 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       popupOverlay.style.display = 'flex';
+      document.body.classList.add('lead-popup-lock-scroll');
       setTimeout(() => {
         popupOverlay.classList.add('is-visible');
         popupOverlay.setAttribute('aria-hidden', 'false');
@@ -382,6 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
       popupOverlay.setAttribute('aria-hidden', 'true');
       setTimeout(() => {
         popupOverlay.style.display = 'none';
+        document.body.classList.remove('lead-popup-lock-scroll');
       }, 350);
     };
 
@@ -412,6 +432,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // AJAX Form Submission
     if (popupForm) {
       popupForm.addEventListener('submit', async (e) => {
+        if (popupCamera) {
+          popupCamera.classList.remove('is-flashing');
+          void popupCamera.offsetWidth;
+          popupCamera.classList.add('is-flashing');
+        }
         e.preventDefault();
 
         // Client-side quick checks
@@ -507,10 +532,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Target elements across all pages
     const revealTargets = document.querySelectorAll(
-      '.reveal-item, .blog-card-wide, .blog-card-item, .blog-card, .service-card, .benefit-card, ' +
-      '.feature-box, .process-step-item, .strip-item, .editorial-pillar-card, .faq-item, ' +
-      '.stat-card, .portfolio-card, .testimonial-card, .pricing-card, .section-header, ' +
-      '.feature-bullet-item, .article-sidebar-card, .home-about-stats .proof-item'
+      '.reveal-item, .industry-box, .blog-card-wide, .blog-card-item, .blog-card, .service-card, .service-editorial-card, ' +
+      '.editorial-services-card, .editorial-blog-card, .benefit-card, .feature-box, .process-step-item, ' +
+      '.strip-item, .editorial-pillar-card, .faq-item, .stat-card, .portfolio-card, .testimonial-card, ' +
+      '.pricing-card, .section-header, .section-editorial-header, .section-title, .section-eyebrow, .services-style-card, ' +
+      '.contact-info-card, .feature-bullet-item, .article-sidebar-card, .home-about-stats .proof-item, ' +
+      '.why-floating-card, .about-tool-card, .portfolio-grid-item'
     );
 
     if (!revealTargets.length) return;
@@ -542,22 +569,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (entry.isIntersecting) {
           const el = entry.target;
 
-          // Compute stagger delay if part of a sibling grid
+          // Compute stagger delay if part of a sibling grid (75ms–90ms clean delay)
           const parent = el.parentElement;
           if (parent) {
             const siblings = Array.from(parent.children).filter(child => child.classList.contains('reveal-item'));
             if (siblings.length > 1) {
               const index = siblings.indexOf(el);
-              if (index > 0 && index < 6) {
-                el.style.transitionDelay = `${index * 60}ms`;
+              if (index > 0 && index < 8) {
+                el.style.transitionDelay = `${index * 80}ms`;
               }
             }
           }
 
           el.classList.add('is-revealed');
-        } else {
-          entry.target.classList.remove('is-revealed');
-          entry.target.style.transitionDelay = '0ms';
+          revealObserver.unobserve(el);
         }
       });
     }, observerOptions);
@@ -909,5 +934,135 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   initSectionAnimations();
+
+  // Shared studio CTA polish; no content, link, or form behavior is changed.
+  const studioCtas = document.querySelectorAll('.section-cta .cta-banner-editorial, .test-shoot-box, .cta-panel, .cta-card');
+  const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  studioCtas.forEach((cta) => {
+    if (!reducedMotion) {
+      cta.classList.add('studio-cta-reveal');
+      if (window.matchMedia('(pointer: fine)').matches) {
+        cta.addEventListener('mousemove', (event) => {
+          const rect = cta.getBoundingClientRect();
+          cta.style.setProperty('--cta-x', `${event.clientX - rect.left}px`);
+          cta.style.setProperty('--cta-y', `${event.clientY - rect.top}px`);
+        });
+      }
+    }
+  });
+  if (!reducedMotion && 'IntersectionObserver' in window) {
+    const ctaObserver = new IntersectionObserver((entries, observer) => entries.forEach((entry) => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+    }), { threshold: 0.15 });
+    studioCtas.forEach((cta) => ctaObserver.observe(cta));
+  } else {
+    studioCtas.forEach((cta) => cta.classList.add('is-visible'));
+  }
+
+  // ============================================================================
+  // 12. KPI NUMERIC COUNTERS COUNT-UP ANIMATION
+  // ============================================================================
+  const initKpiCounters = () => {
+    const counterElements = document.querySelectorAll('.proof-number, .stat-big');
+    if (!counterElements.length) return;
+
+    const parseCounter = (text) => {
+      const raw = text.trim();
+      let prefix = '';
+      let suffix = '';
+      let decimals = 0;
+
+      if (raw.startsWith('+')) {
+        prefix = '+';
+      }
+      if (raw.endsWith('+')) {
+        suffix = '+';
+      } else if (raw.endsWith('%')) {
+        suffix = '%';
+      }
+
+      let numStr = raw.replace(/^[+]/, '').replace(/[+%]/, '').trim();
+      if (numStr.endsWith('K')) {
+        suffix = 'K' + suffix;
+        numStr = numStr.slice(0, -1);
+      }
+
+      if (numStr.includes('.')) {
+        decimals = numStr.split('.')[1].length;
+      }
+
+      const target = parseFloat(numStr) || 0;
+      return { prefix, suffix, target, decimals, original: raw };
+    };
+
+    const animateElement = (el) => {
+      if (el.dataset.counted === 'true') return;
+      el.dataset.counted = 'true';
+
+      const info = parseCounter(el.textContent);
+      if (info.target === 0 && !info.decimals) return;
+
+      const duration = 1800; // ms
+      const startTime = performance.now();
+
+      const update = (now) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const currentVal = ease * info.target;
+
+        el.textContent = `${info.prefix}${currentVal.toFixed(info.decimals)}${info.suffix}`;
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          el.textContent = info.original;
+        }
+      };
+
+      requestAnimationFrame(update);
+    };
+
+    if ('IntersectionObserver' in window && !reducedMotion) {
+      const counterObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateElement(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      counterElements.forEach(el => counterObserver.observe(el));
+    } else {
+      counterElements.forEach(animateElement);
+    }
+  };
+
+  initKpiCounters();
+
+  // ============================================================================
+  // 13. MOUSE-TRACKING RADIAL SPOTLIGHT ENGINE (FINE POINTERS)
+  // ============================================================================
+  const initCardSpotlights = () => {
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+    const spotlightCards = document.querySelectorAll(
+      '.service-editorial-card, .editorial-pillar-card, .about-tool-card, ' +
+      '.industry-box, .proof-item, .benefit-card, .specs-card, .blog-card, ' +
+      '.services-style-card, .test-shoot-box, .cta-banner-editorial, .faq-item, ' +
+      '.about-stat-card, .card, .portfolio-grid-item'
+    );
+    spotlightCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      }, { passive: true });
+    });
+  };
+
+  initCardSpotlights();
 
 });
