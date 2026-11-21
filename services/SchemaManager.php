@@ -63,38 +63,41 @@ class SchemaManager {
         $output = [];
         $output[] = '<!-- Independent JSON-LD Schema Architecture -->';
 
-        // 1. Output stored schemas from database
+        $collected = [];
+
+        // 1. Process stored schemas from database
         foreach ($storedSchemas as $item) {
             $json = trim($item['schema_json']);
             // Replace placeholder or local URLs if needed
             $targetBase = rtrim(get_setting('site_base_url', BASE_URL), '/');
             $json = str_replace(
-                ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:8085', 'http://127.0.0.1:8085', 'https://demo.ecomshoots.in', 'http://demo.ecomshoots.in', 'demo.ecomshoots.in'],
+                ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:8085', 'http://127.0.0.1:8085', 'https://demo.ecomshoots.in', 'http://demo.ecomshoots.in', 'demo.ecomshoots.in', 'https://ecommshoots.in', 'http://ecommshoots.in', 'ecommshoots.in'],
                 $targetBase,
                 $json
             );
             $decoded = json_decode($json, true);
-            if ($decoded) {
-                $pretty = json_encode($decoded, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-                $output[] = '<script type="application/ld+json">' . "\n" . $pretty . "\n" . '</script>';
+            if ($decoded && !empty($decoded['@type'])) {
+                $typeKey = is_array($decoded['@type']) ? implode('_', $decoded['@type']) : $decoded['@type'];
+                $collected[$typeKey] = $decoded;
             }
         }
 
-        // 2. Output dynamic schemas passed in (e.g. from service or blog views)
+        // 2. Process dynamic schemas passed in (dynamic page data takes precedence)
         foreach ($dynamicSchemas as $dyn) {
-            if (is_array($dyn)) {
-                $pretty = json_encode($dyn, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-                $output[] = '<script type="application/ld+json">' . "\n" . $pretty . "\n" . '</script>';
-            } elseif (is_string($dyn)) {
-                $decoded = json_decode($dyn, true);
-                if ($decoded) {
-                    $pretty = json_encode($decoded, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-                    $output[] = '<script type="application/ld+json">' . "\n" . $pretty . "\n" . '</script>';
-                }
+            $decoded = is_array($dyn) ? $dyn : json_decode((string)$dyn, true);
+            if ($decoded && !empty($decoded['@type'])) {
+                $typeKey = is_array($decoded['@type']) ? implode('_', $decoded['@type']) : $decoded['@type'];
+                $collected[$typeKey] = $decoded;
             }
         }
 
-        return implode("\n    ", $output);
+        // 3. Render clean, unique schema blocks
+        foreach ($collected as $schema) {
+            $pretty = json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+            $output[] = '<script type="application/ld+json">' . "\n" . $pretty . "\n" . '</script>';
+        }
+
+        return implode("\n", $output);
     }
 }
 

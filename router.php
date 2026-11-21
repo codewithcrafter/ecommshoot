@@ -83,27 +83,25 @@ if ($uri === '/services' || $uri === '/services/') {
     exit;
 }
 
-// 7. Blog Markdown Routes: /blog/{slug}.md or /blog/{id}.md
-if (preg_match('#^/blog/([0-9]+)\.md$#', $uri, $matches)) {
-    require_once __DIR__ . '/config/config.php';
-    try {
-        $db = Database::getInstance()->getConnection();
-        $stmt = $db->prepare("SELECT slug FROM blogs WHERE id = :id LIMIT 1");
-        $stmt->execute(['id' => (int)$matches[1]]);
-        $slug = $stmt->fetchColumn();
-        if ($slug) {
-            header('Location: /blog/' . $slug . '.md', true, 301);
-            exit;
-        }
-    } catch (Exception $e) {}
-    $_GET['id'] = (int) $matches[1];
-    require __DIR__ . '/blog-markdown.php';
+// 7. Universal Markdown Representation Routes (.md)
+if (preg_match('#^/blog/([0-9]+)\.md$#i', $uri, $matches)) {
+    $_GET['path'] = 'blog/' . $matches[1];
+    require __DIR__ . '/markdown-serve.php';
     exit;
 }
-
-if (preg_match('#^/blog/([a-z0-9]+(?:-[a-z0-9]+)*)\.md$#i', $uri, $matches)) {
-    $_GET['slug'] = strtolower($matches[1]);
-    require __DIR__ . '/blog-markdown.php';
+if (preg_match('#^/blog/([a-z0-9-]+)\.md$#i', $uri, $matches)) {
+    $_GET['path'] = 'blog/' . strtolower($matches[1]);
+    require __DIR__ . '/markdown-serve.php';
+    exit;
+}
+if (preg_match('#^/(?:service|services)/([a-z0-9-]+)\.md$#i', $uri, $matches)) {
+    $_GET['path'] = 'service/' . strtolower($matches[1]);
+    require __DIR__ . '/markdown-serve.php';
+    exit;
+}
+if (preg_match('#^/([a-z0-9-]+)\.md$#i', $uri, $matches)) {
+    $_GET['path'] = strtolower($matches[1]);
+    require __DIR__ . '/markdown-serve.php';
     exit;
 }
 

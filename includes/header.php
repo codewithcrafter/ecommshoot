@@ -17,7 +17,7 @@ $customSeo = $customSeo ?? [];
 $customSchemas = $customSchemas ?? [];
 
 // Fetch social links and contact info
-$siteEmail = get_setting('site_email', 'contact@ecommshoot.in');
+$siteEmail = get_setting('site_email', 'contact@ecomshoots.in');
 $sitePhone = get_setting('site_phone', '');
 $socialIg = get_setting('social_instagram', '');
 $socialFb = get_setting('social_facebook', '');

@@ -69,7 +69,7 @@ $serviceSchema = [
         'name' => get_setting('site_name', 'Ecomshoot'),
         'url' => BASE_URL,
         'telephone' => get_setting('site_phone', '+1 (800) 555-SHOOT'),
-        'email' => get_setting('site_email', 'contact@ecommshoot.in')
+        'email' => get_setting('site_email', 'contact@ecomshoots.in')
     ],
     'areaServed' => 'Global'
 ];
@@ -93,7 +93,33 @@ if (!empty($faqs)) {
     }
 }
 
-$customSchemas = array_filter([$serviceSchema, $faqSchema]);
+// Build dynamic BreadcrumbList Schema
+$breadcrumbSchema = [
+    '@context' => 'https://schema.org',
+    '@type' => 'BreadcrumbList',
+    'itemListElement' => [
+        [
+            '@type' => 'ListItem',
+            'position' => 1,
+            'name' => 'Home',
+            'item' => url('')
+        ],
+        [
+            '@type' => 'ListItem',
+            'position' => 2,
+            'name' => 'Services',
+            'item' => url('services')
+        ],
+        [
+            '@type' => 'ListItem',
+            'position' => 3,
+            'name' => $service['title'],
+            'item' => service_url($service['slug'])
+        ]
+    ]
+];
+
+$customSchemas = array_filter([$serviceSchema, $faqSchema, $breadcrumbSchema]);
 
 require_once INCLUDES_PATH . '/header.php';
 $flash = get_flash();

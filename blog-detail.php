@@ -134,7 +134,33 @@ if (!empty($faqs)) {
   }
 }
 
-$customSchemas = array_filter([$articleSchema, $faqSchema]);
+// Build BreadcrumbList Schema for Article
+$breadcrumbSchema = [
+  '@context' => 'https://schema.org',
+  '@type' => 'BreadcrumbList',
+  'itemListElement' => [
+    [
+      '@type' => 'ListItem',
+      'position' => 1,
+      'name' => 'Home',
+      'item' => url('')
+    ],
+    [
+      '@type' => 'ListItem',
+      'position' => 2,
+      'name' => 'Blog',
+      'item' => url('blog')
+    ],
+    [
+      '@type' => 'ListItem',
+      'position' => 3,
+      'name' => $blog['title'],
+      'item' => $canonicalHtmlUrl
+    ]
+  ]
+];
+
+$customSchemas = array_filter([$articleSchema, $faqSchema, $breadcrumbSchema]);
 if (!empty($blog['schemas_json'])) {
     $customSchemas[] = $blog['schemas_json'];
 }

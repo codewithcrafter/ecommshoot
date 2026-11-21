@@ -18,8 +18,11 @@ RewriteRule ^services/?$ services.php [QSA,L,NC]
 RewriteRule ^service/([a-z0-9-]+)/?$ $1.php [QSA,L,NC]
 RewriteRule ^services/([a-z0-9-]+)/?$ $1.php [QSA,L,NC]
 
-# 3. Blog Markdown Representation: /blog/article-slug.md
-RewriteRule ^blog/([a-z0-9-]+)\.md$ blog-markdown.php?slug=$1 [QSA,L,NC]
+# 3. Universal Markdown Document Endpoints (.md)
+# Direct access to .md opens raw markdown inline (never 404 or redirect)
+RewriteRule ^blog/([a-z0-9-]+)\.md$ markdown-serve.php?path=blog/$1 [QSA,L,NC]
+RewriteRule ^(?:service|services)/([a-z0-9-]+)\.md$ markdown-serve.php?path=service/$1 [QSA,L,NC]
+RewriteRule ^([a-z0-9-]+)\.md$ markdown-serve.php?path=$1 [QSA,L,NC]
 
 # 4. Blog HTML by Slug: /blog/article-slug -> blog-detail.php?slug=article-slug
 RewriteRule ^blog/([a-z0-9-]+)/?$ blog-detail.php?slug=$1 [QSA,L,NC]
