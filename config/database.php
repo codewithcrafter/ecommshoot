@@ -27,10 +27,40 @@ class Database {
             $this->connection = new PDO($dsn, DB_USER, DB_PASS, $options);
             $this->connection->exec("SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci");
         } catch (PDOException $e) {
-            // Do not try another host: a local credentials error must not cause
-            // a connection attempt to production with the same credentials.
-            error_log('Database Connection Error: ' . $e->getMessage());
-            die('A database connection error occurred. Please ensure MySQL is running and configured.');
+            global $isLocalDev;
+            $connected = false;
+
+            if (!empty($isLocalDev)) {
+                // If local port 3306 or db name failed, try port 3307 or alternative DB name
+                $altPorts = [3306, 3307];
+                $altDbs = [DB_NAME, 'ecomshoot_db', 'ecommshoot'];
+                foreach ($altPorts as $p) {
+                    foreach (array_unique($altDbs) as $d) {
+                        if ($p == DB_PORT && $d == DB_NAME) continue;
+                        try {
+                            $altDsn = sprintf('mysql:host=%s;port=%s;dbname=%s;charset=%s', DB_HOST, $p, $d, DB_CHARSET);
+                            $this->connection = new PDO($altDsn, DB_USER, DB_PASS, $options);
+                            $this->connection->exec("SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci");
+                            $connected = true;
+                            break 2;
+                        } catch (PDOException $ex) {}
+                    }
+                }
+            } else {
+                // If on Hostinger production, try srv1328.hstgr.io if localhost failed (or vice-versa)
+                $altHost = (DB_HOST === 'localhost' || DB_HOST === '127.0.0.1') ? 'srv1328.hstgr.io' : 'localhost';
+                try {
+                    $altDsn = sprintf('mysql:host=%s;port=%s;dbname=%s;charset=%s', $altHost, DB_PORT, DB_NAME, DB_CHARSET);
+                    $this->connection = new PDO($altDsn, DB_USER, DB_PASS, $options);
+                    $this->connection->exec("SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci");
+                    $connected = true;
+                } catch (PDOException $ex) {}
+            }
+
+            if (!$connected) {
+                error_log('Database Connection Error: ' . $e->getMessage());
+                die('A database connection error occurred. Please ensure MySQL is running and configured.');
+            }
         }
     }
 

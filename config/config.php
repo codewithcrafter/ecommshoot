@@ -85,14 +85,14 @@ if ($isLocalDev) {
     // Local Development (XAMPP / PHP built-in server)
     load_local_database_env(ROOT_PATH . '/.env');
     define('DB_HOST', database_env('DB_HOST', '127.0.0.1'));
-    define('DB_PORT', database_env('DB_PORT', '3307'));
-    define('DB_NAME', database_env('DB_NAME', 'ecommshoot'));
+    define('DB_PORT', database_env('DB_PORT', '3306'));
+    define('DB_NAME', database_env('DB_NAME', 'ecomshoot_db'));
     define('DB_USER', database_env('DB_USER', 'root'));
-    define('DB_PASS', database_env('DB_PASS'));
+    define('DB_PASS', database_env('DB_PASS', ''));
     define('DB_CHARSET', database_env('DB_CHARSET', 'utf8mb4'));
 } else {
     // Production (Hostinger - ecommshoots.in)
-    define('DB_HOST', 'srv1328.hstgr.io');
+    define('DB_HOST', 'localhost');
     define('DB_PORT', '3306');
     define('DB_NAME', 'u555726154_ecommshoot');
     define('DB_USER', 'u555726154_ecommshootuser');
