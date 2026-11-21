@@ -3,8 +3,8 @@ title: "Jewellery & Luxury Product Photography"
 slug: "jewellery-product-photography"
 service_type: "Luxury Tier"
 summary: "Specialized macro focus-stacking photography designed to eliminate unwanted reflections, reveal diamond facet scintillation, and render precious metals with breathtaking brilliance."
-canonical_url: "http:\/\/127.0.0.1:8000\/service\/jewellery-product-photography"
-featured_image: "http:\/\/127.0.0.1:8000\/assets\/images\/services\/jewellery-product-photography.jpg"
+canonical_url: "https:\/\/www.ecomshoots.in\/service\/jewellery-product-photography"
+featured_image: "https:\/\/www.ecomshoots.in\/assets\/images\/services\/jewellery-product-photography.jpg"
 ---
 
 # Micro-Precision Luxury & Fine Jewellery Photography Capturing Diamond Fire and Precious Sheen
@@ -62,4 +62,4 @@ Yes, our color-managed pipeline uses custom ICC camera calibration profiles that
 Yes, we provide 360-degree spin photography captured on motorized indexing tables, outputting smooth HTML5/GIF interactive widgets.
 
 ## Studio Contact & Booking
-Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](http://127.0.0.1:8000/contact) or email **contact@ecomshoot.com**.
+Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](https://www.ecomshoots.in/contact) or email **contact@ecomshoots.in**.

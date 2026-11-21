@@ -16,5 +16,5 @@ To provide high-growth brands with visual assets that dramatically reduce return
 - Dedicated prop room, kitchen set, living room set, and drive-in cyclorama.
 
 ## Get In Touch
-- **Email**: contact@ecomshoot.com
+- **Email**: contact@ecomshoots.in
 - **Studio Address**: Studio 4B, 742 Creative Boulevard, New York, NY 10013

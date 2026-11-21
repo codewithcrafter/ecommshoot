@@ -3,8 +3,8 @@ title: "Creative & Advertising Product Photography"
 slug: "creative-product-photography"
 service_type: "Award Winning"
 summary: "Concept-driven visual campaigns that disrupt mundane feeds, leveraging bold color theory, kinetic splash capture, levitation techniques, and bespoke set design."
-canonical_url: "http:\/\/127.0.0.1:8000\/service\/creative-product-photography"
-featured_image: "http:\/\/127.0.0.1:8000\/assets\/images\/services\/creative-product-photography.jpg"
+canonical_url: "https:\/\/www.ecomshoots.in\/service\/creative-product-photography"
+featured_image: "https:\/\/www.ecomshoots.in\/assets\/images\/services\/creative-product-photography.jpg"
 ---
 
 # Avant-Garde Creative & Advertising Photography That Stops The Infinite Scroll
@@ -62,4 +62,4 @@ Standard studio props, colored backgrounds, and geometric pedestals are included
 Yes! During our creative photography setups, we frequently capture synchronized slow-motion video and cinemagraph loops for TikTok and Instagram Reels.
 
 ## Studio Contact & Booking
-Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](http://127.0.0.1:8000/contact) or email **contact@ecomshoot.com**.
+Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](https://www.ecomshoots.in/contact) or email **contact@ecomshoots.in**.

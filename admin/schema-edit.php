@@ -15,7 +15,7 @@ $schema = [
     'name' => '',
     'schema_type' => 'Organization',
     'page_identifier' => 'all',
-    'schema_json' => "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Organization\",\n  \"name\": \"Ecomshoot\",\n  \"url\": \"http://localhost:8000\"\n}",
+    'schema_json' => "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Organization\",\n  \"name\": \"Ecomshoot\",\n  \"url\": \"https://www.ecomshoots.in\"\n}",
     'is_active' => 1
 ];
 

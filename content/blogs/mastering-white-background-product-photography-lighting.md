@@ -4,36 +4,15 @@ summary: "A technical masterclass into achieving true RGB 255,255,255 white back
 author: "Elena Rostova"
 author_designation: "Master Studio Lighting Director"
 published_date: "2026-10-22"
-modified_date: "2026-11-05T17:37:06+00:00"
+modified_date: "2026-11-21T14:16:43+00:00"
 read_time: "8 min read"
 category: "Studio Lighting & Tech"
 tags:
   - "Lighting Tips"
   - "Studio Techniques"
-featured_image: "http://localhost:8000/assets/images/portfolio/portfolio-2.jpg"
-canonical_html_url: "http://localhost:8000/blog/2"
-markdown_url: "http://localhost:8000/blog/2.md"
----
-
-# Mastering the Art of Pure White Background Photography: Studio Setup & Lighting
-
-> A technical masterclass into achieving true RGB 255,255,255 white background photographs without washing out product edges or losing specular highlights.
-
----
-title: "Mastering the Art of Pure White Background Photography: Studio Setup & Lighting"
-summary: "A technical masterclass into achieving true RGB 255,255,255 white background photographs without washing out product edges or losing specular highlights."
-author: "Elena Rostova"
-author_designation: "Master Studio Lighting Director"
-published_date: "2026-10-22"
-modified_date: "2026-11-05T17:36:12+01:00"
-read_time: "8 min read"
-category: "Studio Lighting & Tech"
-tags:
-  - "Lighting Tips"
-  - "Studio Techniques"
-featured_image: "http://localhost:8000/assets/images/portfolio/portfolio-2.jpg"
-canonical_html_url: "http://localhost:8000/blog/2"
-markdown_url: "http://localhost:8000/blog/2.md"
+featured_image: "https://www.ecomshoots.in/assets/images/portfolio/portfolio-2.jpg"
+canonical_html_url: "https://www.ecomshoots.in/blog/mastering-white-background-product-photography-lighting"
+markdown_url: "https://www.ecomshoots.in/blog/mastering-white-background-product-photography-lighting.md"
 ---
 
 # Mastering the Art of Pure White Background Photography: Studio Setup & Lighting
@@ -89,21 +68,6 @@ High-output studio strobes with fast flash durations are superior for product ph
 
 ## Recommended Production Services
 
-- [White Background Product Photography](http://localhost:8000/white-background-product-photography.php)
-- [Product Photography Services](http://localhost:8000/product-photography.php)
-
-## Frequently Asked Questions
-
-### Why does my white background look grayish after uploading?
-
-If the camera raw value is even slightly below 255 (e.g. 250, 250, 250), it will display as a dingy off-white box against pure white web pages.
-
-### Should I use continuous LED or strobe lighting for white backgrounds?
-
-High-output studio strobes with fast flash durations are superior for product photography because they easily overpower ambient room light and freeze any micro-vibrations.
-
-## Recommended Production Services
-
-- [White Background Product Photography](http://localhost:8000/white-background-product-photography.php)
-- [Product Photography Services](http://localhost:8000/product-photography.php)
+- [White Background Product Photography](https://www.ecomshoots.in/service/white-background-product-photography)
+- [Product Photography Services](https://www.ecomshoots.in/service/product-photography)
 

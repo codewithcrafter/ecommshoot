@@ -3,8 +3,8 @@ title: "Product Photography"
 slug: "product-photography"
 service_type: "Core Service"
 summary: "High-definition commercial product photography that captures physical textures, authentic color tonality, and structural form to turn casual store visitors into loyal buyers."
-canonical_url: "http:\/\/127.0.0.1:8000\/service\/product-photography"
-featured_image: "http:\/\/127.0.0.1:8000\/assets\/images\/services\/product-photography.jpg"
+canonical_url: "https:\/\/www.ecomshoots.in\/service\/product-photography"
+featured_image: "https:\/\/www.ecomshoots.in\/assets\/images\/services\/product-photography.jpg"
 ---
 
 # Commercial Product Photography Services Engineered for Maximum Conversion
@@ -62,4 +62,4 @@ Standard studio turnaround is 5 to 7 business days from receipt of goods. Expedi
 Yes, all hero assets can be delivered on pure sRGB #FFFFFF white background with 85%+ product frame occupancy matching Amazon, Walmart, and Target specifications.
 
 ## Studio Contact & Booking
-Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](http://127.0.0.1:8000/contact) or email **contact@ecomshoot.com**.
+Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](https://www.ecomshoots.in/contact) or email **contact@ecomshoots.in**.

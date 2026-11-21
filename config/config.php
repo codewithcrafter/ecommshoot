@@ -12,7 +12,7 @@ define('SERVICES_PATH', ROOT_PATH . '/services');
 define('UPLOADS_PATH', ROOT_PATH . '/uploads');
 define('CONTENT_PATH', ROOT_PATH . '/content');
 
-// Automatically detects local environment vs live Hostinger production (ecommshoots.in)
+// Automatically detects local environment vs live Hostinger production (ecomshoots.in)
 $isLocalDev = (isset($_SERVER['HTTP_HOST']) && (
     strpos($_SERVER['HTTP_HOST'], 'localhost') !== false ||
     strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false
@@ -91,7 +91,7 @@ if ($isLocalDev) {
     define('DB_PASS', database_env('DB_PASS', ''));
     define('DB_CHARSET', database_env('DB_CHARSET', 'utf8mb4'));
 } else {
-    // Production (Hostinger - ecommshoots.in)
+    // Production (Hostinger - ecomshoots.in)
     define('DB_HOST', 'localhost');
     define('DB_PORT', '3306');
     define('DB_NAME', 'u555726154_ecommshoot');
@@ -102,15 +102,15 @@ if ($isLocalDev) {
 
 // Base URL calculation (supports built-in php server, SSL proxies, and custom subdirectories)
 if (php_sapi_name() === 'cli') {
-    $scheme = 'http';
-    $host = '127.0.0.1:8000';
+    $scheme = 'https';
+    $host = 'www.ecomshoots.in';
     $basePath = '';
 } else {
     $isHttps = (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] === 'on' || $_SERVER['HTTPS'] == 1)) ||
                (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https') ||
                (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443);
     $scheme = $isHttps ? 'https' : 'http';
-    $host = $_SERVER['HTTP_HOST'] ?? 'localhost:8000';
+    $host = $_SERVER['HTTP_HOST'] ?? 'www.ecomshoots.in';
     $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
     $basePath = ($scriptDir === '/' || $scriptDir === '\\') ? '' : rtrim($scriptDir, '/');
     if (substr($basePath, -6) === '/admin') {

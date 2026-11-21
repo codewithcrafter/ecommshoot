@@ -1,104 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://127.0.0.1:8000</loc>
+    <loc>https://www.ecomshoots.in</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/about</loc>
+    <loc>https://www.ecomshoots.in/about</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/services</loc>
+    <loc>https://www.ecomshoots.in/services</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/blog</loc>
+    <loc>https://www.ecomshoots.in/blog</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/contact</loc>
+    <loc>https://www.ecomshoots.in/contact</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/service/product-photography</loc>
+    <loc>https://www.ecomshoots.in/service/product-photography</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/service/ecommerce-product-photography</loc>
+    <loc>https://www.ecomshoots.in/service/ecommerce-product-photography</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/service/lifestyle-product-photography</loc>
+    <loc>https://www.ecomshoots.in/service/lifestyle-product-photography</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/service/fashion-product-photography</loc>
+    <loc>https://www.ecomshoots.in/service/fashion-product-photography</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/service/creative-product-photography</loc>
+    <loc>https://www.ecomshoots.in/service/creative-product-photography</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/service/jewellery-product-photography</loc>
+    <loc>https://www.ecomshoots.in/service/jewellery-product-photography</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/service/product-photo-editing-retouching</loc>
+    <loc>https://www.ecomshoots.in/service/product-photo-editing-retouching</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/service/white-background-product-photography</loc>
+    <loc>https://www.ecomshoots.in/service/white-background-product-photography</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/service/professional-product-photography</loc>
+    <loc>https://www.ecomshoots.in/service/professional-product-photography</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/blog/amazon-product-image-guidelines-compliance-handbook</loc>
-    <lastmod>2026-11-20</lastmod>
+    <loc>https://www.ecomshoots.in/blog/amazon-product-image-guidelines-compliance-handbook</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/blog/mastering-white-background-product-photography-lighting</loc>
-    <lastmod>2026-11-20</lastmod>
+    <loc>https://www.ecomshoots.in/blog/mastering-white-background-product-photography-lighting</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/blog/how-product-photography-boosts-shopify-conversions</loc>
-    <lastmod>2026-11-20</lastmod>
+    <loc>https://www.ecomshoots.in/blog/how-product-photography-boosts-shopify-conversions</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

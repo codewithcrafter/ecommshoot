@@ -49,6 +49,12 @@ class SEO {
         $html[] = '<meta name="robots" content="' . e($meta['robots_meta'] ?? 'index, follow') . '">';
 
         $canonical = $meta['canonical_url'] ?? url();
+        $targetBase = rtrim(get_setting('site_base_url', BASE_URL), '/');
+        $canonical = str_replace(
+            ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:8085', 'http://127.0.0.1:8085', 'https://demo.ecomshoots.in', 'http://demo.ecomshoots.in', 'https://ecommshoots.in', 'http://ecommshoots.in'],
+            $targetBase,
+            $canonical
+        );
         // Database metadata may contain legacy PHP filenames; public canonicals stay extensionless.
         $canonical = preg_replace('#/index\.php(?=\?|$)#i', '/', $canonical);
         $canonical = preg_replace('#\.php(?=\?|$)#i', '', $canonical);

@@ -55,6 +55,20 @@ class Database {
                     $this->connection->exec("SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci");
                     $connected = true;
                 } catch (PDOException $ex) {}
+
+                // Resilient fallback to local dev credentials if server is running on a local workstation
+                if (!$connected && (
+                    (isset($_SERVER['SERVER_ADDR']) && in_array($_SERVER['SERVER_ADDR'], ['127.0.0.1', '::1'])) ||
+                    (isset($_SERVER['REMOTE_ADDR']) && in_array($_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1'])) ||
+                    php_sapi_name() === 'cli'
+                )) {
+                    try {
+                        $localDsn = 'mysql:host=127.0.0.1;port=3306;dbname=ecomshoot_db;charset=utf8mb4';
+                        $this->connection = new PDO($localDsn, 'root', '', $options);
+                        $this->connection->exec("SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci");
+                        $connected = true;
+                    } catch (PDOException $ex) {}
+                }
             }
 
             if (!$connected) {

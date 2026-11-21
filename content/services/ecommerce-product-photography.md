@@ -3,8 +3,8 @@ title: "E-Commerce Product Photography"
 slug: "ecommerce-product-photography"
 service_type: "High Volume"
 summary: "Scalable, catalog-ready product photography optimized for Shopify Plus merchants, Amazon FBA power sellers, and multi-channel retailers requiring uncompromising consistency."
-canonical_url: "http:\/\/127.0.0.1:8000\/service\/ecommerce-product-photography"
-featured_image: "http:\/\/127.0.0.1:8000\/assets\/images\/services\/ecommerce-product-photography.jpg"
+canonical_url: "https:\/\/www.ecomshoots.in\/service\/ecommerce-product-photography"
+featured_image: "https:\/\/www.ecomshoots.in\/assets\/images\/services\/ecommerce-product-photography.jpg"
 ---
 
 # High-Volume E-Commerce Product Photography for High-Velocity Digital Brands
@@ -62,4 +62,4 @@ Yes! Simply provide your SKU spreadsheet, and our asset management script rename
 Every deliverable is pre-scaled to square 2000x2000px or 3000x3000px at 72DPI with sRGB color space, ready for immediate platform upload.
 
 ## Studio Contact & Booking
-Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](http://127.0.0.1:8000/contact) or email **contact@ecomshoot.com**.
+Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](https://www.ecomshoots.in/contact) or email **contact@ecomshoots.in**.

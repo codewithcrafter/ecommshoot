@@ -3,8 +3,8 @@ title: "Product Photo Editing & Retouching"
 slug: "product-photo-editing-retouching"
 service_type: "Studio Essential"
 summary: "Transform raw studio captures into museum-quality digital assets with pixel-perfect clipping paths, frequency separation, scratch removal, and master color balancing."
-canonical_url: "http:\/\/127.0.0.1:8000\/service\/product-photo-editing-retouching"
-featured_image: "http:\/\/127.0.0.1:8000\/assets\/images\/services\/product-photo-editing-retouching.jpg"
+canonical_url: "https:\/\/www.ecomshoots.in\/service\/product-photo-editing-retouching"
+featured_image: "https:\/\/www.ecomshoots.in\/assets\/images\/services\/product-photo-editing-retouching.jpg"
 ---
 
 # Commercial Product Photo Editing, Clipping & High-End Digital Retouching
@@ -62,4 +62,4 @@ Yes, our colorway alteration service allows you to shoot one hero SKU and genera
 We deliver layered PSD files (upon request), transparent PNGs, high-resolution TIFFs for print, and optimized WebP/JPEG files for web.
 
 ## Studio Contact & Booking
-Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](http://127.0.0.1:8000/contact) or email **contact@ecomshoot.com**.
+Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](https://www.ecomshoots.in/contact) or email **contact@ecomshoots.in**.

@@ -3,8 +3,8 @@ title: "White Background Product Photography"
 slug: "white-background-product-photography"
 service_type: "Marketplace Must"
 summary: "Pure RGB #255,255,255 white background imagery engineered to pass Amazon, Walmart, and Google Shopping compliance algorithms on the very first upload."
-canonical_url: "http:\/\/127.0.0.1:8000\/service\/white-background-product-photography"
-featured_image: "http:\/\/127.0.0.1:8000\/assets\/images\/services\/white-background-product-photography.jpg"
+canonical_url: "https:\/\/www.ecomshoots.in\/service\/white-background-product-photography"
+featured_image: "https:\/\/www.ecomshoots.in\/assets\/images\/services\/white-background-product-photography.jpg"
 ---
 
 # Pristine White Background Product Photography Built for Global E-Commerce Marketplaces
@@ -62,4 +62,4 @@ Yes, we offer pure cutouts with no shadow, natural grounding contact shadows, or
 For standard consumer items, a 50-SKU white background batch is typically shot, retouched, and delivered within 4 to 6 business days.
 
 ## Studio Contact & Booking
-Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](http://127.0.0.1:8000/contact) or email **contact@ecomshoot.com**.
+Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](https://www.ecomshoots.in/contact) or email **contact@ecomshoots.in**.

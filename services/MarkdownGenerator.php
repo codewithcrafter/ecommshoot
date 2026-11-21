@@ -109,8 +109,8 @@ class MarkdownGenerator {
 
             // Production Base URL
             $baseUrl = rtrim(get_setting('site_base_url', BASE_URL), '/');
-            $htmlUrl = $baseUrl . '/blog/' . $blogId;
-            $mdUrl = $baseUrl . '/blog/' . $blogId . '.md';
+            $htmlUrl = blog_url($blog['slug'] ?? $blogId);
+            $mdUrl = blog_md_url($blog['slug'] ?? $blogId);
 
             // Resolve full image URL
             $featImg = $blog['featured_image'] ?: 'assets/images/portfolio/portfolio-1.jpg';
@@ -169,14 +169,21 @@ class MarkdownGenerator {
                 $lines[] = '';
             }
 
-            // Article Body Content
+            // Article Body Content: prefer clean $blog['content']
             $bodyContent = '';
-            if (!empty($blog['markdown_content'])) {
-                $bodyContent = trim($blog['markdown_content']);
-            } elseif (($blog['content_format'] ?? 'markdown') === 'html' || preg_match('/<[a-z][\s\S]*>/i', $blog['content'] ?? '')) {
-                $bodyContent = trim(HtmlToMarkdown::convert($blog['content'] ?? ''));
-            } else {
-                $bodyContent = trim($blog['content'] ?? '');
+            if (!empty($blog['content'])) {
+                if (($blog['content_format'] ?? 'markdown') === 'html' || preg_match('/<[a-z][\s\S]*>/i', $blog['content'])) {
+                    $bodyContent = trim(HtmlToMarkdown::convert($blog['content']));
+                } else {
+                    $bodyContent = trim($blog['content']);
+                }
+            } elseif (!empty($blog['markdown_content'])) {
+                $rawMd = trim($blog['markdown_content']);
+                // Strip existing YAML frontmatter if present
+                while (preg_match('/^---\s*\n.*?\n---\s*\n?/s', $rawMd, $matches)) {
+                    $rawMd = trim(substr($rawMd, strlen($matches[0])));
+                }
+                $bodyContent = trim($rawMd);
             }
 
             if (!empty($bodyContent)) {
@@ -204,7 +211,14 @@ class MarkdownGenerator {
                 $lines[] = '';
                 foreach ($internalLinks as $link) {
                     if (!empty($link['anchor']) && !empty($link['url'])) {
-                        $targetUrl = (strpos($link['url'], 'http') === 0) ? $link['url'] : $baseUrl . '/' . ltrim($link['url'], '/');
+                        $rawUrl = trim($link['url']);
+                        if (str_starts_with($rawUrl, 'http://') || str_starts_with($rawUrl, 'https://')) {
+                            $targetUrl = preg_replace('/\.php$/i', '', $rawUrl);
+                        } else {
+                            $cleanSlug = ltrim($rawUrl, '/');
+                            $cleanSlug = preg_replace('/\.php$/i', '', $cleanSlug);
+                            $targetUrl = service_url($cleanSlug);
+                        }
                         $lines[] = '- [' . trim($link['anchor']) . '](' . $targetUrl . ')';
                     }
                 }
@@ -217,7 +231,7 @@ class MarkdownGenerator {
             $updStmt = $db->prepare("UPDATE blogs SET markdown_content = :md WHERE id = :id");
             $updStmt->execute(['md' => $markdownDocument, 'id' => $blogId]);
 
-            // Atomic file writing
+            // Atomic file writing for ID-based path
             $targetPath = self::getFilePath($blogId);
             $tempPath = $targetPath . '.tmp.' . bin2hex(random_bytes(6));
 
@@ -228,6 +242,12 @@ class MarkdownGenerator {
             if (!rename($tempPath, $targetPath)) {
                 @unlink($tempPath);
                 return false;
+            }
+
+            // Also keep slug-based Markdown file in sync if available
+            if (!empty($blog['slug'])) {
+                $slugPath = self::getContentDir() . '/' . $blog['slug'] . '.md';
+                @file_put_contents($slugPath, $markdownDocument, LOCK_EX);
             }
 
             return true;

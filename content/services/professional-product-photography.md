@@ -3,8 +3,8 @@ title: "Professional Product Photography"
 slug: "professional-product-photography"
 service_type: "Enterprise"
 summary: "Full-service creative production combining strategic creative direction, medium format camera hardware, master lighting, set styling, and dedicated project management."
-canonical_url: "http:\/\/127.0.0.1:8000\/service\/professional-product-photography"
-featured_image: "http:\/\/127.0.0.1:8000\/assets\/images\/services\/professional-product-photography.jpg"
+canonical_url: "https:\/\/www.ecomshoots.in\/service\/professional-product-photography"
+featured_image: "https:\/\/www.ecomshoots.in\/assets\/images\/services\/professional-product-photography.jpg"
 ---
 
 # End-to-End Professional Commercial Product Photography for Established Enterprises
@@ -62,4 +62,4 @@ Yes, our studio space includes a drive-in cyclorama bay suitable for large furni
 All deliverables come with perpetual, worldwide, royalty-free commercial usage rights across digital, print, and retail advertising channels.
 
 ## Studio Contact & Booking
-Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](http://127.0.0.1:8000/contact) or email **contact@ecomshoot.com**.
+Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](https://www.ecomshoots.in/contact) or email **contact@ecomshoots.in**.

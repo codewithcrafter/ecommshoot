@@ -3,7 +3,7 @@
 > Step-by-step instructions for booking studio production runs and safely dispatching merchandise samples.
 
 ## Step 1: Request Rate Card & Production Availability
-Submit your SKU count, service requirements, and desired delivery timeframe through our [Online Booking Form](http://127.0.0.1:8000/contact).
+Submit your SKU count, service requirements, and desired delivery timeframe through our [Online Booking Form](https://www.ecomshoots.in/contact).
 
 ## Step 2: Shipping Sample Merchandise
 - Our intake department provides a pre-addressed shipping tag and unique Production Batch ID.

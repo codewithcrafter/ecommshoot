@@ -20,7 +20,7 @@ body {
 }
 
 .font-editorial {
-    font-family: 'Playfair Display', Georgia, serif !important;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
     font-style: italic !important;
 }
 
@@ -656,4 +656,805 @@ body {
 
 
 
+
+
+
+/* ============================================================================
+   MASTER SERVICE DETAIL PAGE & ENQUIRY UI (Mobile & Desktop Responsive Suite)
+   ============================================================================ */
+
+/* 1. Global Page Theme & Container Control */
+.service-detail-ui,
+.services-ui-redesign {
+    background-color: #09070e !important;
+    color: #ffffff !important;
+    overflow-x: clip !important;
+    min-height: 100vh;
+}
+
+.service-detail-ui .container,
+.services-ui-redesign .container {
+    width: 100% !important;
+    max-width: 1240px !important;
+    margin: 0 auto !important;
+    padding: 0 clamp(1rem, 3vw, 2rem) !important;
+    box-sizing: border-box !important;
+}
+
+.service-detail-ui .section,
+.services-ui-redesign .section {
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0 !important;
+    background: #09070e !important;
+    position: relative;
+}
+
+.service-detail-ui .section-subtle,
+.services-ui-redesign .section-subtle {
+    background: #0e0a17 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+/* 2. Global Section Headers & Typography */
+.service-detail-ui .section-header,
+.services-ui-redesign .section-header {
+    text-align: center !important;
+    max-width: 820px !important;
+    margin: 0 auto clamp(2rem, 4vw, 3.25rem) !important;
+    padding: 0 !important;
+}
+
+.service-detail-ui .section-title,
+.services-ui-redesign .section-title {
+    color: #ffffff !important;
+    font-size: clamp(1.85rem, 3.5vw, 2.75rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.025em !important;
+    margin: 0.65rem 0 0.85rem !important;
+}
+
+.service-detail-ui .section-subtitle,
+.services-ui-redesign .section-subtitle {
+    color: rgba(209, 213, 219, 0.82) !important;
+    font-size: clamp(0.98rem, 1.25vw, 1.12rem) !important;
+    line-height: 1.68 !important;
+    max-width: 720px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+.service-detail-ui .badge,
+.services-ui-redesign .badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 0.35rem 0.85rem !important;
+    border-radius: 9999px !important;
+    font-size: 0.76rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0.75rem !important;
+}
+
+.service-detail-ui .badge-orange,
+.services-ui-redesign .badge-orange {
+    background: rgba(249, 115, 22, 0.16) !important;
+    color: #fb923c !important;
+    border: 1px solid rgba(249, 115, 22, 0.35) !important;
+}
+
+.service-detail-ui .badge-indigo,
+.services-ui-redesign .badge-indigo {
+    background: rgba(139, 92, 246, 0.16) !important;
+    color: #c084fc !important;
+    border: 1px solid rgba(139, 92, 246, 0.35) !important;
+}
+
+.service-detail-ui .badge-lime,
+.services-ui-redesign .badge-lime {
+    background: rgba(163, 230, 53, 0.14) !important;
+    color: #bef264 !important;
+    border: 1px solid rgba(163, 230, 53, 0.3) !important;
+}
+
+.service-detail-ui .badge-lavender,
+.services-ui-redesign .badge-lavender {
+    background: rgba(192, 132, 252, 0.16) !important;
+    color: #e9d5ff !important;
+    border: 1px solid rgba(192, 132, 252, 0.35) !important;
+}
+
+/* 3. Hero & Direct Enquiry Card Layout (Desktop & Phone Viewport Standards) */
+.service-detail-ui .service-detail-enquiry-hero {
+    background-color: #120d1c !important;
+    background-image: radial-gradient(circle at 80% 25%, rgba(139, 92, 246, 0.2), transparent 60%), linear-gradient(135deg, rgba(12, 14, 18, 0.92) 0%, rgba(18, 22, 28, 0.94) 100%), var(--service-hero-image) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0 !important;
+    min-height: auto !important;
+    position: relative !important;
+}
+
+.service-detail-ui .service-detail-hero-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr) !important;
+    gap: clamp(2rem, 4vw, 3.5rem) !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.service-detail-ui .page-header-content {
+    max-width: 660px !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+.service-detail-ui .service-detail-enquiry-hero .page-header-title {
+    color: #ffffff !important;
+    font-size: clamp(2.1rem, 4.2vw, 3.4rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.025em !important;
+    margin: 0.85rem 0 1.25rem !important;
+    word-break: break-word !important;
+}
+
+.service-detail-ui .service-detail-enquiry-hero .page-header-sub {
+    color: rgba(229, 231, 235, 0.9) !important;
+    font-size: clamp(1rem, 1.2vw, 1.12rem) !important;
+    line-height: 1.7 !important;
+    max-width: 600px !important;
+    margin: 0 0 1.75rem !important;
+}
+
+.service-detail-ui .service-detail-hero-actions {
+    display: flex !important;
+    gap: 1rem !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    margin-top: 1.5rem !important;
+}
+
+.service-detail-ui .service-detail-hero-actions .btn {
+    padding: 0.85rem 1.65rem !important;
+    font-size: 0.96rem !important;
+    font-weight: 700 !important;
+    border-radius: 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.25s ease !important;
+}
+
+.service-detail-ui .service-detail-hero-actions .btn-primary {
+    background: linear-gradient(135deg, #f97316 0%, #fb7185 100%) !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 20px rgba(249, 115, 22, 0.35) !important;
+}
+
+.service-detail-ui .service-detail-hero-actions .btn-outline-white {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+}
+
+.service-detail-ui .service-detail-hero-actions .btn:hover {
+    transform: translateY(-2px) !important;
+}
+
+/* 4. Enquiry Card inside Service Detail Pages */
+.service-detail-ui .services-enquiry-card,
+.services-ui-redesign .services-enquiry-card {
+    background: #171120 !important;
+    border: 1px solid rgba(139, 92, 246, 0.32) !important;
+    border-radius: 20px !important;
+    padding: clamp(1.4rem, 2.5vw, 2rem) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75) !important;
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+}
+
+.service-detail-ui .enquiry-card-header,
+.services-ui-redesign .enquiry-card-header {
+    margin-bottom: 1.25rem !important;
+}
+
+.service-detail-ui .enquiry-card-badge,
+.services-ui-redesign .enquiry-card-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    font-size: 0.74rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    color: #38bdf8 !important;
+    background: rgba(56, 189, 248, 0.12) !important;
+    border: 1px solid rgba(56, 189, 248, 0.25) !important;
+    padding: 0.25rem 0.65rem !important;
+    border-radius: 9999px !important;
+    margin-bottom: 0.45rem !important;
+}
+
+.service-detail-ui .enquiry-card-title,
+.services-ui-redesign .enquiry-card-title {
+    color: #ffffff !important;
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    margin: 0 !important;
+}
+
+.service-detail-ui .services-form-grid,
+.services-ui-redesign .services-form-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.85rem !important;
+    margin-bottom: 0.85rem !important;
+}
+
+.service-detail-ui .services-enquiry-form .form-group,
+.services-ui-redesign .services-enquiry-form .form-group {
+    margin-bottom: 0.85rem !important;
+    text-align: left !important;
+}
+
+.service-detail-ui .services-enquiry-form .form-label,
+.services-ui-redesign .services-enquiry-form .form-label {
+    display: block !important;
+    color: rgba(243, 244, 246, 0.95) !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.4rem !important;
+    letter-spacing: 0.01em !important;
+}
+
+.service-detail-ui .services-enquiry-form .form-control,
+.services-ui-redesign .services-enquiry-form .form-control {
+    background-color: #0f0b18 !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.14) !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 0.7rem 0.9rem !important;
+    font-size: 0.92rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    min-height: 44px !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.service-detail-ui .services-enquiry-form .form-control:focus,
+.services-ui-redesign .services-enquiry-form .form-control:focus {
+    border-color: #8b5cf6 !important;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25) !important;
+    outline: none !important;
+}
+
+.service-detail-ui .services-enquiry-form select.form-control,
+.services-ui-redesign .services-enquiry-form select.form-control {
+    background-color: #0f0b18 !important;
+    color: #ffffff !important;
+}
+
+.service-detail-ui .services-enquiry-form select.form-control option,
+.services-ui-redesign .services-enquiry-form select.form-control option {
+    background-color: #171120 !important;
+    color: #ffffff !important;
+}
+
+.service-detail-ui .services-submit-btn,
+.services-ui-redesign .services-submit-btn {
+    width: 100% !important;
+    min-height: 48px !important;
+    background: linear-gradient(135deg, #f97316 0%, #fb7185 100%) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    cursor: pointer !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+    box-shadow: 0 8px 22px rgba(249, 115, 22, 0.35) !important;
+    margin-top: 0.5rem !important;
+}
+
+.service-detail-ui .services-submit-btn:hover,
+.services-ui-redesign .services-submit-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 28px rgba(249, 115, 22, 0.45) !important;
+}
+
+/* 5. Introduction Section (Two Column Layout) */
+.service-detail-ui .service-intro-grid {
+    display: grid !important;
+    grid-template-columns: 1.15fr 0.85fr !important;
+    gap: clamp(2rem, 5vw, 4rem) !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.service-detail-ui .service-intro-grid h2 {
+    color: #ffffff !important;
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.025em !important;
+    line-height: 1.22 !important;
+    margin-bottom: 1.25rem !important;
+}
+
+.service-detail-ui .service-intro-text p {
+    color: rgba(209, 213, 219, 0.88) !important;
+    font-size: 1.05rem !important;
+    line-height: 1.75 !important;
+    margin-bottom: 1rem !important;
+}
+
+.service-detail-ui .service-media-frame {
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+    background: #171120 !important;
+}
+
+.service-detail-ui .service-media-frame img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* 6. Service Benefits Cards Grid */
+.service-detail-ui .service-benefits-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+}
+
+.service-detail-ui .benefit-card {
+    background: linear-gradient(165deg, #181322 0%, #110d19 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 18px !important;
+    padding: clamp(1.4rem, 2.5vw, 1.85rem) !important;
+    box-sizing: border-box !important;
+    transition: transform 0.3s var(--ease-luxury), border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.service-detail-ui .benefit-card:hover {
+    transform: translateY(-4px) !important;
+    border-color: rgba(167, 139, 250, 0.45) !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65) !important;
+}
+
+.service-detail-ui .benefit-title {
+    color: #ffffff !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    margin: 0.65rem 0 0.5rem !important;
+}
+
+.service-detail-ui .benefit-desc {
+    color: rgba(209, 213, 219, 0.78) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+    margin: 0 !important;
+}
+
+/* 7. Technical Specifications & Deliverables (Features List) */
+.service-detail-ui .features-list-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+}
+
+.service-detail-ui .feature-box {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 1.2rem !important;
+    background: linear-gradient(165deg, #181322 0%, #110d19 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 16px !important;
+    padding: 1.5rem !important;
+    box-sizing: border-box !important;
+}
+
+.service-detail-ui .feature-check {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    border-radius: 50% !important;
+    background: rgba(249, 115, 22, 0.15) !important;
+    border: 1px solid rgba(249, 115, 22, 0.35) !important;
+    color: #f97316 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: 800 !important;
+    font-size: 0.95rem !important;
+}
+
+.service-detail-ui .feature-title {
+    color: #ffffff !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    margin: 0 0 0.4rem !important;
+}
+
+.service-detail-ui .feature-desc {
+    color: rgba(209, 213, 219, 0.78) !important;
+    font-size: 0.94rem !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+}
+
+/* 8. Portfolio Examples Grid */
+.service-detail-ui .portfolio-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+}
+
+.service-detail-ui .portfolio-card {
+    position: relative !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    aspect-ratio: 4 / 3 !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: #171120 !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6) !important;
+}
+
+.service-detail-ui .portfolio-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    transition: transform 0.45s ease !important;
+}
+
+.service-detail-ui .portfolio-card:hover img {
+    transform: scale(1.05) !important;
+}
+
+.service-detail-ui .portfolio-overlay {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    padding: 1.5rem 1.25rem 1.25rem !important;
+    background: linear-gradient(180deg, transparent 0%, rgba(9, 7, 14, 0.94) 100%) !important;
+    z-index: 2 !important;
+}
+
+.service-detail-ui .portfolio-tag {
+    color: #fb923c !important;
+    font-size: 0.74rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    margin-bottom: 0.25rem !important;
+}
+
+.service-detail-ui .portfolio-title {
+    color: #ffffff !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+}
+
+/* 9. Industries Specialized In Grid */
+.service-detail-ui .industries-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+}
+
+.service-detail-ui .industry-card {
+    background: linear-gradient(165deg, #181322 0%, #110d19 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 18px !important;
+    padding: 1.5rem !important;
+    box-sizing: border-box !important;
+    transition: transform 0.3s ease, border-color 0.3s ease !important;
+}
+
+.service-detail-ui .industry-card:hover {
+    transform: translateY(-4px) !important;
+    border-color: rgba(167, 139, 250, 0.45) !important;
+}
+
+.service-detail-ui .industry-name {
+    color: #ffffff !important;
+    font-size: 1.18rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.service-detail-ui .industry-desc {
+    color: rgba(209, 213, 219, 0.78) !important;
+    font-size: 0.94rem !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+}
+
+/* 10. Structured Studio Workflow (Process Steps) */
+.service-detail-ui .process-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+}
+
+.service-detail-ui .process-card {
+    background: linear-gradient(165deg, #181322 0%, #110d19 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 18px !important;
+    padding: 1.75rem 1.4rem !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+.service-detail-ui .process-number {
+    font-size: 2.2rem !important;
+    font-weight: 900 !important;
+    color: #8b5cf6 !important;
+    line-height: 1 !important;
+    margin-bottom: 0.85rem !important;
+    display: block !important;
+}
+
+.service-detail-ui .process-title {
+    color: #ffffff !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.service-detail-ui .process-desc {
+    color: rgba(209, 213, 219, 0.78) !important;
+    font-size: 0.92rem !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+}
+
+/* 11. Service Detail FAQ Accordion */
+.service-detail-ui .faq-list {
+    max-width: 860px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    width: 100% !important;
+}
+
+.service-detail-ui .faq-item {
+    background: #171120 !important;
+    border: 1px solid rgba(255, 255, 255, 0.09) !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    transition: border-color 0.25s ease !important;
+}
+
+.service-detail-ui .faq-item.active {
+    border-color: rgba(139, 92, 246, 0.45) !important;
+}
+
+.service-detail-ui .faq-question {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 1rem !important;
+    padding: 1.25rem 1.5rem !important;
+    background: transparent !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    cursor: pointer !important;
+}
+
+.service-detail-ui .faq-question span {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+.service-detail-ui .faq-icon {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    color: #fb923c !important;
+    transition: transform 0.3s ease !important;
+}
+
+.service-detail-ui .faq-item.active .faq-icon {
+    transform: rotate(180deg) !important;
+}
+
+.service-detail-ui .faq-answer {
+    padding: 0 1.5rem 1.35rem !important;
+    color: rgba(209, 213, 219, 0.85) !important;
+    font-size: 0.96rem !important;
+    line-height: 1.7 !important;
+    word-break: break-word !important;
+}
+
+/* 12. Related Services Section */
+.service-detail-ui .services-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+}
+
+.service-detail-ui .service-card {
+    background: linear-gradient(165deg, #181322 0%, #110d19 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.service-detail-ui .service-card:hover {
+    transform: translateY(-4px) !important;
+    border-color: rgba(167, 139, 250, 0.45) !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6) !important;
+}
+
+.service-detail-ui .service-card-media {
+    position: relative !important;
+    aspect-ratio: 16 / 10 !important;
+    width: 100% !important;
+    overflow: hidden !important;
+}
+
+.service-detail-ui .service-card-media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+.service-detail-ui .service-card-body {
+    padding: 1.35rem 1.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+}
+
+.service-detail-ui .service-card-title a {
+    color: #ffffff !important;
+    font-size: 1.18rem !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+}
+
+.service-detail-ui .service-card-text {
+    color: rgba(209, 213, 219, 0.78) !important;
+    font-size: 0.93rem !important;
+    line-height: 1.6 !important;
+    margin: 0.5rem 0 1.25rem !important;
+}
+
+.service-detail-ui .service-card-link {
+    color: #fb923c !important;
+    font-size: 0.92rem !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    margin-top: auto !important;
+}
+
+/* ============================================================================
+   RESPONSIVE BREAKPOINTS (Mobile & Tablet Perfection)
+   ============================================================================ */
+
+/* Tablet Viewports (<= 991px) */
+@media (max-width: 991px) {
+    .service-detail-ui .service-detail-hero-grid,
+    .services-ui-redesign .services-hero-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+    }
+
+    .service-detail-ui .page-header-content,
+    .services-ui-redesign .page-header-content {
+        max-width: 100% !important;
+        text-align: center !important;
+    }
+
+    .service-detail-ui .service-detail-hero-actions {
+        justify-content: center !important;
+    }
+
+    .service-detail-ui .service-intro-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+    }
+
+    .service-detail-ui .service-benefits-grid,
+    .service-detail-ui .portfolio-grid,
+    .service-detail-ui .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.25rem !important;
+    }
+
+    .service-detail-ui .process-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.25rem !important;
+    }
+}
+
+/* Phone Viewports (<= 640px) */
+@media (max-width: 640px) {
+    .service-detail-ui .section,
+    .services-ui-redesign .section {
+        padding: 3rem 0 !important;
+    }
+
+    .service-detail-ui .service-detail-enquiry-hero .page-header-title {
+        font-size: clamp(1.85rem, 8vw, 2.45rem) !important;
+        line-height: 1.18 !important;
+        text-align: center !important;
+    }
+
+    .service-detail-ui .service-detail-enquiry-hero .page-header-sub {
+        font-size: 0.98rem !important;
+        text-align: center !important;
+    }
+
+    .service-detail-ui .service-detail-hero-actions {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+
+    .service-detail-ui .service-detail-hero-actions .btn {
+        width: 100% !important;
+    }
+
+    .service-detail-ui .services-form-grid,
+    .services-ui-redesign .services-form-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+    }
+
+    .service-detail-ui .services-enquiry-card,
+    .services-ui-redesign .services-enquiry-card {
+        padding: 1.25rem 1.15rem !important;
+        border-radius: 16px !important;
+    }
+
+    .service-detail-ui .service-benefits-grid,
+    .service-detail-ui .features-list-grid,
+    .service-detail-ui .portfolio-grid,
+    .service-detail-ui .industries-grid,
+    .service-detail-ui .process-grid,
+    .service-detail-ui .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .service-detail-ui .faq-question {
+        padding: 1rem 1.15rem !important;
+        font-size: 0.98rem !important;
+    }
+
+    .service-detail-ui .faq-answer {
+        padding: 0 1.15rem 1.15rem !important;
+        font-size: 0.92rem !important;
+    }
+}
 

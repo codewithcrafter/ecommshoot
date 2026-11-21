@@ -3,8 +3,8 @@ title: "Fashion & Apparel Product Photography"
 slug: "fashion-product-photography"
 service_type: "Top Pick"
 summary: "From architectural ghost mannequin executions and pin-sharp flat lays to dynamic live-model editorial lookbooks, we present fashion with elegance and drape integrity."
-canonical_url: "http:\/\/127.0.0.1:8000\/service\/fashion-product-photography"
-featured_image: "http:\/\/127.0.0.1:8000\/assets\/images\/services\/fashion-product-photography.jpg"
+canonical_url: "https:\/\/www.ecomshoots.in\/service\/fashion-product-photography"
+featured_image: "https:\/\/www.ecomshoots.in\/assets\/images\/services\/fashion-product-photography.jpg"
 ---
 
 # Runway-Grade Fashion & Apparel Photography for Contemporary Clothing Labels
@@ -62,4 +62,4 @@ Our studio uses polarized lighting filters and large scrim diffusers that contro
 Yes! Professional industrial-grade fabric steaming and lint preparation are standard parts of our intake process at no extra fee.
 
 ## Studio Contact & Booking
-Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](http://127.0.0.1:8000/contact) or email **contact@ecomshoot.com**.
+Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](https://www.ecomshoots.in/contact) or email **contact@ecomshoots.in**.

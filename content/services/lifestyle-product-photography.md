@@ -3,8 +3,8 @@ title: "Lifestyle Product Photography"
 slug: "lifestyle-product-photography"
 service_type: "Storytelling"
 summary: "Immersive in-context photography that showcases your product in real-world environments, connecting deeply with target demographics and skyrocketing social engagement."
-canonical_url: "http:\/\/127.0.0.1:8000\/service\/lifestyle-product-photography"
-featured_image: "http:\/\/127.0.0.1:8000\/assets\/images\/services\/lifestyle-product-photography.jpg"
+canonical_url: "https:\/\/www.ecomshoots.in\/service\/lifestyle-product-photography"
+featured_image: "https:\/\/www.ecomshoots.in\/assets\/images\/services\/lifestyle-product-photography.jpg"
 ---
 
 # Contextual Lifestyle Product Photography That Evokes Emotion and Ignites Aspiration
@@ -62,4 +62,4 @@ Yes, all lifestyle imagery produced with our contracted talent includes unlimite
 Our custom lifestyle packages are tailored to your needs, typically providing 3 to 5 fully staged scenes yielding 15 to 30 unique hero and vignette assets.
 
 ## Studio Contact & Booking
-Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](http://127.0.0.1:8000/contact) or email **contact@ecomshoot.com**.
+Ready to schedule a shoot or request custom volume pricing? [Contact our studio team](https://www.ecomshoots.in/contact) or email **contact@ecomshoots.in**.

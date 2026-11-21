@@ -5,42 +5,42 @@
 Ecomshoot is a premier commercial product photography studio and post-production house serving direct-to-consumer (D2C) brands, high-growth Shopify merchants, Amazon enterprise sellers, and international fashion retailers. We specialize in studio-grade white background catalog photography, lifestyle editorial staging, high-fashion apparel model shoots, micro-detailed luxury jewellery imagery, 360-degree interactive product spins, and pixel-precise commercial retouching.
 
 ## Contact Information
-- **Website**: http://127.0.0.1:8000
-- **Email**: contact@ecommshoot.in
+- **Website**: https://www.ecomshoots.in
+- **Email**: contact@ecomshoots.in
 - **Phone**: 
 - **Studio Address**: 
 - **Business Hours**: Monday – Friday: 9:00 AM – 6:30 PM EST
 
 ## Core Website Pages
-- [Home](http://127.0.0.1:8000) - Visual Assets Engineered to Multiply E-Commerce Conversions
-- [About Us](http://127.0.0.1:8000/about) - Artistry Meets E-Commerce Conversion Science
-- [Our Services](http://127.0.0.1:8000/services) - Complete Visual Production Solutions for Modern Brands
-- [Insights & Studio Journal](http://127.0.0.1:8000/blog) - E-Commerce Photography Intelligence & Visual Strategy
-- [Contact Studio](http://127.0.0.1:8000/contact) - Start Your Production with Ecomshoot
+- [Home](https://www.ecomshoots.in) - Visual Assets Engineered to Multiply E-Commerce Conversions
+- [About Us](https://www.ecomshoots.in/about) - Artistry Meets E-Commerce Conversion Science
+- [Our Services](https://www.ecomshoots.in/services) - Complete Visual Production Solutions for Modern Brands
+- [Insights & Studio Journal](https://www.ecomshoots.in/blog) - E-Commerce Photography Intelligence & Visual Strategy
+- [Contact Studio](https://www.ecomshoots.in/contact) - Start Your Production with Ecomshoot
 
 ## Commercial Photography Services
-- [Product Photography](http://127.0.0.1:8000/service/product-photography): High-definition commercial product photography that captures physical textures, authentic color tonality, and structural form to turn casual store visitors into loyal buyers.
-- [E-Commerce Product Photography](http://127.0.0.1:8000/service/ecommerce-product-photography): Scalable, catalog-ready product photography optimized for Shopify Plus merchants, Amazon FBA power sellers, and multi-channel retailers requiring uncompromising consistency.
-- [Lifestyle Product Photography](http://127.0.0.1:8000/service/lifestyle-product-photography): Immersive in-context photography that showcases your product in real-world environments, connecting deeply with target demographics and skyrocketing social engagement.
-- [Fashion & Apparel Product Photography](http://127.0.0.1:8000/service/fashion-product-photography): From architectural ghost mannequin executions and pin-sharp flat lays to dynamic live-model editorial lookbooks, we present fashion with elegance and drape integrity.
-- [Creative & Advertising Product Photography](http://127.0.0.1:8000/service/creative-product-photography): Concept-driven visual campaigns that disrupt mundane feeds, leveraging bold color theory, kinetic splash capture, levitation techniques, and bespoke set design.
-- [Jewellery & Luxury Product Photography](http://127.0.0.1:8000/service/jewellery-product-photography): Specialized macro focus-stacking photography designed to eliminate unwanted reflections, reveal diamond facet scintillation, and render precious metals with breathtaking brilliance.
-- [Product Photo Editing & Retouching](http://127.0.0.1:8000/service/product-photo-editing-retouching): Transform raw studio captures into museum-quality digital assets with pixel-perfect clipping paths, frequency separation, scratch removal, and master color balancing.
-- [White Background Product Photography](http://127.0.0.1:8000/service/white-background-product-photography): Pure RGB #255,255,255 white background imagery engineered to pass Amazon, Walmart, and Google Shopping compliance algorithms on the very first upload.
-- [Professional Product Photography](http://127.0.0.1:8000/service/professional-product-photography): Full-service creative production combining strategic creative direction, medium format camera hardware, master lighting, set styling, and dedicated project management.
+- [Product Photography](https://www.ecomshoots.in/service/product-photography): High-definition commercial product photography that captures physical textures, authentic color tonality, and structural form to turn casual store visitors into loyal buyers.
+- [E-Commerce Product Photography](https://www.ecomshoots.in/service/ecommerce-product-photography): Scalable, catalog-ready product photography optimized for Shopify Plus merchants, Amazon FBA power sellers, and multi-channel retailers requiring uncompromising consistency.
+- [Lifestyle Product Photography](https://www.ecomshoots.in/service/lifestyle-product-photography): Immersive in-context photography that showcases your product in real-world environments, connecting deeply with target demographics and skyrocketing social engagement.
+- [Fashion & Apparel Product Photography](https://www.ecomshoots.in/service/fashion-product-photography): From architectural ghost mannequin executions and pin-sharp flat lays to dynamic live-model editorial lookbooks, we present fashion with elegance and drape integrity.
+- [Creative & Advertising Product Photography](https://www.ecomshoots.in/service/creative-product-photography): Concept-driven visual campaigns that disrupt mundane feeds, leveraging bold color theory, kinetic splash capture, levitation techniques, and bespoke set design.
+- [Jewellery & Luxury Product Photography](https://www.ecomshoots.in/service/jewellery-product-photography): Specialized macro focus-stacking photography designed to eliminate unwanted reflections, reveal diamond facet scintillation, and render precious metals with breathtaking brilliance.
+- [Product Photo Editing & Retouching](https://www.ecomshoots.in/service/product-photo-editing-retouching): Transform raw studio captures into museum-quality digital assets with pixel-perfect clipping paths, frequency separation, scratch removal, and master color balancing.
+- [White Background Product Photography](https://www.ecomshoots.in/service/white-background-product-photography): Pure RGB #255,255,255 white background imagery engineered to pass Amazon, Walmart, and Google Shopping compliance algorithms on the very first upload.
+- [Professional Product Photography](https://www.ecomshoots.in/service/professional-product-photography): Full-service creative production combining strategic creative direction, medium format camera hardware, master lighting, set styling, and dedicated project management.
 
 ## Industry Insights & Knowledge Base
 Title: Amazon Product Image Guidelines 2026: Complete Compliance & Best Practices
-HTML: http://127.0.0.1:8000/blog/amazon-product-image-guidelines-compliance-handbook
-Markdown: http://127.0.0.1:8000/blog/amazon-product-image-guidelines-compliance-handbook.md
+HTML: https://www.ecomshoots.in/blog/amazon-product-image-guidelines-compliance-handbook
+Markdown: https://www.ecomshoots.in/blog/amazon-product-image-guidelines-compliance-handbook.md
 Description: Stay ahead of Amazon algorithm updates and seller central image standards to prevent listing suppression and capture the Buy Box.
 
 Title: Mastering the Art of Pure White Background Photography: Studio Setup & Lighting
-HTML: http://127.0.0.1:8000/blog/mastering-white-background-product-photography-lighting
-Markdown: http://127.0.0.1:8000/blog/mastering-white-background-product-photography-lighting.md
+HTML: https://www.ecomshoots.in/blog/mastering-white-background-product-photography-lighting
+Markdown: https://www.ecomshoots.in/blog/mastering-white-background-product-photography-lighting.md
 Description: A technical masterclass into achieving true RGB 255,255,255 white background photographs without washing out product edges or losing specular highlights.
 
 Title: How High-Resolution Product Photography Directly Boosts Shopify Conversion Rates
-HTML: http://127.0.0.1:8000/blog/how-product-photography-boosts-shopify-conversions
-Markdown: http://127.0.0.1:8000/blog/how-product-photography-boosts-shopify-conversions.md
+HTML: https://www.ecomshoots.in/blog/how-product-photography-boosts-shopify-conversions
+Markdown: https://www.ecomshoots.in/blog/how-product-photography-boosts-shopify-conversions.md
 Description: Discover the empirical connection between visual resolution, multi-angle imagery, and customer checkout conversion rates on modern Shopify stores.

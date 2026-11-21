@@ -66,8 +66,13 @@ class SchemaManager {
         // 1. Output stored schemas from database
         foreach ($storedSchemas as $item) {
             $json = trim($item['schema_json']);
-            // Replace placeholder URL if needed
-            $json = str_replace('http://localhost:8000', BASE_URL, $json);
+            // Replace placeholder or local URLs if needed
+            $targetBase = rtrim(get_setting('site_base_url', BASE_URL), '/');
+            $json = str_replace(
+                ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:8085', 'http://127.0.0.1:8085', 'https://demo.ecomshoots.in', 'http://demo.ecomshoots.in', 'demo.ecomshoots.in'],
+                $targetBase,
+                $json
+            );
             $decoded = json_decode($json, true);
             if ($decoded) {
                 $pretty = json_encode($decoded, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);

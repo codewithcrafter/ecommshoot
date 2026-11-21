@@ -16,4 +16,4 @@
 - **Turnaround**: Standard 5-7 business days with 48-hour rush options available.
 
 ## Booking & Project Initiation
-Contact the studio team at [contact@ecomshoot.com](mailto:contact@ecomshoot.com) or book via [Online Intake Form](http://127.0.0.1:8000/contact).
+Contact the studio team at [contact@ecomshoots.in](mailto:contact@ecomshoots.in) or book via [Online Intake Form](https://www.ecomshoots.in/contact).
