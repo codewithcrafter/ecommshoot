@@ -28,9 +28,9 @@ $serviceSlugs = [
     'white-background-product-photography',
 ];
 
-// 0. Production domain canonical redirect (demo/non-www -> www.ecomshoots.in)
+// 0. Production domain canonical redirect (apex ecomshoots.in -> www.ecomshoots.in)
 $httpHost = $_SERVER['HTTP_HOST'] ?? '';
-if (preg_match('#^(?:demo\.)?ecomshoots\.in$#i', $httpHost)) {
+if (strcasecmp($httpHost, 'ecomshoots.in') === 0) {
     header('Location: https://www.ecomshoots.in' . $rawUri, true, 301);
     exit;
 }

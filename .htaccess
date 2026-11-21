@@ -3,9 +3,8 @@
 RewriteEngine On
 RewriteBase /
 
-# 0. Canonical Production Redirection: Enforce HTTPS & WWW
-RewriteCond %{HTTP_HOST} ^ecomshoots\.in$ [NC,OR]
-RewriteCond %{HTTP_HOST} ^demo\.ecomshoots\.in$ [NC]
+# 0. Canonical Production Redirection: Enforce WWW for apex domain
+RewriteCond %{HTTP_HOST} ^ecomshoots\.in$ [NC]
 RewriteRule ^(.*)$ https://www.ecomshoots.in/$1 [R=301,L]
 
 RewriteCond %{HTTP_HOST} ^www\.ecomshoots\.in$ [NC]
