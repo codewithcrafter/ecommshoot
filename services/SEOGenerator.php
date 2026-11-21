@@ -46,7 +46,7 @@ class SEOGenerator {
             // 1. Static Published Pages
             $pages = $db->query("SELECT slug, file_name, updated_at FROM pages WHERE status = 'published' ORDER BY id ASC")->fetchAll(PDO::FETCH_ASSOC);
             foreach ($pages as $p) {
-                $loc = ($p['slug'] === 'home') ? url('') : url($p['file_name']);
+                $loc = ($p['slug'] === 'home') ? rtrim(url(''), '/') . '/' : url($p['file_name']);
                 $urls[] = [
                     'loc' => $loc,
                     'lastmod' => date('Y-m-d', strtotime($p['updated_at'] ?? 'now')),
@@ -55,8 +55,8 @@ class SEOGenerator {
                 ];
             }
 
-            // 2. Published Services
-            $services = $db->query("SELECT slug, file_name, updated_at FROM services WHERE status = 'published' ORDER BY display_order ASC")->fetchAll(PDO::FETCH_ASSOC);
+            // 2. Published Services (exclude discontinued redirect aliases)
+            $services = $db->query("SELECT slug, file_name, updated_at FROM services WHERE status = 'published' AND slug != 'professional-product-photography' ORDER BY display_order ASC")->fetchAll(PDO::FETCH_ASSOC);
             foreach ($services as $s) {
                 $urls[] = [
                     'loc' => service_url($s['slug']),
@@ -180,12 +180,11 @@ class SEOGenerator {
      * Generate robots.txt
      */
     public static function generateRobotsTxt(): bool {
-        $sitemapUrl = url('sitemap.xml');
+        $sitemapUrl = rtrim(url(''), '/') . '/sitemap.xml';
         $content = "User-agent: *\n";
         $content .= "Disallow: /admin/\n";
         $content .= "Disallow: /config/\n";
         $content .= "Disallow: /includes/\n";
-        $content .= "Disallow: /services/\n";
         $content .= "Disallow: /database/\n";
         $content .= "Allow: /\n\n";
         $content .= "Sitemap: {$sitemapUrl}\n";

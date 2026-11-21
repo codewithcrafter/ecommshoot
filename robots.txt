@@ -2,7 +2,6 @@ User-agent: *
 Disallow: /admin/
 Disallow: /config/
 Disallow: /includes/
-Disallow: /services/
 Disallow: /database/
 Allow: /
 

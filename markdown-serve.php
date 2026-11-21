@@ -1,8 +1,8 @@
 <?php
 /**
  * ECOMSHOOT - Universal Markdown Representation Endpoint
- * Serves public Markdown documentation, pages, services, and blogs as clean inline plain text.
- * Prevents redirects when accessing .md URLs directly (e.g. /about.md, /contact.md, /services.md).
+ * Serves public Markdown documentation, pages, services, resources, business docs, and blogs as clean inline plain text.
+ * Prevents redirects when accessing .md URLs directly (e.g. /about.md, /contact.md, /services.md, /faq.md, etc.).
  */
 
 require_once __DIR__ . '/config/config.php';
@@ -35,8 +35,22 @@ $content = null;
 $filename = $slug . '.md';
 $modTime = time();
 
-// 1. Check Blog Markdown: /blog/{slug}.md or /blog/{id}.md
-if ($type === 'blog' || is_numeric($slug)) {
+// 1. Direct path lookup in content directory (e.g. content/pages/about.md, content/services/product-photography.md, content/resources/faq.md, content/business/company-information.md)
+$possibleDirectPaths = [
+    ROOT_PATH . '/content/' . $rawPath . '.md',
+    ROOT_PATH . '/content/' . str_replace('-', '_', $rawPath) . '.md',
+];
+foreach ($possibleDirectPaths as $dp) {
+    if (file_exists($dp) && is_file($dp)) {
+        $content = file_get_contents($dp);
+        $modTime = filemtime($dp);
+        $filename = basename($dp);
+        break;
+    }
+}
+
+// 2. Check Blog Markdown: /blog/{slug}.md or /blog/{id}.md
+if ($content === null && ($type === 'blog' || is_numeric($slug))) {
     try {
         $db = Database::getInstance()->getConnection();
         $isNumeric = is_numeric($slug);
@@ -63,7 +77,7 @@ if ($type === 'blog' || is_numeric($slug)) {
     } catch (Exception $e) {}
 }
 
-// 2. Check Service Markdown: /service/{slug}.md or /{service-slug}.md
+// 3. Check Service Markdown: /service/{slug}.md or /{service-slug}.md
 if ($content === null && ($type === 'service' || $type === 'services' || in_array($slug, [
     'product-photography',
     'ecommerce-product-photography',
@@ -83,7 +97,7 @@ if ($content === null && ($type === 'service' || $type === 'services' || in_arra
     }
 }
 
-// 3. Check Page Markdown: /about.md, /contact.md, /services.md, /home.md
+// 4. Check Page Markdown: /about.md, /contact.md, /services.md, /home.md, /blog.md
 if ($content === null) {
     $pageAliases = [
         'about' => 'about.md',
@@ -92,13 +106,13 @@ if ($content === null) {
         'services' => 'services.md',
         'services-catalog' => 'services-catalog.md',
         'home' => 'home.md',
-        'index' => 'home.md'
+        'index' => 'home.md',
+        'blog' => 'blog.md'
     ];
 
     $targetFile = $pageAliases[$slug] ?? ($slug . '.md');
     $pagePath = ROOT_PATH . '/content/pages/' . $targetFile;
 
-    // Fallbacks for known aliases
     if (!file_exists($pagePath)) {
         if ($slug === 'contact') {
             $pagePath = ROOT_PATH . '/content/pages/contact-guidelines.md';
@@ -116,7 +130,21 @@ if ($content === null) {
     }
 }
 
-// 4. Check database markdown_documents table as authoritative fallback
+// 5. Fallback directory search across content subdirectories (resources, business, services, pages, blogs)
+if ($content === null) {
+    $searchDirs = ['resources', 'business', 'services', 'pages', 'blogs'];
+    foreach ($searchDirs as $sd) {
+        $candidate = ROOT_PATH . '/content/' . $sd . '/' . $slug . '.md';
+        if (file_exists($candidate)) {
+            $content = file_get_contents($candidate);
+            $modTime = filemtime($candidate);
+            $filename = $slug . '.md';
+            break;
+        }
+    }
+}
+
+// 6. Check database markdown_documents table as authoritative fallback
 if ($content === null) {
     try {
         $db = Database::getInstance()->getConnection();
@@ -138,7 +166,7 @@ if ($content === null) {
     } catch (Exception $e) {}
 }
 
-// 5. If still not found, return clean 404 text (no redirect to home)
+// 7. If still not found, return clean 404 text (no redirect to home)
 if ($content === null) {
     http_response_code(404);
     header('Content-Type: text/plain; charset=UTF-8');

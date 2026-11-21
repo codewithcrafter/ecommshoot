@@ -25,7 +25,7 @@ Many amateur photographers assume that achieving a pure white background simply 
 
 **This is the fastest way to ruin a product photo.**
 
-When you overwhelm your background with excessive light, that light bounces back toward the camera lens, wrapping around the edges of your product. This phenomenonâ€”known as **specular edge bleed** or flareâ€”washes out delicate silhouettes, washes away fine details, and introduces a milky gray veil over your contrast.
+When you overwhelm your background with excessive light, that light bounces back toward the camera lens, wrapping around the edges of your product. This phenomenon—known as **specular edge bleed** or flare—washes out delicate silhouettes, washes away fine details, and introduces a milky gray veil over your contrast.
 
 ## The Balanced Four-Light Studio Architecture
 

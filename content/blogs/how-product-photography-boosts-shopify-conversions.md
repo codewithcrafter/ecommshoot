@@ -57,7 +57,7 @@ Recommended 7-shot sequence:
 Mismatched colors between the screen and the physical product are the number one cause of e-commerce apparel and home goods returns. By utilizing hardware-calibrated X-Rite ColorChecker targets and custom ICC profiles, Ecomshoot locks color deviation ($Delta E$) below 1.5, well below the threshold of human visual perception.
 
 ## Key Takeaway
-Investing in professional studio imagery is not a decorative marketing expenseâ€”it is a foundational conversion engine that pays dividends on every single paid ad dollar sent to your store.
+Investing in professional studio imagery is not a decorative marketing expense—it is a foundational conversion engine that pays dividends on every single paid ad dollar sent to your store.
 
 ## Frequently Asked Questions
 

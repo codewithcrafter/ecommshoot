@@ -28,6 +28,13 @@ $serviceSlugs = [
     'white-background-product-photography',
 ];
 
+// 0. Production domain canonical redirect (demo/non-www -> www.ecomshoots.in)
+$httpHost = $_SERVER['HTTP_HOST'] ?? '';
+if (preg_match('#^(?:demo\.)?ecomshoots\.in$#i', $httpHost)) {
+    header('Location: https://www.ecomshoots.in' . $rawUri, true, 301);
+    exit;
+}
+
 // 1. Discontinued service canonical redirect (both .php and extensionless)
 if (preg_match('#^/(?:services?/)?professional-product-photography(\.php)?/?$#i', $uri)) {
     header('Location: /service/product-photography', true, 301);
@@ -89,13 +96,8 @@ if (preg_match('#^/blog/([0-9]+)\.md$#i', $uri, $matches)) {
     require __DIR__ . '/markdown-serve.php';
     exit;
 }
-if (preg_match('#^/blog/([a-z0-9-]+)\.md$#i', $uri, $matches)) {
-    $_GET['path'] = 'blog/' . strtolower($matches[1]);
-    require __DIR__ . '/markdown-serve.php';
-    exit;
-}
-if (preg_match('#^/(?:service|services)/([a-z0-9-]+)\.md$#i', $uri, $matches)) {
-    $_GET['path'] = 'service/' . strtolower($matches[1]);
+if (preg_match('#^/(?:pages|services|service|resources|business|blog)/([a-z0-9-]+)\.md$#i', $uri, $matches)) {
+    $_GET['path'] = strtolower($matches[1]);
     require __DIR__ . '/markdown-serve.php';
     exit;
 }

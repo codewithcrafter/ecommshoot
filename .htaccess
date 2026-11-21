@@ -3,6 +3,16 @@
 RewriteEngine On
 RewriteBase /
 
+# 0. Canonical Production Redirection: Enforce HTTPS & WWW
+RewriteCond %{HTTP_HOST} ^ecomshoots\.in$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^demo\.ecomshoots\.in$ [NC]
+RewriteRule ^(.*)$ https://www.ecomshoots.in/$1 [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www\.ecomshoots\.in$ [NC]
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://www.ecomshoots.in/$1 [R=301,L]
+
 # Canonical public URLs: redirect legacy .php requests before file checks.
 RewriteCond %{THE_REQUEST} \s/+index\.php[?\s] [NC]
 RewriteRule ^index\.php$ / [R=301,L]
@@ -20,8 +30,7 @@ RewriteRule ^services/([a-z0-9-]+)/?$ $1.php [QSA,L,NC]
 
 # 3. Universal Markdown Document Endpoints (.md)
 # Direct access to .md opens raw markdown inline (never 404 or redirect)
-RewriteRule ^blog/([a-z0-9-]+)\.md$ markdown-serve.php?path=blog/$1 [QSA,L,NC]
-RewriteRule ^(?:service|services)/([a-z0-9-]+)\.md$ markdown-serve.php?path=service/$1 [QSA,L,NC]
+RewriteRule ^(pages|services|service|resources|business|blog)/([a-z0-9-]+)\.md$ markdown-serve.php?path=$1/$2 [QSA,L,NC]
 RewriteRule ^([a-z0-9-]+)\.md$ markdown-serve.php?path=$1 [QSA,L,NC]
 
 # 4. Blog HTML by Slug: /blog/article-slug -> blog-detail.php?slug=article-slug
