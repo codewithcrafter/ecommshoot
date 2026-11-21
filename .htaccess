@@ -10,10 +10,9 @@ RewriteRule ^index\.php$ / [R=301,L]
 # Canonical redirect for discontinued enterprise service
 RewriteRule ^(?:services?/)?professional-product-photography(\.php)?$ /service/product-photography [R=301,L]
 
-# 1. Do not rewrite existing physical files or directories
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
+# 1. Services Catalog: /services or /services/ -> services.php
+# (Must precede physical directory check because 'services' is a physical folder on disk)
+RewriteRule ^services/?$ services.php [QSA,L,NC]
 
 # 2. Service Detail Pages: /service/{slug} and /services/{slug}
 RewriteRule ^service/([a-z0-9-]+)/?$ $1.php [QSA,L,NC]
@@ -26,16 +25,19 @@ RewriteRule ^blog/([a-z0-9-]+)\.md$ blog-markdown.php?slug=$1 [QSA,L,NC]
 RewriteRule ^blog/([a-z0-9-]+)/?$ blog-detail.php?slug=$1 [QSA,L,NC]
 
 # 5. Blog Root: /blog or /blog/ -> blog.php
-RewriteRule ^blog/?$ blog.php [QSA,L]
+RewriteRule ^blog/?$ blog.php [QSA,L,NC]
 
-# 6. Services Root: /services or /services/ -> services.php
-RewriteRule ^services/?$ services.php [QSA,L]
+# 6. Do not rewrite existing physical files or directories (except /services which is handled above)
+RewriteCond %{REQUEST_URI} !^/services/?$ [NC]
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
 
-# Extensionless public routes, including form endpoints while preserving requests.
+# 7. Extensionless public routes, including form endpoints while preserving requests.
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+?)/?$ $1.php [QSA,L]
 
-# 7. Prevent direct browser access to /content/ directory files
+# 8. Prevent direct browser access to /content/ directory files
 RewriteRule ^content/ - [F,L]
 
 </IfModule>
