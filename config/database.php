@@ -27,24 +27,10 @@ class Database {
             $this->connection = new PDO($dsn, DB_USER, DB_PASS, $options);
             $this->connection->exec("SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci");
         } catch (PDOException $e) {
-            // Intelligent fallback for Hostinger production: tries 'localhost' if 'srv1328.hstgr.io' fails (or vice versa)
-            $fallbackHost = (DB_HOST === 'localhost' || DB_HOST === '127.0.0.1') ? 'srv1328.hstgr.io' : 'localhost';
-            $fallbackDsn = sprintf(
-                'mysql:host=%s;port=%s;dbname=%s;charset=%s',
-                $fallbackHost,
-                DB_PORT,
-                DB_NAME,
-                DB_CHARSET
-            );
-
-            try {
-                $this->connection = new PDO($fallbackDsn, DB_USER, DB_PASS, $options);
-                $this->connection->exec("SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci");
-            } catch (PDOException $fallbackErr) {
-                // Log error safely without exposing raw database password to user
-                error_log('Database Connection Error: ' . $e->getMessage() . ' | Fallback: ' . $fallbackErr->getMessage());
-                die('A database connection error occurred. Please ensure MySQL is running and configured.');
-            }
+            // Do not try another host: a local credentials error must not cause
+            // a connection attempt to production with the same credentials.
+            error_log('Database Connection Error: ' . $e->getMessage());
+            die('A database connection error occurred. Please ensure MySQL is running and configured.');
         }
     }
 

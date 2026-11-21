@@ -4,11 +4,9 @@
    Color System: Primary Orange (#FF642D), Electric Indigo (#3827A8),
                  Warm Cream (#F6E8D5), Lime Accent (#D8ED54),
                  Ink Black (#191919), Pure White (#FFFFFF)
-   Typography: Space Grotesk (Headings/Nav), DM Sans (Body/UI), Playfair Display (Editorial)
+   Typography: Plus Jakarta Sans (UI), Playfair Display (Editorial)
    Architecture: Zero-Framework, Mobile-First, Viewport-Clamped, High Performance
    ============================================================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Playfair+Display:ital,wght@0,500..800;1,500..800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 /* ============================================================================
    1. DESIGN TOKENS & ROOT VARIABLES - MIDNIGHT CREATIVE STUDIO DARK THEME
@@ -88,10 +86,10 @@
   --color-border-hover: #7847D4;
 
   /* Typography Stacks */
-  --font-heading: 'Space Grotesk', 'Manrope', 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-body: 'DM Sans', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-editorial: 'Playfair Display', Georgia, serif;
-  --font-nav: 'Space Grotesk', 'Manrope', system-ui, sans-serif;
+  --font-nav: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
   /* Elevation Shadows tuned for Dark Theme */
   --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
@@ -199,7 +197,7 @@ ol {
 }
 
 /* ============================================================================
-   3. TYPOGRAPHY HIERARCHY (Space Grotesk + DM Sans + Playfair Display)
+   3. TYPOGRAPHY HIERARCHY (Plus Jakarta Sans + Playfair Display)
    ============================================================================ */
 h1,
 h2,
@@ -926,7 +924,7 @@ p:last-child {
    ============================================================================ */
 @media (min-width: 1025px) {
   .services-dropdown {
-    display: none;
+    display: block;
     background-color: #FFFFFF;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
@@ -934,11 +932,19 @@ p:last-child {
     padding: 0;
     overflow: hidden;
     z-index: 1100;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity var(--transition-base), transform var(--transition-base), visibility 0s linear var(--transition-base);
   }
 
   .nav-item.has-dropdown.dropdown-open .services-dropdown {
-    display: block;
-    animation: dropdownPop 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition-delay: 0s;
   }
 
   @keyframes dropdownPop {

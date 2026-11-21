@@ -1065,4 +1065,92 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initCardSpotlights();
 
+  // 14. Blog sidebar lead form: submit to the existing endpoint and reveal a
+  // confirmation only after the server has stored the lead successfully.
+  const initBlogLeadForm = () => {
+    const form = document.querySelector('[data-blog-lead-form]');
+    const modal = document.getElementById('blogFormSuccessModal');
+    if (!form || !modal) return;
+
+    const submitButton = form.querySelector('[type="submit"]');
+    const dialog = modal.querySelector('.blog-form-modal__dialog');
+    const closeButtons = modal.querySelectorAll('[data-blog-form-close]');
+    let lastFocused = null;
+    let errorBox = null;
+
+    const showError = (message) => {
+      if (!errorBox) {
+        errorBox = document.createElement('p');
+        errorBox.className = 'blog-form-submit-error';
+        errorBox.setAttribute('role', 'alert');
+        form.prepend(errorBox);
+      }
+      errorBox.textContent = message;
+    };
+
+    const closeModal = () => {
+      modal.hidden = true;
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lead-popup-lock-scroll');
+      lastFocused?.focus();
+    };
+
+    const openModal = () => {
+      lastFocused = document.activeElement;
+      modal.hidden = false;
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lead-popup-lock-scroll');
+      window.setTimeout(() => dialog?.focus(), 0);
+    };
+
+    closeButtons.forEach((button) => button.addEventListener('click', closeModal));
+    document.addEventListener('keydown', (event) => {
+      if (modal.hidden) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeModal();
+      }
+      if (event.key === 'Tab') {
+        const focusable = Array.from(modal.querySelectorAll('button:not([disabled]), [href], [tabindex]:not([tabindex="-1"])'));
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (form.dataset.submitting === 'true') return;
+      if (!form.reportValidity()) return;
+
+      form.dataset.submitting = 'true';
+      if (errorBox) errorBox.remove();
+      errorBox = null;
+      const originalLabel = submitButton?.innerHTML;
+      if (submitButton) { submitButton.disabled = true; submitButton.textContent = 'Submitting…'; }
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+          credentials: 'same-origin'
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.success) throw new Error(result.message || 'We could not submit your enquiry. Please try again.');
+        form.reset();
+        openModal();
+      } catch (error) {
+        showError(error.message || 'We could not submit your enquiry. Please try again.');
+      } finally {
+        form.dataset.submitting = 'false';
+        if (submitButton) { submitButton.disabled = false; submitButton.innerHTML = originalLabel; }
+      }
+    });
+  };
+
+  initBlogLeadForm();
+
 });

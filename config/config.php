@@ -45,14 +45,51 @@ if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
 }
 
 // Database Configuration
+//
+// Local credentials live in the ignored project-root .env file. Environment
+// variables take precedence so deployed environments can configure credentials
+// without storing them in the repository.
+function load_local_database_env(string $path): void {
+    if (!is_file($path) || !is_readable($path)) {
+        return;
+    }
+
+    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        $line = trim($line);
+        if ($line === '' || str_starts_with($line, '#') || !str_contains($line, '=')) {
+            continue;
+        }
+
+        [$key, $value] = explode('=', $line, 2);
+        $key = trim($key);
+        $value = trim($value);
+        if ($key === '' || getenv($key) !== false) {
+            continue;
+        }
+
+        if (strlen($value) >= 2 && (($value[0] === '"' && substr($value, -1) === '"') || ($value[0] === "'" && substr($value, -1) === "'"))) {
+            $value = substr($value, 1, -1);
+        }
+        putenv($key . '=' . $value);
+        $_ENV[$key] = $value;
+    }
+}
+
+function database_env(string $key, string $default = ''): string {
+    $value = getenv($key);
+    return $value === false ? $default : $value;
+}
+
 if ($isLocalDev) {
     // Local Development (XAMPP / PHP built-in server)
-    define('DB_HOST', '127.0.0.1');
-    define('DB_PORT', '3306');
-    define('DB_NAME', 'ecomshoot_db');
-    define('DB_USER', 'root');
-    define('DB_PASS', '');
-    define('DB_CHARSET', 'utf8mb4');
+    load_local_database_env(ROOT_PATH . '/.env');
+    define('DB_HOST', database_env('DB_HOST', '127.0.0.1'));
+    define('DB_PORT', database_env('DB_PORT', '3307'));
+    define('DB_NAME', database_env('DB_NAME', 'ecommshoot'));
+    define('DB_USER', database_env('DB_USER', 'root'));
+    define('DB_PASS', database_env('DB_PASS'));
+    define('DB_CHARSET', database_env('DB_CHARSET', 'utf8mb4'));
 } else {
     // Production (Hostinger - ecommshoots.in)
     define('DB_HOST', 'srv1328.hstgr.io');

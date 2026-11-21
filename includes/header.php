@@ -49,11 +49,11 @@ try {
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="<?= asset_url('assets/images/logo.svg') ?>">
 
-  <!-- Typography: Plus Jakarta Sans (Headings/Body), Playfair Display (Editorial Shimmer), JetBrains Mono (Tech/Specs) -->
+  <!-- Primary UI font is loaded before stylesheets to minimize font swapping. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=JetBrains+Mono:wght@500;600&family=Playfair+Display:ital,wght@1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500..800;1,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=optional"
     rel="stylesheet">
 
   <!-- Master Design System Stylesheet -->

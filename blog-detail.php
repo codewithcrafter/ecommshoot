@@ -450,7 +450,7 @@ require_once INCLUDES_PATH . '/header.php';
             <h3 class="enquiry-card-title" style="color: #FFFFFF; font-size: 1.5rem; font-weight: 800; margin: 0 0 0.75rem 0; letter-spacing: -0.02em;">Book a Photoshoot</h3>
             <div style="height: 1px; background: rgba(255, 255, 255, 0.08); width: 100%;"></div>
           </div>
-          <form action="<?= url('submit-lead.php') ?>" method="POST" class="blog-sidebar-form">
+          <form action="<?= url('submit-lead.php') ?>" method="POST" class="blog-sidebar-form" data-blog-lead-form>
             <?= CSRF::inputField() ?>
             <input type="hidden" name="source_page_url" value="blog/<?= e($blog['slug']) ?>">
             <input type="hidden" name="source_page_title" value="<?= e($blog['title']) ?>">
@@ -490,6 +490,17 @@ require_once INCLUDES_PATH . '/header.php';
 
             <button type="submit" class="btn btn-primary services-submit-btn btn-studio-primary" style="display: block; width: 100%; height: 44px; font-size: 0.95rem; font-weight: 700; border-radius: 10px; background: #7847D4; border: none; color: #FFFFFF; box-shadow: 0 4px 18px rgba(120, 71, 212, 0.4); cursor: pointer; transition: all 0.25s ease;">Submit Enquiry</button>
           </form>
+        </div>
+
+        <div class="blog-form-modal" id="blogFormSuccessModal" role="dialog" aria-modal="true" aria-labelledby="blogFormSuccessTitle" aria-describedby="blogFormSuccessMessage" aria-hidden="true" hidden>
+          <div class="blog-form-modal__backdrop" data-blog-form-close></div>
+          <div class="blog-form-modal__dialog" role="document" tabindex="-1">
+            <button type="button" class="blog-form-modal__close" aria-label="Close confirmation" data-blog-form-close>&times;</button>
+            <span class="blog-form-modal__check" aria-hidden="true">✓</span>
+            <h2 id="blogFormSuccessTitle">Form Submitted Successfully!</h2>
+            <p id="blogFormSuccessMessage">Thank you for reaching out. Our team will contact you shortly.</p>
+            <button type="button" class="btn btn-primary blog-form-modal__confirm" data-blog-form-close>Okay, Got It</button>
+          </div>
         </div>
 
         <!-- Table of Contents Widget (Desktop Sticky) -->
