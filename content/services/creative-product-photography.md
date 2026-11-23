@@ -2,7 +2,7 @@
 
 - **Production URL**: https://www.ecomshoots.in/service/creative-product-photography
 - **Discipline**: Commercial Product Photography
-- **Studio Tier**: Award Winning
+- **Studio Tier**: Creative Photography
 - **SEO Title**: Creative & Advertising Product Photography Services | Ecomshoot
 - **Meta Description**: Concept-driven visual campaigns that disrupt mundane feeds, leveraging bold color theory, kinetic splash capture, levitation techniques, and bespoke set design.
 - **Canonical URL**: https://www.ecomshoots.in/service/creative-product-photography
@@ -12,7 +12,7 @@
 ## Section 1: Hero Section & Instant Estimate Form
 
 ### Discipline Badge
-- **Award Winning**
+- **Creative Photography**
 
 ### Main Heading (H1)
 **Avant-Garde Creative & Advertising Photography That Stops The Infinite Scroll**
@@ -102,7 +102,7 @@ We work with a clear process that will take you from initial call to final deliv
 ### Workflow Sequence
 01. **Concept Pitch & Visual Treatment**: Our creative director develops 3 distinct visual treatments with sketches, color swatches, ingredient lists, and lighting diagrams.
 02. **Physical Set Construction & Prop Fabrication**: Our artisan makers cut acrylics, curate authentic botanicals, and build custom rigs to suspend components securely.
-03. **High-Speed Capture & Lighting Direction**: Using Broncolor Scoro power packs with ultra-short flash duration, we trigger synchronized bursts capturing split-second movement.
+03. **High-Speed Capture & Lighting Direction**: Using Calibrated studio strobes power packs with ultra-short flash duration, we trigger synchronized bursts capturing split-second movement.
 04. **Fine Art Composite & Retouching**: We combine multi-exposure lighting brackets, blend optimal splash formations, and paint in hand-crafted shadow gradations.
 
 ---
@@ -155,9 +155,9 @@ We can create your product photos in our studio. We’ll produce accurate colour
 
 ## Section 10: Studio Footer & Production Facility
 
-- **Studio**: Ecomshoot Creative Production Inc.
+- **Studio**: Ecomshoot
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
 - **Operating Hours**: Monday – Friday: 9:00 AM – 6:30 PM IST
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.

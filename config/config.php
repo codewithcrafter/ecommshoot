@@ -12,6 +12,9 @@ define('SERVICES_PATH', ROOT_PATH . '/services');
 define('UPLOADS_PATH', ROOT_PATH . '/uploads');
 define('CONTENT_PATH', ROOT_PATH . '/content');
 
+// Timezone Configuration: Indian Standard Time (IST - Asia/Kolkata)
+date_default_timezone_set('Asia/Kolkata');
+
 // Automatically detects local environment vs live Hostinger production (ecomshoots.in)
 $isLocalDev = (isset($_SERVER['HTTP_HOST']) && (
     strpos($_SERVER['HTTP_HOST'], 'localhost') !== false ||

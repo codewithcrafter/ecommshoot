@@ -3,7 +3,7 @@
 - **Production URL**: https://www.ecomshoots.in/contact
 - **Page Purpose**: Direct commercial production booking, sample shipment intake protocol, quote requests, and studio communication channels.
 - **SEO Title**: Contact Ecomshoot | Book a Studio Shoot & Request a Quote
-- **Meta Description**: Ready to elevate your product imagery? Contact our New York studio for custom rate cards, volume SKU estimates, or complimentary sample test shoots.
+- **Meta Description**: Ready to elevate your product imagery? Contact our Delhi studio for custom rate cards, volume SKU estimates, or complimentary sample test shoots.
 - **Canonical URL**: https://www.ecomshoots.in/contact
 
 ---
@@ -36,7 +36,7 @@ Tell us about your photography requirements. Our team will get in touch with you
    - **Number**: +91 98765 43210
    - **Availability**: Monday through Friday, 9:00 AM – 6:30 PM IST
 3. **Physical Studio & Sample Ingestion Bay**:
-   - **Facility**: Ecomshoot Creative Production Inc.
+   - **Facility**: Ecomshoot
    - **Location**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
    - **Logistics Note**: Secured, climate-controlled product intake with barcode logging and 24/7 security.
 4. **Operating & Staging Hours**:
@@ -92,4 +92,4 @@ Every inquiry is reviewed by our lead production directors with rate estimates w
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.

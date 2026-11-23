@@ -68,7 +68,7 @@ Investing in high quality jewellery photography will help you. Crisp accurate im
 All our projects will have clear technical specifications. Files will be ready for use on your website, marketplaces and printed catalogues.
 
 ### Standard Deliverables Checklist
-- **Macro Focus Stacking Technology**: Cognisys motorized linear rails move the camera in 20-micron increments, capturing dozens of focal planes stitched seamlessly.
+- **Macro Focus Stacking Technology**: Motorized precision linear rails move the camera in 20-micron increments, capturing dozens of focal planes stitched seamlessly.
 - **Custom Diffuse Light Cones**: Proprietary 360-degree diffusion enclosures that wrap precious rings in immaculate, seamless reflection-free illumination.
 - **Micro-Retouching & Gem Polish**: Pixel-level post-production removing microscopic micro-scratches, aligning prong symmetry, and brightening diamond tables.
 - **Shadow & Mirror Floor Treatments**: Options for floating transparent backgrounds, subtle gradient drop shadows, or pristine high-gloss mirror reflections.
@@ -155,9 +155,9 @@ Send your pieces to our studio and see what jewellery product photography done p
 
 ## Section 10: Studio Footer & Production Facility
 
-- **Studio**: Ecomshoot Creative Production Inc.
+- **Studio**: Ecomshoot
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
 - **Operating Hours**: Monday – Friday: 9:00 AM – 6:30 PM IST
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.

@@ -106,7 +106,7 @@
       <!-- Bottom Bar -->
       <div class="footer-bottom-bar">
         <div class="footer-copyright">
-          &copy; <?= date('Y') ?> <strong>Ecomshoot Creative Production Inc.</strong> All rights reserved. Precision Commercial Photography &amp; Art Direction.
+          &copy; <?= date('Y') ?> <strong>Ecomshoot</strong>. All Rights Reserved.
         </div>
         <div class="footer-social-links">
           <?php if (!empty(get_setting('social_instagram'))): ?>

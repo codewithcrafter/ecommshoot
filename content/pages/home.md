@@ -24,9 +24,9 @@ Every decision made by a customer happens in a matter of seconds. As product pho
 - **Secondary CTA**: See Our Work (`#portfolio`)
 
 ### Verified Studio Metric Counters
-- **250K+**: Images Delivered
-- **+38%**: Average Increase In CTR (Click-Through Rate)
-- **99.8%**: Approval Rate From Marketplace Guidelines
+- **Multi-Angle Coverage**: Hero & Detail Angles
+- **Live Studio Proofing**: 100% Tethered Digital Workflow
+- **Marketplace Compliant**: Amazon, Shopify & Omnichannel Standards
 
 ### Instant Studio Estimate Intake Form
 - **Form Identifier**: `#homeEnquiryForm`
@@ -44,14 +44,14 @@ Every decision made by a customer happens in a matter of seconds. As product pho
 
 ---
 
-## Section 2: Trust & Studio Standards Capabilities Strip
+## Section 2: Commercial Studio Capabilities & Standards
 
 ### Strip Header
-- **Tag**: TRUST STRIP
+- **Tag**: Commercial Studio Standards
 - **Sub-label**: On Location Styling: Capture lifestyle images to show how your product is used.
 
 ### Four Operational Capabilities
-1. **Fast Turnaround**: Product photography sessions at our Delhi studio. 48-72 hour turnaround.
+1. **Fast Turnaround**: Product photography sessions at our Delhi studio. Turnaround time depends on project scope and requirements. Expedited options available..
 2. **Compliance**: All images will comply with Amazon, Flipkart & Shopify guidelines.
 3. **Creative Direction**: We include styling, props and creative planning.
 4. **Edited & Retouched**: All images will be colour corrected and clean for upload.
@@ -127,7 +127,7 @@ Every decision made by a customer happens in a matter of seconds. As product pho
    - **Description**: Master digital post-production featuring 100% hand-drawn vector clipping paths, frequency separation skin retouching, dust/scratch removal, and color balancing.
    - **Service URL**: https://www.ecomshoots.in/service/product-photo-editing-retouching
 8. **White Background Product Photography (Shoot No. 08)**
-   - **Description**: Pure RGB #255,255,255 white background imagery with natural contact drop shadows, engineered for Amazon Main image compliance and catalog search grids.
+   - **Description**: Pure #FFFFFF white background imagery with natural contact drop shadows, engineered for Amazon Main image compliance and catalog search grids.
    - **Service URL**: https://www.ecomshoots.in/service/white-background-product-photography
 
 - **Central Navigation Action**: View All Services (`https://www.ecomshoots.in/services`)
@@ -211,29 +211,23 @@ Every decision made by a customer happens in a matter of seconds. As product pho
 
 ---
 
-## Section 9: Client Testimonials & Social Proof
+## Section 9: Built Around Product Presentation Excellence
 
 - **Section ID**: `#testimonials`
-- **Tagline Badge**: Client Feedback
-- **Section Heading (H2)**: Trusted by growing e-commerce brands.
-- **Average Rating**: ★★★★★ 4.9/5 from 200+ verified D2C brands and marketplace sellers.
+- **Tagline Badge**: Studio Standards
+- **Section Heading (H2)**: Built Around Product Presentation Excellence
+- **Section Subtitle**: Visual assets engineered for marketplace compliance, color fidelity, and sales performance.
 
-### Client Reviews
-1. **Image Quality & Precision**:
-   - "The optical sharpness and true-to-life color reproduction delivered by Ecomshoot completely elevated our brand store. Our Shopify conversion rate jumped by 34% within two weeks of updating our hero imagery."
-   - *Reviewer*: D2C Skincare Founder, Delhi NCR
-2. **Turnaround & Communication**:
-   - "Unmatched turnaround speed and professional communication. Handling 120 SKUs without a single quality lapse or missed deadline was incredible. The live tethered proofing saved us weeks of back-and-forth."
-   - *Reviewer*: VP of E-Commerce, Apparel Retail Brand
-3. **Sales & Marketplace Compliance**:
-   - "Zero marketplace rejections across Amazon and Flipkart. Every file was delivered pre-sized, color-profiled, and ready for instant catalog ingestion. Ecomshoot is our permanent production partner."
-   - *Reviewer*: Marketplace Operations Lead, Consumer Electronics Brand
+### Three Pillars of Presentation Excellence
+1. **Verified Color Integrity**: Calibrated proofing and custom ICC profiling ensure exact material color fidelity across screens and print.
+2. **Scalable Studio Production**: Dedicated commercial bays and tethered workflows support enterprise volumes without compromising craftsmanship.
+3. **Multi-Platform Readiness**: Every asset is formatted to strict marketplace technical standards for Amazon, Shopify, and global commerce.
 
 ---
 
 ## Section 10: Frequently Asked Questions
 
-- **Tagline Badge**: Frequently Answered
+- **Tagline Badge**: Frequently Asked Questions
 - **Section Heading (H2)**: Answers to some common questions.
 - **Section Subtitle**: Everything you need to know about sample shipments, shoot turnarounds, licensing rights, and image deliverables.
 
@@ -241,7 +235,7 @@ Every decision made by a customer happens in a matter of seconds. As product pho
 1. **Q: How does product delivery and sampling work?**
    **A:** You can send your products to our studio in Delhi via courier or hand delivery. We will log your product, shoot and return safely once the project has been completed.
 2. **Q: How long does it take to produce?**
-   **A:** Most projects take between 3-5 working days. The time can depend on how many products you have and how much editing is required. Rush turnaround is also available.
+   **A:** Turnaround time depends on project scope, volume, and post-production requirements. Expedited turnaround options are available for urgent campaign schedules.
 3. **Q: Do you offer commercial use and licensing?**
    **A:** Yes! Once your project has been paid for you will have full commercial use rights for your website, marketplaces, ads and social media.
 4. **Q: Can you shoot for Amazon & Shopify?**
@@ -292,4 +286,4 @@ Every decision made by a customer happens in a matter of seconds. As product pho
   - Jewellery & Luxury: https://www.ecomshoots.in/service/jewellery-product-photography
   - Editing & Retouching: https://www.ecomshoots.in/service/product-photo-editing-retouching
   - White Background: https://www.ecomshoots.in/service/white-background-product-photography
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved. Precision Commercial Photography & Art Direction.
+- **Copyright**: © 2026 Ecomshoot All rights reserved. Precision Commercial Photography & Art Direction.

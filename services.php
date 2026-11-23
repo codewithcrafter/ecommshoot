@@ -26,8 +26,8 @@ $serviceDirectoryCopy = [
   'fashion-product-photography' => 'Whether you need ghost mannequin shots, flat lays or model lookbooks, we present your clothing with clean lines. Realistic detail of the fabric, stitching and shape helps customers make a purchase decision. This is perfect for boutique stores, D2C brands and exporters across Delhi NCR.',
   'creative-product-photography' => 'We produce creative product shots that catch people’s attention. Bold colours, splash shots, levitation and bespoke set designs create a professional, advertising-ready image. This is perfect if you want your brand to stand out, and these product photography services will help you achieve great conversions.',
   'jewellery-product-photography' => 'We use macro focus stacking to eliminate unwanted reflections. This lets your diamonds sparkle and your gold and silver show a realistic shine. This service is perfect for designers, showrooms and online jewellers, and the detail helps show off your product.',
-  'product-photo-editing-retouching' => 'Our editing transforms your raw studio shots. We use clipping paths, scratch and dust removal, frequency separation and colour balancing to get your images looking perfect. Our product photography services deliver web-ready, marketplace-ready and print-ready files, so your team won’t need to edit any images. We ensure fast turnaround times with consistent quality.',
-  'white-background-product-photography' => 'We produce high-quality pure white (RGB 255, 255, 255) product shots that help your product pass Amazon, Walmart and Google Shopping requirements on first upload. This keeps your catalog photography compliant, distraction-free and easy to compare.',
+  'product-photo-editing-retouching' => 'Our editing transforms your raw studio shots. We use clipping paths, scratch and dust removal, frequency separation and colour balancing to get your images looking perfect. Our product photography services deliver web-ready, marketplace-ready and print-ready files, so your team won’t need to edit any images. We ensure consistent quality across your catalogue.',
+  'white-background-product-photography' => 'We produce high-quality pure white (#FFFFFF) product shots that help your product pass Amazon, Walmart and Google Shopping requirements on first upload. This keeps your catalog photography compliant, distraction-free and easy to compare.',
 ];
 ?>
 
@@ -165,7 +165,7 @@ $serviceDirectoryCopy = [
           </div>
           <div class="style-card-field">
             <span class="field-label">Typical Output</span>
-            <p class="field-value">Square 3000x3000px, pure white (RGB 255), soft contact shadow</p>
+            <p class="field-value">Square 3000x3000px, pure white (#FFFFFF), soft contact shadow</p>
           </div>
         </div>
       </div>

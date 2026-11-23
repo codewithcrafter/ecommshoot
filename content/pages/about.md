@@ -35,7 +35,7 @@ Traditional commercial photography studios were designed for print magazines and
 ### Body Narrative
 At the other extreme, low-cost catalog mills deliver washed-out packshots with sloppy automated cutouts, inaccurate color casts, and zero understanding of brand nuance.
 
-In 2019, Ecomshoot was founded in New York to solve this dilemma. We built a specialized commercial production house designed from the ground up to satisfy the rigorous technical requirements of Amazon, Shopify Plus, and omnichannel luxury retailers without sacrificing editorial warmth or tactile realism.
+Ecomshoot was established in Delhi to solve this dilemma. We built a specialized commercial production house designed from the ground up to satisfy the rigorous technical requirements of Amazon, Shopify Plus, and omnichannel luxury retailers without sacrificing editorial warmth or tactile realism.
 
 ### Studio Visuals & Callout
 - **Featured Facility Asset**: `https://www.ecomshoots.in/assets/images/about/studio-bay.jpg` (Ecomshoot Commercial Photography Studio Facility and Staging Bay)
@@ -56,13 +56,13 @@ We invest relentlessly in medium format optics, calibrated power packs, and spec
 
 ### Four Technical Pillars
 1. **Medium Format Acuity (Optics Pillar)**:
-   - Phase One IQ4 150MP digital systems and Schneider Kreuznach leaf shutter lenses resolving fine micro-textures down to single textile threads.
+   - High-resolution commercial digital systems digital systems and calibrated commercial prime optics resolving fine micro-textures down to single textile threads.
 2. **Broncolor Strobes (Lighting Pillar)**:
-   - Broncolor Scoro power packs with 1/10,000s flash duration to freeze kinetic liquid splashes and guarantee constant 5600K color consistency.
+   - Calibrated studio strobes with high-speed flash duration to freeze kinetic liquid splashes and guarantee constant 5600K color consistency.
 3. **Motorized Indexing Rails (Rigs Pillar)**:
    - Automated 20-micron focus rails for 60-slice jewellery focus-stacking composites and seamless 360-degree interactive product spin tables.
 4. **Color Managed Flow (Color Pillar)**:
-   - EIZO ColorEdge hardware-calibrated proofing monitors, spectrophotometer audits, and custom ICC profiles ensuring ΔE < 1.0 color accuracy.
+   - Hardware-calibrated hardware-calibrated proofing monitors, spectrophotometer audits, and custom ICC profiles ensuring ΔE < 1.0 color accuracy.
 
 ---
 
@@ -77,13 +77,15 @@ We invest relentlessly in medium format optics, calibrated power packs, and spec
 ### Section Subtitle
 Verified capture, lighting, retouching and calibration tools used across our studio workflow.
 
-### Studio Technology Cards
-1. **Photography Cameras & Lenses (◉)**: Phase One IQ4 150MP systems and Schneider Kreuznach leaf shutter lenses.
-2. **Studio Lighting Equipment (✦)**: Broncolor Scoro power packs and calibrated strobe workflows.
-3. **Photo Editing & Retouching (✎)**: Photoshop Pen Tool workflows, frequency separation and hand-finished retouching.
-4. **Color Correction & Calibration (◌)**: EIZO ColorEdge monitors, spectrophotometer audits and custom ICC profiles.
-5. **Product Styling & Studio Equipment (⌁)**: Motorized indexing rails, specialized staging rigs and calibrated proofing.
-6. **E-commerce Image Optimization (↗)**: Marketplace-ready exports for Amazon, Shopify Plus and omnichannel retail.
+### Studio Technology Cards (8 Verified Production Cards)
+1. **Camera Systems**: High-resolution full-frame & medium-format studio systems for ultra-fine product detail.
+2. **Professional Lenses**: Macro, tilt-shift, and prime optics calibrated for distortion-free product geometry.
+3. **Studio Lighting**: Balanced strobe and continuous lighting setups ensuring consistent 5600K color temperature.
+4. **Product Styling**: Precision props, acrylic blocks, suspension rigs, and specialized staging surfaces.
+5. **Macro Photography**: Focus-stacking rails and high-magnification optics for intricate jewelry and texture captures.
+6. **Colour Management**: Hardware-calibrated display monitors, spectrophotometer targets, and custom ICC profiling.
+7. **Post-Production**: Multi-layer non-destructive editing, hand-drawn clipping paths, and natural shadow generation.
+8. **Retouching Workflow**: Dust removal, scratch cleanup, frequency separation, and shape symmetry refinement.
 
 ---
 
@@ -125,4 +127,4 @@ Four non-negotiable operational commitments that safeguard your brand reputation
 - **Phone**: +91 98765 43210
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Operating Hours**: Monday – Friday: 9:00 AM – 6:30 PM IST
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.

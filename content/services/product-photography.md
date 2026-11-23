@@ -37,7 +37,7 @@ Our product photography services in Delhi will create crystal clear and realisti
 **Professional Images to Show Your Brand is Professional**
 
 ### Detailed Description
-Product photography at Ecomshoot is built around commercial conversion science. When prospective buyers browse online, their perception of product quality, durability, and brand prestige is dictated almost entirely by visual fidelity. Our purpose-built commercial studios combine Phase One 150MP digital backs, calibrated Broncolor Para parabolic reflectors, and precision motorized turntables to capture every angle with tactile realism.
+Product photography at Ecomshoot is built around commercial conversion science. When prospective buyers browse online, their perception of product quality, durability, and brand prestige is dictated almost entirely by visual fidelity. Our purpose-built commercial studios combine High-resolution commercial digital systems digital backs, calibrated Broncolor Para parabolic reflectors, and precision motorized turntables to capture every angle with tactile realism.
 
 ### Studio Follow-up
 As a professional commercial product photography studio in Delhi we will create, style, photograph and edit your images to ensure you have consistent catalogue product photography in Delhi.
@@ -69,7 +69,7 @@ All of our product photography services in Delhi will be created with a clear ch
 
 ### Standard Deliverables Checklist
 - **100+ Megapixel Medium Format Capture**: Every shot delivers incredible crop latitude and microscopic detail resolution for pinch-to-zoom capabilities.
-- **Calibrated Color Profiles**: Hardware-calibrated workflow with X-Rite ColorChecker charts guaranteeing 99.8% spectral color accuracy.
+- **Calibrated Color Profiles**: Hardware-calibrated workflow with X-Rite ColorChecker charts guaranteeing spectrophotometer-verified color accuracy.
 - **Comprehensive Angle Sequences**: Standard 7-angle coverage including primary hero, 45-degree isometric, rear packaging, bottom base, and critical close-ups.
 - **Multi-Layer Drop Shadows**: Natural drop shadows and reflective surface treatment meticulously crafted during in-house digital post-production.
 
@@ -113,7 +113,7 @@ Here’s how we will create your product photoshoot in Delhi.
 Find out more about our product photography services in Delhi.
 
 ### Question 1: What camera systems and lighting do you employ?
-**Answer**: We shoot predominantly on Phase One IQ4 150MP medium format systems and Sony Alpha 61MP bodies paired with prime tilt-shift lenses and Broncolor studio strobes.
+**Answer**: We shoot predominantly on High-resolution commercial digital systems medium format systems and Sony Alpha 61MP bodies paired with prime tilt-shift lenses and Calibrated studio strobes.
 
 ### Question 2: How do we ship products to your studio?
 **Answer**: Once you book a production run, our logistics team issues pre-addressed shipping tags and an intake packing manifest. We store items in climate-controlled lockers and safely return or donate them upon project completion.
@@ -155,9 +155,9 @@ Get professional product images that will convert with our product photography s
 
 ## Section 10: Studio Footer & Production Facility
 
-- **Studio**: Ecomshoot Creative Production Inc.
+- **Studio**: Ecomshoot
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
 - **Operating Hours**: Monday – Friday: 9:00 AM – 6:30 PM IST
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.

@@ -12,7 +12,7 @@
 You can send your products to our studio in Delhi via courier or hand delivery. We will log your product into our intake system, shoot, and return safely once the project has been completed. Pre-addressed shipping tags and barcode tracking are provided upon booking.
 
 ### Where is your studio located for shipments?
-Ecomshoot Creative Production Inc.  
+Ecomshoot  
 Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India.  
 Intake hours: Monday through Friday, 9:00 AM – 6:30 PM IST; Saturday 10:00 AM – 4:00 PM IST.
 
@@ -27,7 +27,7 @@ Intake hours: Monday through Friday, 9:00 AM – 6:30 PM IST; Saturday 10:00 AM 
 ## 2. Production Schedules & Turnaround
 
 ### How long does a production shoot take?
-Standard studio production turnaround is 3 to 5 working days from receipt and inspection of physical goods. Turnaround depends on SKU volume, styling complexity, and post-production requirements. Expedited 48-hour rush turnaround is available for critical campaign launches.
+Turnaround time depends on project scope, volume, and post-production requirements. Expedited turnaround options are available for urgent campaign schedules.
 
 ### Can we participate in the shoot remotely?
 Yes! We shoot 100% tethered to Capture One Pro and stream live proofing links. You can view high-resolution captures in real time on your desktop or mobile, provide art direction comments, and approve hero angles before the set is struck.
@@ -40,7 +40,7 @@ Yes! We shoot 100% tethered to Capture One Pro and stream live proofing links. Y
 Yes! Once your project has been paid for, you receive full, worldwide, perpetual commercial usage rights. You can use the imagery across your e-commerce store, Amazon, Flipkart, social media advertising, print catalogs, packaging, and billboards with zero recurring royalties.
 
 ### Are RAW camera files included?
-Standard delivery includes color-corrected, 16-bit Master TIFFs, full-resolution uncompressed JPEGs (300 DPI), and web-optimized WebP files. High-resolution medium format RAW files (Phase One IIQ / Sony ARW) can be archived and provided upon request.
+Standard delivery includes color-corrected, 16-bit Master TIFFs, full-resolution uncompressed JPEGs (300 DPI), and web-optimized WebP files. High-resolution medium format RAW files (Medium-Format / Full-Frame RAW) can be archived and provided upon request.
 
 ---
 
@@ -48,13 +48,13 @@ Standard delivery includes color-corrected, 16-bit Master TIFFs, full-resolution
 
 ### Can you shoot compliant imagery for Amazon, Shopify & Flipkart?
 Yes! We strictly follow all marketplace specifications:
-- **Pure White Background**: True RGB #255, 255, 255 background with natural contact drop shadows.
+- **Pure White Background**: True #FFFFFF background with natural contact drop shadows.
 - **Frame Occupancy**: 85%+ product frame fill without edge cropping.
 - **Dimensions**: Square 3000 x 3000 px or custom aspect ratios, formatted to trigger high-resolution zoom-to-inspect tools.
 - **Color Profile**: Embedded sRGB for universal digital screen fidelity.
 
 ### What cameras and lighting do you use?
-We shoot on Phase One IQ4 150MP medium format systems and Sony Alpha 61MP bodies paired with prime tilt-shift lenses and Broncolor studio strobes (Scoro power packs delivering constant 5600K color temperature and 1/10,000s motion-freezing flash durations).
+We shoot on High-resolution commercial digital systems medium format systems and Sony Alpha 61MP bodies paired with prime tilt-shift lenses and Calibrated studio strobes (Scoro power packs delivering constant 5600K color temperature and 1/10,000s motion-freezing flash durations).
 
 ---
 

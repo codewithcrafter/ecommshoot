@@ -29,7 +29,7 @@ However, Amazon employs strict computer-vision algorithms that automatically sca
 
 Here is the authoritative checklist your primary image must satisfy:
 
-1. **Pure White Background**: Must be pure sRGB white (`#FFFFFF` or RGB 255, 255, 255).
+1. **Pure White Background**: Must be pure sRGB white (`#FFFFFF` or #FFFFFF).
 2. **85% Frame Occupancy**: The product must fill at least 85% of the total image canvas area. Excess dead white border space will trigger listing warnings.
 3. **No Added Text, Badges, or Watermarks**: Graphics claiming "Best Seller", "100% Organic", sale percentages, or brand logos not physically part of the product are strictly prohibited on the MAIN image.
 4. **Physical Product Only**: No illustrations, 3D mockups, or vector sketches. Must be a genuine photograph of the physical item.

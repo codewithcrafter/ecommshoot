@@ -114,9 +114,9 @@ class SEOGenerator {
             $siteName = get_setting('site_name', 'Ecomshoot');
             $siteTagline = get_setting('site_tagline', 'Premium E-Commerce Product Photography & Creative Production Agency');
             $companySummary = get_setting('llms_company_summary', '');
-            $email = get_setting('site_email', 'contact@ecomshoot.com');
-            $phone = get_setting('site_phone', '+1 (800) 555-SHOOT');
-            $address = get_setting('site_address', 'Studio 4B, 742 Creative Boulevard, New York, NY 10013');
+            $email = get_setting('site_email', 'contact@ecomshoots.in');
+            $phone = get_setting('site_phone', '+91 98765 43210');
+            $address = get_setting('site_address', 'Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India');
 
             $lines = [];
             $lines[] = "# {$siteName}";

@@ -1,7 +1,7 @@
 <?php
 /**
  * ECOMSHOOT - Home Page
- * Award-Winning Creative Commercial Product Photography & Production Studio
+ * Commercial Product Photography & Production Studio
  */
 
 $pageIdentifier = 'home';
@@ -58,19 +58,19 @@ require_once INCLUDES_PATH . '/header.php';
           <a href="#portfolio" class="btn btn-lg btn-outline-white">See Our Work</a>
         </div>
 
-        <!-- Verified Studio Metric Counters -->
+        <!-- Studio Production Standards Highlights -->
         <div class="hero-proof-bar home-about-stats">
           <div class="proof-item">
-            <span class="proof-number">250K+</span>
-            <span class="proof-label">Images Delivered</span>
+            <span class="proof-number">Multi-Angle</span>
+            <span class="proof-label">Hero &amp; Detail Coverage</span>
           </div>
           <div class="proof-item">
-            <span class="proof-number">+38%</span>
-            <span class="proof-label">Average Increase In CTR</span>
+            <span class="proof-number">Tethered</span>
+            <span class="proof-label">Live Studio Proofing</span>
           </div>
           <div class="proof-item">
-            <span class="proof-number">99.8%</span>
-            <span class="proof-label">Approval Rate From Marketplace</span>
+            <span class="proof-number">Compliant</span>
+            <span class="proof-label">Marketplace Specifications</span>
           </div>
         </div>
       </div>
@@ -136,19 +136,18 @@ require_once INCLUDES_PATH . '/header.php';
   </div>
 </section>
 
-<!-- TRUST & STUDIO STANDARDS STRIP -->
+<!-- STUDIO PRODUCTION STANDARDS STRIP -->
 <section class="capabilities-strip">
   <div class="container">
     <div class="strip-header">
-      <span class="strip-tag">TRUST STRIP</span>
-      <span class="strip-label">On Location Styling: Capture lifestyle images to show how your product is used.</span>
+      <span class="strip-label">Studio Production Standards: High-resolution imagery engineered for e-commerce conversion.</span>
     </div>
     <div class="strip-grid">
       <div class="strip-item">
         <span class="strip-check">✓</span>
         <div>
-          <strong>Fast Turnaround</strong>
-          <span>Product photography sessions at our Delhi studio. 48-72 hour turnaround.</span>
+          <strong>Turnaround</strong>
+          <span>Turnaround time depends on project scope and requirements. Expedited options available.</span>
         </div>
       </div>
       <div class="strip-item">
@@ -630,77 +629,52 @@ require_once INCLUDES_PATH . '/header.php';
   </div>
 </section>
 
-<!-- SECTION H – CLIENT TESTIMONIALS (Genuine Client Feedback with Real Portraits) -->
-<section class="section section-testimonials" id="testimonials">
+<!-- SECTION H – PRODUCTION EXCELLENCE & STUDIO STANDARDS -->
+<section class="section section-testimonials section-excellence" id="standards">
   <div class="container">
     
     <div class="section-editorial-header">
       <div class="header-tagline">
-        <span class="badge badge-indigo">Client Feedback</span>
+        <span class="badge badge-indigo">Studio Capabilities</span>
       </div>
-      <h2 class="section-title-editorial">Trusted by growing e-commerce brands.</h2>
-      <p class="section-sub-editorial"></p>
+      <h2 class="section-title-editorial">Built Around Product Presentation Excellence</h2>
+      <p class="section-sub-editorial">
+        Our commercial photography workflow is engineered to give your products an authentic, high-converting visual presence across all digital channels.
+      </p>
     </div>
 
-    <!-- Testimonials Slider Wrapper (Grid on Desktop, Swipeable Carousel on Mobile) -->
-    <div class="testimonials-slider-wrapper">
-      <div class="editorial-testimonials-grid testimonials-slider-track" id="testimonialTrack">
-        <div class="testimonial-box testimonial-slide">
-          <div class="testimonial-stars-row">★★★★★</div>
-          <p class="testimonial-text">
-            “[Client Feedback On Image Quality]”
-          </p>
-          <div class="testimonial-user">
-            <img src="<?= asset_url('assets/images/testimonials/avatar-1.jpg') ?>" alt="Client feedback" width="48" height="48" loading="lazy" class="user-avatar">
-            <div>
-              <div class="user-name">[Name]</div>
-              <div class="user-role">[Role], [Brand]</div>
-            </div>
+    <div class="editorial-pillars-grid">
+      <div class="editorial-pillar-card luxury-card studio-reveal">
+        <div class="pillar-top">
+          <div class="pillar-icon-box blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
           </div>
+          <span class="pillar-index">01</span>
         </div>
-
-        <div class="testimonial-box testimonial-slide">
-          <div class="testimonial-stars-row">★★★★★</div>
-          <p class="testimonial-text">
-            “[Client Feedback On Turnaround/Communication]”
-          </p>
-          <div class="testimonial-user">
-            <img src="<?= asset_url('assets/images/testimonials/avatar-2.jpg') ?>" alt="Client feedback" width="48" height="48" loading="lazy" class="user-avatar">
-            <div>
-              <div class="user-name">[Name]</div>
-              <div class="user-role">[Role], [Brand]</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-box testimonial-slide">
-          <div class="testimonial-stars-row">★★★★★</div>
-          <p class="testimonial-text">
-            “[Client Feedback On Sales/Conversion]”
-          </p>
-          <div class="testimonial-user">
-            <img src="<?= asset_url('assets/images/testimonials/avatar-3.jpg') ?>" alt="Client feedback" width="48" height="48" loading="lazy" class="user-avatar">
-            <div>
-              <div class="user-name">[Name]</div>
-              <div class="user-role">[Role], [Brand]</div>
-            </div>
-          </div>
-        </div>
+        <h3 class="pillar-heading">Tailored Light Architecture</h3>
+        <p class="pillar-copy">Every surface—from reflective cosmetics glass and polished metals to woven apparel—is shaped with customized diffusion and reflection control to showcase real tactile quality.</p>
       </div>
 
-      <!-- Mobile Slider Controls (Hidden on Desktop) -->
-      <div class="testimonials-mobile-controls" aria-label="Testimonial slider controls">
-        <button type="button" class="slider-arrow slider-arrow-prev" id="testimonialPrev" aria-label="Previous testimonial">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        </button>
-        <div class="slider-dots" id="testimonialDots">
-          <button type="button" class="slider-dot active" data-slide="0" aria-label="Go to testimonial 1"></button>
-          <button type="button" class="slider-dot" data-slide="1" aria-label="Go to testimonial 2"></button>
-          <button type="button" class="slider-dot" data-slide="2" aria-label="Go to testimonial 3"></button>
+      <div class="editorial-pillar-card luxury-card studio-reveal">
+        <div class="pillar-top">
+          <div class="pillar-icon-box coral">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+          </div>
+          <span class="pillar-index">02</span>
         </div>
-        <button type="button" class="slider-arrow slider-arrow-next" id="testimonialNext" aria-label="Next testimonial">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
+        <h3 class="pillar-heading">Calibrated Color Fidelity</h3>
+        <p class="pillar-copy">Hardware-calibrated monitoring and color reference profiling ensure digital assets match the exact physical product, minimizing returns driven by color discrepancy.</p>
+      </div>
+
+      <div class="editorial-pillar-card luxury-card studio-reveal">
+        <div class="pillar-top">
+          <div class="pillar-icon-box lavender">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <span class="pillar-index">03</span>
+        </div>
+        <h3 class="pillar-heading">Marketplace Compliance</h3>
+        <p class="pillar-copy">All images are framed, proportioned, and exported to satisfy Amazon, Flipkart, Shopify, and social media platform technical requirements on the first upload.</p>
       </div>
     </div>
 
@@ -713,7 +687,7 @@ require_once INCLUDES_PATH . '/header.php';
     
     <div class="section-editorial-header">
       <div class="header-tagline">
-        <span class="badge badge-orange">Frequently Answered</span>
+        <span class="badge badge-orange">Frequently Asked Questions</span>
       </div>
       <h2 class="section-title-editorial">Answers to some common questions.</h2>
       <p class="section-sub-editorial">
@@ -742,7 +716,7 @@ require_once INCLUDES_PATH . '/header.php';
           </svg>
         </button>
         <div class="faq-answer-panel">
-          Most projects take between 3-5 working days. The time can depend on how many products you have and how much editing is required. Rush turnaround is also available.
+          Turnaround time depends on project scope, volume, and post-production requirements. Expedited turnaround options are available for urgent campaign schedules.
         </div>
       </div>
 

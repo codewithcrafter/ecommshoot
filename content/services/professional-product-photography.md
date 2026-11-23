@@ -10,7 +10,7 @@
 Our enterprise "Professional Product Photography" service has been fully integrated into our flagship commercial service:
 **[Commercial Product Photography Services](https://www.ecomshoots.in/service/product-photography)**
 
-All medium format Phase One 150MP capture, Broncolor lighting calibration, tethered proofing, and commercial licensing rights previously reserved for enterprise packages are now standard across all Ecomshoot product photography productions.
+All medium format High-resolution commercial digital systems capture, Calibrated studio lighting calibration, tethered proofing, and commercial licensing rights previously reserved for enterprise packages are now standard across all Ecomshoot product photography productions.
 
 ### Direct Inquiries
 - Production Booking: https://www.ecomshoots.in/contact

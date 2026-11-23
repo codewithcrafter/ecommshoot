@@ -56,7 +56,7 @@ In-depth technical guides, lighting masterclasses, Amazon compliance blueprints,
 - **Category**: Lighting & Optics • 8 min read
 - **Author**: Elena Rostova (Master Lighting Engineer)
 - **Publication Date**: Published November 3, 2026
-- **Summary**: A technical masterclass into achieving true RGB 255,255,255 white background photographs without washing out product edges or losing specular highlights. Covers inverse-square lighting setups, flagged bounce cards, and edge contrast preservation.
+- **Summary**: A technical masterclass into achieving true #FFFFFF white background photographs without washing out product edges or losing specular highlights. Covers inverse-square lighting setups, flagged bounce cards, and edge contrast preservation.
 
 ### Article 2: Amazon Product Image Guidelines 2026: Complete Compliance & Best Practices
 - **Article URL**: https://www.ecomshoots.in/blog/amazon-product-image-guidelines-compliance-handbook
@@ -72,7 +72,7 @@ In-depth technical guides, lighting masterclasses, Amazon compliance blueprints,
 
 - **Badge**: Direct Studio Consultation
 - **Heading (H2)**: Need Custom Technical Art Direction for Your Next Commercial Product Campaign?
-- **Description**: Discuss your SKU count, lighting mood boards, and marketplace compliance needs directly with our New York studio production directors.
+- **Description**: Discuss your SKU count, lighting mood boards, and marketplace compliance needs directly with our Delhi studio production directors.
 - **Actions**:
   - Book Studio Estimate (`https://www.ecomshoots.in/contact`)
   - Explore All Services (`https://www.ecomshoots.in/services`)
@@ -85,4 +85,4 @@ In-depth technical guides, lighting masterclasses, Amazon compliance blueprints,
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.

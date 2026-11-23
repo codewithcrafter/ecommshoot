@@ -1,6 +1,6 @@
 ---
 title: "Mastering the Art of Pure White Background Photography: Studio Setup & Lighting"
-summary: "A technical masterclass into achieving true RGB 255,255,255 white background photographs without washing out product edges or losing specular highlights."
+summary: "A technical masterclass into achieving true #FFFFFF white background photographs without washing out product edges or losing specular highlights."
 author: "Elena Rostova"
 author_designation: "Master Studio Lighting Director"
 published_date: "2026-10-22"
@@ -17,7 +17,7 @@ markdown_url: "https://www.ecomshoots.in/blog/mastering-white-background-product
 
 # Mastering the Art of Pure White Background Photography: Studio Setup & Lighting
 
-> A technical masterclass into achieving true RGB 255,255,255 white background photographs without washing out product edges or losing specular highlights.
+> A technical masterclass into achieving true #FFFFFF white background photographs without washing out product edges or losing specular highlights.
 
 # The Myth of Overexposing the Backdrop
 
@@ -29,7 +29,7 @@ When you overwhelm your background with excessive light, that light bounces back
 
 ## The Balanced Four-Light Studio Architecture
 
-To achieve a true pure white (RGB 255, 255, 255) background while preserving tack-sharp product boundaries, you must decouple background illumination from subject lighting entirely.
+To achieve a true pure white (#FFFFFF) background while preserving tack-sharp product boundaries, you must decouple background illumination from subject lighting entirely.
 
 | Light Role | Modifier | Purpose | Recommended Power Ratio |
 | :--- | :--- | :--- | :--- |

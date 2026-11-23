@@ -152,9 +152,9 @@ Send us some product samples and see how our calibrated lighting and consistent 
 
 ## Section 10: Studio Footer & Production Facility
 
-- **Studio**: Ecomshoot Creative Production Inc.
+- **Studio**: Ecomshoot
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
 - **Operating Hours**: Monday – Friday: 9:00 AM – 6:30 PM IST
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.

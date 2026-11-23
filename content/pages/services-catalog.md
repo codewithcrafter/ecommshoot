@@ -44,12 +44,12 @@ We offer 8 specialized product photography services in Delhi to help boost your 
 - **Detailed Summary**: We showcase your product in real-life situations, which helps customers picture the item in their own home. This increases engagement with your social media ads, homepage banners and marketplace A+ content, and helps customers connect with your product on an emotional level.
 
 ### 4. Fashion & Apparel Product Photography (Service 04)
-- **Badge**: Top Pick
+- **Badge**: Featured Service
 - **Official URL**: https://www.ecomshoots.in/service/fashion-product-photography
 - **Detailed Summary**: Whether you need ghost mannequin shots, flat lays or model lookbooks, we present your clothing with clean lines. Realistic detail of the fabric, stitching and shape helps customers make a purchase decision. This is perfect for boutique stores, D2C brands and exporters across Delhi NCR.
 
 ### 5. Creative & Advertising Product Photography (Service 05)
-- **Badge**: Award Winning
+- **Badge**: Creative Photography
 - **Official URL**: https://www.ecomshoots.in/service/creative-product-photography
 - **Detailed Summary**: We produce creative product shots that catch people’s attention. Bold colours, splash shots, levitation and bespoke set designs create a professional, advertising-ready image. This is perfect if you want your brand to stand out, and these product photography services will help you achieve great conversions.
 
@@ -66,7 +66,7 @@ We offer 8 specialized product photography services in Delhi to help boost your 
 ### 8. White Background Product Photography (Service 08)
 - **Badge**: Marketplace Must
 - **Official URL**: https://www.ecomshoots.in/service/white-background-product-photography
-- **Detailed Summary**: We produce high-quality pure white (RGB 255, 255, 255) product shots that help your product pass Amazon, Walmart and Google Shopping requirements on first upload. This keeps your catalog photography compliant, distraction-free and easy to compare.
+- **Detailed Summary**: We produce high-quality pure white (#FFFFFF) product shots that help your product pass Amazon, Walmart and Google Shopping requirements on first upload. This keeps your catalog photography compliant, distraction-free and easy to compare.
 
 ---
 
@@ -85,7 +85,7 @@ Depending on your digital requirements, here are the differences between our thr
 1. **White Background Packshots**:
    - **Main Channel**: Amazon Main, Google Shopping, Shopify grid
    - **Core Purpose**: Ensure your product is compliant, distraction-free and easy to recognise
-   - **Typical Output**: Square 3000x3000px, pure white (RGB 255), soft contact shadow
+   - **Typical Output**: Square 3000x3000px, pure white (#FFFFFF), soft contact shadow
 2. **Lifestyle & In-Context**:
    - **Main Channel**: Meta/Instagram, homepage hero, Amazon A+ Content
    - **Core Purpose**: Connect with customers emotionally, create aspirational content and show scale
@@ -110,4 +110,4 @@ Depending on your digital requirements, here are the differences between our thr
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.

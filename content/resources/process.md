@@ -17,8 +17,8 @@
 - **Preparation & Styling**: Garments are steamed with industrial steamers; jewellery is ultrasonically cleaned; glass and acrylic packaging are treated with anti-static ionizing brushes.
 
 ## Stage 03: The Studio Shoot & Tethered Capture
-- **Lighting Architecture**: Tailored lighting modifiers (Broncolor Para reflectors, softboxes, cross-polarized diffusers) are dialed in according to surface reflectivity.
-- **Medium Format Capture**: Products are captured on Phase One 150MP digital backs or Sony 61MP bodies tethered directly to Capture One Pro.
+- **Lighting Architecture**: Tailored lighting modifiers (Calibrated studio reflectors, softboxes, cross-polarized diffusers) are dialed in according to surface reflectivity.
+- **Medium Format Capture**: Products are captured on High-resolution commercial digital systems digital backs or Sony 61MP bodies tethered directly to Capture One Pro.
 - **Color Calibration**: X-Rite ColorChecker Digital SG targets are photographed under the exact lighting setup to generate custom ICC profiles ensuring ΔE < 1.0 color accuracy.
 - **Live Client Proofing**: Remote clients receive live web gallery links to review and approve captures in real time.
 

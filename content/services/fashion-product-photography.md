@@ -2,7 +2,7 @@
 
 - **Production URL**: https://www.ecomshoots.in/service/fashion-product-photography
 - **Discipline**: Commercial Product Photography
-- **Studio Tier**: Top Pick
+- **Studio Tier**: Featured Service
 - **SEO Title**: Fashion & Apparel Product Photography Services | Ecomshoot
 - **Meta Description**: From architectural ghost mannequin executions and pin-sharp flat lays to dynamic live-model editorial lookbooks, we present fashion with elegance and drape integrity.
 - **Canonical URL**: https://www.ecomshoots.in/service/fashion-product-photography
@@ -12,7 +12,7 @@
 ## Section 1: Hero Section & Instant Estimate Form
 
 ### Discipline Badge
-- **Top Pick**
+- **Featured Service**
 
 ### Main Heading (H1)
 **Runway-Grade Fashion & Apparel Photography for Contemporary Clothing Labels**
@@ -155,9 +155,9 @@ Send your product samples to our studio in Delhi. Our fashion product photograph
 
 ## Section 10: Studio Footer & Production Facility
 
-- **Studio**: Ecomshoot Creative Production Inc.
+- **Studio**: Ecomshoot
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
 - **Operating Hours**: Monday – Friday: 9:00 AM – 6:30 PM IST
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.

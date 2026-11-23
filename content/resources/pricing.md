@@ -11,7 +11,7 @@
 Ecomshoot operates on transparent, volume-tiered rate schedules tailored to catalog scope and creative requirements. We do not charge hidden studio equipment rental fees or usage royalties.
 
 ### 1. Catalog & Packshot Production (Per-Image / Per-SKU)
-- **Standard White Background Packshot**: Pure RGB #255 background, hand-drawn clipping path, natural contact shadow, Amazon/Shopify compliance.
+- **Standard White Background Packshot**: Pure #FFFFFF background, hand-drawn clipping path, natural contact shadow, Amazon/Shopify compliance.
 - **Volume Tiers**:
   - Tier 1: 10 – 49 Images
   - Tier 2: 50 – 199 Images (Tiered Volume Discount)

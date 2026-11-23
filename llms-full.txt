@@ -41,12 +41,12 @@ PART 1: MASTER STUDIO IDENTITY & COMPANY INFORMATION
 
 - **Production URL**: https://www.ecomshoots.in/business/company-information.md
 - **Alternative URL**: https://www.ecomshoots.in/company-information.md
-- **Entity**: Ecomshoot Creative Production Inc.
+- **Entity**: Ecomshoot
 
 ---
 
 ## Official Business Entity
-- **Corporate Name**: Ecomshoot Creative Production Inc.
+- **Corporate Name**: Ecomshoot
 - **Brand Name**: Ecomshoot
 - **Founding Year**: 2019
 - **Industry Sector**: Commercial Product Photography, E-Commerce Visual Content, Digital Post-Production
@@ -94,10 +94,10 @@ Ecomshoot was founded to bridge the gap between slow, prohibitive commercial adv
 ## The Ecomshoot Technical Pillars
 
 ### 1. Optical Acuity & Medium Format Capture
-We shoot on 100+ megapixel medium format systems (Phase One IQ4 150MP) and high-resolution Sony full-frame sensors paired with specialized Schneider Kreuznach leaf-shutter and prime tilt-shift optics. This delivers unmatched resolution, allowing digital shoppers to inspect microscopic fabric weaves and fine product finishes.
+We shoot on 100+ megapixel medium format systems (High-resolution commercial digital systems) and high-resolution Sony full-frame sensors paired with specialized calibrated commercial prime and prime tilt-shift optics. This delivers unmatched resolution, allowing digital shoppers to inspect microscopic fabric weaves and fine product finishes.
 
 ### 2. Spectral Color Fidelity (ΔE < 1.0)
-Inaccurate product color is the single largest driver of e-commerce returns. We photograph custom X-Rite ColorChecker charts under calibrated 5600K Broncolor flash illumination to construct proprietary ICC color profiles for every shoot session.
+Inaccurate product color is the single largest driver of e-commerce returns. We photograph custom X-Rite ColorChecker charts under calibrated 5600K Calibrated studio strobe illumination to construct proprietary ICC color profiles for every shoot session.
 
 ### 3. Zero AI Hallucination Guarantee
 We capture authentic physical products under true optical glass. We never use generative AI diffusion models to fabricate product geometry or synthetic surfaces that mislead buyers.
@@ -105,8 +105,8 @@ We capture authentic physical products under true optical glass. We never use ge
 ### 4. 100% Hand-Crafted Post-Production
 Automated cutout algorithms leave telltale jagged halos and washed-out edges. Every Ecomshoot asset is clipped using hand-drawn vector paths by senior retouchers, paired with frequency separation and natural contact shadow reconstruction.
 
-### 5. Frictionless Turnaround (48-72 Hour SLAs)
-With an intake-to-delivery pipeline engineered for high-throughput D2C inventory cycles, standard catalogs are delivered within 3-5 business days, with 48-hour rush turnarounds available.
+### 5. Frictionless Turnaround (Flexible Turnaround Schedules)
+With an intake-to-delivery pipeline engineered for high-throughput D2C inventory cycles, standard catalogs are delivered within Turnaround time depends on project scope, volume, and post-production requirements. Expedited turnaround options are available for urgent campaign schedules..
 
 ================================================================================
 PART 2: CORE PUBLIC PAGES
@@ -142,9 +142,9 @@ Every decision made by a customer happens in a matter of seconds. As product pho
 - **Secondary CTA**: See Our Work (`#portfolio`)
 
 ### Verified Studio Metric Counters
-- **250K+**: Images Delivered
-- **+38%**: Average Increase In CTR (Click-Through Rate)
-- **99.8%**: Approval Rate From Marketplace Guidelines
+- **Multi-Angle Coverage**: Hero & Detail Angles
+- **Live Studio Proofing**: 100% Tethered Digital Workflow
+- **Marketplace Compliant**: Amazon, Shopify & Omnichannel Standards
 
 ### Instant Studio Estimate Intake Form
 - **Form Identifier**: `#homeEnquiryForm`
@@ -162,14 +162,14 @@ Every decision made by a customer happens in a matter of seconds. As product pho
 
 ---
 
-## Section 2: Trust & Studio Standards Capabilities Strip
+## Section 2: Commercial Studio Capabilities & Standards
 
 ### Strip Header
-- **Tag**: TRUST STRIP
+- **Tag**: Commercial Studio Standards
 - **Sub-label**: On Location Styling: Capture lifestyle images to show how your product is used.
 
 ### Four Operational Capabilities
-1. **Fast Turnaround**: Product photography sessions at our Delhi studio. 48-72 hour turnaround.
+1. **Fast Turnaround**: Product photography sessions at our Delhi studio. Turnaround time depends on project scope and requirements. Expedited options available..
 2. **Compliance**: All images will comply with Amazon, Flipkart & Shopify guidelines.
 3. **Creative Direction**: We include styling, props and creative planning.
 4. **Edited & Retouched**: All images will be colour corrected and clean for upload.
@@ -245,7 +245,7 @@ Every decision made by a customer happens in a matter of seconds. As product pho
    - **Description**: Master digital post-production featuring 100% hand-drawn vector clipping paths, frequency separation skin retouching, dust/scratch removal, and color balancing.
    - **Service URL**: https://www.ecomshoots.in/service/product-photo-editing-retouching
 8. **White Background Product Photography (Shoot No. 08)**
-   - **Description**: Pure RGB #255,255,255 white background imagery with natural contact drop shadows, engineered for Amazon Main image compliance and catalog search grids.
+   - **Description**: Pure #FFFFFF white background imagery with natural contact drop shadows, engineered for Amazon Main image compliance and catalog search grids.
    - **Service URL**: https://www.ecomshoots.in/service/white-background-product-photography
 
 - **Central Navigation Action**: View All Services (`https://www.ecomshoots.in/services`)
@@ -329,29 +329,23 @@ Every decision made by a customer happens in a matter of seconds. As product pho
 
 ---
 
-## Section 9: Client Testimonials & Social Proof
+## Section 9: Built Around Product Presentation Excellence
 
 - **Section ID**: `#testimonials`
-- **Tagline Badge**: Client Feedback
-- **Section Heading (H2)**: Trusted by growing e-commerce brands.
-- **Average Rating**: ★★★★★ 4.9/5 from 200+ verified D2C brands and marketplace sellers.
+- **Tagline Badge**: Studio Standards
+- **Section Heading (H2)**: Built Around Product Presentation Excellence
+- **Section Subtitle**: Visual assets engineered for marketplace compliance, color fidelity, and sales performance.
 
-### Client Reviews
-1. **Image Quality & Precision**:
-   - "The optical sharpness and true-to-life color reproduction delivered by Ecomshoot completely elevated our brand store. Our Shopify conversion rate jumped by 34% within two weeks of updating our hero imagery."
-   - *Reviewer*: D2C Skincare Founder, Delhi NCR
-2. **Turnaround & Communication**:
-   - "Unmatched turnaround speed and professional communication. Handling 120 SKUs without a single quality lapse or missed deadline was incredible. The live tethered proofing saved us weeks of back-and-forth."
-   - *Reviewer*: VP of E-Commerce, Apparel Retail Brand
-3. **Sales & Marketplace Compliance**:
-   - "Zero marketplace rejections across Amazon and Flipkart. Every file was delivered pre-sized, color-profiled, and ready for instant catalog ingestion. Ecomshoot is our permanent production partner."
-   - *Reviewer*: Marketplace Operations Lead, Consumer Electronics Brand
+### Three Pillars of Presentation Excellence
+1. **Verified Color Integrity**: Calibrated proofing and custom ICC profiling ensure exact material color fidelity across screens and print.
+2. **Scalable Studio Production**: Dedicated commercial bays and tethered workflows support enterprise volumes without compromising craftsmanship.
+3. **Multi-Platform Readiness**: Every asset is formatted to strict marketplace technical standards for Amazon, Shopify, and global commerce.
 
 ---
 
 ## Section 10: Frequently Asked Questions
 
-- **Tagline Badge**: Frequently Answered
+- **Tagline Badge**: Frequently Asked Questions
 - **Section Heading (H2)**: Answers to some common questions.
 - **Section Subtitle**: Everything you need to know about sample shipments, shoot turnarounds, licensing rights, and image deliverables.
 
@@ -359,7 +353,7 @@ Every decision made by a customer happens in a matter of seconds. As product pho
 1. **Q: How does product delivery and sampling work?**
    **A:** You can send your products to our studio in Delhi via courier or hand delivery. We will log your product, shoot and return safely once the project has been completed.
 2. **Q: How long does it take to produce?**
-   **A:** Most projects take between 3-5 working days. The time can depend on how many products you have and how much editing is required. Rush turnaround is also available.
+   **A:** Turnaround time depends on project scope, volume, and post-production requirements. Expedited turnaround options are available for urgent campaign schedules.
 3. **Q: Do you offer commercial use and licensing?**
    **A:** Yes! Once your project has been paid for you will have full commercial use rights for your website, marketplaces, ads and social media.
 4. **Q: Can you shoot for Amazon & Shopify?**
@@ -410,7 +404,7 @@ Every decision made by a customer happens in a matter of seconds. As product pho
   - Jewellery & Luxury: https://www.ecomshoots.in/service/jewellery-product-photography
   - Editing & Retouching: https://www.ecomshoots.in/service/product-photo-editing-retouching
   - White Background: https://www.ecomshoots.in/service/white-background-product-photography
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved. Precision Commercial Photography & Art Direction.
+- **Copyright**: © 2026 Ecomshoot All rights reserved. Precision Commercial Photography & Art Direction.
 
 --------------------------------------------------------------------------------
 2.2. ABOUT US
@@ -453,7 +447,7 @@ Traditional commercial photography studios were designed for print magazines and
 ### Body Narrative
 At the other extreme, low-cost catalog mills deliver washed-out packshots with sloppy automated cutouts, inaccurate color casts, and zero understanding of brand nuance.
 
-In 2019, Ecomshoot was founded in New York to solve this dilemma. We built a specialized commercial production house designed from the ground up to satisfy the rigorous technical requirements of Amazon, Shopify Plus, and omnichannel luxury retailers without sacrificing editorial warmth or tactile realism.
+Ecomshoot was established in Delhi to solve this dilemma. We built a specialized commercial production house designed from the ground up to satisfy the rigorous technical requirements of Amazon, Shopify Plus, and omnichannel luxury retailers without sacrificing editorial warmth or tactile realism.
 
 ### Studio Visuals & Callout
 - **Featured Facility Asset**: `https://www.ecomshoots.in/assets/images/about/studio-bay.jpg` (Ecomshoot Commercial Photography Studio Facility and Staging Bay)
@@ -474,13 +468,13 @@ We invest relentlessly in medium format optics, calibrated power packs, and spec
 
 ### Four Technical Pillars
 1. **Medium Format Acuity (Optics Pillar)**:
-   - Phase One IQ4 150MP digital systems and Schneider Kreuznach leaf shutter lenses resolving fine micro-textures down to single textile threads.
+   - High-resolution commercial digital systems digital systems and calibrated commercial prime optics resolving fine micro-textures down to single textile threads.
 2. **Broncolor Strobes (Lighting Pillar)**:
-   - Broncolor Scoro power packs with 1/10,000s flash duration to freeze kinetic liquid splashes and guarantee constant 5600K color consistency.
+   - Calibrated studio strobes with high-speed flash duration to freeze kinetic liquid splashes and guarantee constant 5600K color consistency.
 3. **Motorized Indexing Rails (Rigs Pillar)**:
    - Automated 20-micron focus rails for 60-slice jewellery focus-stacking composites and seamless 360-degree interactive product spin tables.
 4. **Color Managed Flow (Color Pillar)**:
-   - EIZO ColorEdge hardware-calibrated proofing monitors, spectrophotometer audits, and custom ICC profiles ensuring ΔE < 1.0 color accuracy.
+   - Hardware-calibrated hardware-calibrated proofing monitors, spectrophotometer audits, and custom ICC profiles ensuring ΔE < 1.0 color accuracy.
 
 ---
 
@@ -496,10 +490,10 @@ We invest relentlessly in medium format optics, calibrated power packs, and spec
 Verified capture, lighting, retouching and calibration tools used across our studio workflow.
 
 ### Studio Technology Cards
-1. **Photography Cameras & Lenses (◉)**: Phase One IQ4 150MP systems and Schneider Kreuznach leaf shutter lenses.
-2. **Studio Lighting Equipment (✦)**: Broncolor Scoro power packs and calibrated strobe workflows.
+1. **Photography Cameras & Lenses (◉)**: High-resolution commercial digital systems systems and calibrated commercial prime optics.
+2. **Studio Lighting Equipment (✦)**: Calibrated studio strobes power packs and calibrated strobe workflows.
 3. **Photo Editing & Retouching (✎)**: Photoshop Pen Tool workflows, frequency separation and hand-finished retouching.
-4. **Color Correction & Calibration (◌)**: EIZO ColorEdge monitors, spectrophotometer audits and custom ICC profiles.
+4. **Color Correction & Calibration (◌)**: Hardware-calibrated monitors, spectrophotometer audits and custom ICC profiles.
 5. **Product Styling & Studio Equipment (⌁)**: Motorized indexing rails, specialized staging rigs and calibrated proofing.
 6. **E-commerce Image Optimization (↗)**: Marketplace-ready exports for Amazon, Shopify Plus and omnichannel retail.
 
@@ -543,7 +537,7 @@ Four non-negotiable operational commitments that safeguard your brand reputation
 - **Phone**: +91 98765 43210
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Operating Hours**: Monday – Friday: 9:00 AM – 6:30 PM IST
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.
 
 --------------------------------------------------------------------------------
 2.3. SERVICES DIRECTORY
@@ -595,12 +589,12 @@ We offer 8 specialized product photography services in Delhi to help boost your 
 - **Detailed Summary**: We showcase your product in real-life situations, which helps customers picture the item in their own home. This increases engagement with your social media ads, homepage banners and marketplace A+ content, and helps customers connect with your product on an emotional level.
 
 ### 4. Fashion & Apparel Product Photography (Service 04)
-- **Badge**: Top Pick
+- **Badge**: Featured Service
 - **Official URL**: https://www.ecomshoots.in/service/fashion-product-photography
 - **Detailed Summary**: Whether you need ghost mannequin shots, flat lays or model lookbooks, we present your clothing with clean lines. Realistic detail of the fabric, stitching and shape helps customers make a purchase decision. This is perfect for boutique stores, D2C brands and exporters across Delhi NCR.
 
 ### 5. Creative & Advertising Product Photography (Service 05)
-- **Badge**: Award Winning
+- **Badge**: Creative Photography
 - **Official URL**: https://www.ecomshoots.in/service/creative-product-photography
 - **Detailed Summary**: We produce creative product shots that catch people’s attention. Bold colours, splash shots, levitation and bespoke set designs create a professional, advertising-ready image. This is perfect if you want your brand to stand out, and these product photography services will help you achieve great conversions.
 
@@ -617,7 +611,7 @@ We offer 8 specialized product photography services in Delhi to help boost your 
 ### 8. White Background Product Photography (Service 08)
 - **Badge**: Marketplace Must
 - **Official URL**: https://www.ecomshoots.in/service/white-background-product-photography
-- **Detailed Summary**: We produce high-quality pure white (RGB 255, 255, 255) product shots that help your product pass Amazon, Walmart and Google Shopping requirements on first upload. This keeps your catalog photography compliant, distraction-free and easy to compare.
+- **Detailed Summary**: We produce high-quality pure white (#FFFFFF) product shots that help your product pass Amazon, Walmart and Google Shopping requirements on first upload. This keeps your catalog photography compliant, distraction-free and easy to compare.
 
 ---
 
@@ -636,7 +630,7 @@ Depending on your digital requirements, here are the differences between our thr
 1. **White Background Packshots**:
    - **Main Channel**: Amazon Main, Google Shopping, Shopify grid
    - **Core Purpose**: Ensure your product is compliant, distraction-free and easy to recognise
-   - **Typical Output**: Square 3000x3000px, pure white (RGB 255), soft contact shadow
+   - **Typical Output**: Square 3000x3000px, pure white (#FFFFFF), soft contact shadow
 2. **Lifestyle & In-Context**:
    - **Main Channel**: Meta/Instagram, homepage hero, Amazon A+ Content
    - **Core Purpose**: Connect with customers emotionally, create aspirational content and show scale
@@ -661,10 +655,10 @@ Depending on your digital requirements, here are the differences between our thr
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.
 
 --------------------------------------------------------------------------------
-2.4. CONTACT & ESTIMATE BOOKING
+2.4. CONTACT & ISTIMATE BOOKING
 URL: https://www.ecomshoots.in/contact
 --------------------------------------------------------------------------------
 # Contact Ecomshoot | Book a Studio Shoot & Request a Quote
@@ -672,7 +666,7 @@ URL: https://www.ecomshoots.in/contact
 - **Production URL**: https://www.ecomshoots.in/contact
 - **Page Purpose**: Direct commercial production booking, sample shipment intake protocol, quote requests, and studio communication channels.
 - **SEO Title**: Contact Ecomshoot | Book a Studio Shoot & Request a Quote
-- **Meta Description**: Ready to elevate your product imagery? Contact our New York studio for custom rate cards, volume SKU estimates, or complimentary sample test shoots.
+- **Meta Description**: Ready to elevate your product imagery? Contact our Delhi studio for custom rate cards, volume SKU estimates, or complimentary sample test shoots.
 - **Canonical URL**: https://www.ecomshoots.in/contact
 
 ---
@@ -705,7 +699,7 @@ Tell us about your photography requirements. Our team will get in touch with you
    - **Number**: +91 98765 43210
    - **Availability**: Monday through Friday, 9:00 AM – 6:30 PM IST
 3. **Physical Studio & Sample Ingestion Bay**:
-   - **Facility**: Ecomshoot Creative Production Inc.
+   - **Facility**: Ecomshoot
    - **Location**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
    - **Logistics Note**: Secured, climate-controlled product intake with barcode logging and 24/7 security.
 4. **Operating & Staging Hours**:
@@ -761,7 +755,7 @@ Every inquiry is reviewed by our lead production directors with rate estimates w
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.
 
 --------------------------------------------------------------------------------
 2.5. STUDIO INTELLIGENCE & BLOG CATALOG
@@ -825,7 +819,7 @@ In-depth technical guides, lighting masterclasses, Amazon compliance blueprints,
 - **Category**: Lighting & Optics • 8 min read
 - **Author**: Elena Rostova (Master Lighting Engineer)
 - **Publication Date**: Published November 3, 2026
-- **Summary**: A technical masterclass into achieving true RGB 255,255,255 white background photographs without washing out product edges or losing specular highlights. Covers inverse-square lighting setups, flagged bounce cards, and edge contrast preservation.
+- **Summary**: A technical masterclass into achieving true #FFFFFF white background photographs without washing out product edges or losing specular highlights. Covers inverse-square lighting setups, flagged bounce cards, and edge contrast preservation.
 
 ### Article 2: Amazon Product Image Guidelines 2026: Complete Compliance & Best Practices
 - **Article URL**: https://www.ecomshoots.in/blog/amazon-product-image-guidelines-compliance-handbook
@@ -841,7 +835,7 @@ In-depth technical guides, lighting masterclasses, Amazon compliance blueprints,
 
 - **Badge**: Direct Studio Consultation
 - **Heading (H2)**: Need Custom Technical Art Direction for Your Next Commercial Product Campaign?
-- **Description**: Discuss your SKU count, lighting mood boards, and marketplace compliance needs directly with our New York studio production directors.
+- **Description**: Discuss your SKU count, lighting mood boards, and marketplace compliance needs directly with our Delhi studio production directors.
 - **Actions**:
   - Book Studio Estimate (`https://www.ecomshoots.in/contact`)
   - Explore All Services (`https://www.ecomshoots.in/services`)
@@ -854,7 +848,7 @@ In-depth technical guides, lighting masterclasses, Amazon compliance blueprints,
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.
 
 ================================================================================
 PART 3: SPECIALIZED COMMERCIAL DISCIPLINES (8 SERVICES)
@@ -903,7 +897,7 @@ Our product photography services in Delhi will create crystal clear and realisti
 **Professional Images to Show Your Brand is Professional**
 
 ### Detailed Description
-Product photography at Ecomshoot is built around commercial conversion science. When prospective buyers browse online, their perception of product quality, durability, and brand prestige is dictated almost entirely by visual fidelity. Our purpose-built commercial studios combine Phase One 150MP digital backs, calibrated Broncolor Para parabolic reflectors, and precision motorized turntables to capture every angle with tactile realism.
+Product photography at Ecomshoot is built around commercial conversion science. When prospective buyers browse online, their perception of product quality, durability, and brand prestige is dictated almost entirely by visual fidelity. Our purpose-built commercial studios combine High-resolution commercial digital systems digital backs, calibrated Broncolor Para parabolic reflectors, and precision motorized turntables to capture every angle with tactile realism.
 
 ### Studio Follow-up
 As a professional commercial product photography studio in Delhi we will create, style, photograph and edit your images to ensure you have consistent catalogue product photography in Delhi.
@@ -935,7 +929,7 @@ All of our product photography services in Delhi will be created with a clear ch
 
 ### Standard Deliverables Checklist
 - **100+ Megapixel Medium Format Capture**: Every shot delivers incredible crop latitude and microscopic detail resolution for pinch-to-zoom capabilities.
-- **Calibrated Color Profiles**: Hardware-calibrated workflow with X-Rite ColorChecker charts guaranteeing 99.8% spectral color accuracy.
+- **Calibrated Color Profiles**: Hardware-calibrated workflow with X-Rite ColorChecker charts guaranteeing spectrophotometer-verified color accuracy.
 - **Comprehensive Angle Sequences**: Standard 7-angle coverage including primary hero, 45-degree isometric, rear packaging, bottom base, and critical close-ups.
 - **Multi-Layer Drop Shadows**: Natural drop shadows and reflective surface treatment meticulously crafted during in-house digital post-production.
 
@@ -979,7 +973,7 @@ Here’s how we will create your product photoshoot in Delhi.
 Find out more about our product photography services in Delhi.
 
 ### Question 1: What camera systems and lighting do you employ?
-**Answer**: We shoot predominantly on Phase One IQ4 150MP medium format systems and Sony Alpha 61MP bodies paired with prime tilt-shift lenses and Broncolor studio strobes.
+**Answer**: We shoot predominantly on High-resolution commercial digital systems medium format systems and Sony Alpha 61MP bodies paired with prime tilt-shift lenses and Calibrated studio strobes.
 
 ### Question 2: How do we ship products to your studio?
 **Answer**: Once you book a production run, our logistics team issues pre-addressed shipping tags and an intake packing manifest. We store items in climate-controlled lockers and safely return or donate them upon project completion.
@@ -1021,12 +1015,12 @@ Get professional product images that will convert with our product photography s
 
 ## Section 10: Studio Footer & Production Facility
 
-- **Studio**: Ecomshoot Creative Production Inc.
+- **Studio**: Ecomshoot
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
 - **Operating Hours**: Monday – Friday: 9:00 AM – 6:30 PM IST
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.
 
 
 --------------------------------------------------------------------------------
@@ -1187,16 +1181,16 @@ Send us some product samples and see how our calibrated lighting and consistent 
 
 ## Section 10: Studio Footer & Production Facility
 
-- **Studio**: Ecomshoot Creative Production Inc.
+- **Studio**: Ecomshoot
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
 - **Operating Hours**: Monday – Friday: 9:00 AM – 6:30 PM IST
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.
 
 
 --------------------------------------------------------------------------------
-3.3. LIFESTYLE PRODUCT PHOTOGRAPHY
+3.3. LIFISTYLE PRODUCT PHOTOGRAPHY
 URL: https://www.ecomshoots.in/service/lifestyle-product-photography
 --------------------------------------------------------------------------------
 # Lifestyle Product Photography | Ecomshoot Studio
@@ -1356,12 +1350,12 @@ Send your samples to our studio in Delhi and we will create Lifestyle Product Ph
 
 ## Section 10: Studio Footer & Production Facility
 
-- **Studio**: Ecomshoot Creative Production Inc.
+- **Studio**: Ecomshoot
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
 - **Operating Hours**: Monday – Friday: 9:00 AM – 6:30 PM IST
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.
 
 
 --------------------------------------------------------------------------------
@@ -1372,7 +1366,7 @@ URL: https://www.ecomshoots.in/service/fashion-product-photography
 
 - **Production URL**: https://www.ecomshoots.in/service/fashion-product-photography
 - **Discipline**: Commercial Product Photography
-- **Studio Tier**: Top Pick
+- **Studio Tier**: Featured Service
 - **SEO Title**: Fashion & Apparel Product Photography Services | Ecomshoot
 - **Meta Description**: From architectural ghost mannequin executions and pin-sharp flat lays to dynamic live-model editorial lookbooks, we present fashion with elegance and drape integrity.
 - **Canonical URL**: https://www.ecomshoots.in/service/fashion-product-photography
@@ -1382,7 +1376,7 @@ URL: https://www.ecomshoots.in/service/fashion-product-photography
 ## Section 1: Hero Section & Instant Estimate Form
 
 ### Discipline Badge
-- **Top Pick**
+- **Featured Service**
 
 ### Main Heading (H1)
 **Runway-Grade Fashion & Apparel Photography for Contemporary Clothing Labels**
@@ -1525,12 +1519,12 @@ Send your product samples to our studio in Delhi. Our fashion product photograph
 
 ## Section 10: Studio Footer & Production Facility
 
-- **Studio**: Ecomshoot Creative Production Inc.
+- **Studio**: Ecomshoot
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
 - **Operating Hours**: Monday – Friday: 9:00 AM – 6:30 PM IST
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.
 
 
 --------------------------------------------------------------------------------
@@ -1541,7 +1535,7 @@ URL: https://www.ecomshoots.in/service/creative-product-photography
 
 - **Production URL**: https://www.ecomshoots.in/service/creative-product-photography
 - **Discipline**: Commercial Product Photography
-- **Studio Tier**: Award Winning
+- **Studio Tier**: Creative Photography
 - **SEO Title**: Creative & Advertising Product Photography Services | Ecomshoot
 - **Meta Description**: Concept-driven visual campaigns that disrupt mundane feeds, leveraging bold color theory, kinetic splash capture, levitation techniques, and bespoke set design.
 - **Canonical URL**: https://www.ecomshoots.in/service/creative-product-photography
@@ -1551,7 +1545,7 @@ URL: https://www.ecomshoots.in/service/creative-product-photography
 ## Section 1: Hero Section & Instant Estimate Form
 
 ### Discipline Badge
-- **Award Winning**
+- **Creative Photography**
 
 ### Main Heading (H1)
 **Avant-Garde Creative & Advertising Photography That Stops The Infinite Scroll**
@@ -1641,7 +1635,7 @@ We work with a clear process that will take you from initial call to final deliv
 ### Workflow Sequence
 01. **Concept Pitch & Visual Treatment**: Our creative director develops 3 distinct visual treatments with sketches, color swatches, ingredient lists, and lighting diagrams.
 02. **Physical Set Construction & Prop Fabrication**: Our artisan makers cut acrylics, curate authentic botanicals, and build custom rigs to suspend components securely.
-03. **High-Speed Capture & Lighting Direction**: Using Broncolor Scoro power packs with ultra-short flash duration, we trigger synchronized bursts capturing split-second movement.
+03. **High-Speed Capture & Lighting Direction**: Using Calibrated studio strobes power packs with ultra-short flash duration, we trigger synchronized bursts capturing split-second movement.
 04. **Fine Art Composite & Retouching**: We combine multi-exposure lighting brackets, blend optimal splash formations, and paint in hand-crafted shadow gradations.
 
 ---
@@ -1694,12 +1688,12 @@ We can create your product photos in our studio. We’ll produce accurate colour
 
 ## Section 10: Studio Footer & Production Facility
 
-- **Studio**: Ecomshoot Creative Production Inc.
+- **Studio**: Ecomshoot
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
 - **Operating Hours**: Monday – Friday: 9:00 AM – 6:30 PM IST
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.
 
 
 --------------------------------------------------------------------------------
@@ -1776,7 +1770,7 @@ Investing in high quality jewellery photography will help you. Crisp accurate im
 All our projects will have clear technical specifications. Files will be ready for use on your website, marketplaces and printed catalogues.
 
 ### Standard Deliverables Checklist
-- **Macro Focus Stacking Technology**: Cognisys motorized linear rails move the camera in 20-micron increments, capturing dozens of focal planes stitched seamlessly.
+- **Macro Focus Stacking Technology**: Motorized precision linear rails move the camera in 20-micron increments, capturing dozens of focal planes stitched seamlessly.
 - **Custom Diffuse Light Cones**: Proprietary 360-degree diffusion enclosures that wrap precious rings in immaculate, seamless reflection-free illumination.
 - **Micro-Retouching & Gem Polish**: Pixel-level post-production removing microscopic micro-scratches, aligning prong symmetry, and brightening diamond tables.
 - **Shadow & Mirror Floor Treatments**: Options for floating transparent backgrounds, subtle gradient drop shadows, or pristine high-gloss mirror reflections.
@@ -1863,12 +1857,12 @@ Send your pieces to our studio and see what jewellery product photography done p
 
 ## Section 10: Studio Footer & Production Facility
 
-- **Studio**: Ecomshoot Creative Production Inc.
+- **Studio**: Ecomshoot
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
 - **Operating Hours**: Monday – Friday: 9:00 AM – 6:30 PM IST
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.
 
 
 --------------------------------------------------------------------------------
@@ -2032,12 +2026,12 @@ Send us your files and our team in Delhi will provide you with reliable product 
 
 ## Section 10: Studio Footer & Production Facility
 
-- **Studio**: Ecomshoot Creative Production Inc.
+- **Studio**: Ecomshoot
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
 - **Operating Hours**: Monday – Friday: 9:00 AM – 6:30 PM IST
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.
 
 
 --------------------------------------------------------------------------------
@@ -2050,7 +2044,7 @@ URL: https://www.ecomshoots.in/service/white-background-product-photography
 - **Discipline**: Commercial Product Photography
 - **Studio Tier**: Marketplace Must
 - **SEO Title**: White Background Product Photography Services | Ecomshoot
-- **Meta Description**: Pure RGB #255,255,255 white background imagery engineered to pass Amazon, Walmart, and Google Shopping compliance algorithms on the very first upload.
+- **Meta Description**: Pure #FFFFFF white background imagery engineered to pass Amazon, Walmart, and Google Shopping compliance algorithms on the very first upload.
 - **Canonical URL**: https://www.ecomshoots.in/service/white-background-product-photography
 
 ---
@@ -2064,7 +2058,7 @@ URL: https://www.ecomshoots.in/service/white-background-product-photography
 **Pristine White Background Product Photography Built for Global E-Commerce Marketplaces**
 
 ### Description
-Images will pass marketplace checks with ease on first upload using pure RGB 255,255,255.
+Images will pass marketplace checks with ease on first upload using pure #FFFFFF.
 
 ### Call to Actions
 - **Primary Action**: Book This Service (`https://www.ecomshoots.in/contact`)
@@ -2083,7 +2077,7 @@ Images will pass marketplace checks with ease on first upload using pure RGB 255
 **Professional quality white background product photography**
 
 ### Detailed Description
-Pure white background photographyâ€”frequently referred to as the e-commerce packshotâ€”is the indisputable backbone of digital retail. Leading marketplaces like Amazon, Walmart, Target, and eBay enforce strict technical requirements: pure RGB (255,255,255) white backgrounds, zero extraneous props, 85% frame occupancy, and natural grounding shadows. Ecomshoot has perfected this format, delivering pristine catalog images that pass automated compliance algorithms effortlessly.
+Pure white background photographyâ€”frequently referred to as the e-commerce packshotâ€”is the indisputable backbone of digital retail. Leading marketplaces like Amazon, Walmart, Target, and eBay enforce strict technical requirements: pure #FFFFFF white backgrounds, zero extraneous props, 85% frame occupancy, and natural grounding shadows. Ecomshoot has perfected this format, delivering pristine catalog images that pass automated compliance algorithms effortlessly.
 
 ---
 
@@ -2111,7 +2105,7 @@ We have created white background product photography that improves your checkout
 All products are created to strict standards meaning they can be added directly onto your channels.
 
 ### Standard Deliverables Checklist
-- **Pure RGB (255, 255, 255) Guarantee**: True pure white backdrops verified through automated digital threshold tests to eliminate muddy gray or dirty white halos.
+- **Pure #FFFFFF Guarantee**: True pure white backdrops verified through automated digital threshold tests to eliminate muddy gray or dirty white halos.
 - **Natural Ambient Drop Shadows**: Retained or digitally painted natural contact shadows that anchor the product so it does not appear to float unnaturally.
 - **Consistent Frame Filling Ratios**: Every product is scaled to occupy exactly 85% of the frame bounds, establishing a uniform visual rhythm on product listing pages.
 - **Pinch-to-Zoom Dynamic Detail**: High-resolution capture ensuring crisp 2000px+ zoom capability so buyers can examine stitching, textures, and fine print.
@@ -2145,7 +2139,7 @@ All products will go through a clear process.
 ### Workflow Sequence
 01. **Specular Backlight Calibration**: We light the background independently from the subject using calibrated strip boxes to prevent light wrap and edge bleed.
 02. **Subject Key & Fill Balancing**: Dedicated front key lights carve out shape and material depth while soft fills illuminate subtle brand logos.
-03. **White Point Threshold Verification**: Digital inspection confirms that background pixels register at pure RGB 255, 255, 255 while product highlights remain unclipped.
+03. **White Point Threshold Verification**: Digital inspection confirms that background pixels register at pure #FFFFFF while product highlights remain unclipped.
 04. **Shadow Preservation & Sizing**: Realistic ground shadow is isolated, product centered with standardized margins, and exported in high-res format.
 
 ---
@@ -2156,7 +2150,7 @@ All products will go through a clear process.
 
 
 ### Question 1: Will these images pass Amazon requirements?
-**Answer**: Yes, 100% guaranteed. We adhere strictly to Amazon guidelines: pure white background (RGB 255,255,255), 85%+ product frame filling, no watermarks, no text overlays, and high resolution (3000x3000px) enabling zoom.
+**Answer**: Yes, 100% guaranteed. We adhere strictly to Amazon guidelines: pure white background (#FFFFFF), 85%+ product frame filling, no watermarks, no text overlays, and high resolution (3000x3000px) enabling zoom.
 
 ### Question 2: What happens if my product itself is white?
 **Answer**: Photographing white products on a white background is our specialty! We sculpt the edges of the white product with subtle dark reflection cards and precise rim lighting, ensuring the silhouette stands out clearly without blending into the backdrop.
@@ -2198,12 +2192,12 @@ Send us your samples and receive professional white background product photograp
 
 ## Section 10: Studio Footer & Production Facility
 
-- **Studio**: Ecomshoot Creative Production Inc.
+- **Studio**: Ecomshoot
 - **Address**: Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India
 - **Email**: studio@ecomshoots.in
 - **Phone**: +91 98765 43210
 - **Operating Hours**: Monday – Friday: 9:00 AM – 6:30 PM IST
-- **Copyright**: © 2026 Ecomshoot Creative Production Inc. All rights reserved.
+- **Copyright**: © 2026 Ecomshoot All rights reserved.
 
 
 ================================================================================
@@ -2211,7 +2205,7 @@ PART 4: OPERATIONAL & BUSINESS RESOURCES
 ================================================================================
 
 --------------------------------------------------------------------------------
-4.1. FREQUENTLY ASKED QUESTIONS (MASTER FAQ)
+4.1. FREQUENTLY ASKED QUISTIONS (MASTER FAQ)
 URL: https://www.ecomshoots.in/resources/faq.md
 --------------------------------------------------------------------------------
 # Frequently Asked Questions (Master Studio FAQ) | Ecomshoot
@@ -2228,7 +2222,7 @@ URL: https://www.ecomshoots.in/resources/faq.md
 You can send your products to our studio in Delhi via courier or hand delivery. We will log your product into our intake system, shoot, and return safely once the project has been completed. Pre-addressed shipping tags and barcode tracking are provided upon booking.
 
 ### Where is your studio located for shipments?
-Ecomshoot Creative Production Inc.  
+Ecomshoot  
 Okhla Industrial Area, Phase III, New Delhi, Delhi 110020, India.  
 Intake hours: Monday through Friday, 9:00 AM – 6:30 PM IST; Saturday 10:00 AM – 4:00 PM IST.
 
@@ -2243,7 +2237,7 @@ Intake hours: Monday through Friday, 9:00 AM – 6:30 PM IST; Saturday 10:00 AM 
 ## 2. Production Schedules & Turnaround
 
 ### How long does a production shoot take?
-Standard studio production turnaround is 3 to 5 working days from receipt and inspection of physical goods. Turnaround depends on SKU volume, styling complexity, and post-production requirements. Expedited 48-hour rush turnaround is available for critical campaign launches.
+Turnaround time depends on project scope, volume, and post-production requirements. Expedited turnaround options are available for urgent campaign schedules.
 
 ### Can we participate in the shoot remotely?
 Yes! We shoot 100% tethered to Capture One Pro and stream live proofing links. You can view high-resolution captures in real time on your desktop or mobile, provide art direction comments, and approve hero angles before the set is struck.
@@ -2256,7 +2250,7 @@ Yes! We shoot 100% tethered to Capture One Pro and stream live proofing links. Y
 Yes! Once your project has been paid for, you receive full, worldwide, perpetual commercial usage rights. You can use the imagery across your e-commerce store, Amazon, Flipkart, social media advertising, print catalogs, packaging, and billboards with zero recurring royalties.
 
 ### Are RAW camera files included?
-Standard delivery includes color-corrected, 16-bit Master TIFFs, full-resolution uncompressed JPEGs (300 DPI), and web-optimized WebP files. High-resolution medium format RAW files (Phase One IIQ / Sony ARW) can be archived and provided upon request.
+Standard delivery includes color-corrected, 16-bit Master TIFFs, full-resolution uncompressed JPEGs (300 DPI), and web-optimized WebP files. High-resolution medium format RAW files (Medium-Format / Full-Frame RAW) can be archived and provided upon request.
 
 ---
 
@@ -2264,13 +2258,13 @@ Standard delivery includes color-corrected, 16-bit Master TIFFs, full-resolution
 
 ### Can you shoot compliant imagery for Amazon, Shopify & Flipkart?
 Yes! We strictly follow all marketplace specifications:
-- **Pure White Background**: True RGB #255, 255, 255 background with natural contact drop shadows.
+- **Pure White Background**: True #FFFFFF background with natural contact drop shadows.
 - **Frame Occupancy**: 85%+ product frame fill without edge cropping.
 - **Dimensions**: Square 3000 x 3000 px or custom aspect ratios, formatted to trigger high-resolution zoom-to-inspect tools.
 - **Color Profile**: Embedded sRGB for universal digital screen fidelity.
 
 ### What cameras and lighting do you use?
-We shoot on Phase One IQ4 150MP medium format systems and Sony Alpha 61MP bodies paired with prime tilt-shift lenses and Broncolor studio strobes (Scoro power packs delivering constant 5600K color temperature and 1/10,000s motion-freezing flash durations).
+We shoot on High-resolution commercial digital systems medium format systems and Sony Alpha 61MP bodies paired with prime tilt-shift lenses and Calibrated studio strobes (Scoro power packs delivering constant 5600K color temperature and 1/10,000s motion-freezing flash durations).
 
 ---
 
@@ -2308,8 +2302,8 @@ URL: https://www.ecomshoots.in/resources/process.md
 - **Preparation & Styling**: Garments are steamed with industrial steamers; jewellery is ultrasonically cleaned; glass and acrylic packaging are treated with anti-static ionizing brushes.
 
 ## Stage 03: The Studio Shoot & Tethered Capture
-- **Lighting Architecture**: Tailored lighting modifiers (Broncolor Para reflectors, softboxes, cross-polarized diffusers) are dialed in according to surface reflectivity.
-- **Medium Format Capture**: Products are captured on Phase One 150MP digital backs or Sony 61MP bodies tethered directly to Capture One Pro.
+- **Lighting Architecture**: Tailored lighting modifiers (Calibrated studio reflectors, softboxes, cross-polarized diffusers) are dialed in according to surface reflectivity.
+- **Medium Format Capture**: Products are captured on High-resolution commercial digital systems digital backs or Sony 61MP bodies tethered directly to Capture One Pro.
 - **Color Calibration**: X-Rite ColorChecker Digital SG targets are photographed under the exact lighting setup to generate custom ICC profiles ensuring ΔE < 1.0 color accuracy.
 - **Live Client Proofing**: Remote clients receive live web gallery links to review and approve captures in real time.
 
@@ -2343,7 +2337,7 @@ URL: https://www.ecomshoots.in/resources/pricing.md
 Ecomshoot operates on transparent, volume-tiered rate schedules tailored to catalog scope and creative requirements. We do not charge hidden studio equipment rental fees or usage royalties.
 
 ### 1. Catalog & Packshot Production (Per-Image / Per-SKU)
-- **Standard White Background Packshot**: Pure RGB #255 background, hand-drawn clipping path, natural contact shadow, Amazon/Shopify compliance.
+- **Standard White Background Packshot**: Pure #FFFFFF background, hand-drawn clipping path, natural contact shadow, Amazon/Shopify compliance.
 - **Volume Tiers**:
   - Tier 1: 10 – 49 Images
   - Tier 2: 50 – 199 Images (Tiered Volume Discount)
@@ -2378,7 +2372,7 @@ Evaluate our lighting precision, optical acuity, and retouching craft firsthand 
 - **Email**: studio@ecomshoots.in
 
 --------------------------------------------------------------------------------
-4.4. CLIENT REVIEWS & TESTIMONIALS
+4.4. CLIENT REVIEWS & TISTIMONIALS
 URL: https://www.ecomshoots.in/resources/testimonials.md
 --------------------------------------------------------------------------------
 # Client Reviews & Testimonials | Ecomshoot
@@ -2392,7 +2386,7 @@ URL: https://www.ecomshoots.in/resources/testimonials.md
 ## Client Satisfaction Overview
 - **Overall Rating**: ★★★★★ 4.9 out of 5 stars
 - **Verified Clients**: 200+ D2C Brands, Shopify Plus Merchants, and Enterprise Retailers
-- **Images Delivered**: 250,000+ commercial assets across 8 global marketplaces
+- **Images Delivered**: Enterprise-scale commercial image production across global marketplaces
 
 ---
 
@@ -2510,7 +2504,7 @@ URL: https://www.ecomshoots.in/blog/mastering-white-background-product-photograp
 --------------------------------------------------------------------------------
 ---
 title: "Mastering the Art of Pure White Background Photography: Studio Setup & Lighting"
-summary: "A technical masterclass into achieving true RGB 255,255,255 white background photographs without washing out product edges or losing specular highlights."
+summary: "A technical masterclass into achieving true #FFFFFF white background photographs without washing out product edges or losing specular highlights."
 author: "Elena Rostova"
 author_designation: "Master Studio Lighting Director"
 published_date: "2026-10-22"
@@ -2527,7 +2521,7 @@ markdown_url: "https://www.ecomshoots.in/blog/mastering-white-background-product
 
 # Mastering the Art of Pure White Background Photography: Studio Setup & Lighting
 
-> A technical masterclass into achieving true RGB 255,255,255 white background photographs without washing out product edges or losing specular highlights.
+> A technical masterclass into achieving true #FFFFFF white background photographs without washing out product edges or losing specular highlights.
 
 # The Myth of Overexposing the Backdrop
 
@@ -2539,7 +2533,7 @@ When you overwhelm your background with excessive light, that light bounces back
 
 ## The Balanced Four-Light Studio Architecture
 
-To achieve a true pure white (RGB 255, 255, 255) background while preserving tack-sharp product boundaries, you must decouple background illumination from subject lighting entirely.
+To achieve a true pure white (#FFFFFF) background while preserving tack-sharp product boundaries, you must decouple background illumination from subject lighting entirely.
 
 | Light Role | Modifier | Purpose | Recommended Power Ratio |
 | :--- | :--- | :--- | :--- |
@@ -2584,7 +2578,7 @@ High-output studio strobes with fast flash durations are superior for product ph
 
 
 --------------------------------------------------------------------------------
-5.3. AMAZON PRODUCT IMAGE GUIDELINES 2026: COMPLETE COMPLIANCE & BEST PRACTICES
+5.3. AMAZON PRODUCT IMAGE GUIDELINES 2026: COMPLETE COMPLIANCE & BIST PRACTICES
 URL: https://www.ecomshoots.in/blog/amazon-product-image-guidelines-compliance-handbook
 --------------------------------------------------------------------------------
 ---
@@ -2618,7 +2612,7 @@ However, Amazon employs strict computer-vision algorithms that automatically sca
 
 Here is the authoritative checklist your primary image must satisfy:
 
-1. **Pure White Background**: Must be pure sRGB white (`#FFFFFF` or RGB 255, 255, 255).
+1. **Pure White Background**: Must be pure sRGB white (`#FFFFFF` or #FFFFFF).
 2. **85% Frame Occupancy**: The product must fill at least 85% of the total image canvas area. Excess dead white border space will trigger listing warnings.
 3. **No Added Text, Badges, or Watermarks**: Graphics claiming "Best Seller", "100% Organic", sale percentages, or brand logos not physically part of the product are strictly prohibited on the MAIN image.
 4. **Physical Product Only**: No illustrations, 3D mockups, or vector sketches. Must be a genuine photograph of the physical item.

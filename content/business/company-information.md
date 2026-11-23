@@ -2,12 +2,12 @@
 
 - **Production URL**: https://www.ecomshoots.in/business/company-information.md
 - **Alternative URL**: https://www.ecomshoots.in/company-information.md
-- **Entity**: Ecomshoot Creative Production Inc.
+- **Entity**: Ecomshoot
 
 ---
 
 ## Official Business Entity
-- **Corporate Name**: Ecomshoot Creative Production Inc.
+- **Corporate Name**: Ecomshoot
 - **Brand Name**: Ecomshoot
 - **Founding Year**: 2019
 - **Industry Sector**: Commercial Product Photography, E-Commerce Visual Content, Digital Post-Production

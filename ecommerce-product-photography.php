@@ -41,6 +41,6 @@ $servicePageCopy = [
 $relatedServiceCopy = [
     'lifestyle-product-photography' => ['title' => 'Lifestyle Product Photography', 'description' => 'Create authentic scenarios to engage your audience and boost social media engagement.', 'link' => 'Lifestyle Product Photography'],
     'product-photography' => ['title' => 'Product Photography', 'description' => 'Create sharp and accurate visuals to turn browsers into buyers.', 'link' => 'Product Photography'],
-    'white-background-product-photography' => ['title' => 'White Background Product Photography', 'description' => 'All of our white background product photography will be pure white (RGB 255, 255, 255). This will ensure you pass Amazon, Walmart & Google Shopping on first upload.', 'link' => 'White Background Product Photography'],
+    'white-background-product-photography' => ['title' => 'White Background Product Photography', 'description' => 'All of our white background product photography will be pure white (#FFFFFF). This will ensure you pass Amazon, Walmart & Google Shopping on first upload.', 'link' => 'White Background Product Photography'],
 ];
 require_once __DIR__ . '/includes/service-detail-view.php';

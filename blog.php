@@ -290,7 +290,7 @@ require_once INCLUDES_PATH . '/header.php';
         Need Custom Technical Art Direction for Your Next <span class="highlight-creative font-editorial shimmer-coral">Commercial Product Campaign</span>?
       </h2>
       <p class="editorial-consultation-desc">
-        Discuss your SKU count, lighting mood boards, and marketplace compliance needs directly with our New York studio production directors.
+        Discuss your SKU count, lighting mood boards, and marketplace compliance needs directly with our Delhi studio production directors.
       </p>
       <div class="editorial-consultation-actions">
         <a href="<?= url('contact.php') ?>" class="btn btn-primary btn-lg btn-studio-primary">
